@@ -21,8 +21,8 @@ media.<br /><br />
     things.
 - Parking Mafia: If a player lands on the free car park slot and receives the money in
     the middle, when the player lands on someone else’s property he or she will have to
-    pay ¼ of the received money in addition to the rent of the property.
-**Design Purposes:**
+    pay ¼ of the received money in addition to the rent of the property.<br /><br />
+**Design Purposes:**<br />
 - The game screen basically consists of a board placed in the middle, pawns moving
 on it, dice thrown by the players on the board, and the players' money around the
 board. In addition to these, there is also a leaderboard that is constantly updated
