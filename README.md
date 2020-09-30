@@ -2,7 +2,7 @@ Basic Features:
 In Monopoly players roll two six-sided dice to move around the game board, buying and trading properties, and developing them with houses and hotels. Players collect rent from their opponents, with the goal being to drive them into bankruptcy. Money can also be gained or lost through Chance and Community Chest cards, and tax squares; players can end up in jail, which they cannot move from until they have met one of several conditions. The game has numerous house rules, and hundreds of different editions exist, as well as many spin-offs and related media. 
 
 Extra Features:
-Number of players can be selected between 3 and 6. \n\n\n
+Number of players can be selected between 3 and 6.
 Bid: If a person goes bankrupt, her possession will be sold to other players on the offer basis. (players who bid the highest price for a property will have it).
 Trading: either properties or money can be exchanged for other properties ( e.g. 120,000 + Property_1 traded with Property_13 + Propoerty_14)
 One of the extra modes added to the game is that the rents can be doubled to finish the game in a short time for games that exceed a certain time.
