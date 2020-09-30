@@ -15,7 +15,7 @@ media.<br /><br />
     120,000 + Property_1 traded with Property_13 + Propoerty_14)<br />
 - One of the extra modes added to the game is that the rents can be doubled to finish
     the game in a short time for games that exceed a certain time.<br />
-- Multiple game modes such as Blitz, Classic, Reverse, Police.* <br />
+- Multiple game modes such as Blitz, Classic, Reverse, Police. <br />
 - Map Editor: Users can customize the given maps or even build their maps. They will
     be able to change property names, property fees, property rents and many other
     things.
@@ -31,7 +31,7 @@ according to the remaining money of the players.
 - Occupied properties will take the player’s color. So it will be easier to determine
 which player has which property.
 - We will add background music and buttons to adjust the music level.<br />
-* Game Modes:<br />
+**Game Modes:**<br />
 **1. Blitz:** ​ In this game mode, we adopt a similar approach to the Monopoly game same <br />
 as the Fast Chess (Blitz). All four to six players (up to change) will have a timer set at
 the specified value at the start of the game. At each round, the passed time is
