@@ -1,4 +1,4 @@
-**Basic Features:**
+**Basic Features:**<br />
 In ​ **_Monopoly_** ​ players roll two six-sided dice to move around the game board, buying and
 trading properties, and developing them with houses and hotels. Players collect rent from their
 opponents, with the goal being to drive them into ​bankruptcy​. Money can also be gained or lost
