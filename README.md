@@ -32,14 +32,14 @@ according to the remaining money of the players.
 which player has which property.
 - We will add background music and buttons to adjust the music level.
 * Game Modes:
-**1. Blitz:** ​ In this game mode, we adopt a similar approach to the Monopoly game same
+**1. Blitz:** ​ In this game mode, we adopt a similar approach to the Monopoly game same <br />
 as the Fast Chess (Blitz). All four to six players (up to change) will have a timer set at
 the specified value at the start of the game. At each round, the passed time is
 subtracted from the current player’s timer. When the time is up for a certain player,
 the player cannot throw any more dice and cannot take any action at all. When all of
 the timers are up or a person wins the game, the game ends.
-**2. Classic:** ​This game mode plays the same as the classic Monopoly.
-**3. Reverse:** ​In this game, all of the public fund slots are turned into ​ reverse ​slots. When a player gets to any ​ reverse ​ slot, the game flow turns from clockwise to counterclockwise or vice versa.
+**2. Classic:** ​This game mode plays the same as the classic Monopoly.<br />
+**3. Reverse:** ​In this game, all of the public fund slots are turned into ​ reverse ​slots. When a player gets to any ​ reverse ​ slot, the game flow turns from clockwise to counterclockwise or vice versa.<br />
 **4. Police:** ​ In this mode, one slot will be reserved for a police station. If a player arrives at the police station, the player may spawn a police officer by paying a little amount of money. The police officer travels through the board at the end of every tour. If the
 officer encounters a player, the police penalties the player, and the player has to pay a specific amount of money to the police officer.
 **5. Tax (Liberal’s Nightmare):** ​In this game mode, each player pays their taxes, some
