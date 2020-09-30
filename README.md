@@ -5,17 +5,17 @@ opponents, with the goal being to drive them into ​bankruptcy​. Money can al
 through Chance and Community Chest cards, and tax squares; players can end up in jail, which
 they cannot move from until they have met one of several conditions. The game has numerous
 house rules​, and hundreds of different editions exist, as well as many spin-offs and related
-media.
-Extra Features:
+media.<br />
+Extra Features:<br />
 
-- Number of players can be selected between 3 and 6.
+- Number of players can be selected between 3 and 6.<br />
 - Bid: If a person goes bankrupt, her possession will be sold to other players on the
-    offer basis. (players who bid the highest price for a property will have it).
+    offer basis. (players who bid the highest price for a property will have it).<br />
 - Trading: either properties or money can be exchanged for other properties ( e.g.
-    120,000 + Property_1 traded with Property_13 + Propoerty_14)
+    120,000 + Property_1 traded with Property_13 + Propoerty_14)<br />
 - One of the extra modes added to the game is that the rents can be doubled to finish
-    the game in a short time for games that exceed a certain time.
-- Multiple game modes such as Blitz, Classic, Reverse, Police.*
+    the game in a short time for games that exceed a certain time.<br />
+- Multiple game modes such as Blitz, Classic, Reverse, Police.* <br />
 - Map Editor: Users can customize the given maps or even build their maps. They will
     be able to change property names, property fees, property rents and many other
     things.
@@ -30,8 +30,8 @@ according to the remaining money of the players.
 - Pawns and dice will have nice movement animations.
 - Occupied properties will take the player’s color. So it will be easier to determine
 which player has which property.
-- We will add background music and buttons to adjust the music level.
-* Game Modes:
+- We will add background music and buttons to adjust the music level.<br />
+* Game Modes:<br />
 **1. Blitz:** ​ In this game mode, we adopt a similar approach to the Monopoly game same <br />
 as the Fast Chess (Blitz). All four to six players (up to change) will have a timer set at
 the specified value at the start of the game. At each round, the passed time is
@@ -41,18 +41,18 @@ the timers are up or a person wins the game, the game ends.
 **2. Classic:** ​This game mode plays the same as the classic Monopoly.<br />
 **3. Reverse:** ​In this game, all of the public fund slots are turned into ​ reverse ​slots. When a player gets to any ​ reverse ​ slot, the game flow turns from clockwise to counterclockwise or vice versa.<br />
 **4. Police:** ​ In this mode, one slot will be reserved for a police station. If a player arrives at the police station, the player may spawn a police officer by paying a little amount of money. The police officer travels through the board at the end of every tour. If the
-officer encounters a player, the police penalties the player, and the player has to pay a specific amount of money to the police officer.
+officer encounters a player, the police penalties the player, and the player has to pay a specific amount of money to the police officer.<br />
 **5. Tax (Liberal’s Nightmare):** ​In this game mode, each player pays their taxes, some
-    percentage of their net worth, each time they pass the start.
+    percentage of their net worth, each time they pass the start.<br />
 **6. Quarantine:** ​Instead of entering jail, you enter quarantine due to COVID-19 either by
     dice or by chance cards. When you enter quarantine, you have to place some
     amount (will be decided) of your money in the middle. As you do in the classic
     version, you will have to wait for 3 turns if you are not able to roll a double. You will
-    also have to pay some money when you exit in your final turn.
-Default Maps:
-1. Bilkent Buildings:
-2. Turkey Cities:
-3. World Countries:
-4. World Cities:
+    also have to pay some money when you exit in your final turn.<br />
+Default Maps:<br />
+1. Bilkent Buildings:<br />
+2. Turkey Cities:<br />
+3. World Countries:<br />
+4. World Cities:<br />
 
 
