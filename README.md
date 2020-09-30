@@ -48,7 +48,7 @@ officer encounters a player, the police penalties the player, and the player has
     dice or by chance cards. When you enter quarantine, you have to place some
     amount (will be decided) of your money in the middle. As you do in the classic
     version, you will have to wait for 3 turns if you are not able to roll a double. You will
-    also have to pay some money when you exit in your final turn.<br />
+    also have to pay some money when you exit in your final turn.<br /><br />
 Default Maps:<br />
 1. Bilkent Buildings:<br />
 2. Turkey Cities:<br />
