@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="how-to-play-anchor-pane" focusTraversable="true" prefHeight="1366.0" prefWidth="768.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.HowToPlayController">
+    <children>
+        <VBox layoutX="558.0" layoutY="234.0" prefHeight="300.0" prefWidth="250.0" />
+        <Button id="button-Quit" accessibleRole="BUTTON" cache="true" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" layoutX="1252.0" layoutY="34.0" styleClass="main-menu-quit-button" text="Back" onAction="#goToMainMenu">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Text fill="WHITE" layoutX="504.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-menu-text" text="How to Play" />
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="183.0" layoutY="234.0" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="400.0" prefWidth="1000.0">
+         <content>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1000.0">
+               <children>
+                  <AnchorPane prefHeight="400.0" prefWidth="1000.0">
+                     <children>
+                        <Text layoutX="103.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae tempor purus. Ut malesuada vestibulum rhoncus. Quisque lobortis purus quam, sit amet tincidunt purus porttitor eu. Aliquam ac felis ornare nisi venenatis rutrum facilisis sit amet nunc. Aliquam vehicula, ante eget dignissim rhoncus, purus odio commodo lacus, efficitur vulputate lacus ligula et dui. Donec accumsan volutpat arcu mollis luctus. Donec efficitur vestibulum justo at malesuada. Nam ultricies hendrerit tempor. Ut nibh odio, sodales ut varius tempor, tempor sed velit. Nunc facilisis vel magna ac tristique. Sed venenatis purus in faucibus facilisis. Maecenas sit amet lorem at tortor suscipit tempor.Nunc vestibulum, dui ac maximus sodales, quam eros fermentum leo, in pellentesque metus lorem et dolor. Phasellus sit amet pellentesque sapien, eleifend dignissim ante. Mauris bibendum at massa rhoncus cursus. Ut tempus lacus id velit tincidunt, nec rhoncus sem euismod. Suspendisse quis pharetra tortor, at congue neque. Fusce et blandit lorem, eu auctor eros. Vestibulum congue, magna eget auctor egestas, mi velit molestie libero, at tempor leo nisi ac nisi. In ut magna non est rutrum malesuada eget non diam. Vestibulum laoreet varius sodales. Proin lacus ex, auctor vitae aliquet vitae, tincidunt in elit. Mauris mattis nunc quis faucibus lacinia. Cras sagittis tellus nulla, sit amet consequat ipsum varius sit amet. Phasellus eget sodales est. Proin sed lectus lorem.Quisque sit amet eleifend diam. Sed tincidunt quam ut gravida rutrum. Vivamus eget accumsan purus. Sed placerat nulla at felis imperdiet mattis a ac ex. Suspendisse potenti. Aenean in justo lobortis, tincidunt eros at, consectetur neque. Fusce commodo facilisis mi venenatis ullamcorper. In luctus luctus felis. In convallis in justo vel lobortis.Aliquam erat volutpat. Integer sed sem purus. Nulla dignissim sollicitudin justo et faucibus. Morbi tempus aliquet eros vel vehicula. Sed dignissim justo mauris, et pretium justo euismod lobortis. Nulla scelerisque sem ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;Sed iaculis turpis nec arcu lobortis porta. Phasellus at augue ac quam molestie hendrerit quis eget augue. Mauris rutrum nisl ex, eu ultrices mi congue nec. Phasellus in urna vitae dolor ultricies venenatis ut eu ex. Nullam pharetra odio sit amet nisl convallis facilisis. Ut tincidunt hendrerit dui eget ultrices. Vivamus id felis porttitor, interdum nulla tempus, ultricies nulla. Vivamus eget neque ac eros hendrerit efficitur in vitae neque. Morbi nec nulla non ex accumsan consectetur.Duis porttitor, lorem at eleifend rutrum, ligula turpis vestibulum urna, non scelerisque tellus velit vel elit. Etiam pharetra cursus tincidunt. Nunc at urna eu elit convallis scelerisque vitae quis purus. Cras congue ipsum id euismod imperdiet. Vivamus in nisl quam. Proin at pulvinar lectus. Proin lacinia eu tellus vel tristique. Maecenas ultricies tellus nec lacus iaculis elementum. Vestibulum cursus quis diam vitae vulputate. Nulla a sapien eleifend, consectetur ligula in, tincidunt neque. Ut vel semper nisl. Aliquam efficitur ornare bibendum. Integer libero ante, malesuada non lectus vel, accumsan aliquet leo. In sagittis diam ut luctus porta." textAlignment="JUSTIFY" wrappingWidth="841.13671875">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="main-anchor-pane"  prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.MainMenuController">
+    <children>
+        <VBox layoutX="558.0" layoutY="234.0" prefHeight="300.0" prefWidth="250.0">
+            <children>
+                <Button id="button-PlayGame" onAction="#goToPlayGame" styleClass="main-menu-button" text="Play Game" />
+                <Button id="button-ModeEditor" onAction="#goToModeEditor" styleClass="main-menu-button" text="Mode Editor">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </Button>
+                <Button id="button-Options" onAction="#goToOptions" styleClass="main-menu-button" text="Options">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </Button>
+                <Button id="button-HowToPlay" onAction="#goToHowToPlay" styleClass="main-menu-button" text="How To Play">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </Button>
+                <Button id="button-Credits" onAction="#goToCredits" styleClass="main-menu-button" text="Credits">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </Button>
+            </children>
+        </VBox>
+          <Button id="button-Quit" onAction="#terminateApp" cache="true" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" layoutX="1252.0" layoutY="34.0" styleClass="main-menu-quit-button" text="Quit">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+          </Button>
+      <Text fill="WHITE" layoutX="504.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-menu-text" text="2FMonopoly" />
+    </children>
+</AnchorPane>

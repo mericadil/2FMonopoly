@@ -1,0 +1,87 @@
+#main-anchor-pane {
+    -fx-background-color: linear-gradient(to bottom, #909090, #e0e0e0);
+    -fx-background-size: cover;
+    -fx-pref-width: 1366;
+    -fx-pref-height: 768;
+}
+
+.play-game-choice-box {
+    -fx-text-fill: black;
+    -fx-font-family: "Source Sans Pro";
+    -fx-font-size: 24px;
+}
+
+#how-to-play-anchor-pane {
+    -fx-background-color: linear-gradient(to bottom, #909090, #e0e0e0);
+    -fx-background-size: cover;
+    -fx-pref-width: 1366;
+    -fx-pref-height: 768;
+}
+
+#options-pane {
+    -fx-background-color: linear-gradient(to bottom, #909090, #e0e0e0);
+    -fx-background-size: cover;
+    -fx-pref-width: 1366;
+    -fx-pref-height: 768;
+}
+
+
+#play-game-pane {
+    -fx-pref-width: 1366;
+    -fx-pref-height: 768;
+}
+
+.main-menu-text {
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Source Sans Pro";
+    -fx-font-size: 72px;
+}
+
+.options{
+    -fx-background-color: #dcdcdc;
+    -fx-background-size: cover;
+    -fx-pref-width: 1366;
+    -fx-pref-height: 768;
+}
+
+.main-menu-button {
+    -fx-background-color: #dcdcdc;
+    -fx-margin:50px;
+    -fx-font-family: "Source Sans Pro";
+    -fx-background-radius: 20;
+    -fx-pref-width: 250;
+    -fx-pref-height: 75;
+    -fx-font-size: 20;
+}
+
+.pause-game-button {
+    -fx-background-color: #dcdcdc;
+    -fx-font-family: "Source Code Pro";
+    -fx-background-radius: 25;
+    -fx-pref-width: 50;
+    -fx-pref-height: 50;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+}
+
+.play-game-button {
+    -fx-background-color: #dcdcdc;
+    -fx-margin:50px;
+    -fx-font-family: "Source Sans Pro";
+    -fx-font-weight: bold;
+    -fx-background-radius: 15;
+    -fx-pref-width: 150;
+    -fx-pref-height: 40;
+    -fx-font-size: 20;
+}
+
+.main-menu-quit-button {
+    -fx-background-color: crimson;
+    -fx-text-fill: white;
+    -fx-font-family: "Source Sans Pro";
+    -fx-background-radius: 5;
+    -fx-pref-width: 75;
+    -fx-pref-height: 30;
+    -fx-font-size: 18;
+}
