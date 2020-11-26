@@ -10,12 +10,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class OptionsController {
+public class OrderDeterminationController {
 
     @FXML
-    public void goToMainMenu(ActionEvent actionEvent){
+    public void goToClassicModeMap(ActionEvent actionEvent){
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../FX/mainMenu.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../FX/classicModeMap.fxml"));
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
             window.getScene().setRoot(root); window.show();
             System.out.println(window);
