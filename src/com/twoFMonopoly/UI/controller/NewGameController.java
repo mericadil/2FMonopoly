@@ -11,9 +11,11 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -76,7 +78,9 @@ public class NewGameController {
 
 
 
-    private ArrayList<String> colors = new ArrayList<String>();
+    private ArrayList<String> colors;
+    private ArrayList<String> names;
+
     private ArrayList<Integer> lockedPlayers = new ArrayList<Integer>();
     private ArrayList<AnchorPane> anchorPanes;
     private ArrayList<ChoiceBox> choiceBoxes;
@@ -111,6 +115,9 @@ public class NewGameController {
 
         this.playerCount = playerCount;
         this.modeName = modeName;
+
+        colors = new ArrayList<>(Arrays.asList(new String[playerCount]));
+        names = new ArrayList<>(Arrays.asList(new String[playerCount]));
         System.out.println(playerCount + " " + modeName);
 
         for( int i = playerCount; i < 8; ++i){
@@ -123,6 +130,9 @@ public class NewGameController {
     private void disableAnchorPane( AnchorPane anchorPane){
         for( int i = 0; i < anchorPane.getChildren().size(); ++i){
             anchorPane.getChildren().get(i).setDisable(true);
+            if(anchorPane.getChildren().get(i) instanceof Text){
+                anchorPane.getChildren().get(i).setOpacity(0.37);
+            }
         }
     }
 
@@ -139,13 +149,14 @@ public class NewGameController {
         }
 
         if( clickedButton.getText().equals("Confirm")){
-            if( !colors.contains(((String) choiceBoxes.get(anchorPaneIndex).getSelectionModel().getSelectedItem()))) {
+            if( !colors.contains(((String) choiceBoxes.get(anchorPaneIndex).getSelectionModel().getSelectedItem())) && !playerNames.get(anchorPaneIndex).getText().trim().isEmpty()) {
                 for (int i = 0; i < anchorPane.getChildren().size(); ++i) {
                     if (clickedButton != anchorPane.getChildren().get(i)) {
                         anchorPane.getChildren().get(i).setDisable(true);
                     }
                 }
-                colors.add(((String) choiceBoxes.get(anchorPaneIndex).getSelectionModel().getSelectedItem()));
+                colors.set( anchorPaneIndex,((String) choiceBoxes.get(anchorPaneIndex).getSelectionModel().getSelectedItem()));
+                names.set(anchorPaneIndex, ( playerNames.get(anchorPaneIndex).getText().trim()));
                 lockedPlayers.add(anchorPaneIndex);
                 clickedButton.setText("Cancel");
 
@@ -175,11 +186,17 @@ public class NewGameController {
     @FXML
     public void goToOrderDetermination(ActionEvent actionEvent){
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../FX/orderDetermination.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("com/twoFMonopoly/UI/FX/orderDetermination.fxml"));
+            Parent root = fxmlLoader.load();
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-            window.getScene().setRoot(root); window.show();
-            System.out.println(window);
+            window.getScene().setRoot(root);
+            window.show();
 
+            OrderDeterminationController orderDeterminationController = fxmlLoader.getController();
+            fxmlLoader.setController(orderDeterminationController);
+            orderDeterminationController.init(playerCount, colors, names);
+
+            System.out.println(window);
         } catch (IOException e) {
             e.printStackTrace();
         }
