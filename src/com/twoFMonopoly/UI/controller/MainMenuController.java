@@ -17,7 +17,7 @@ public class MainMenuController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../FX/playGame.fxml"));
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-            window.setScene(new Scene(root));
+            window.getScene().setRoot(root); window.show();
             System.out.println(window);
 
         } catch (IOException e) {
@@ -30,7 +30,7 @@ public class MainMenuController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../FX/modeEditor.fxml"));
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-            window.setScene(new Scene(root));
+            window.getScene().setRoot(root); window.show();
             System.out.println(window);
 
         } catch (IOException e) {
@@ -43,7 +43,7 @@ public class MainMenuController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../FX/options.fxml"));
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-            window.setScene(new Scene(root));
+            window.getScene().setRoot(root); window.show();
             System.out.println(window);
 
         } catch (IOException e) {
@@ -57,7 +57,7 @@ public class MainMenuController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../FX/howToPlay.fxml"));
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-            window.setScene(new Scene(root));
+            window.getScene().setRoot(root); window.show();
             System.out.println(window);
 
         } catch (IOException e) {
@@ -70,7 +70,7 @@ public class MainMenuController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../FX/credits.fxml"));
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-            window.setScene(new Scene(root));
+            window.getScene().setRoot(root); window.show();
             System.out.println(window);
 
         } catch (IOException e) {

@@ -16,7 +16,7 @@ public class ModeEditorController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../FX/mainMenu.fxml"));
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-            window.setScene(new Scene(root));
+            window.getScene().setRoot(root); window.show();
             System.out.println(window);
 
         } catch (IOException e) {
