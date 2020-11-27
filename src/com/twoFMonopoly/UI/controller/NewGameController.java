@@ -81,7 +81,7 @@ public class NewGameController {
     private ArrayList<String> colors;
     private ArrayList<String> names;
 
-    private ArrayList<Integer> lockedPlayers = new ArrayList<Integer>();
+    private int lockedPlayers;
     private ArrayList<AnchorPane> anchorPanes;
     private ArrayList<ChoiceBox> choiceBoxes;
     private ArrayList<TextField> playerNames;
@@ -89,6 +89,10 @@ public class NewGameController {
 
     private int playerCount;
     private String modeName;
+
+    public NewGameController() {
+         lockedPlayers = 0;
+    }
 
     @FXML
     public void goToPlayGame(ActionEvent actionEvent){
@@ -157,10 +161,10 @@ public class NewGameController {
                 }
                 colors.set( anchorPaneIndex,((String) choiceBoxes.get(anchorPaneIndex).getSelectionModel().getSelectedItem()));
                 names.set(anchorPaneIndex, ( playerNames.get(anchorPaneIndex).getText().trim()));
-                lockedPlayers.add(anchorPaneIndex);
+                lockedPlayers++;
                 clickedButton.setText("Cancel");
 
-                if( lockedPlayers.size() == playerCount) {
+                if( lockedPlayers == playerCount) {
                     startButton.setDisable(false);
                 }
             } else {
@@ -172,12 +176,14 @@ public class NewGameController {
                 if (clickedButton != anchorPane.getChildren().get(i)) {
                     anchorPane.getChildren().get(i).setDisable(false);
                 }
-                try {
-                    lockedPlayers.remove(lockedPlayers.indexOf(anchorPaneIndex));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
             }
+
+            if( lockedPlayers == playerCount) {
+                startButton.setDisable(true);
+            }
+            colors.set( anchorPaneIndex, "");
+            names.set( anchorPaneIndex, "");
+            lockedPlayers--;
 
             clickedButton.setText("Confirm");
         }
