@@ -111,9 +111,11 @@ public class OrderDeterminationController {
     private ArrayList<Text> results;
     private ArrayList<Integer> rollOutcomes;
     private Map<Integer, Integer> indicesRolls;
+    private ArrayList<Integer> queueIndices;
 
     public OrderDeterminationController() {
         rollOutcomes = new ArrayList<Integer>(Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0));
+        queueIndices = new ArrayList<Integer>();
         dice = new Random(System.currentTimeMillis());
         indicesRolls = new HashMap<Integer, Integer>();
     }
@@ -123,6 +125,8 @@ public class OrderDeterminationController {
         buttons = new ArrayList<>(Arrays.asList(rollOne, rollTwo, rollThree, rollFour, rollFive, rollSix, rollSeven, rollEight));
         results = new ArrayList<>(Arrays.asList(resultOne, resultTwo, resultThree, resultFour, resultFive, resultSix, resultSeven, resultEight));
         playerNames = new ArrayList<>(Arrays.asList(playerNameOne, playerNameTwo, playerNameThree, playerNameFour, playerNameFive, playerNameSix, playerNameSeven, playerNameEight));
+
+        startButton.setDisable(true);
 
         for(int i = playerCount; i < 8; ++i){
             disableAnchorPane(anchorPanes.get(i));
@@ -179,20 +183,33 @@ public class OrderDeterminationController {
 
             Stream<Map.Entry<Integer,Integer>> sorted = indicesRolls.entrySet().stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue()));
             StringBuilder queueTextValue = new StringBuilder();
-            sorted.forEach( entry -> { queueTextValue.append(names.get(entry.getKey())).append(" > ");});
+            sorted.forEach( entry ->
+                    {
+                        queueTextValue.append(names.get(entry.getKey())).append(" > ");
+                        queueIndices.add(entry.getKey());
+                    }
+            );
+
             queueTextValue.delete( queueTextValue.length() - 3,queueTextValue.length());
             queueText.setText(queueTextValue.toString().trim());
+
+            startButton.setDisable(false);
         }
-
-
     }
 
     @FXML
     public void goToClassicModeMap(ActionEvent actionEvent){
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../FX/classicModeMap.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("com/twoFMonopoly/UI/FX/classicModeMap.fxml"));
+            Parent root = fxmlLoader.load();
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-            window.getScene().setRoot(root); window.show();
+            window.getScene().setRoot(root);
+            window.show();
+
+            ClassicModeMapController classicModeMapController = fxmlLoader.getController();
+            fxmlLoader.setController(classicModeMapController);
+            classicModeMapController.init(playerCount, colors, names, queueIndices);
+
             System.out.println(window);
 
         } catch (IOException e) {

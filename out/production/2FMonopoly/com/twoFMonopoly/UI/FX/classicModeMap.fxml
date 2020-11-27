@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
@@ -13,34 +15,34 @@
 
 <AnchorPane prefHeight="768.0" prefWidth="1366.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.ClassicModeMapController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="410.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="501.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="592.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="774.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="865.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="465.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="410.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="501.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="592.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="774.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="865.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="465.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property10" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="410.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="corner3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="corner2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property9" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="501.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="property8" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="592.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="chance1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="property7" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="774.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="property6" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="865.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="corner4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property11" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property12" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="465.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property13" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="communityChest2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property14" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property15" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property16" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="410.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="corner1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property17" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="501.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="chance2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="592.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="tax1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="property18" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="774.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="property19" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="865.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="property5" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property4" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="465.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property3" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="communityChest1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property2" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property1" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
       <Text fill="#00bc0d" layoutX="999.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go">
          <font>
             <Font name="System Bold Italic" size="28.0" />
@@ -54,7 +56,7 @@
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="91.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="91.0">
          <fill>
-            <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="0.9714285714285714" proportional="false" startX="0.8333333333333331">
+            <LinearGradient cycleMethod="REPEAT" endY="0.9714285714285714" proportional="false" startX="0.8333333333333331">
                <stops>
                   <Stop color="BLACK" />
                   <Stop color="WHITE" offset="1.0" />
@@ -137,106 +139,106 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="410.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="501.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="592.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="774.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="865.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="865.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="774.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="501.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="409.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="466.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="466.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Text layoutX="35.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" wrappingWidth="144.0">
+      <Rectangle fx:id="propertyOwner10" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="410.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="propertyOwner9" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="501.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="propertyOwner8" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="592.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="propertyOwner7" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="774.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="propertyOwner6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="865.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="propertyOwner19" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="865.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="propertyOwner18" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="774.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="propertyOwner17" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="501.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="propertyOwner16" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="409.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="propertyOwner15" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle fx:id="propertyOwner14" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle fx:id="propertyOwner13" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle fx:id="propertyOwner12" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="466.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle fx:id="propertyOwner11" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle fx:id="propertyOwner1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle fx:id="propertyOwner2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle fx:id="propertyOwner3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle fx:id="propertyOwner4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="466.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle fx:id="propertyOwner5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Text fx:id="playerName1" layoutX="35.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="RED" layoutX="35.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" wrappingWidth="144.0">
+      <Text fx:id="playerName2" fill="RED" layoutX="35.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="#ffaf00" layoutX="35.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3" wrappingWidth="144.0">
+      <Text fx:id="playerName3" fill="#ffaf00" layoutX="35.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="#26ff00" layoutX="35.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4" wrappingWidth="144.0">
+      <Text fx:id="playerName4" fill="#26ff00" layoutX="35.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="#00d389" layoutX="35.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 5" wrappingWidth="144.0">
+      <Text fx:id="playerName5" fill="#00d389" layoutX="35.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 5" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="#1900ff" layoutX="35.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 6" wrappingWidth="144.0">
+      <Text fx:id="playerName6" fill="#1900ff" layoutX="35.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 6" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="#ff00d9" layoutX="35.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 7" wrappingWidth="144.0">
+      <Text fx:id="playerName7" fill="#ff00d9" layoutX="35.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 7" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="#b700ff" layoutX="35.0" layoutY="628.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 8" wrappingWidth="144.0">
+      <Text fx:id="playerName8" fill="#b700ff" layoutX="35.0" layoutY="628.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 8" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="#29b200" layoutX="186.0" layoutY="540.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+      <Text fx:id="playerMoney7" fill="#29b200" layoutX="186.0" layoutY="540.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Text>
-      <Text fill="#29b200" layoutX="187.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+      <Text fx:id="playerMoney8" fill="#29b200" layoutX="187.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Text>
-      <Text fill="#29b200" layoutX="186.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+      <Text fx:id="playerMoney5" fill="#29b200" layoutX="186.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Text>
-      <Text fill="#29b200" layoutX="186.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+      <Text fx:id="playerMoney6" fill="#29b200" layoutX="186.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Text>
-      <Text fill="#29b200" layoutX="186.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+      <Text fx:id="playerMoney4" fill="#29b200" layoutX="186.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Text>
-      <Text fill="#29b200" layoutX="186.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+      <Text fx:id="playerMoney3" fill="#29b200" layoutX="186.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Text>
-      <Text fill="#29b200" layoutX="186.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+      <Text fx:id="playerMoney2" fill="#29b200" layoutX="186.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Text>
-      <Text fill="#29b200" layoutX="186.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+      <Text fx:id="playerMoney1" fill="#29b200" layoutX="186.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Text>
-      <Text fill="#0dbc00" layoutX="641.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1's Turn">
+      <Text fx:id="turnText" fill="#0dbc00" layoutX="641.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1's Turn">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -246,139 +248,900 @@
             <Font name="System Bold Italic" size="64.0" />
          </font>
       </Text>
-      <Circle fill="#26ff00" layoutX="1020.0" layoutY="71.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#00d389" layoutX="1050.0" layoutY="74.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#1900ff" layoutX="982.0" layoutY="108.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="RED" layoutX="1017.0" layoutY="107.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#ffaf00" layoutX="1050.0" layoutY="107.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#ff00d9" layoutX="1047.0" layoutY="52.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle layoutX="982.0" layoutY="76.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#b700ff" layoutX="982.0" layoutY="44.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Text layoutX="186.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+      <Circle fx:id="playerToken4" fill="#26ff00" layoutX="1016.0" layoutY="76.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="playerToken5" fill="#00d389" layoutX="1050.0" layoutY="74.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="playerToken6" fill="#1900ff" layoutX="982.0" layoutY="108.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="playerToken2" fill="RED" layoutX="1017.0" layoutY="107.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="playerToken3" fill="#ffaf00" layoutX="1050.0" layoutY="107.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="playerToken7" fill="#ff00d9" layoutX="1047.0" layoutY="44.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="playerToken1" layoutX="982.0" layoutY="76.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="playerToken8" fill="#b700ff" layoutX="982.0" layoutY="44.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text fx:id="playerTime1" layoutX="186.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="186.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+      <Text fx:id="playerTime2" layoutX="186.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="186.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+      <Text fx:id="playerTime3" layoutX="186.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="186.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+      <Text fx:id="playerTime4" layoutX="186.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="186.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+      <Text fx:id="playerTime5" layoutX="186.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="186.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+      <Text fx:id="playerTime6" layoutX="186.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="185.0" layoutY="565.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+      <Text fx:id="playerTime7" layoutX="185.0" layoutY="565.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="186.0" layoutY="640.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+      <Text fx:id="playerTime8" layoutX="186.0" layoutY="640.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Button layoutX="646.0" layoutY="329.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="116.0" styleClass="play-game-button" text="Roll" textAlignment="CENTER">
+      <Button fx:id="rollButton" layoutX="629.0" layoutY="334.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="116.0" styleClass="play-game-button" text="Roll" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="646.0" layoutY="382.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" styleClass="play-game-button" text="End of Turn" textAlignment="CENTER">
+      <Button fx:id="endOfTurnButton" layoutX="629.0" layoutY="387.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" styleClass="play-game-button" text="End of Turn" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <ImageView layoutX="484.0" layoutY="655.0">
-         <image>
-            <Image url="@../assets/hotel_transparent.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="419.0" layoutY="659.0">
-         <image>
-            <Image url="@../assets/house_transparent.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="431.0" layoutY="659.0">
-         <image>
-            <Image url="@../assets/house_transparent.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="445.0" layoutY="659.0">
-         <image>
-            <Image url="@../assets/house_transparent.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="459.0" layoutY="659.0">
-         <image>
-            <Image url="@../assets/house_transparent.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="367.0" layoutY="606.0">
-         <image>
-            <Image url="@../assets/hotel_opaque.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="300.0" layoutY="610.0">
-         <image>
-            <Image url="@../assets/house_opaque.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="315.0" layoutY="610.0">
-         <image>
-            <Image url="@../assets/house_opaque.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="345.0" layoutY="610.0">
-         <image>
-            <Image url="@../assets/house_opaque.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="330.0" layoutY="610.0">
-         <image>
-            <Image url="@../assets/house_opaque.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="367.0" layoutY="524.0">
-         <image>
-            <Image url="@../assets/hotel_opaque.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="300.0" layoutY="528.0">
-         <image>
-            <Image url="@../assets/house_opaque.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="315.0" layoutY="528.0">
-         <image>
-            <Image url="@../assets/house_opaque.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="345.0" layoutY="528.0">
-         <image>
-            <Image url="@../assets/house_opaque.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="330.0" layoutY="528.0">
-         <image>
-            <Image url="@../assets/house_opaque.png" />
-         </image>
-      </ImageView>
       <Button alignment="TOP_CENTER" layoutX="1291.0" layoutY="308.0" mnemonicParsing="false" styleClass="pause-game-button" text="||" textAlignment="CENTER"> </Button>
+      <HBox layoutX="299.0" layoutY="605.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="300.0" layoutY="522.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="300.0" layoutY="439.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="302.0" layoutY="268.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="299.0" layoutY="182.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="989.0" layoutY="180.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="988.0" layoutY="267.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="987.0" layoutY="436.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="987.0" layoutY="519.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="988.0" layoutY="605.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="873.0" layoutY="720.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="781.0" layoutY="720.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="601.0" layoutY="719.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="508.0" layoutY="720.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="418.0" layoutY="719.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="417.0" layoutY="79.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="507.0" layoutY="78.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="781.0" layoutY="78.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="872.0" layoutY="77.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/house_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView>
+               <image>
+                  <Image url="@../assets/hotel_transparent.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
