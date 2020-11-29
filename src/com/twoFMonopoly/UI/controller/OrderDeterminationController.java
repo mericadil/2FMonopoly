@@ -100,7 +100,6 @@ public class OrderDeterminationController {
     @FXML
     private HBox hboxOne, hboxTwo;
 
-
     private Random dice;
     private int playerCount;
     private ArrayList<String> colors;
