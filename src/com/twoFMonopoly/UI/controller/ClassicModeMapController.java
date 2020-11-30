@@ -2,6 +2,9 @@ package com.twoFMonopoly.UI.controller;
 
 import com.twoFMonopoly.UI.Constants;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -12,6 +15,7 @@ import javafx.scene.text.Text;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -331,11 +335,44 @@ public class ClassicModeMapController {
         playerLocations.set(currentPlayer, newLocation);
 
         setNewCoordinate(newLocation);
-        setColorOfLocation(newLocation);
 
         rollButton.setDisable(true);
         endOfTurnButton.setDisable(false);
-        propertyPane.setVisible(true);
+        if(locations.get(newLocation).getId().substring(0, 4).equals("prop")) {
+            propertyPane.setVisible(true);
+            propertyPaneSettings();
+        }
+
+    }
+
+    private void propertyPaneSettings() {
+        int playerLocation = playerLocations.get(currentPlayer);
+        String idOfLocation = locations.get(playerLocation).getId();
+        int propertyNum;
+        if(playerLocation >12){
+            propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 2));
+        }
+        else{
+            propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 1));
+        }
+        if(propertyOwners.get(propertyNum - 1).getFill() == playerTokens.get(queueIndices.get(currentPlayer)).getFill()){
+            sellButton.setDisable(false);
+            buyButton.setDisable(true);
+            buildButton.setDisable(false);
+            mortgageButton.setDisable(false);
+        }
+        else if((propertyOwners.get(propertyNum - 1).getFill() == Color.WHITE)){
+            sellButton.setDisable(true);
+            buyButton.setDisable(false);
+            buildButton.setDisable(true);
+            mortgageButton.setDisable(true);
+        }
+        else{
+            sellButton.setDisable(true);
+            buyButton.setDisable(true);
+            buildButton.setDisable(true);
+            mortgageButton.setDisable(true);
+        }
     }
 
     private void setNewCoordinate(int playerLocation){
@@ -350,23 +387,6 @@ public class ClassicModeMapController {
         double newYCoordinate = yUpperBorder + random.nextInt( (int)((yDownBorder - yUpperBorder) - 2 * playerToken1.getRadius())) + playerToken1.getRadius();
         playerTokens.get(queueIndices.get(currentPlayer)).setLayoutX(newXCoordinate);
         playerTokens.get(queueIndices.get(currentPlayer)).setLayoutY(newYCoordinate);
-    }
-
-    private void setColorOfLocation(int playerLocation){
-        String idOfLocation = locations.get(playerLocation).getId();
-        if(idOfLocation.substring(0, 4).equals("prop")){
-            int propertyNum;
-            if(playerLocation >12){
-                propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 2));
-            }
-            else{
-                propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 1));
-            }
-            if(propertyOwners.get(propertyNum - 1).getFill() == Color.WHITE){
-                Paint playerColor = playerTokens.get(queueIndices.get(currentPlayer)).getFill();
-                propertyOwners.get(propertyNum - 1).setFill(playerColor);
-            }
-        }
     }
 
     private void setTurnText(int index){
@@ -387,5 +407,49 @@ public class ClassicModeMapController {
     @FXML
     public void closeButtonPushed(ActionEvent event) {
         propertyPane.setVisible(false);
+    }
+
+    @FXML
+    public void pauseAndReturnMainMenu(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("../FX/mainMenu.fxml"));
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.getScene().setRoot(root); window.show();
+        System.out.println(window);
+    }
+    @FXML
+    public void buyButtonPushed(ActionEvent event) {
+        int playerLocation = playerLocations.get(currentPlayer);
+        setColorOfLocation(playerLocation, "buy");
+        buyButton.setDisable(true);
+    }
+
+    @FXML
+    public void sellButtonPushed(ActionEvent event) {
+        int playerLocation = playerLocations.get(currentPlayer);
+        setColorOfLocation(playerLocation, "sell");
+        sellButton.setDisable(true);
+    }
+
+    private void setColorOfLocation(int playerLocation, String eventType){
+        String idOfLocation = locations.get(playerLocation).getId();
+        if(idOfLocation.substring(0, 4).equals("prop")){
+            int propertyNum;
+            if(playerLocation >12){
+                propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 2));
+            }
+            else{
+                propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 1));
+            }
+            if(eventType == "buy") {
+                if (propertyOwners.get(propertyNum - 1).getFill() == Color.WHITE) {
+                    Paint playerColor = playerTokens.get(queueIndices.get(currentPlayer)).getFill();
+                    propertyOwners.get(propertyNum - 1).setFill(playerColor);
+                }
+            }
+            else{
+                propertyOwners.get(propertyNum - 1).setFill(Color.WHITE);
+                propertyPane.setVisible(false);
+            }
+        }
     }
 }

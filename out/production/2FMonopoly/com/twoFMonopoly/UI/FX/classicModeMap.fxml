@@ -306,7 +306,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button alignment="TOP_CENTER" layoutX="1291.0" layoutY="308.0" mnemonicParsing="false" styleClass="pause-game-button" text="||" textAlignment="CENTER"> </Button>
+      <Button fx:id="pauseButton" alignment="TOP_CENTER" layoutX="1291.0" layoutY="308.0" mnemonicParsing="false" onAction="#pauseAndReturnMainMenu" styleClass="pause-game-button" text="||" textAlignment="CENTER"> </Button>
       <HBox layoutX="299.0" layoutY="605.0" prefHeight="25.0" prefWidth="80.0">
          <children>
             <ImageView>
@@ -1143,17 +1143,17 @@
             </ImageView>
          </children>
       </HBox>
-      <ImageView fx:id="diceImage1" fitHeight="66.0" fitWidth="77.0" layoutX="614.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="diceImage1" fitHeight="66.0" fitWidth="77.0" layoutX="1113.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/dice3.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="diceImage2" fitHeight="66.0" fitWidth="66.0" layoutX="696.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="diceImage2" fitHeight="66.0" fitWidth="66.0" layoutX="1113.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/dice5.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="propertyPane" layoutX="456.0" layoutY="142.0" prefHeight="476.0" prefWidth="452.0" style="-fx-background-color: pink; -fx-border-color: black;">
+      <AnchorPane fx:id="propertyPane" layoutX="455.0" layoutY="142.0" prefHeight="476.0" prefWidth="452.0" style="-fx-background-color: pink; -fx-border-color: black;">
          <children>
             <Rectangle fx:id="propertyNameRect" arcHeight="5.0" arcWidth="5.0" fill="#e455d1" height="59.0" layoutX="127.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
             <Text id="propertyName" layoutX="127.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" textAlignment="CENTER" wrappingWidth="199.99999302625656">
@@ -1235,12 +1235,12 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="buyButton" layoutX="67.0" layoutY="425.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: green;" text="Buy">
+            <Button fx:id="buyButton" layoutX="67.0" layoutY="425.0" mnemonicParsing="false" onAction="#buyButtonPushed" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: green;" text="Buy">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="sellButton" layoutX="189.0" layoutY="425.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: red;" text="Sell">
+            <Button fx:id="sellButton" layoutX="189.0" layoutY="425.0" mnemonicParsing="false" onAction="#sellButtonPushed" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: red;" text="Sell">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -1250,7 +1250,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="closePropertyButton" onAction="#closeButtonPushed" layoutX="413.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: pink;" text="x">
+            <Button fx:id="closePropertyButton" layoutX="413.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeButtonPushed" style="-fx-background-color: pink;" text="x">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
