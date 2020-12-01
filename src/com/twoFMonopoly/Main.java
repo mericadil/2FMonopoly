@@ -1,5 +1,6 @@
 package com.twoFMonopoly;
 
+import com.twoFMonopoly.UI.controller.MainMenuController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +13,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("UI/FX/mainMenu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("com/twoFMonopoly/UI/FX/mainMenu.fxml"));
+        Parent root = fxmlLoader.load();
+
+        MainMenuController mainMenuController = fxmlLoader.getController();
+        fxmlLoader.setController(mainMenuController);
+        mainMenuController.init();
+
         primaryStage.setResizable(false);
         primaryStage.setTitle("2FMonopoly");
         primaryStage.setScene(new Scene(root, 1366, 768));

@@ -7,11 +7,26 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 
 public class MainMenuController {
+    public void init(){
+        System.out.println("Music function is called here, in Main menu controller");
+        //music();
+    }
 
+    /*MediaPlayer mediaPlayer;
+    public void music() {
+        String s = "home.mp3";
+        Media h = new Media(Paths.get(s).toUri().toString());
+        mediaPlayer = new MediaPlayer(h);
+        mediaPlayer.play();
+
+    }*/
     @FXML
     public void goToPlayGame(ActionEvent actionEvent) {
         try {
