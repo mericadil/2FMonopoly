@@ -23,4 +23,24 @@ public class ModeEditorController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void goToMapEditor(ActionEvent actionEvent){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("com/twoFMonopoly/UI/FX/mapEditor.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            window.getScene().setRoot(root); window.show();
+            System.out.println(window);
+
+            MapEditorController mapEditorController = fxmlLoader.getController();
+            fxmlLoader.setController(mapEditorController);
+            mapEditorController.init();
+
+            System.out.println(window);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
