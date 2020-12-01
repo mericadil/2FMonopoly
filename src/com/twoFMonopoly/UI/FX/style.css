@@ -1,3 +1,7 @@
+.root{
+    -fx-font-family: "Source Sans Pro";
+}
+
 #main-anchor-pane {
     -fx-background-color: linear-gradient(to bottom, #909090, #e0e0e0);
     -fx-background-size: cover;
@@ -5,17 +9,56 @@
     -fx-pref-height: 768;
 }
 
-.play-game-choice-box {
-    -fx-text-fill: black;
+.choice-box {
+    -fx-background-color: #64B5F6;
+    -fx-mark-color: blue;
+    -fx-text-fill: white;
     -fx-font-family: "Source Sans Pro";
     -fx-font-size: 24px;
 }
+
+.choice-box .label {
+    -fx-text-fill: white;
+}
+
+.choice-box .context-menu { -fx-background-color: #64B5F6; }
+.choice-box .menu-item:focused { -fx-background-color: #2979FF; }
+.choice-box .menu-item > .label { -fx-text-fill: white; }
 
 #how-to-play-anchor-pane {
     -fx-background-color: linear-gradient(to bottom, #909090, #e0e0e0);
     -fx-background-size: cover;
     -fx-pref-width: 1366;
     -fx-pref-height: 768;
+}
+
+.button {
+    -fx-padding: 8 15 10 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 5;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #E8EAF6 0%, #9FA8DA 100%),
+            #9FA8DA
+            #E8EAF6,
+            radial-gradient(center 50% 50%, radius 100%, #E8EAF6, #9FA8DA);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-size: 1.1em;
+}
+.button:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #E8EAF6 0%, #9FA8DA 100%),
+            #9FA8DA
+            #E8EAF6,
+            radial-gradient(center 50% 50%, radius 100%, #E8EAF6, #9FA8DA);
+}
+.button:pressed {
+    -fx-padding: 10 15 12 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #E8EAF6 0%, #9FA8DA 100%),
+            #9FA8DA
+            #E8EAF6,
+            radial-gradient(center 50% 50%, radius 100%, #E8EAF6, #9FA8DA);
 }
 
 #options-pane {
@@ -84,4 +127,8 @@
     -fx-pref-width: 75;
     -fx-pref-height: 30;
     -fx-font-size: 18;
+}
+
+.mapPane {
+    -fx-background-image: url("../assets/mapPaneBackground.jpg");
 }

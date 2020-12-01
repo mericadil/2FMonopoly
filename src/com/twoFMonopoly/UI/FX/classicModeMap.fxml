@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1366.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.ClassicModeMapController">
+<AnchorPane styleClass="mapPane" prefHeight="768.0" prefWidth="1366.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.ClassicModeMapController">
    <children>
       <Rectangle fx:id="property10" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="410.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="corner3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
@@ -238,12 +238,12 @@
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="turnText" fill="#0dbc00" layoutX="641.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1's Turn">
+      <Text fx:id="turnText" fill="#0dbc00" layoutX="607.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1's Turn" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text layoutX="520.0" layoutY="381.0" opacity="0.18" rotate="-37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2FMonopoly">
+      <Text layoutX="497.0" layoutY="380.0" opacity="0.04" rotate="-37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2FMonopoly">
          <font>
             <Font name="System Bold Italic" size="64.0" />
          </font>
@@ -296,17 +296,17 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Button fx:id="rollButton" layoutX="629.0" layoutY="334.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="116.0" styleClass="play-game-button" text="Roll" textAlignment="CENTER">
+      <Button fx:id="rollButton" layoutX="608.0" layoutY="335.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#rollButtonPushed" prefHeight="40.0" prefWidth="116.0" styleClass="play-game-button" text="Roll" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="endOfTurnButton" layoutX="629.0" layoutY="387.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" styleClass="play-game-button" text="End of Turn" textAlignment="CENTER">
+      <Button fx:id="endOfTurnButton" layoutX="608.0" layoutY="387.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#endTurnButtonPushed" prefWidth="168.0" styleClass="play-game-button" text="End Turn" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button alignment="TOP_CENTER" layoutX="1291.0" layoutY="308.0" mnemonicParsing="false" styleClass="pause-game-button" text="||" textAlignment="CENTER"> </Button>
+      <Button fx:id="pauseButton" alignment="TOP_CENTER" layoutX="1291.0" layoutY="308.0" mnemonicParsing="false" onAction="#pauseAndReturnMainMenu" styleClass="pause-game-button" text="||" textAlignment="CENTER"> </Button>
       <HBox layoutX="299.0" layoutY="605.0" prefHeight="25.0" prefWidth="80.0">
          <children>
             <ImageView>
@@ -1143,5 +1143,119 @@
             </ImageView>
          </children>
       </HBox>
+      <ImageView fx:id="diceImage1" fitHeight="66.0" fitWidth="77.0" layoutX="1113.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/dice3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="diceImage2" fitHeight="66.0" fitWidth="66.0" layoutX="1113.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/dice5.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="propertyPane" layoutX="455.0" layoutY="142.0" prefHeight="476.0" prefWidth="452.0" style="-fx-background-color: pink; -fx-border-color: black;">
+         <children>
+            <Rectangle fx:id="propertyNameRect" arcHeight="5.0" arcWidth="5.0" fill="#e455d1" height="59.0" layoutX="127.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <Text id="propertyName" layoutX="127.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" textAlignment="CENTER" wrappingWidth="199.99999302625656">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text fx:id="costText" fontSmoothingType="LCD" layoutX="127.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cost : ">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="cost" fontSmoothingType="LCD" layoutX="257.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="240K $">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="rentText" layoutX="203.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="siteOnlyText" layoutX="68.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Site Only">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text fx:id="oneHouseText" layoutX="200.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 Houses">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text fx:id="twoHousesText" layoutX="327.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2 Houses">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text fx:id="threeHousesText" layoutX="68.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3 Houses">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text fx:id="fourHousesText" layoutX="200.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4 Houses">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text fx:id="hotelText" layoutX="343.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text fx:id="siteOnlyRent" layoutX="83.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2K $" />
+            <Text fx:id="oneHouseRent" layoutX="212.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10K $" />
+            <Text fx:id="threeHousesRent" layoutX="83.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="75K $" />
+            <Text fx:id="fourHousesRent" layoutX="216.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="95K $" />
+            <Text fx:id="twoHousesRent" layoutX="343.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="30K $" />
+            <Text fx:id="hotelRent" layoutX="346.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="110K $" />
+            <Text fx:id="houseCostText" layoutX="70.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="House Cost : ">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="hotelCostText" layoutX="70.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel Cost : ">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="mortgageValueText" layoutX="70.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mortgage Value : ">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="houseCost" layoutX="290.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
+            <Text fx:id="hotelCost" layoutX="290.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
+            <Text fx:id="mortgageValue" layoutX="290.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="120K $" />
+            <Button fx:id="buildButton" layoutX="189.0" layoutY="366.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: gray;" text="Build" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="buyButton" layoutX="67.0" layoutY="425.0" mnemonicParsing="false" onAction="#buyButtonPushed" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: green;" text="Buy">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="sellButton" layoutX="189.0" layoutY="425.0" mnemonicParsing="false" onAction="#sellButtonPushed" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: red;" text="Sell">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="mortgageButton" layoutX="311.0" layoutY="424.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: yellow;" text="Mortgage">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="closePropertyButton" layoutX="413.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeButtonPushed" style="-fx-background-color: pink;" text="x">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

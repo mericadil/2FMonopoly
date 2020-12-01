@@ -1,15 +1,12 @@
 package com.twoFMonopoly.UI.controller;
 
-import com.twoFMonopoly.UI.Constants;
+import com.twoFMonopoly.Constants;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -18,7 +15,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class OrderDeterminationController {
@@ -100,7 +96,6 @@ public class OrderDeterminationController {
     @FXML
     private HBox hboxOne, hboxTwo;
 
-
     private Random dice;
     private int playerCount;
     private ArrayList<String> colors;
@@ -134,7 +129,7 @@ public class OrderDeterminationController {
 
         for(int i = 0; i < playerCount; ++i){
             playerNames.get(i).setText(names.get(i));
-            playerNames.get(i).setFill(Color.web(Constants.colors.get(colors.get(i))));
+            playerNames.get(i).setFill(Color.web(Constants.COLORS.get(colors.get(i))));
         }
 
         this.playerCount = playerCount;
