@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="how-to-play-anchor-pane" focusTraversable="true" prefHeight="1366.0" prefWidth="768.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.CreditsController">
+<AnchorPane id="how-to-play-anchor-pane" focusTraversable="true" prefHeight="1366.0" prefWidth="768.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.OptionsController">
     <children>
         <Button id="button-Quit" accessibleRole="BUTTON" cache="true" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" layoutX="1278.0" layoutY="20.0" onAction="#goToMainMenu" styleClass="main-menu-quit-button" text="Back">
             <cursor>
@@ -15,8 +15,8 @@
             </cursor>
         </Button>
         <Text fill="WHITE" layoutX="596.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-menu-text" text="Options" />
-      <Slider blockIncrement="5.0" layoutX="717.0" layoutY="298.0" showTickLabels="true" value="100.0" />
-      <Slider blockIncrement="5.0" layoutX="716.0" layoutY="420.0" showTickLabels="true" value="100.0" />
+      <Slider blockIncrement="5.0" layoutX="717.0" layoutY="298.0" showTickLabels="true" value="100.0" fx:id="musicVolume" onMouseReleased="#setMusicVolume"/>
+      <Slider blockIncrement="5.0" layoutX="716.0" layoutY="420.0" showTickLabels="true" value="100.0" fx:id="sfxVolume" onMouseReleased="#setSFXVolume"/>
       <Text fill="WHITE" layoutX="554.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Music">
          <font>
             <Font size="36.0" />

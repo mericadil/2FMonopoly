@@ -33,8 +33,6 @@
                 <String fx:value="Classic" />
                 <String fx:value="Blitz" />
                 <String fx:value="Reverse" />
-                <String fx:value="Police" />
-                <String fx:value="Tax" />
                 <String fx:value="User Made" />
             </FXCollections>
         </items>

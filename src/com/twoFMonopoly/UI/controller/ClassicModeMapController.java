@@ -1,12 +1,15 @@
 package com.twoFMonopoly.UI.controller;
 
-import com.twoFMonopoly.UI.Constants;
+import com.twoFMonopoly.Constants;
+import com.twoFMonopoly.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
@@ -16,7 +19,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -266,6 +271,11 @@ public class ClassicModeMapController {
     private ArrayList<Circle> playerTokens;
 
     public void init(int playerCount, ArrayList<String> colors, ArrayList<String> names, ArrayList<Integer> queueIndices){
+        Main.player.stop();
+        Main.player  = new MediaPlayer(new Media(Paths.get(Constants.MAIN_MUSIC).toUri().toString()));
+        Main.player.setOnEndOfMedia( () -> Main.player.seek(Duration.ZERO));
+        Main.player.play();
+
         playerNames = new ArrayList<>(Arrays.asList(playerName1, playerName2, playerName3, playerName4, playerName5, playerName6, playerName7, playerName8));
         playerTimes = new ArrayList<>(Arrays.asList(playerTime1, playerTime2, playerTime3, playerTime4, playerTime5, playerTime6, playerTime7, playerTime8));
         playerMoneys = new ArrayList<>(Arrays.asList(playerMoney1, playerMoney2, playerMoney3, playerMoney4, playerMoney5, playerMoney6, playerMoney7, playerMoney8));
@@ -308,8 +318,8 @@ public class ClassicModeMapController {
 
         for (int i = 0; i < playerCount; ++i){
             playerNames.get(i).setText(names.get(i));
-            playerNames.get(i).setFill(Color.web(Constants.colors.get(colors.get(i))));
-            playerTokens.get(i).setFill(Color.web(Constants.colors.get(colors.get(i))));
+            playerNames.get(i).setFill(Color.web(Constants.COLORS.get(colors.get(i))));
+            playerTokens.get(i).setFill(Color.web(Constants.COLORS.get(colors.get(i))));
             playerLocations.add(0);
         }
 
@@ -395,6 +405,7 @@ public class ClassicModeMapController {
         Paint playerColor = playerTokens.get(queueIndices.get(currentPlayer)).getFill();
         turnText.setFill(playerColor);
     }
+
     @FXML
     public void endTurnButtonPushed(ActionEvent event) {
         currentPlayer = (currentPlayer + 1) % playerCount;
@@ -440,7 +451,7 @@ public class ClassicModeMapController {
             else{
                 propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 1));
             }
-            if(eventType == "buy") {
+            if(eventType.equals("buy")) {
                 if (propertyOwners.get(propertyNum - 1).getFill() == Color.WHITE) {
                     Paint playerColor = playerTokens.get(queueIndices.get(currentPlayer)).getFill();
                     propertyOwners.get(propertyNum - 1).setFill(playerColor);

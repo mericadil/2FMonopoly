@@ -1,6 +1,7 @@
 package com.twoFMonopoly.UI.controller;
 
-import javafx.scene.Scene;
+import com.twoFMonopoly.Constants;
+import com.twoFMonopoly.Main;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,24 +10,20 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.nio.file.Paths;
 
 public class MainMenuController {
-    public void init(){
-        System.out.println("Music function is called here, in Main menu controller");
-        //music();
+    public MainMenuController() {
+        Main.player.stop();
+        Main.player = new MediaPlayer(new Media(Paths.get(Constants.OPENING_MUSIC).toUri().toString()));
+        Main.player.setOnEndOfMedia( () -> Main.player.seek(Duration.ZERO));
+        Main.player.setVolume(0.5);
+        Main.player.play();
     }
 
-    /*MediaPlayer mediaPlayer;
-    public void music() {
-        String s = "home.mp3";
-        Media h = new Media(Paths.get(s).toUri().toString());
-        mediaPlayer = new MediaPlayer(h);
-        mediaPlayer.play();
-
-    }*/
     @FXML
     public void goToPlayGame(ActionEvent actionEvent) {
         try {
@@ -56,10 +53,15 @@ public class MainMenuController {
     @FXML
     public void goToOptions(ActionEvent actionEvent){
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../FX/options.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("com/twoFMonopoly/UI/FX/options.fxml"));
+            Parent root = fxmlLoader.load();
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-            window.getScene().setRoot(root); window.show();
-            System.out.println(window);
+            window.getScene().setRoot(root);
+            window.show();
+
+            OptionsController optionsController = fxmlLoader.getController();
+            fxmlLoader.setController(optionsController);
+            optionsController.init();
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -6,7 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
+import java.nio.file.Paths;
 
 
 public class Main extends Application {
@@ -18,15 +23,28 @@ public class Main extends Application {
 
         MainMenuController mainMenuController = fxmlLoader.getController();
         fxmlLoader.setController(mainMenuController);
-        mainMenuController.init();
 
         primaryStage.setResizable(false);
         primaryStage.setTitle("2FMonopoly");
         primaryStage.setScene(new Scene(root, 1366, 768));
+        player.play();
+        player.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                player.seek(Duration.ZERO);
+            }
+        });
+
         primaryStage.show();
+
+    }
+
+    public static MediaPlayer player;
+    public Main() {
+        player = new MediaPlayer(new Media(Paths.get(Constants.OPENING_MUSIC).toUri().toString()));
     }
 
     public static void main(String[] args) {
         launch(args);
     }
+
 }

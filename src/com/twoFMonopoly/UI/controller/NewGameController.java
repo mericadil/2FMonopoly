@@ -163,6 +163,8 @@ public class NewGameController {
                 names.set(anchorPaneIndex, ( playerNames.get(anchorPaneIndex).getText().trim()));
                 lockedPlayers++;
                 clickedButton.setText("Cancel");
+                choiceBoxes.get(anchorPaneIndex).setBorder(new Border(new BorderStroke(Color.GREEN,
+                        BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
 
                 if( lockedPlayers == playerCount) {
                     startButton.setDisable(false);
