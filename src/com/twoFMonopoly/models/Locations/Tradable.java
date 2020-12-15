@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 public abstract class Tradable {
     //Attributes
-    private String name;
-    private double cost;
-    private Player owner;
-    private ArrayList<Integer> rentPrices;
-    private double currentMortgagePrice;
-    private final double MORTGAGE_RATE = 1.10;
-    private boolean isMortgaged;
+    protected String name;
+    protected double cost;
+    protected Player owner;
+    protected ArrayList<Integer> rentPrices;
+    protected double currentMortgagePrice;
+    protected final double MORTGAGE_RATE = 1.10;
+    protected boolean isMortgaged;
 
     //Constructor
     public Tradable(String name, double cost, ArrayList<Integer> rentPrices) {

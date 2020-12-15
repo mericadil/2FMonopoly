@@ -12,7 +12,8 @@ public class Property extends Tradable implements Location{
     private int locationIndex;
     private PropertyRegion region;
     private int noOfBuildings;
-    private boolean isBuildable;
+    private boolean isMonopoly;
+    private ArrayList<Integer> monopolyRentPrices;
 
     //Constructor
     public Property(String name, double cost, ArrayList<Integer> rentPrices, String locationText, int locationIndex, PropertyRegion region) {
@@ -21,7 +22,12 @@ public class Property extends Tradable implements Location{
         this.locationIndex = locationIndex;
         this.region = region;
         this.noOfBuildings = 0;
-        this.isBuildable = false;
+        this.isMonopoly = false;
+
+        monopolyRentPrices = new ArrayList<>();
+        for( Integer price : rentPrices) {
+            monopolyRentPrices.add(price*2);
+        }
     }
 
     //Operations
@@ -45,11 +51,18 @@ public class Property extends Tradable implements Location{
         this.noOfBuildings = noOfBuildings;
     }
 
-    public boolean isBuildable() {
-        return isBuildable;
+    public boolean isMonopoly() {
+        return isMonopoly;
     }
 
-    public void setBuildable(boolean buildable) {
-        isBuildable = buildable;
+    public void setMonopoly(boolean monopoly) {
+        isMonopoly = monopoly;
+    }
+
+    public int getRentCost() {
+        if(isMonopoly)
+            return monopolyRentPrices.get(noOfBuildings);
+        else
+            return rentPrices.get(noOfBuildings);
     }
 }

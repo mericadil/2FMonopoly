@@ -9,10 +9,11 @@ public class PropertyRegion {
 
     //Attributes
     private ArrayList<Property> properties;
-
+    private boolean isMonopoly;
     //Constructor
     public PropertyRegion(ArrayList<Property> properties) {
         this.properties = properties;
+        this.isMonopoly = false;
     }
 
     //Operations
@@ -32,6 +33,14 @@ public class PropertyRegion {
         return true;
     }
 
+    public boolean isMonopoly() {
+        return isMonopoly;
+    }
+
+    public void setMonopoly(boolean monopoly) {
+        isMonopoly = monopoly;
+    }
+
     // Check whether all properties in the property region belong to the same player.
     public boolean checkPropertyRegion() {
         Player owner = properties.get(0).getOwner();
@@ -44,4 +53,19 @@ public class PropertyRegion {
         }
         return true;
     }
+    /* Coded in the property manager class
+    public void updatePropertyRegion() {
+        if(checkPropertyRegion()) {
+            for( Property property : properties) {
+                property.setMonopoly(true);
+            }
+            isMonopoly = true;
+        }
+        else if(isMonopoly){
+            for( Property property : properties) {
+                property.setMonopoly(false);
+            }
+            isMonopoly = false;
+        }
+    }*/
 }
