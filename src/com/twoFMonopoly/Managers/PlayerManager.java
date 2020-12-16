@@ -1,9 +1,11 @@
 package com.twoFMonopoly.Managers;
 
+import com.twoFMonopoly.models.Buildings.Building;
 import com.twoFMonopoly.models.Locations.Property;
 import com.twoFMonopoly.models.Locations.Railroad;
 import com.twoFMonopoly.models.Player;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PlayerManager {
@@ -122,6 +124,13 @@ public class PlayerManager {
         player.bankrupt();
     }
 
+    public void payRent(Player player, Property property) {
+        double rentCost = property.getRentCost();
+        giveMoney(player, rentCost);
+        getMoney(property.getOwner(), rentCost);
+    }
+
+
     public boolean tenderToAvoidBankrupt( Player player, double amount) {
         double moneyNeeded = amount - player.getMoneyAmount();
         double totalMoney = calculateTotalMoneyCanBeEarned(player);
@@ -142,8 +151,50 @@ public class PlayerManager {
         return totalMoney;
     }
 
-    public boolean isEligable(Player player, double amount) {
+    public boolean canAfford(Player player, double amount) {
         return player.getMoneyAmount() >= amount;
+    }
+
+    //Call first
+    public boolean buildOneBuilding(Player player, Property property) {
+        if(!property.isMonopoly() || property.getNoOfBuildings() > 4 || canAfford(player, property.getNextBuildingsBuildingCost()))
+            return false;
+        giveMoney(player, property.getNextBuildingsBuildingCost());
+        if(property.getNoOfBuildings() == 4)
+            player.setNoOfHotels(player.getNoOfHotels() + 1);
+        else
+            player.setNoOfHouses(player.getNoOfHouses() + 1);
+        return true;
+    }
+
+    public boolean sellOneBuilding(Player player, Property property) {
+        if(property.getNoOfBuildings() < 1)
+            return false;
+        getMoney(player, property.getCurrentBuildingsSellingCost());
+        if(property.getNoOfBuildings() == 5)
+            player.setNoOfHotels(player.getNoOfHotels() - 1);
+        else
+            player.setNoOfHouses(player.getNoOfHouses() - 1);
+        return true;
+    }
+
+    public boolean sellAllBuildings(Player player, Property property) {
+        if(property.getNoOfBuildings() < 1)
+            return false;
+        int noOfBuildings = property.getNoOfBuildings();
+        ArrayList<Building> buildings = property.getBuildings();
+
+        for( int i = 0; i < noOfBuildings; i++) {
+            getMoney(player, buildings.get(i).getSellingPrice());
+        }
+
+        if(noOfBuildings == 5) {
+            player.setNoOfHotels(player.getNoOfHotels() - 1);
+            player.setNoOfHouses(player.getNoOfHouses() - 4);
+        }
+        else
+            player.setNoOfHouses(player.getNoOfHouses() - noOfBuildings);
+        return true;
     }
 
 }
