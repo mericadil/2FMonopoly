@@ -49,7 +49,8 @@ public class PropertyManager {
     }
 
     public void sellAllBuildings(Property property) {
-        property.setNoOfBuildings(0);
+        if(property.isMonopoly() && property.getNoOfBuildings() > 0)
+            property.setNoOfBuildings(0);
     }
 
     public void updatePropertyRegion(PropertyRegion region) {
