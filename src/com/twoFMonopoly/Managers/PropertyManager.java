@@ -34,6 +34,11 @@ public class PropertyManager {
         return false;
     }
 
+    public void removeMortgageProperty(Property property) {
+        property.setMortgaged(false);
+        updatePropertyRegion(property.getRegion());
+    }
+
     public boolean buildOneBuilding(Property property) {
         if(!property.isMonopoly() || property.getNoOfBuildings() > 4)
             return false;
