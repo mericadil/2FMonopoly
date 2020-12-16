@@ -28,9 +28,28 @@ public class PropertyManager {
     public boolean mortgageProperty(Property property) {
         if(property.getNoOfBuildings() == 0) {
             property.setMortgaged(true);
+            if(property.isMonopoly()) updatePropertyRegion(property.getRegion());
             return true;
         }
         return false;
+    }
+
+    public boolean buildOneBuilding(Property property) {
+        if(!property.isMonopoly() || property.getNoOfBuildings() > 4)
+            return false;
+        property.setNoOfBuildings(property.getNoOfBuildings()+1);
+        return true;
+    }
+
+    public boolean sellOneBuilding(Property property) {
+        if(!property.isMonopoly() || property.getNoOfBuildings() < 1)
+            return false;
+        property.setNoOfBuildings(property.getNoOfBuildings()-1);
+        return true;
+    }
+
+    public void sellAllBuildings(Property property) {
+        property.setNoOfBuildings(0);
     }
 
     public void updatePropertyRegion(PropertyRegion region) {

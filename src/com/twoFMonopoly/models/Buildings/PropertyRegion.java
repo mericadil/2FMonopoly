@@ -48,7 +48,7 @@ public class PropertyRegion {
         if(owner == null) return false;
 
         for( Property property : properties) {
-            if(property.getOwner() == null || property.getOwner() != owner)
+            if(property.getOwner() == null || property.getOwner() != owner || property.isMortgaged())
                 return false;
         }
         return true;

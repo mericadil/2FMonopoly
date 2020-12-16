@@ -1,5 +1,8 @@
 package com.twoFMonopoly.models.Locations;
 
+import com.twoFMonopoly.models.Buildings.Building;
+import com.twoFMonopoly.models.Buildings.Hotel;
+import com.twoFMonopoly.models.Buildings.House;
 import com.twoFMonopoly.models.Buildings.PropertyRegion;
 import com.twoFMonopoly.models.Player;
 
@@ -13,20 +16,22 @@ public class Property extends Tradable implements Location{
     private PropertyRegion region;
     private int noOfBuildings;
     private boolean isMonopoly;
-    private ArrayList<Integer> monopolyRentPrices;
+    private ArrayList<Double> monopolyRentPrices;
+    private ArrayList<Building> buildings;
 
     //Constructor
-    public Property(String name, double cost, ArrayList<Integer> rentPrices, String locationText, int locationIndex, PropertyRegion region) {
+    public Property(String name, double cost, ArrayList<Double> rentPrices, String locationText, int locationIndex, PropertyRegion region, ArrayList<Building> buildings) {
         super(name, cost, rentPrices);
         this.locationText = locationText;
         this.locationIndex = locationIndex;
         this.region = region;
         this.noOfBuildings = 0;
         this.isMonopoly = false;
+        this.buildings = buildings;
 
         monopolyRentPrices = new ArrayList<>();
-        for( Integer price : rentPrices) {
-            monopolyRentPrices.add(price*2);
+        for( Double price : rentPrices) {
+            monopolyRentPrices.add(price*1.5);
         }
     }
 
@@ -59,10 +64,22 @@ public class Property extends Tradable implements Location{
         isMonopoly = monopoly;
     }
 
-    public int getRentCost() {
+    public double getRentCost() {
         if(isMonopoly)
             return monopolyRentPrices.get(noOfBuildings);
         else
             return rentPrices.get(noOfBuildings);
+    }
+
+    // Çağırılmadan önce condition check yapılacak...
+    //noOfBuilding 4ten büyük olamaz
+    public double getNextBuildingsBuildingCost() {
+        return buildings.get(noOfBuildings).getSellingPrice();
+    }
+
+    // Çağırılmadan önce condition check yapılacak...
+    //noOfBuilding 0 olamaz
+    public double getCurrentBuildingsSellingCost() {
+        return buildings.get(noOfBuildings-1).getSellingPrice();
     }
 }

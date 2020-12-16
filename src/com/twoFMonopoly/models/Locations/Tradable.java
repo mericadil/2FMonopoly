@@ -9,13 +9,13 @@ public abstract class Tradable {
     protected String name;
     protected double cost;
     protected Player owner;
-    protected ArrayList<Integer> rentPrices;
+    protected ArrayList<Double> rentPrices;
     protected double currentMortgagePrice;
     protected final double MORTGAGE_RATE = 1.10;
     protected boolean isMortgaged;
 
     //Constructor
-    public Tradable(String name, double cost, ArrayList<Integer> rentPrices) {
+    public Tradable(String name, double cost, ArrayList<Double> rentPrices) {
         this.name = name;
         this.cost = cost;
         this.owner = null;
@@ -50,11 +50,11 @@ public abstract class Tradable {
         this.owner = owner;
     }
 
-    public ArrayList<Integer> getRentPrices() {
+    public ArrayList<Double> getRentPrices() {
         return rentPrices;
     }
 
-    public void setRentPrices(ArrayList<Integer> rentPrices) {
+    public void setRentPrices(ArrayList<Double> rentPrices) {
         this.rentPrices = rentPrices;
     }
 
