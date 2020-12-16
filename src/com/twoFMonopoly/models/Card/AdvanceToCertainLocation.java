@@ -1,5 +1,6 @@
 package com.twoFMonopoly.models.Card;
 
+import com.twoFMonopoly.Constants;
 import com.twoFMonopoly.models.Player;
 
 public class AdvanceToCertainLocation implements MoveStrategy{
@@ -12,7 +13,10 @@ public class AdvanceToCertainLocation implements MoveStrategy{
     }
 
     @Override
-    public void act(Player p) {
-        // TODO
+    public void act(Player player) {
+        if(player.getCurrentLocationIndex() > boardPlace) {
+            player.setMoneyAmount(player.getMoneyAmount() + Constants.startingPointMoney);
+        }
+        player.setCurrentLocationIndex(boardPlace);
     }
 }

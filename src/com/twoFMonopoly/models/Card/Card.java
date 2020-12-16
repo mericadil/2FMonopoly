@@ -5,8 +5,8 @@ import com.twoFMonopoly.models.Player;
 public abstract class Card {
 
     // Attributes
-    private final CardActionStrategy actionStrategy;
-    private final String cardText;
+    protected final CardActionStrategy actionStrategy;
+    protected final String cardText;
 
     // Methods
 
