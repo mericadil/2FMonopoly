@@ -9,7 +9,7 @@ public class Player {
     //Attributes
     private int id;
     private String name;
-    private int moneyAmount;
+    private double moneyAmount;
     private HashMap<String, Property> properties;
     private HashMap<String, Railroad> railroads;
     private int jailStatus;
@@ -22,7 +22,7 @@ public class Player {
     private int currentLocationIndex;
 
     //Constructor
-    public Player(int id, String name, int moneyAmount) {
+    public Player(int id, String name, double moneyAmount) {
         this.id = id;
         this.name = name;
         this.moneyAmount = moneyAmount;
@@ -62,11 +62,11 @@ public class Player {
         isBankrupt = true;
     }
 
-    public int getMoneyAmount() {
+    public double getMoneyAmount() {
         return moneyAmount;
     }
 
-    public void setMoneyAmount(int moneyAmount) {
+    public void setMoneyAmount(double moneyAmount) {
         this.moneyAmount = moneyAmount;
     }
 

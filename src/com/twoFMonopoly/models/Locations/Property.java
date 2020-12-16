@@ -82,4 +82,12 @@ public class Property extends Tradable implements Location{
     public double getCurrentBuildingsSellingCost() {
         return buildings.get(noOfBuildings-1).getSellingPrice();
     }
+
+    public double getTotalValue() {
+        double totalValue = 0;
+        for( int i = 0; i < noOfBuildings; i++)
+            totalValue += buildings.get(i).getSellingPrice();
+        totalValue += this.cost;
+        return totalValue;
+    }
 }
