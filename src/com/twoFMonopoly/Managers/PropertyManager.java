@@ -27,7 +27,7 @@ public class PropertyManager {
     }
 
     public boolean mortgageProperty(Property property) {
-        if(property.getNoOfBuildings() == 0) {
+        if(property.getNoOfBuildings() == 0 && !property.isMortgaged()) {
             property.setMortgaged(true);
             if(property.isMonopoly()) updatePropertyRegion(property.getRegion());
             return true;
@@ -35,9 +35,13 @@ public class PropertyManager {
         return false;
     }
 
-    public void removeMortgageProperty(Property property) {
-        property.setMortgaged(false);
-        updatePropertyRegion(property.getRegion());
+    public boolean removeMortgageProperty(Property property) {
+        if(property.isMortgaged()) {
+            property.setMortgaged(false);
+            updatePropertyRegion(property.getRegion());
+            return true;
+        }
+        return false;
     }
 
     public boolean buildOneBuilding(Property property) {
@@ -48,14 +52,14 @@ public class PropertyManager {
     }
 
     public boolean sellOneBuilding(Property property) {
-        if(!property.isMonopoly() || property.getNoOfBuildings() < 1)
+        if(property.getNoOfBuildings() < 1)
             return false;
         property.setNoOfBuildings(property.getNoOfBuildings()-1);
         return true;
     }
 
     public void sellAllBuildings(Property property) {
-        if(property.isMonopoly() && property.getNoOfBuildings() > 0)
+        if(property.getNoOfBuildings() > 0)
             property.setNoOfBuildings(0);
     }
 
