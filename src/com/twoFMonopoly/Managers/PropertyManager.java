@@ -6,6 +6,7 @@ import com.twoFMonopoly.models.Locations.Property;
 import com.twoFMonopoly.models.Player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PropertyManager {
 
@@ -72,6 +73,33 @@ public class PropertyManager {
             }
             region.setMonopoly(false);
         }
+    }
+
+    public void bankrupt(Player player) {
+        HashMap<String,Property> playerProperties = player.getProperties();
+
+        for( String key : playerProperties.keySet()) {
+            Property property = playerProperties.get(key);
+            property.setOwner(null);
+            property.setNoOfBuildings(0);
+            property.setMortgaged(false);
+            property.setMonopoly(false);
+
+            updatePropertyRegion(property.getRegion());
+        }
+    }
+
+    public void bankrupt(Player player1, Player player2) {
+        HashMap<String,Property> player1Properties = player1.getProperties();
+        HashMap<String,Property> player2Properties = player2.getProperties();
+
+        for( String key : player1Properties.keySet()) {
+            Property property = player1Properties.get(key);
+            property.setOwner(player2);
+            // not necessary but not sure
+            updatePropertyRegion(property.getRegion());
+        }
+
     }
 
 
