@@ -1,15 +1,13 @@
 package com.twoFMonopoly.models.Locations;
 
-public class FreeParkingLot implements Location {
+public class StartingPoint implements Location {
 	
   //Attributes
   private String locationText;
   private int locationIndex;
-  private String parkingLotText;
 
   //Constructor
-  public Reverse(String parkingLotText, String locationText, int locationIndex){
-    this.parkingLotText = parkingLotText;
+  public StartingPoint(String locationText, int locationIndex){
     this.locationText = locationText;
     this.locationIndex = locationIndex;
   }
@@ -23,7 +21,4 @@ public class FreeParkingLot implements Location {
     return locationIndex;
   }
 
-  public String getParkingLotText() {
-    return parkingLotText;
-  }
 }

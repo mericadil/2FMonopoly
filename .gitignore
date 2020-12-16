@@ -9,3 +9,5 @@
 .idea/uiDesigner.xml
 .idea/vcs.xml
 .idea/workspace.xml
+*.class
+out/production/2FMonopoly/META-INF/2FMonopoly.kotlin_module

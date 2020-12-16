@@ -5,13 +5,11 @@ public class Tax implements Location {
   //Attributes
   private String locationText;
   private int locationIndex;
-  private int taxAmount;
-  private String taxTypeText;
+  private double taxAmount;
 
   //Constructor
-  public Reverse(int taxAmount, String taxTypeText, String locationText, int locationIndex){
+  public Tax(double taxAmount, String locationText, int locationIndex){
     this.taxAmount = taxAmount;
-    this.taxTypeText = taxTypeText;
     this.locationText = locationText;
     this.locationIndex = locationIndex;
   }
@@ -25,11 +23,8 @@ public class Tax implements Location {
     return locationIndex;
   }
 	
-  public int getTaxAmount() {
+  public double getTaxAmount() {
     return taxAmount;
   }
 
-  public String getTaxTypeText() {
-    return taxTypeText;
-  }
 }
