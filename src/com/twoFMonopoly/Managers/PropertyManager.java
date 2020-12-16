@@ -84,8 +84,8 @@ public class PropertyManager {
             property.setNoOfBuildings(0);
             property.setMortgaged(false);
             property.setMonopoly(false);
-
-            updatePropertyRegion(property.getRegion());
+            // not necessary but not sure
+            //updatePropertyRegion(property.getRegion());
         }
     }
 
@@ -96,7 +96,7 @@ public class PropertyManager {
         for( String key : player1Properties.keySet()) {
             Property property = player1Properties.get(key);
             property.setOwner(player2);
-            // not necessary but not sure
+
             updatePropertyRegion(property.getRegion());
         }
 
