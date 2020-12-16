@@ -71,6 +71,10 @@ public class Property extends Tradable implements Location{
             return rentPrices.get(noOfBuildings);
     }
 
+    public ArrayList<Building> getBuildings() {
+        return buildings;
+    }
+
     // Çağırılmadan önce condition check yapılacak...
     //noOfBuilding 4ten büyük olamaz
     public double getNextBuildingsBuildingCost() {
