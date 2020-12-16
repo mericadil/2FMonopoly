@@ -1,4 +1,4 @@
 package com.twoFMonopoly.models;
 
-public abstract class Location {
+public interface Location {
 }

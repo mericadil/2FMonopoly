@@ -5,7 +5,7 @@ import com.twoFMonopoly.models.Location;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class CommunityChest extends Location implements CardDeck {
+public class CommunityChest implements Location, CardDeck {
 
     // Attributes
     private ArrayList<CommunityChestCard> cards;

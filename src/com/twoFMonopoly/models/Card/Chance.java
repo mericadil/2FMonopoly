@@ -5,7 +5,7 @@ import com.twoFMonopoly.models.Location;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Chance extends Location implements CardDeck {
+public class Chance implements Location, CardDeck {
 
     // Attributes
     private ArrayList<ChanceCard> cards;
