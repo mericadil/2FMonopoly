@@ -21,6 +21,7 @@ public class Player {
     private double timeSpent;
     private int currentLocationIndex;
     private String color;
+    private double debt;
 
     //Constructor
     public Player(int id, String name, double moneyAmount, String color) {
@@ -38,6 +39,15 @@ public class Player {
         this.timeSpent = 0.0;
         this.currentLocationIndex = 0;
         this.color = color;
+        this.debt = 0;
+    }
+
+    public double getDebt() {
+        return debt;
+    }
+
+    public void setDebt(double debt) {
+        this.debt = debt;
     }
 
     public int getId() {
