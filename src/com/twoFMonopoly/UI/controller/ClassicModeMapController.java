@@ -199,6 +199,8 @@ public class ClassicModeMapController {
     @FXML
     private AnchorPane propertyPane;
     @FXML
+    private AnchorPane negotiatePane;
+    @FXML
     private Rectangle propertyNameRect;
     @FXML
     private Text propertyName;
@@ -306,6 +308,7 @@ public class ClassicModeMapController {
         endOfTurnButton.setDisable(true);
         setTurnText(currentPlayer);
         propertyPane.setVisible(false);
+        negotiatePane.setVisible(false);
     }
 
     private void refactorPlayers(){

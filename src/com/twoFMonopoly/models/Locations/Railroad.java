@@ -15,9 +15,9 @@ public class Railroad extends Tradable implements Location{
         this.locationText = locationText;
         this.locationIndex = locationIndex;
         this.noOfRailroadsOwnedByTheOwner = 0;
+
     }
 
-    //Operations
     public String getLocationText() {
         return locationText;
     }
