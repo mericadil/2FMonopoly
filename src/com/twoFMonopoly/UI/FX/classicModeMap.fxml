@@ -2,30 +2,29 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane styleClass="mapPane" prefHeight="768.0" prefWidth="1366.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.ClassicModeMapController">
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" styleClass="mapPane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.ClassicModeMapController">
    <children>
       <Rectangle fx:id="property10" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="410.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="corner3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
       <Rectangle fx:id="corner2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property9" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="501.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="property9" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="501.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="property8" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="592.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="chance1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="property7" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="774.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="property6" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="865.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="corner4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
       <Rectangle fx:id="property11" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property12" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="465.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property12" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="465.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
       <Rectangle fx:id="property13" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
       <Rectangle fx:id="communityChest2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
       <Rectangle fx:id="property14" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
@@ -38,7 +37,7 @@
       <Rectangle fx:id="property18" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="774.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="property19" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="865.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="property5" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property4" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="465.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="465.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
       <Rectangle fx:id="property3" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
       <Rectangle fx:id="communityChest1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
       <Rectangle fx:id="property2" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
@@ -49,45 +48,10 @@
          </font>
       </Text>
       <Text fill="#575757" layoutX="992.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Paid!" />
-      <Text layoutX="1008.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$">
-         <font>
-            <Font name="System Bold Italic" size="28.0" />
-         </font>
-      </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="91.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="91.0">
-         <fill>
-            <LinearGradient cycleMethod="REPEAT" endY="0.9714285714285714" proportional="false" startX="0.8333333333333331">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
-      <Text layoutX="341.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$">
-         <font>
-            <Font name="System Bold Italic" size="28.0" />
-         </font>
-      </Text>
-      <Text layoutX="631.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="?">
-         <font>
-            <Font name="System Bold Italic" size="28.0" />
-         </font>
-      </Text>
-      <Text layoutX="722.0" layoutY="706.0" strokeType="OUTSIDE" strokeWidth="0.0" text="?">
-         <font>
-            <Font name="System Bold Italic" size="28.0" />
-         </font>
-      </Text>
-      <Text layoutX="704.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tax">
-         <font>
-            <Font name="System Bold Italic" size="28.0" />
-         </font>
-      </Text>
       <Text layoutX="998.0" layoutY="172.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
       <Text layoutX="998.0" layoutY="257.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
       <Text layoutX="998.0" layoutY="428.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
-      <Text layoutX="994.0" layoutY="512.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
+      <Text layoutX="999.0" layoutY="485.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Railroad" underline="true" />
       <Text layoutX="994.0" layoutY="596.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
       <Text layoutX="880.0" layoutY="708.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
          <font>
@@ -99,7 +63,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="516.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
+      <Text layoutX="518.0" layoutY="676.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Railroad" underline="true">
          <font>
             <Font size="14.0" />
          </font>
@@ -110,7 +74,7 @@
          </font>
       </Text>
       <Text layoutX="311.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
-      <Text layoutX="311.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
+      <Text layoutX="314.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Railroad" underline="true" />
       <Text layoutX="311.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
       <Text layoutX="311.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
       <Text layoutX="311.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
@@ -308,50 +272,6 @@
       </Button>
       <Button fx:id="pauseButton" alignment="TOP_CENTER" layoutX="1291.0" layoutY="308.0" mnemonicParsing="false" onAction="#pauseAndReturnMainMenu" styleClass="pause-game-button" text="||" textAlignment="CENTER"> </Button>
       <HBox layoutX="299.0" layoutY="605.0" prefHeight="25.0" prefWidth="80.0">
-         <children>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/house_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/house_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/house_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/house_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/hotel_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="6.0" />
-               </HBox.margin>
-            </ImageView>
-         </children>
-      </HBox>
-      <HBox layoutX="300.0" layoutY="522.0" prefHeight="25.0" prefWidth="80.0">
          <children>
             <ImageView>
                <image>
@@ -659,50 +579,7 @@
             </ImageView>
          </children>
       </HBox>
-      <HBox layoutX="987.0" layoutY="519.0" prefHeight="25.0" prefWidth="80.0">
-         <children>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/house_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/house_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/house_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/house_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/hotel_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="6.0" />
-               </HBox.margin>
-            </ImageView>
-         </children>
-      </HBox>
+      <HBox layoutX="987.0" layoutY="519.0" prefHeight="25.0" prefWidth="80.0" />
       <HBox layoutX="988.0" layoutY="605.0" prefHeight="25.0" prefWidth="80.0">
          <children>
             <ImageView>
@@ -836,50 +713,6 @@
          </children>
       </HBox>
       <HBox layoutX="601.0" layoutY="719.0" prefHeight="25.0" prefWidth="80.0">
-         <children>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/house_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/house_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/house_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/house_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView>
-               <image>
-                  <Image url="@../assets/hotel_transparent.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="6.0" />
-               </HBox.margin>
-            </ImageView>
-         </children>
-      </HBox>
-      <HBox layoutX="508.0" layoutY="720.0" prefHeight="25.0" prefWidth="80.0">
          <children>
             <ImageView>
                <image>
@@ -1255,6 +1088,132 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
+         </children>
+      </AnchorPane>
+      <Text layoutX="310.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Free Parking" textAlignment="CENTER" wrappingWidth="80.00000128149986" />
+      <Text layoutX="313.0" layoutY="668.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go To Jail" textAlignment="CENTER" />
+      <Text layoutX="1006.0" layoutY="657.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jail" />
+      <ImageView fitHeight="59.0" fitWidth="80.0" layoutX="303.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/train.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="63.0" fitWidth="72.0" layoutX="990.0" layoutY="492.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/train.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="66.0" fitWidth="72.0" layoutX="511.0" layoutY="685.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/train.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="81.0" layoutX="309.0" layoutY="674.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/police.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="85.0" fitWidth="91.0" layoutX="972.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/jail.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="305.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/park.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="988.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/chest.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="301.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/chest.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="39.0" layoutX="624.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/chance.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="39.0" layoutX="711.0" layoutY="659.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/chance.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="77.0" layoutX="692.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/tax.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="negotiatePane" id="negotiate" layoutX="403.0" layoutY="106.0" prefHeight="311.0" prefWidth="563.0" style="-fx-background-color: purple;">
+         <children>
+            <Button layoutX="51.0" layoutY="86.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="14.0" text="+" />
+            <Button layoutX="451.0" layoutY="191.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="0.0" text="+" />
+            <Button layoutX="451.0" layoutY="86.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="14.0" text="+" />
+            <Button layoutX="183.0" layoutY="86.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="14.0" text="+" />
+            <Button layoutX="183.0" layoutY="191.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="15.0" text="+" />
+            <Button layoutX="51.0" layoutY="191.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="4.0" text="+" />
+            <Button layoutX="311.0" layoutY="191.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" text="+" />
+            <Button layoutX="311.0" layoutY="86.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="14.0" text="+" />
+            <Button layoutX="515.0" layoutY="15.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="20.0" text="x" />
+            <TextField layoutX="40.0" layoutY="54.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <TextField layoutX="172.0" layoutY="54.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <TextField layoutX="40.0" layoutY="158.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <TextField layoutX="300.0" layoutY="54.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <TextField layoutX="172.0" layoutY="158.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <TextField layoutX="300.0" layoutY="158.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <TextField layoutX="438.0" layoutY="54.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <TextField layoutX="438.0" layoutY="158.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <Text layoutX="44.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="176.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="44.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="176.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="304.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="304.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="444.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="442.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField layoutX="215.0" layoutY="255.0" prefHeight="37.0" prefWidth="81.0" promptText="\$100" />
+            <Text layoutX="139.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best Offer" textAlignment="CENTER" wrappingWidth="66.6123029589653">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Button layoutX="308.0" layoutY="255.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="91.0" text="Approve" />
          </children>
       </AnchorPane>
    </children>

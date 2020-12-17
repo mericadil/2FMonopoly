@@ -28,9 +28,13 @@ public class RailroadManager {
         updateRailroads(player);
     }
 
-    public void removeMortgageRailroad(Railroad railroad, Player player) {
-        railroad.setMortgaged(false);
-        updateRailroads(player);
+    public boolean removeMortgageRailroad(Railroad railroad, Player player) {
+        if(railroad.isMortgaged()) {
+            railroad.setMortgaged(false);
+            updateRailroads(player);
+            return true;
+        }
+        return false;
     }
 
     public void bankrupt(Player player) {
