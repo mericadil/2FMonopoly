@@ -1,6 +1,7 @@
 package com.twoFMonopoly.Managers;
 
 import com.twoFMonopoly.models.Buildings.Building;
+import com.twoFMonopoly.models.Card.Card;
 import com.twoFMonopoly.models.Locations.Property;
 import com.twoFMonopoly.models.Locations.Railroad;
 import com.twoFMonopoly.models.Player;
@@ -195,6 +196,10 @@ public class PlayerManager {
         else
             player.setNoOfHouses(player.getNoOfHouses() - noOfBuildings);
         return true;
+    }
+
+    public void makeCardAction(Player player, Card card) {
+        card.makeCardAction(player);
     }
 
 }

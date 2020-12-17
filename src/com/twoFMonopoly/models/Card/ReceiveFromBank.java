@@ -5,15 +5,16 @@ import com.twoFMonopoly.models.Player;
 public class ReceiveFromBank implements ReceiveStrategy {
 
     // Attributes
-    private final int amount;
+    private final double amount;
 
     // Methods
-    public ReceiveFromBank( int amount ) {
+    public ReceiveFromBank( double amount ) {
         this.amount = amount;
     }
 
     @Override
-    public void act(Player p) {
+    public void act(Player player) {
+        player.setMoneyAmount(player.getMoneyAmount() + amount);
         // TODO
     }
 }
