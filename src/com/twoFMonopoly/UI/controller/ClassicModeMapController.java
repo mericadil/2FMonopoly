@@ -6,7 +6,8 @@ import com.twoFMonopoly.Managers.PlayerManager;
 import com.twoFMonopoly.Managers.PropertyManager;
 import com.twoFMonopoly.Managers.RailroadManager;
 import com.twoFMonopoly.UI.GameInitializer;
-import com.twoFMonopoly.models.Locations.Location;
+import com.twoFMonopoly.models.Card.CardDeck;
+import com.twoFMonopoly.models.Locations.*;
 import com.twoFMonopoly.models.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -267,7 +268,7 @@ public class ClassicModeMapController {
     protected AnchorPane root;
 
     private Random dice;
-    private int currentPlayer;
+    private int currentPlayerIndex;
     private int playerCount;
     private ArrayList<String> colors;
     private ArrayList<String> names;
@@ -285,6 +286,7 @@ public class ClassicModeMapController {
     private ArrayList<Player> players;
     private ArrayList<Integer> playerLocations;
     private double moneyInTheMiddle;
+    private Player currentPlayer;
 
     public void init(int playerCount, ArrayList<String> colors, ArrayList<String> names, ArrayList<Integer> queueIndices){
         Main.player.stop();
@@ -314,15 +316,22 @@ public class ClassicModeMapController {
                                                         propertyOwner11, propertyOwner12, propertyOwner13, propertyOwner14, propertyOwner15,
                                                         propertyOwner16, propertyOwner17, propertyOwner18, propertyOwner19));
 
-        currentPlayer = 0;
+        currentPlayerIndex = 0;
         this.playerCount = playerCount;
         this.colors = new ArrayList<>(colors);
         this.names = new ArrayList<>(names);
         this.queueIndices = new ArrayList<Integer>(queueIndices);
 
+        players = new ArrayList<>();
+
+        for( int i = 0; i < playerCount; i++) {
+            Player player = new Player(i, names.get(i), 250, colors.get(i));
+            players.add(player);
+        }
+        currentPlayer = players.get(currentPlayerIndex);
         refactorPlayers();
         endOfTurnButton.setDisable(true);
-        setTurnText(currentPlayer);
+        setTurnText(currentPlayerIndex);
         propertyPane.setVisible(false);
         negotiatePane.setVisible(false);
         //
@@ -362,22 +371,77 @@ public class ClassicModeMapController {
         diceImage1.setImage(new Image(getClass().getResourceAsStream(dice1Url)));
         diceImage2.setImage(new Image(getClass().getResourceAsStream(dice2Url)));
 
-        int newLocation = (playerLocations.get(currentPlayer) + dice1 + dice2) % 28;
-        playerLocations.set(currentPlayer, newLocation);
+        if(currentPlayer.getJailStatus() == 0) {
+            int newLocation = (playerLocations.get(currentPlayerIndex) + dice1 + dice2) % 28;
+            playerLocations.set(currentPlayerIndex, newLocation);
 
-        setNewCoordinate(newLocation);
+            setNewCoordinate(newLocation);
+            playerManager.setLocation(currentPlayer, newLocation);
 
-        rollButton.setDisable(true);
-        endOfTurnButton.setDisable(false);
-        if(locationViews.get(newLocation).getId().substring(0, 4).equals("prop")) {
-            propertyPane.setVisible(true);
-            propertyPaneSettings();
+            if(locations.get(newLocation) instanceof Property)
+                takePropertyAction();
+            else if(locations.get(newLocation) instanceof Railroad)
+                takeRailroadAction();
+            else if(locations.get(newLocation) instanceof Tax)
+                takeTaxAction();
+            else if(locations.get(newLocation) instanceof DirectToJail)
+                takeGoToJailAction();
+            else if(locations.get(newLocation) instanceof CardDeck)
+                takeCardDeckAction();
+
+            rollButton.setDisable(true);
+            //endOfTurnButton.setDisable(false);
+            /*
+            if (locationViews.get(newLocation).getId().substring(0, 4).equals("prop")) {
+                propertyPane.setVisible(true);
+                propertyPaneSettings();
+            }*/
         }
+    }
+
+    private void takeCardDeckAction() {
 
     }
 
+    private void takeGoToJailAction() {
+
+    }
+
+    private void takeRailroadAction() {
+
+    }
+
+    private void takeTaxAction() {
+        int currentLocation = currentPlayer.getCurrentLocationIndex();
+        Tax tax = (Tax) locations.get(currentLocation);
+
+    }
+
+    private void takePropertyAction() {
+        int currentLocation = currentPlayer.getCurrentLocationIndex();
+        Property property = (Property) locations.get(currentLocation);
+
+        // If the property is owned by other player
+        if(property.getOwner() != null && property.getOwner() != currentPlayer) {
+            if(playerManager.canAfford(currentPlayer, property.getRentCost()))
+                playerManager.payRentProperty(currentPlayer, property);
+            else if(playerManager.tenderToAvoidBankrupt(currentPlayer, property.getRentCost())) {
+                // Yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
+                // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
+
+            }
+            else {
+                playerManager.bankrupt(currentPlayer, property.getOwner());
+            }
+        }
+        else if( property.getOwner() == null) {
+            propertyPane.setVisible(true);
+            propertyPaneSettings();
+        }
+    }
+
     private void propertyPaneSettings() {
-        int playerLocation = playerLocations.get(currentPlayer);
+        int playerLocation = playerLocations.get(currentPlayerIndex);
         String idOfLocation = locationViews.get(playerLocation).getId();
         int propertyNum;
         if(playerLocation >12){
@@ -386,7 +450,7 @@ public class ClassicModeMapController {
         else{
             propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 1));
         }
-        if(propertyOwnerViews.get(propertyNum - 1).getFill() == playerTokens.get(queueIndices.get(currentPlayer)).getFill()){
+        if(propertyOwnerViews.get(propertyNum - 1).getFill() == playerTokens.get(queueIndices.get(currentPlayerIndex)).getFill()){
             sellButton.setDisable(false);
             buyButton.setDisable(true);
             buildButton.setDisable(false);
@@ -416,21 +480,21 @@ public class ClassicModeMapController {
         Random random = new Random();
         double newXCoordinate = xLeftBorder + random.nextInt( (int)((xRightBorder - xLeftBorder) - 2 * playerToken1.getRadius())) + playerToken1.getRadius();
         double newYCoordinate = yUpperBorder + random.nextInt( (int)((yDownBorder - yUpperBorder) - 2 * playerToken1.getRadius())) + playerToken1.getRadius();
-        playerTokens.get(queueIndices.get(currentPlayer)).setLayoutX(newXCoordinate);
-        playerTokens.get(queueIndices.get(currentPlayer)).setLayoutY(newYCoordinate);
+        playerTokens.get(queueIndices.get(currentPlayerIndex)).setLayoutX(newXCoordinate);
+        playerTokens.get(queueIndices.get(currentPlayerIndex)).setLayoutY(newYCoordinate);
     }
 
     private void setTurnText(int index){
         String textToDisplayTurn = playerNames.get(queueIndices.get(index)).getText();
         turnText.setText(textToDisplayTurn + "'s Turn");
-        Paint playerColor = playerTokens.get(queueIndices.get(currentPlayer)).getFill();
+        Paint playerColor = playerTokens.get(queueIndices.get(currentPlayerIndex)).getFill();
         turnText.setFill(playerColor);
     }
 
     @FXML
     public void endTurnButtonPushed(ActionEvent event) {
-        currentPlayer = (currentPlayer + 1) % playerCount;
-        setTurnText(currentPlayer);
+        currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
+        setTurnText(currentPlayerIndex);
 
         rollButton.setDisable(false);
         endOfTurnButton.setDisable(true);
@@ -450,14 +514,14 @@ public class ClassicModeMapController {
     }
     @FXML
     public void buyButtonPushed(ActionEvent event) {
-        int playerLocation = playerLocations.get(currentPlayer);
+        int playerLocation = playerLocations.get(currentPlayerIndex);
         setColorOfLocation(playerLocation, "buy");
         buyButton.setDisable(true);
     }
 
     @FXML
     public void sellButtonPushed(ActionEvent event) {
-        int playerLocation = playerLocations.get(currentPlayer);
+        int playerLocation = playerLocations.get(currentPlayerIndex);
         setColorOfLocation(playerLocation, "sell");
         sellButton.setDisable(true);
     }
@@ -474,7 +538,7 @@ public class ClassicModeMapController {
             }
             if(eventType.equals("buy")) {
                 if (propertyOwnerViews.get(propertyNum - 1).getFill() == Color.WHITE) {
-                    Paint playerColor = playerTokens.get(queueIndices.get(currentPlayer)).getFill();
+                    Paint playerColor = playerTokens.get(queueIndices.get(currentPlayerIndex)).getFill();
                     propertyOwnerViews.get(propertyNum - 1).setFill(playerColor);
                 }
             }
