@@ -16,6 +16,11 @@ public class PropertyRegion {
         this.isMonopoly = false;
     }
 
+    public PropertyRegion() {
+        this.properties = new ArrayList<>();
+        this.isMonopoly = false;
+    }
+
     //Operations
     public ArrayList<Property> getProperties() {
         return properties;
