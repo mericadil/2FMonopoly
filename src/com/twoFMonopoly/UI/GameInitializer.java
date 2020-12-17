@@ -10,9 +10,9 @@ import com.twoFMonopoly.models.Locations.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class GameInitializer {
+public class GameInitializer { // (Ankara, Antalya)
     public static ArrayList<Property> createProperties(ArrayList<String> names, ArrayList<Double> costs,
-                                                       ArrayList<ArrayList<Double>> rentPrices,
+                                                       ArrayList<ArrayList<Double>> rentPrices, // 6 elemanlı liste
                                                        ArrayList<Integer> locationIndexes, ArrayList<PropertyRegion> region,
                                                        ArrayList<Building> buildings,
                                                        int noOfProperties) {
@@ -26,6 +26,7 @@ public class GameInitializer {
         return properties;
     }
 
+    // Call this first
     public static ArrayList<PropertyRegion> createPropertyRegions() {
         ArrayList<PropertyRegion> propertyRegions = new ArrayList<>();
         for(int i = 0; i < 8; i++) {
