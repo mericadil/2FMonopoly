@@ -14,34 +14,34 @@
 
 <AnchorPane prefHeight="768.0" prefWidth="1366.0" styleClass="mapPane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.ClassicModeMapController">
    <children>
-      <Rectangle fx:id="property10" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="410.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="corner3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="corner2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property9" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="501.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="property8" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="592.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="chance1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="property7" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="774.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="property6" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="865.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="corner4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property11" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property12" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="465.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property13" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="communityChest2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property14" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property15" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property16" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="410.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="corner1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property17" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="501.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="chance2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="592.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="tax1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="property18" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="774.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="property19" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="865.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="property5" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="465.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property3" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="communityChest1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property2" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property1" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="corner1" id = "0" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0"/>
+      <Rectangle fx:id="property1" id = "1" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="121.0" onMouseClicked="#propertyClicked" />
+      <Rectangle fx:id="property2" id = "2" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="121.0" onMouseClicked="#propertyClicked"/>
+      <Rectangle fx:id="communityChest1" id = "3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property3" id = "4" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property4" id = "5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="465.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property5" id = "6" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="corner2" id = "7" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property6" id = "8" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="865.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="property7" id = "9" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="774.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="chance1" id = "10" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="property8" id = "11" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="592.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="property9" id = "12" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="501.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="property10" id = "13" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="410.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="corner3" id = "14" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property11" id = "15" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property12" id = "16" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="465.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property13" id = "17" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="communityChest2" id="18" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property14" id = "19" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property15" id= "20" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="corner4" id = "21" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="property16" id = "22" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="410.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="property17" id = "23" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="501.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="chance2" id="24" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="592.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="tax1" id="25" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="property18" id= "26" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="774.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle fx:id="property19" id = "27" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="865.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Text fill="#00bc0d" layoutX="999.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go">
          <font>
             <Font name="System Bold Italic" size="28.0" />
