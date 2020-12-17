@@ -6,6 +6,7 @@ import com.twoFMonopoly.Managers.PlayerManager;
 import com.twoFMonopoly.Managers.PropertyManager;
 import com.twoFMonopoly.Managers.RailroadManager;
 import com.twoFMonopoly.UI.GameInitializer;
+import com.twoFMonopoly.models.Buildings.Building;
 import com.twoFMonopoly.models.Card.CardDeck;
 import com.twoFMonopoly.models.Locations.*;
 import com.twoFMonopoly.models.Player;
@@ -264,6 +265,17 @@ public class ClassicModeMapController {
     private Button sellButton;
     @FXML
     private Button mortgageButton;
+    @FXML
+    private Text houseCost1;
+    @FXML
+    private Text houseCost2;
+    @FXML
+    private Text houseCost3;
+    @FXML
+    private Text houseCost4;
+
+    @FXML
+    private Text costPriceText;
 
     @FXML
     protected AnchorPane root;
@@ -290,6 +302,7 @@ public class ClassicModeMapController {
     private double moneyInTheMiddle;
     private Player currentPlayer;
     private int lastClickedTradable;
+    private GameInitializer gameInitializer;
 
     public void init(int playerCount, ArrayList<String> colors, ArrayList<String> names, ArrayList<Integer> queueIndices){
         Main.player.stop();
@@ -320,6 +333,13 @@ public class ClassicModeMapController {
                                                         propertyOwner11, propertyOwner12, propertyOwner13, propertyOwner14, propertyOwner15,
                                                         propertyOwner16, propertyOwner17, propertyOwner18, propertyOwner19));
 
+
+
+        gameInitializer = new GameInitializer();
+        locations = gameInitializer.initTurkeyMap();
+        for( Location location : locations) {
+            System.out.println(location.getLocationText());
+        }
         currentPlayerIndex = 0;
         this.playerCount = playerCount;
         this.colors = new ArrayList<>(colors);
@@ -333,16 +353,17 @@ public class ClassicModeMapController {
         railroadManager = RailroadManager.getInstance();
 
         for( int i = 0; i < playerCount; i++) {
-            Player player = new Player(i, names.get(i), 250, colors.get(i));
+            Player player = new Player(i, names.get(i), 500.0, colors.get(i));
             players.add(player);
         }
+
         currentPlayer = players.get(currentPlayerIndex);
         refactorPlayers();
         endOfTurnButton.setDisable(true);
         setTurnText(currentPlayerIndex);
         propertyPane.setVisible(false);
         negotiatePane.setVisible(false);
-        //
+
         //GameInitializer.init();
     }
 
@@ -386,10 +407,14 @@ public class ClassicModeMapController {
             setNewCoordinate(newLocation);
             playerManager.setLocation(currentPlayer, newLocation);
 
-            if(locations.get(newLocation) instanceof Property)
+            if(locations.get(newLocation) instanceof Property) {
+                lastClickedTradable = newLocation;
                 takeTradableAction();
-            else if(locations.get(newLocation) instanceof Railroad)
+            }
+            else if(locations.get(newLocation) instanceof Railroad) {
+                lastClickedTradable = newLocation;
                 takeTradableAction();
+            }
             else if(locations.get(newLocation) instanceof Tax)
                 takeTaxAction();
             else if(locations.get(newLocation) instanceof DirectToJail)
@@ -411,20 +436,15 @@ public class ClassicModeMapController {
      * Take Actionlar ayrı bir classa taşınabilir!
      */
     private void takeCardDeckAction() {
-
+        endOfTurnButton.setDisable(false);
     }
 
     private void takeGoToJailAction() {
         playerManager.setLocation(currentPlayer, Constants.jailLocation);
         playerManager.goToJail(currentPlayer, Constants.jailLocation);
+        endOfTurnButton.setDisable(false);
     }
 
-    // Eğer para çıkışmazsa ama bankrupt değilse
-    // Yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
-    // Ayrı classa taşınabilir boolean yaparız
-    // true dönerse devamke (bankrupt dahil)
-    // false dönerse reisin borcu varmış
-    // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
     private void takeTaxAction() {
         int currentLocation = currentPlayer.getCurrentLocationIndex();
         Tax tax = (Tax) locations.get(currentLocation);
@@ -438,6 +458,7 @@ public class ClassicModeMapController {
         }
         else
             playerManager.bankrupt(currentPlayer);
+        endOfTurnButton.setDisable(false);
     }
 
     // Ayrı classa taşınabilir boolean yaparız
@@ -467,31 +488,8 @@ public class ClassicModeMapController {
             propertyPane.setVisible(true);
             propertyPaneSettings(tradable);
         }
+        endOfTurnButton.setDisable(false);
     }
-
-    /*
-    private void takePropertyAction() {
-        int currentLocation = currentPlayer.getCurrentLocationIndex();
-        Property property = (Property) locations.get(currentLocation);
-
-        // If the property is owned by other player
-        if(property.getOwner() != null && property.getOwner() != currentPlayer) {
-            if(playerManager.canAfford(currentPlayer, property.getRentCost()))
-                playerManager.payRent(currentPlayer, property);
-            else if(playerManager.tenderToAvoidBankrupt(currentPlayer, property.getRentCost())) {
-                currentPlayer.setDebt(property.getRentCost());
-                // Yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
-                // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
-            }
-            else {
-                playerManager.bankrupt(currentPlayer, property.getOwner());
-            }
-        }
-        else if( property.getOwner() == null) {
-            propertyPane.setVisible(true);
-            propertyPaneSettings();
-        }
-    }*/
 
     private void propertyPaneSettings( Tradable tradable) { //railroad için sonradan yapılacak
                                                             // ui hazır değil denemek için tek üzerinde yapıyoruz
@@ -525,18 +523,19 @@ public class ClassicModeMapController {
         }*/
         if(locations.get(lastClickedTradable) instanceof Property) {
             Property property = (Property) locations.get(lastClickedTradable);
+            updateProperty(property);
             if(property.getOwner() == null) {
                 sellButton.setDisable(true);
-                buyButton.setDisable(!playerManager.canAfford(currentPlayer, property.getCost())
-                                        && property.getLocationIndex() == currentPlayer.getCurrentLocationIndex());
+                buyButton.setDisable(!(playerManager.canAfford(currentPlayer, property.getCost())
+                                        && property.getLocationIndex() == currentPlayer.getCurrentLocationIndex()));
                 buildButton.setDisable(true);
                 mortgageButton.setDisable(true);
             }
             else if(property.getOwner() == currentPlayer) {
-                sellButton.setDisable(property.getNoOfBuildings() > 0);
+                sellButton.setDisable(!(property.getNoOfBuildings() > 0));
                 buyButton.setDisable(true);
                 buildButton.setDisable(!playerManager.canAfford(currentPlayer, property.getNextBuildingsBuildingCost()));
-                mortgageButton.setDisable(property.getNoOfBuildings() == 0 && !property.isMortgaged());
+                mortgageButton.setDisable(!(property.getNoOfBuildings() == 0 && !property.isMortgaged()));
             }
             else {
                 sellButton.setDisable(true);
@@ -557,7 +556,7 @@ public class ClassicModeMapController {
                 sellButton.setDisable(true);
                 buyButton.setDisable(true);
                 buildButton.setDisable(true);
-                mortgageButton.setDisable(false);
+                mortgageButton.setDisable(!railroad.isMortgaged());
             }
             else {
                 sellButton.setDisable(true);
@@ -594,6 +593,8 @@ public class ClassicModeMapController {
     public void endTurnButtonPushed(ActionEvent event) {
         currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
         setTurnText(currentPlayerIndex);
+
+        currentPlayer = players.get(currentPlayerIndex);
 
         rollButton.setDisable(false);
         endOfTurnButton.setDisable(true);
@@ -633,7 +634,7 @@ public class ClassicModeMapController {
             Railroad railroad = (Railroad) locations.get(playerLocation);
             buyRailroad(railroad);
         }
-        setColorOfLocation(lastClickedTradable, "buy");
+        //setColorOfLocation(lastClickedTradable, "buy");
         buyButton.setDisable(true);
         propertyPaneSettings((Tradable) locations.get(lastClickedTradable));
         updatePlayer(currentPlayer);
@@ -642,6 +643,7 @@ public class ClassicModeMapController {
     private void buyRailroad( Railroad railroad) {
         playerManager.buyRailroad(currentPlayer, railroad);
         railroadManager.buyRailroad(railroad, currentPlayer);
+        updatePlayer(currentPlayer);
     }
 
     private void buyProperty( Property property) {
@@ -654,8 +656,8 @@ public class ClassicModeMapController {
     @FXML
     public void sellButtonPushed(ActionEvent event) {
         int playerLocation = playerLocations.get(currentPlayerIndex);
-
-        setColorOfLocation(playerLocation, "sell");
+        //lastClickedTradable
+        setColorOfLocation(lastClickedTradable, "sell");
         sellButton.setDisable(true);
     }
 
@@ -696,7 +698,7 @@ public class ClassicModeMapController {
         }
     }
 
-    private void updatePlayer( Player player){
+    private void updatePlayer( Player player) {
         double money = player.getMoneyAmount();
         int playerNumber = players.indexOf(player) + 1;
         String playerMoneyX = "playerMoney" + playerNumber;
@@ -705,6 +707,29 @@ public class ClassicModeMapController {
                 playerMoney.setText("$" + money + "K");
             }
         }
+    }
+
+    private void updateProperty( Property property){
+        double cost = property.getCost();
+        double mortgagePrice = property.getCurrentMortgagePrice();
+        ArrayList<Double> rentPrices = property.getRentPrices();
+        ArrayList<Building> buildings = property.getBuildings();
+
+        costPriceText.setText("$" + cost + "K");
+        mortgageValue.setText("$" + mortgagePrice + "K");
+        siteOnlyRent.setText("$" + rentPrices.get(0) + "K" );
+        oneHouseRent.setText("$" + rentPrices.get(1) + "K" );
+        twoHousesRent.setText("$" + rentPrices.get(2) + "K" );
+        threeHousesRent.setText("$" + rentPrices.get(3) + "K" );
+        fourHousesRent.setText("$" + rentPrices.get(4) + "K" );
+        hotelRent.setText("$" + rentPrices.get(5) + "K" );
+
+        houseCost1.setText("$" + buildings.get(0).getBuildingPrice() + "K");
+        houseCost2.setText("$" + buildings.get(1).getBuildingPrice() + "K");
+        houseCost3.setText("$" + buildings.get(2).getBuildingPrice() + "K");
+        houseCost4.setText("$" + buildings.get(3).getBuildingPrice() + "K");
+        hotelCost.setText("$" + buildings.get(4).getBuildingPrice() + "K");
+        mortgageValue.setText("$" + mortgagePrice + "K");
     }
 
 }
