@@ -103,25 +103,25 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Rectangle fx:id="propertyOwner10" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="410.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="propertyOwner9" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="501.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="propertyOwner8" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="592.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="propertyOwner7" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="774.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="propertyOwner6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="865.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="propertyOwner19" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="865.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="propertyOwner18" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="774.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="propertyOwner17" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="501.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="propertyOwner16" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="409.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="propertyOwner15" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle fx:id="propertyOwner14" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle fx:id="propertyOwner13" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle fx:id="propertyOwner12" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="466.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle fx:id="propertyOwner11" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle fx:id="propertyOwner1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle fx:id="propertyOwner2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle fx:id="propertyOwner3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle fx:id="propertyOwner4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="466.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Rectangle fx:id="propertyOwner5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner10" fx:id="propertyOwner10" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="410.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner9" fx:id="propertyOwner9" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="501.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner8" fx:id="propertyOwner8" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="592.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner7" fx:id="propertyOwner7" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="774.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner6" fx:id="propertyOwner6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="865.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner19" fx:id="propertyOwner19" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="865.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner18" fx:id="propertyOwner18" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="774.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner17" fx:id="propertyOwner17" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="501.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner16" fx:id="propertyOwner16" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="409.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner15" fx:id="propertyOwner15" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner14" fx:id="propertyOwner14" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner13" fx:id="propertyOwner13" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner12" fx:id="propertyOwner12" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="466.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner11" fx:id="propertyOwner11" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner1" fx:id="propertyOwner1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner2" fx:id="propertyOwner2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner3" fx:id="propertyOwner3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner4" fx:id="propertyOwner4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="466.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner5" fx:id="propertyOwner5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
       <Text fx:id="playerName1" layoutX="35.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -212,14 +212,14 @@
             <Font name="System Bold Italic" size="64.0" />
          </font>
       </Text>
-      <Circle fx:id="playerToken4" fill="#26ff00" layoutX="1016.0" layoutY="76.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="playerToken5" fill="#00d389" layoutX="1050.0" layoutY="74.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="playerToken6" fill="#1900ff" layoutX="982.0" layoutY="108.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="playerToken2" fill="RED" layoutX="1017.0" layoutY="107.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="playerToken3" fill="#ffaf00" layoutX="1050.0" layoutY="107.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="playerToken7" fill="#ff00d9" layoutX="1047.0" layoutY="44.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="playerToken1" layoutX="982.0" layoutY="76.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="playerToken8" fill="#b700ff" layoutX="982.0" layoutY="44.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="playerToken4" fill="#26ff00" layoutX="1016.0" layoutY="76.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="playerToken5" fill="#00d389" layoutX="1050.0" layoutY="74.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="playerToken6" cache="true" fill="#1900ff" layoutX="987.0" layoutY="110.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="playerToken2" fill="RED" layoutX="1017.0" layoutY="107.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="playerToken3" fill="#ffaf00" layoutX="1050.0" layoutY="107.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="playerToken7" fill="#ff00d9" layoutX="1047.0" layoutY="44.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="playerToken1" layoutX="982.0" layoutY="76.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="playerToken8" fill="#b700ff" layoutX="982.0" layoutY="44.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
       <Text fx:id="playerTime1" layoutX="186.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
          <font>
             <Font size="18.0" />
@@ -579,7 +579,6 @@
             </ImageView>
          </children>
       </HBox>
-      <HBox layoutX="987.0" layoutY="519.0" prefHeight="25.0" prefWidth="80.0" />
       <HBox layoutX="988.0" layoutY="605.0" prefHeight="25.0" prefWidth="80.0">
          <children>
             <ImageView>
@@ -1093,62 +1092,62 @@
       <Text layoutX="310.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Free Parking" textAlignment="CENTER" wrappingWidth="80.00000128149986" />
       <Text layoutX="313.0" layoutY="668.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go To Jail" textAlignment="CENTER" />
       <Text layoutX="1006.0" layoutY="657.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jail" />
-      <ImageView fitHeight="59.0" fitWidth="80.0" layoutX="303.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="59.0" fitWidth="80.0" layoutX="303.0" layoutY="490.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/train.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="63.0" fitWidth="72.0" layoutX="990.0" layoutY="492.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="63.0" fitWidth="72.0" layoutX="990.0" layoutY="492.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/train.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="66.0" fitWidth="72.0" layoutX="511.0" layoutY="685.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="66.0" fitWidth="72.0" layoutX="511.0" layoutY="685.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/train.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="81.0" layoutX="309.0" layoutY="674.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="74.0" fitWidth="81.0" layoutX="309.0" layoutY="674.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/police.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="85.0" fitWidth="91.0" layoutX="972.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="85.0" fitWidth="91.0" layoutX="972.0" layoutY="671.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/jail.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="305.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="305.0" layoutY="48.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/park.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="988.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="988.0" layoutY="301.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/chest.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="301.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="301.0" layoutY="301.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/chest.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="39.0" layoutX="624.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="74.0" fitWidth="39.0" layoutX="624.0" layoutY="29.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/chance.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="39.0" layoutX="711.0" layoutY="659.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="74.0" fitWidth="39.0" layoutX="711.0" layoutY="659.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/chance.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="77.0" layoutX="692.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="74.0" fitWidth="77.0" layoutX="692.0" layoutY="34.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/tax.jpg" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="negotiatePane" id="negotiate" layoutX="403.0" layoutY="106.0" prefHeight="311.0" prefWidth="563.0" style="-fx-background-color: purple;">
+      <AnchorPane id="negotiate" fx:id="negotiatePane" layoutX="403.0" layoutY="106.0" prefHeight="311.0" prefWidth="563.0" style="-fx-background-color: purple;">
          <children>
             <Button layoutX="51.0" layoutY="86.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="14.0" text="+" />
             <Button layoutX="451.0" layoutY="191.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="0.0" text="+" />
