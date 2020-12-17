@@ -320,7 +320,7 @@ public class ClassicModeMapController {
         this.playerCount = playerCount;
         this.colors = new ArrayList<>(colors);
         this.names = new ArrayList<>(names);
-        this.queueIndices = new ArrayList<Integer>(queueIndices);
+        this.queueIndices = new ArrayList<>(queueIndices);
 
         players = new ArrayList<>();
 
@@ -408,13 +408,25 @@ public class ClassicModeMapController {
     }
 
     private void takeRailroadAction() {
+        //int currentLocation = currentPlayer.getCurrentLocationIndex();
+        //Railroad railroad = (Railroad) locations.get(currentLocation);
+
 
     }
 
     private void takeTaxAction() {
         int currentLocation = currentPlayer.getCurrentLocationIndex();
         Tax tax = (Tax) locations.get(currentLocation);
-
+        double taxAmount = tax.getTaxAmount();
+        if(playerManager.canAfford(currentPlayer,taxAmount)) {
+            playerManager.giveMoney(currentPlayer,taxAmount);
+        }
+        else if(playerManager.tenderToAvoidBankrupt(currentPlayer, taxAmount)) {
+            currentPlayer.setDebt(taxAmount);
+            // Debt butonuuuuu
+        }
+        else
+            playerManager.bankrupt(currentPlayer);
     }
 
     private void takePropertyAction() {
@@ -426,6 +438,7 @@ public class ClassicModeMapController {
             if(playerManager.canAfford(currentPlayer, property.getRentCost()))
                 playerManager.payRentProperty(currentPlayer, property);
             else if(playerManager.tenderToAvoidBankrupt(currentPlayer, property.getRentCost())) {
+                currentPlayer.setDebt(property.getRentCost());
                 // Yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
                 // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
 
