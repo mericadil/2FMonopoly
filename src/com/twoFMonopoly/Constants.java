@@ -18,7 +18,7 @@ public class Constants {
     }).collect(Collectors.toMap(data -> data[0], data -> data[1]));
 
     public static final double startingPointMoney = 100;
-    public static final int boardsMaxIndex = 27;
+    public static final int boardsMaxIndex = 28;
     public static final int jailLocation = 14;
     public static final String OPENING_MUSIC = "src/com/twoFMonopoly/UI/assets/opening.mp3";
     public static final String MAIN_MUSIC = "src/com/twoFMonopoly/UI/assets/music.mp3";
