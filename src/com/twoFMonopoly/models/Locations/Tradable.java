@@ -69,4 +69,6 @@ public abstract class Tradable {
     public void setName(String name) {
         this.name = name;
     }
+
+    public abstract double getRentCost();
 }

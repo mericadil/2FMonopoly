@@ -324,6 +324,10 @@ public class ClassicModeMapController {
 
         players = new ArrayList<>();
 
+        playerManager = PlayerManager.getInstance();
+        propertyManager = PropertyManager.getInstance();
+        railroadManager = RailroadManager.getInstance();
+
         for( int i = 0; i < playerCount; i++) {
             Player player = new Player(i, names.get(i), 250, colors.get(i));
             players.add(player);
@@ -379,9 +383,9 @@ public class ClassicModeMapController {
             playerManager.setLocation(currentPlayer, newLocation);
 
             if(locations.get(newLocation) instanceof Property)
-                takePropertyAction();
+                takeTradableAction();
             else if(locations.get(newLocation) instanceof Railroad)
-                takeRailroadAction();
+                takeTradableAction();
             else if(locations.get(newLocation) instanceof Tax)
                 takeTaxAction();
             else if(locations.get(newLocation) instanceof DirectToJail)
@@ -399,21 +403,24 @@ public class ClassicModeMapController {
         }
     }
 
+    /**
+     * Take Actionlar ayrı bir classa taşınabilir!
+     */
     private void takeCardDeckAction() {
 
     }
 
     private void takeGoToJailAction() {
-
+        playerManager.setLocation(currentPlayer, Constants.jailLocation);
+        playerManager.goToJail(currentPlayer, Constants.jailLocation);
     }
 
-    private void takeRailroadAction() {
-        //int currentLocation = currentPlayer.getCurrentLocationIndex();
-        //Railroad railroad = (Railroad) locations.get(currentLocation);
-
-
-    }
-
+    // Eğer para çıkışmazsa ama bankrupt değilse
+    // Yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
+    // Ayrı classa taşınabilir boolean yaparız
+    // true dönerse devamke (bankrupt dahil)
+    // false dönerse reisin borcu varmış
+    // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
     private void takeTaxAction() {
         int currentLocation = currentPlayer.getCurrentLocationIndex();
         Tax tax = (Tax) locations.get(currentLocation);
@@ -429,6 +436,35 @@ public class ClassicModeMapController {
             playerManager.bankrupt(currentPlayer);
     }
 
+    // Ayrı classa taşınabilir boolean yaparız
+    // true dönerse devamke (bankrupt dahil)
+    // false dönerse reisin borcu varmış
+    // Bu durumda yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
+    // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
+    private void takeTradableAction() {
+        int currentLocation = currentPlayer.getCurrentLocationIndex();
+        Tradable tradable = (Tradable) locations.get(currentLocation);
+
+        // If the property is owned by other player
+        if(tradable.getOwner() != null && tradable.getOwner() != currentPlayer) {
+            if(playerManager.canAfford(currentPlayer, tradable.getRentCost()))
+                playerManager.payRent(currentPlayer, tradable);
+            else if(playerManager.tenderToAvoidBankrupt(currentPlayer, tradable.getRentCost())) {
+                currentPlayer.setDebt(tradable.getRentCost());
+                // Yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
+                // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
+            }
+            else {
+                playerManager.bankrupt(currentPlayer, tradable.getOwner());
+            }
+        }
+        else if( tradable.getOwner() == null) {
+            propertyPane.setVisible(true);
+            propertyPaneSettings();
+        }
+    }
+
+    /*
     private void takePropertyAction() {
         int currentLocation = currentPlayer.getCurrentLocationIndex();
         Property property = (Property) locations.get(currentLocation);
@@ -436,12 +472,11 @@ public class ClassicModeMapController {
         // If the property is owned by other player
         if(property.getOwner() != null && property.getOwner() != currentPlayer) {
             if(playerManager.canAfford(currentPlayer, property.getRentCost()))
-                playerManager.payRentProperty(currentPlayer, property);
+                playerManager.payRent(currentPlayer, property);
             else if(playerManager.tenderToAvoidBankrupt(currentPlayer, property.getRentCost())) {
                 currentPlayer.setDebt(property.getRentCost());
                 // Yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
                 // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
-
             }
             else {
                 playerManager.bankrupt(currentPlayer, property.getOwner());
@@ -451,7 +486,7 @@ public class ClassicModeMapController {
             propertyPane.setVisible(true);
             propertyPaneSettings();
         }
-    }
+    }*/
 
     private void propertyPaneSettings() {
         int playerLocation = playerLocations.get(currentPlayerIndex);
@@ -525,11 +560,31 @@ public class ClassicModeMapController {
         window.getScene().setRoot(root); window.show();
         System.out.println(window);
     }
+    //Buy button sadece playermanager.canEfford(player, amount) true ise aktif olacak
     @FXML
     public void buyButtonPushed(ActionEvent event) {
-        int playerLocation = playerLocations.get(currentPlayerIndex);
+        int playerLocation = currentPlayer.getCurrentLocationIndex();
+
+        if( locations.get(playerLocation) instanceof Property) {
+            Property property = (Property) locations.get(playerLocation);
+            buyProperty(property);
+        }
+        else if( locations.get(playerLocation) instanceof Railroad) {
+            Railroad railroad = (Railroad) locations.get(playerLocation);
+            buyRailroad(railroad);
+        }
         setColorOfLocation(playerLocation, "buy");
         buyButton.setDisable(true);
+    }
+
+    private void buyRailroad( Railroad railroad) {
+        playerManager.buyRailroad(currentPlayer, railroad);
+        railroadManager.buyRailroad(railroad, currentPlayer);
+    }
+
+    private void buyProperty( Property property) {
+        playerManager.buyProperty(currentPlayer, property);
+        propertyManager.buyProperty(property, currentPlayer);
     }
 
     @FXML

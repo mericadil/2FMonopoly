@@ -5,6 +5,7 @@ import com.twoFMonopoly.models.Buildings.Building;
 import com.twoFMonopoly.models.Card.Card;
 import com.twoFMonopoly.models.Locations.Property;
 import com.twoFMonopoly.models.Locations.Railroad;
+import com.twoFMonopoly.models.Locations.Tradable;
 import com.twoFMonopoly.models.Player;
 
 import java.util.ArrayList;
@@ -126,6 +127,11 @@ public class PlayerManager {
         player.bankrupt();
     }
 
+    public void payRent(Player player, Tradable tradable) {
+        double rentCost = tradable.getRentCost();
+        giveMoney(player, rentCost);
+        getMoney(tradable.getOwner(), rentCost);
+    }
     public void payRentProperty(Player player, Property property) {
         double rentCost = property.getRentCost();
         giveMoney(player, rentCost);
