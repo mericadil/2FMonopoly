@@ -17,7 +17,7 @@ public class JumpLocations implements MoveStrategy {
     public void act(Player player) {
         int currentLocation = player.getCurrentLocationIndex();
         int boardLocation = currentLocation + noOfJumps;
-        if( boardLocation > Constants.boardsMaxIndex)
+        if( boardLocation >= Constants.boardsMaxIndex)
             player.setMoneyAmount(player.getMoneyAmount() + Constants.startingPointMoney);
         player.setCurrentLocationIndex(boardLocation % Constants.boardsMaxIndex);
         // TODO
