@@ -12,3 +12,5 @@
 out/production/2FMonopoly/com/twoFMonopoly/Managers/PlayerManager.class
 *.class
 out/production/2FMonopoly/META-INF/2FMonopoly.kotlin_module
+out/production/2FMonopoly/com/twoFMonopoly/Constants.class
+*.class
