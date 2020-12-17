@@ -2,6 +2,12 @@ package com.twoFMonopoly.UI.controller;
 
 import com.twoFMonopoly.Constants;
 import com.twoFMonopoly.Main;
+import com.twoFMonopoly.Managers.PlayerManager;
+import com.twoFMonopoly.Managers.PropertyManager;
+import com.twoFMonopoly.Managers.RailroadManager;
+import com.twoFMonopoly.UI.GameInitializer;
+import com.twoFMonopoly.models.Locations.Location;
+import com.twoFMonopoly.models.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -266,11 +272,19 @@ public class ClassicModeMapController {
     private ArrayList<String> colors;
     private ArrayList<String> names;
     private ArrayList<Integer> queueIndices;
-    private ArrayList<Integer> playerLocations;
 
     private ArrayList<Text> playerNames, playerTimes, playerMoneys;
-    private ArrayList<Rectangle> properties, corners, chances, communityChests, locations, propertyOwners;
+    private ArrayList<Rectangle> propertyViews, corners, chanceViews, communityChestViews, locationViews, propertyOwnerViews;
     private ArrayList<Circle> playerTokens;
+
+    private PlayerManager playerManager;
+    private RailroadManager railroadManager;
+    private PropertyManager propertyManager;
+    // Define model attributes
+    private ArrayList<Location> locations;
+    private ArrayList<Player> players;
+    private ArrayList<Integer> playerLocations;
+    private double moneyInTheMiddle;
 
     public void init(int playerCount, ArrayList<String> colors, ArrayList<String> names, ArrayList<Integer> queueIndices){
         Main.player.stop();
@@ -278,30 +292,32 @@ public class ClassicModeMapController {
         Main.player.setOnEndOfMedia( () -> Main.player.seek(Duration.ZERO));
         Main.player.play();
 
+        moneyInTheMiddle = 0;
+
         playerNames = new ArrayList<>(Arrays.asList(playerName1, playerName2, playerName3, playerName4, playerName5, playerName6, playerName7, playerName8));
         playerTimes = new ArrayList<>(Arrays.asList(playerTime1, playerTime2, playerTime3, playerTime4, playerTime5, playerTime6, playerTime7, playerTime8));
         playerMoneys = new ArrayList<>(Arrays.asList(playerMoney1, playerMoney2, playerMoney3, playerMoney4, playerMoney5, playerMoney6, playerMoney7, playerMoney8));
         playerTokens = new ArrayList<>(Arrays.asList(playerToken1, playerToken2, playerToken3, playerToken4, playerToken5, playerToken6, playerToken7, playerToken8));
-        properties = new ArrayList<>(Arrays.asList(property1, property2, property3, property4, property5, property6, property7, property8, property9, property10,
+        propertyViews = new ArrayList<>(Arrays.asList(property1, property2, property3, property4, property5, property6, property7, property8, property9, property10,
                                                 property11, property12, property13, property14, property15, property16, property17, property18, property19));
         corners = new ArrayList<>(Arrays.asList(corner1, corner2, corner3, corner4));
-        chances = new ArrayList<>(Arrays.asList(chance1, chance2));
-        communityChests = new ArrayList<>(Arrays.asList(communityChest1, communityChest2));
-        propertyOwners = new ArrayList<>(Arrays.asList(propertyOwner1, propertyOwner2, propertyOwner3, propertyOwner3, propertyOwner4, propertyOwner5, propertyOwner6, propertyOwner7, propertyOwner8, propertyOwner9, propertyOwner10, propertyOwner11, propertyOwner12, propertyOwner13, propertyOwner14, propertyOwner15, propertyOwner16, propertyOwner17, propertyOwner18, propertyOwner19));
+        chanceViews = new ArrayList<>(Arrays.asList(chance1, chance2));
+        communityChestViews = new ArrayList<>(Arrays.asList(communityChest1, communityChest2));
+        propertyOwnerViews = new ArrayList<>(Arrays.asList(propertyOwner1, propertyOwner2, propertyOwner3, propertyOwner3, propertyOwner4, propertyOwner5, propertyOwner6, propertyOwner7, propertyOwner8, propertyOwner9, propertyOwner10, propertyOwner11, propertyOwner12, propertyOwner13, propertyOwner14, propertyOwner15, propertyOwner16, propertyOwner17, propertyOwner18, propertyOwner19));
         playerLocations = new ArrayList<>();
-        locations = new ArrayList<>(Arrays.asList(  corner1, property1, property2, communityChest1, property3, property4, property5,
+        locationViews = new ArrayList<>(Arrays.asList(  corner1, property1, property2, communityChest1, property3, property4, property5,
                                                     corner2, property6, property7, chance1, property8, property9, property10,
                                                     corner3, property11, property12, property13, communityChest2, property14, property15,
                                                     corner4, property16, property17, chance2, tax1, property18, property19));
-        propertyOwners = new ArrayList<>(Arrays.asList( propertyOwner1, propertyOwner2, propertyOwner3, propertyOwner4, propertyOwner5,
+        propertyOwnerViews = new ArrayList<>(Arrays.asList( propertyOwner1, propertyOwner2, propertyOwner3, propertyOwner4, propertyOwner5,
                                                         propertyOwner6, propertyOwner7, propertyOwner8, propertyOwner9, propertyOwner10,
                                                         propertyOwner11, propertyOwner12, propertyOwner13, propertyOwner14, propertyOwner15,
                                                         propertyOwner16, propertyOwner17, propertyOwner18, propertyOwner19));
 
         currentPlayer = 0;
         this.playerCount = playerCount;
-        this.colors = new ArrayList<String>(colors);
-        this.names = new ArrayList<String>(names);
+        this.colors = new ArrayList<>(colors);
+        this.names = new ArrayList<>(names);
         this.queueIndices = new ArrayList<Integer>(queueIndices);
 
         refactorPlayers();
@@ -309,6 +325,8 @@ public class ClassicModeMapController {
         setTurnText(currentPlayer);
         propertyPane.setVisible(false);
         negotiatePane.setVisible(false);
+        //
+        //GameInitializer.init();
     }
 
     private void refactorPlayers(){
@@ -351,7 +369,7 @@ public class ClassicModeMapController {
 
         rollButton.setDisable(true);
         endOfTurnButton.setDisable(false);
-        if(locations.get(newLocation).getId().substring(0, 4).equals("prop")) {
+        if(locationViews.get(newLocation).getId().substring(0, 4).equals("prop")) {
             propertyPane.setVisible(true);
             propertyPaneSettings();
         }
@@ -360,7 +378,7 @@ public class ClassicModeMapController {
 
     private void propertyPaneSettings() {
         int playerLocation = playerLocations.get(currentPlayer);
-        String idOfLocation = locations.get(playerLocation).getId();
+        String idOfLocation = locationViews.get(playerLocation).getId();
         int propertyNum;
         if(playerLocation >12){
             propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 2));
@@ -368,13 +386,13 @@ public class ClassicModeMapController {
         else{
             propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 1));
         }
-        if(propertyOwners.get(propertyNum - 1).getFill() == playerTokens.get(queueIndices.get(currentPlayer)).getFill()){
+        if(propertyOwnerViews.get(propertyNum - 1).getFill() == playerTokens.get(queueIndices.get(currentPlayer)).getFill()){
             sellButton.setDisable(false);
             buyButton.setDisable(true);
             buildButton.setDisable(false);
             mortgageButton.setDisable(false);
         }
-        else if((propertyOwners.get(propertyNum - 1).getFill() == Color.WHITE)){
+        else if((propertyOwnerViews.get(propertyNum - 1).getFill() == Color.WHITE)){
             sellButton.setDisable(true);
             buyButton.setDisable(false);
             buildButton.setDisable(true);
@@ -389,7 +407,7 @@ public class ClassicModeMapController {
     }
 
     private void setNewCoordinate(int playerLocation){
-        Rectangle playerLocationOnBoard = locations.get(playerLocation);
+        Rectangle playerLocationOnBoard = locationViews.get(playerLocation);
         double xLeftBorder = playerLocationOnBoard.getLayoutX();
         double xRightBorder = xLeftBorder + playerLocationOnBoard.getWidth();
         double yUpperBorder = playerLocationOnBoard.getLayoutY();
@@ -445,7 +463,7 @@ public class ClassicModeMapController {
     }
 
     private void setColorOfLocation(int playerLocation, String eventType){
-        String idOfLocation = locations.get(playerLocation).getId();
+        String idOfLocation = locationViews.get(playerLocation).getId();
         if(idOfLocation.substring(0, 4).equals("prop")){
             int propertyNum;
             if(playerLocation >12){
@@ -455,13 +473,13 @@ public class ClassicModeMapController {
                 propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 1));
             }
             if(eventType.equals("buy")) {
-                if (propertyOwners.get(propertyNum - 1).getFill() == Color.WHITE) {
+                if (propertyOwnerViews.get(propertyNum - 1).getFill() == Color.WHITE) {
                     Paint playerColor = playerTokens.get(queueIndices.get(currentPlayer)).getFill();
-                    propertyOwners.get(propertyNum - 1).setFill(playerColor);
+                    propertyOwnerViews.get(propertyNum - 1).setFill(playerColor);
                 }
             }
             else{
-                propertyOwners.get(propertyNum - 1).setFill(Color.WHITE);
+                propertyOwnerViews.get(propertyNum - 1).setFill(Color.WHITE);
                 propertyPane.setVisible(false);
             }
         }

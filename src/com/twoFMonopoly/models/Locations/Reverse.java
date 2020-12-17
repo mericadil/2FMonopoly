@@ -5,11 +5,9 @@ public class Reverse implements Location {
   //Attributes
   private String locationText;
   private int locationIndex;
-  private String reversingText;
 
   //Constructor
-  public Reverse(String reversingText, String locationText, int locationIndex){
-    this.reversingText = reversingText;
+  public Reverse(String locationText, int locationIndex){
     this.locationText = locationText;
     this.locationIndex = locationIndex;
   }
@@ -23,7 +21,4 @@ public class Reverse implements Location {
     return locationIndex;
   }
 
-  public String getReversingText() {
-    return reversingText;
-  }
 }
