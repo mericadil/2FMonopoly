@@ -1,6 +1,6 @@
 package com.twoFMonopoly.models.Buildings;
 
-public class Building {
+public abstract class Building {
     protected double buildingPrice;
     protected double sellingPrice;
 
