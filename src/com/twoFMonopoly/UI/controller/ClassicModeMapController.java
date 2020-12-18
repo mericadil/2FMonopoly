@@ -355,10 +355,12 @@ public class ClassicModeMapController {
         railroadManager = RailroadManager.getInstance();
 
         for( int i = 0; i < playerCount; i++) {
-            Player player = new Player(i, names.get(i), 1500.0, colors.get(i));
+            int index = queueIndices.get(i);
+            Player player = new Player(index, names.get(index), 1500.0, colors.get(index));
             players.add(player);
         }
 
+        playerManager.setPlayer(players);
         currentPlayer = players.get(currentPlayerIndex);
         refactorPlayers();
         endOfTurnButton.setDisable(true);

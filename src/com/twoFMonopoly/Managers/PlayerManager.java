@@ -12,13 +12,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PlayerManager {
-
+    private ArrayList<Player> players;
     private static PlayerManager instance = new PlayerManager();
 
     private PlayerManager() {}
 
     public static PlayerManager getInstance() {
         return instance;
+    }
+
+    public void setPlayer( ArrayList<Player> players) {
+        this.players = players;
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return players;
     }
 
     public void buyProperty(Player player, Property property) {
