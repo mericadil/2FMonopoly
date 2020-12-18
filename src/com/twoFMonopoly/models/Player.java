@@ -137,4 +137,12 @@ public class Player {
     public void setCurrentLocationIndex(int currentLocationIndex) {
         this.currentLocationIndex = currentLocationIndex;
     }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 }

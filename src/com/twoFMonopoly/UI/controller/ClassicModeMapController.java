@@ -279,6 +279,8 @@ public class ClassicModeMapController {
 
     @FXML
     protected AnchorPane root;
+    @FXML
+    private Text titleOfPropertyDetails;
 
     private Random dice;
     private int currentPlayerIndex;
@@ -353,7 +355,7 @@ public class ClassicModeMapController {
         railroadManager = RailroadManager.getInstance();
 
         for( int i = 0; i < playerCount; i++) {
-            Player player = new Player(i, names.get(i), 500.0, colors.get(i));
+            Player player = new Player(i, names.get(i), 1500.0, colors.get(i));
             players.add(player);
         }
 
@@ -421,6 +423,8 @@ public class ClassicModeMapController {
                 takeGoToJailAction();
             else if(locations.get(newLocation) instanceof CardDeck)
                 takeCardDeckAction();
+            else
+                endOfTurnButton.setDisable(false);
 
             rollButton.setDisable(true);
             //endOfTurnButton.setDisable(false);
@@ -440,7 +444,6 @@ public class ClassicModeMapController {
     }
 
     private void takeGoToJailAction() {
-        playerManager.setLocation(currentPlayer, Constants.jailLocation);
         playerManager.goToJail(currentPlayer, Constants.jailLocation);
         endOfTurnButton.setDisable(false);
     }
@@ -458,6 +461,7 @@ public class ClassicModeMapController {
         }
         else
             playerManager.bankrupt(currentPlayer);
+        updatePlayer(currentPlayer);
         endOfTurnButton.setDisable(false);
     }
 
@@ -467,9 +471,8 @@ public class ClassicModeMapController {
     // Bu durumda yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
     // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
     private void takeTradableAction() {
-        int currentLocation = currentPlayer.getCurrentLocationIndex();
-        Tradable tradable = (Tradable) locations.get(currentLocation);
-        lastClickedTradable = currentLocation;
+        Tradable tradable = (Tradable) locations.get(lastClickedTradable);
+        //lastClickedTradable = currentLocation;
         // If the property is owned by other player
         if(tradable.getOwner() != null && tradable.getOwner() != currentPlayer) {
 
@@ -485,45 +488,17 @@ public class ClassicModeMapController {
             }
         }
         else if( tradable.getOwner() == null) {
-            propertyPane.setVisible(true);
             propertyPaneSettings(tradable);
+            propertyPane.setVisible(true);
         }
         endOfTurnButton.setDisable(false);
     }
 
     private void propertyPaneSettings( Tradable tradable) { //railroad için sonradan yapılacak
                                                             // ui hazır değil denemek için tek üzerinde yapıyoruz
-        /*
-        int playerLocation = playerLocations.get(currentPlayerIndex);
-        String idOfLocation = locationViews.get(playerLocation).getId();
-        int propertyNum;
-        if(playerLocation >12){
-            propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 2));
-        }
-        else{
-            propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 1));
-        }
-        if(propertyOwnerViews.get(propertyNum - 1).getFill() == playerTokens.get(queueIndices.get(currentPlayerIndex)).getFill()){
-            sellButton.setDisable(false);
-            buyButton.setDisable(true);
-            buildButton.setDisable(false);
-            mortgageButton.setDisable(false);
-        }
-        else if((propertyOwnerViews.get(propertyNum - 1).getFill() == Color.WHITE)){
-            sellButton.setDisable(true);
-            buyButton.setDisable(false);
-            buildButton.setDisable(true);
-            mortgageButton.setDisable(true);
-        }
-        else{
-            sellButton.setDisable(true);
-            buyButton.setDisable(true);
-            buildButton.setDisable(true);
-            mortgageButton.setDisable(true);
-        }*/
         if(locations.get(lastClickedTradable) instanceof Property) {
             Property property = (Property) locations.get(lastClickedTradable);
-            updateProperty(property);
+            updatePropertyPane(property);
             if(property.getOwner() == null) {
                 sellButton.setDisable(true);
                 buyButton.setDisable(!(playerManager.canAfford(currentPlayer, property.getCost())
@@ -534,7 +509,8 @@ public class ClassicModeMapController {
             else if(property.getOwner() == currentPlayer) {
                 sellButton.setDisable(!(property.getNoOfBuildings() > 0));
                 buyButton.setDisable(true);
-                buildButton.setDisable(!playerManager.canAfford(currentPlayer, property.getNextBuildingsBuildingCost()));
+                buildButton.setDisable(!(playerManager.canAfford(currentPlayer, property.getNextBuildingsBuildingCost())
+                                        && property.isMonopoly()));
                 mortgageButton.setDisable(!(property.getNoOfBuildings() == 0 && !property.isMortgaged()));
             }
             else {
@@ -546,6 +522,7 @@ public class ClassicModeMapController {
         }
         else {
             Railroad railroad = (Railroad) locations.get(lastClickedTradable);
+            updateRailroadPane(railroad);
             if(railroad.getOwner() == null) {
                 sellButton.setDisable(true);
                 buyButton.setDisable(!playerManager.canAfford(currentPlayer, railroad.getCost()));
@@ -624,14 +601,14 @@ public class ClassicModeMapController {
     //Buy button sadece playermanager.canEfford(player, amount) true ise aktif olacak
     @FXML
     public void buyButtonPushed(ActionEvent event) {
-        int playerLocation = currentPlayer.getCurrentLocationIndex();
+        //int playerLocation = currentPlayer.getCurrentLocationIndex();
 
         if( locations.get(lastClickedTradable) instanceof Property) {
-            Property property = (Property) locations.get(playerLocation);
+            Property property = (Property) locations.get(lastClickedTradable);
             buyProperty(property);
         }
         else if( locations.get(lastClickedTradable) instanceof Railroad) {
-            Railroad railroad = (Railroad) locations.get(playerLocation);
+            Railroad railroad = (Railroad) locations.get(lastClickedTradable);
             buyRailroad(railroad);
         }
         //setColorOfLocation(lastClickedTradable, "buy");
@@ -709,12 +686,31 @@ public class ClassicModeMapController {
         }
     }
 
-    private void updateProperty( Property property){
+    private void updatePropertyPane( Property property){
         double cost = property.getCost();
         double mortgagePrice = property.getCurrentMortgagePrice();
+        String name = property.getName();
         ArrayList<Double> rentPrices = property.getRentPrices();
         ArrayList<Building> buildings = property.getBuildings();
 
+        siteOnlyText.setText("Site Only");
+        oneHouseText.setVisible(true);
+        oneHouseRent.setVisible(true);
+        twoHousesText.setText("2 Houses");
+        threeHousesText.setText("3 Houses");
+        fourHousesRent.setVisible(true);
+        fourHousesText.setVisible(true);
+        hotelText.setText("Hotel");
+        houseCostText.setVisible(true);
+        houseCost1.setVisible(true);
+        houseCost2.setVisible(true);
+        houseCost3.setVisible(true);
+        houseCost4.setVisible(true);
+        hotelCostText.setVisible(true);
+        hotelCost.setVisible(true);
+        buildButton.setVisible(true);
+
+        titleOfPropertyDetails.setText(name);
         costPriceText.setText("$" + cost + "K");
         mortgageValue.setText("$" + mortgagePrice + "K");
         siteOnlyRent.setText("$" + rentPrices.get(0) + "K" );
@@ -730,6 +726,67 @@ public class ClassicModeMapController {
         houseCost4.setText("$" + buildings.get(3).getBuildingPrice() + "K");
         hotelCost.setText("$" + buildings.get(4).getBuildingPrice() + "K");
         mortgageValue.setText("$" + mortgagePrice + "K");
+
+        //setColorOfTradable((Tradable) property);
+    }
+
+    private void setColorOfTradable(Tradable property) {
+        String idOfLocation = locationViews.get(lastClickedTradable).getId();
+        if(idOfLocation.substring(0, 4).equals("prop")){
+            int propertyNum;
+            if(lastClickedTradable >12){
+                propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 2));
+            }
+            else{
+                propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 1));
+            }
+            /*
+            if(eventType.equals("buy")) {
+                if (propertyOwnerViews.get(propertyNum - 1).getFill() == Color.WHITE) {
+                    Paint playerColor = playerTokens.get(queueIndices.get(currentPlayerIndex)).getFill();
+                    propertyOwnerViews.get(propertyNum - 1).setFill(playerColor);
+                }
+            }
+            else{
+                propertyOwnerViews.get(propertyNum - 1).setFill(Color.WHITE);
+                propertyPane.setVisible(false);
+            }*/
+            Tradable tradable = (Tradable) locations.get(lastClickedTradable);
+            if( tradable.getOwner() == null  ) {
+                propertyOwnerViews.get(propertyNum - 1).setFill(Color.WHITE);
+            }
+            else {
+                Color color = Color.web(tradable.getOwner().getColor());
+                propertyOwnerViews.get(propertyNum - 1).setFill(color);
+            }
+        }
+    }
+
+    private void updateRailroadPane(Railroad railroad){
+        titleOfPropertyDetails.setText(railroad.getName());
+        ArrayList<Double> rentPrices = railroad.getRentPrices();
+
+        siteOnlyText.setText("1 Railroad");
+        oneHouseText.setVisible(false);
+        oneHouseRent.setVisible(false);
+        twoHousesText.setText("2 Railroad");
+        threeHousesText.setText("3 Railroad");
+        fourHousesRent.setVisible(false);
+        fourHousesText.setVisible(false);
+        hotelText.setText("4 Railroad");
+        houseCostText.setVisible(false);
+        houseCost1.setVisible(false);
+        houseCost2.setVisible(false);
+        houseCost3.setVisible(false);
+        houseCost4.setVisible(false);
+        hotelCostText.setVisible(false);
+        hotelCost.setVisible(false);
+        buildButton.setVisible(false);
+
+        siteOnlyRent.setText("$" + rentPrices.get(0) + "K" );
+        twoHousesRent.setText("$" + rentPrices.get(1) + "K" );
+        threeHousesRent.setText("$" + rentPrices.get(2) + "K" );
+        hotelRent.setText("$" + rentPrices.get(3) + "K" );
     }
 
 }
