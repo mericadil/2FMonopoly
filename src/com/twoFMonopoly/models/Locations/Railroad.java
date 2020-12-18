@@ -31,4 +31,8 @@ public class Railroad extends Tradable implements Location{
         noOfRailroadsOwnedByTheOwner = railroadsOwnedByTheOwner;
     }
 
+    public double getRentCost() {
+        return rentPrices.get(noOfRailroadsOwnedByTheOwner-1);
+    }
+
 }

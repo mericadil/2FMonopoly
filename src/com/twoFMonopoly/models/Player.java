@@ -20,9 +20,11 @@ public class Player {
     private boolean isBankrupt;
     private double timeSpent;
     private int currentLocationIndex;
+    private String color;
+    private double debt;
 
     //Constructor
-    public Player(int id, String name, double moneyAmount) {
+    public Player(int id, String name, double moneyAmount, String color) {
         this.id = id;
         this.name = name;
         this.moneyAmount = moneyAmount;
@@ -36,6 +38,16 @@ public class Player {
         this.isBankrupt = false;
         this.timeSpent = 0.0;
         this.currentLocationIndex = 0;
+        this.color = color;
+        this.debt = 0;
+    }
+
+    public double getDebt() {
+        return debt;
+    }
+
+    public void setDebt(double debt) {
+        this.debt = debt;
     }
 
     public int getId() {
@@ -124,5 +136,13 @@ public class Player {
 
     public void setCurrentLocationIndex(int currentLocationIndex) {
         this.currentLocationIndex = currentLocationIndex;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }
