@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
@@ -30,13 +31,35 @@ import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
 public class ClassicModeMapController {
-
+    @FXML
+    public AnchorPane pausePane;
+    @FXML
+    public AnchorPane saveGamePane;
+    @FXML
+    public TextField saveGameNameTextField;
+    @FXML
+    public Text queueIndexText1;
+    @FXML
+    public Text queueIndexText2;
+    @FXML
+    public Text queueIndexText3;
+    @FXML
+    public Text queueIndexText4;
+    @FXML
+    public Text queueIndexText5;
+    @FXML
+    public Text queueIndexText6;
+    @FXML
+    public Text queueIndexText7;
+    @FXML
+    public Text queueIndexText8;
     @FXML
     private Rectangle property10;
     @FXML
@@ -289,7 +312,7 @@ public class ClassicModeMapController {
     private ArrayList<String> names;
     private ArrayList<Integer> queueIndices;
 
-    private ArrayList<Text> playerNames, playerTimes, playerMoneys;
+    private ArrayList<Text> playerNames, playerTimes, playerMoneys, queueIndexTexts;
     private ArrayList<Rectangle> propertyViews, corners, chanceViews, communityChestViews, locationViews, propertyOwnerViews;
     private ArrayList<Circle> playerTokens;
 
@@ -316,6 +339,7 @@ public class ClassicModeMapController {
 
         this.lastClickedTradable = 1;
         playerNames = new ArrayList<>(Arrays.asList(playerName1, playerName2, playerName3, playerName4, playerName5, playerName6, playerName7, playerName8));
+        queueIndexTexts = new ArrayList<>(Arrays.asList(queueIndexText1, queueIndexText2, queueIndexText3, queueIndexText4, queueIndexText5, queueIndexText6, queueIndexText7, queueIndexText8));
         playerTimes = new ArrayList<>(Arrays.asList(playerTime1, playerTime2, playerTime3, playerTime4, playerTime5, playerTime6, playerTime7, playerTime8));
         playerMoneys = new ArrayList<>(Arrays.asList(playerMoney1, playerMoney2, playerMoney3, playerMoney4, playerMoney5, playerMoney6, playerMoney7, playerMoney8));
         playerTokens = new ArrayList<>(Arrays.asList(playerToken1, playerToken2, playerToken3, playerToken4, playerToken5, playerToken6, playerToken7, playerToken8));
@@ -367,6 +391,8 @@ public class ClassicModeMapController {
         setTurnText(currentPlayerIndex);
         propertyPane.setVisible(false);
         negotiatePane.setVisible(false);
+        pausePane.setVisible(false);
+        saveGamePane.setVisible(false);
 
         //GameInitializer.init();
     }
@@ -377,14 +403,24 @@ public class ClassicModeMapController {
             playerTokens.get(i).setVisible(false);
             playerMoneys.get(i).setVisible(false);
             playerTimes.get(i).setVisible(false);
+            queueIndexTexts.get(i).setVisible(false);
         }
 
         for (int i = 0; i < playerCount; ++i){
             playerNames.get(i).setText(names.get(i));
+            queueIndices.set(i, queueIndices.get(i) + 1);
+            queueIndexTexts.get(i).setText(queueIndices.get(i).toString());
             playerNames.get(i).setFill(Color.web(Constants.COLORS.get(colors.get(i))));
+            queueIndexTexts.get(i).setFill(Color.web(Constants.COLORS.get(colors.get(i))));
             playerTokens.get(i).setFill(Color.web(Constants.COLORS.get(colors.get(i))));
             playerLocations.add(0);
         }
+        for( int i = 0; i < playerCount; ++i) {
+            queueIndices.set(i, queueIndices.get(i) - 1);
+        }
+        queueIndexTexts.get(0).setVisible(true);
+        queueIndexTexts.get(0).toFront();
+        System.out.println(queueIndexTexts.get(0) + ", ");
 
     }
 
@@ -586,14 +622,6 @@ public class ClassicModeMapController {
     }
 
     @FXML
-    public void pauseAndReturnMainMenu(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../FX/mainMenu.fxml"));
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.getScene().setRoot(root); window.show();
-        System.out.println(window);
-    }
-
-    @FXML
     public void propertyClicked(MouseEvent mouseEvent) {
         lastClickedTradable = Integer.parseInt(((Rectangle) mouseEvent.getSource()).getId());
         Tradable tradable = (Tradable) locations.get(lastClickedTradable);
@@ -792,4 +820,40 @@ public class ClassicModeMapController {
         hotelRent.setText("$" + rentPrices.get(3) + "K" );
     }
 
+    public void goBackToGameFromPausePane(ActionEvent actionEvent) {
+        pausePane.setVisible(false);
+        pausePane.toBack();
+    }
+
+    public void goBackToGameFromSaveGamePane(ActionEvent actionEvent) {
+        saveGamePane.setVisible(false);
+        saveGamePane.toBack();
+    }
+
+    @FXML
+    public void goToMainMenu(ActionEvent actionEvent){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../FX/mainMenu.fxml"));
+            Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            window.getScene().setRoot(root); window.show();
+            System.out.println(window);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openPausePane(ActionEvent actionEvent) {
+        pausePane.toFront();
+        pausePane.setVisible(true);
+    }
+
+    public void openSaveGamePane(ActionEvent actionEvent) {
+        saveGamePane.toFront();
+        saveGamePane.setVisible(true);
+    }
+
+
+    public void saveGame(ActionEvent actionEvent) {
+    }
 }

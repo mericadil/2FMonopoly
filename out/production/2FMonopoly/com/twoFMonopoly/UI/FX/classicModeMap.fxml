@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
@@ -11,36 +12,93 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1366.0" styleClass="mapPane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.ClassicModeMapController">
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" styleClass="mapPane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.ClassicModeMapController">
 <children>
-   <Rectangle fx:id="corner1" id = "0" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0"/>
-   <Rectangle fx:id="property1" id = "1" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="121.0" onMouseClicked="#propertyClicked" />
-   <Rectangle fx:id="property2" id = "2" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="121.0" onMouseClicked="#propertyClicked"/>
-   <Rectangle fx:id="communityChest1" id = "3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle fx:id="property3" id = "4" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle fx:id="property4" id = "5" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="465.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle fx:id="property5" id = "6" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle fx:id="corner2" id = "7" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-   <Rectangle fx:id="property6" id = "8" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="865.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle fx:id="property7" id = "9" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="774.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle fx:id="chance1" id = "10" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle fx:id="property8" id = "11" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="592.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle fx:id="property9" id = "12" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="501.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle fx:id="property10" id = "13" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="410.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle fx:id="corner3" id = "14" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-   <Rectangle fx:id="property11" id = "15" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle fx:id="property12" id = "16" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="465.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle fx:id="property13" id = "17" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle fx:id="communityChest2" id="18" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle fx:id="property14" id = "19" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle fx:id="property15" id= "20" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle fx:id="corner4" id = "21" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-   <Rectangle fx:id="property16" id = "22" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="410.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle fx:id="property17" id = "23" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="501.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle fx:id="chance2" id="24" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="592.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle fx:id="tax1" id="25" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle fx:id="property18" id= "26" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="774.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle fx:id="property19" id = "27" onMouseClicked="#propertyClicked" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="865.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <AnchorPane fx:id="saveGamePane" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fill="#111111" layoutX="498.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save Game">
+               <font>
+                  <Font name="System Bold" size="72.0" />
+               </font>
+            </Text>
+            <TextField fx:id="saveGameNameTextField" layoutX="535.0" layoutY="245.0" promptText="Name" text="Current Date">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <Text layoutX="535.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="650.0" layoutY="525.0" mnemonicParsing="false" onAction="#saveGame" style="-fx-font-weight: bold; -fx-font-size: 18;" text="Save" />
+            <Button layoutX="1264.0" layoutY="47.0" mnemonicParsing="false" onAction="#goBackToGameFromSaveGamePane" style="-fx-font-weight: bold; -fx-background-color: red; -fx-text-fill: white; -fx-font-size: 18;" text="Back" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pausePane" layoutX="-2.0" layoutY="-1.0" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fill="#111111" layoutX="562.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paused">
+               <font>
+                  <Font name="System Bold" size="72.0" />
+               </font>
+            </Text>
+            <Button layoutX="629.0" layoutY="260.0" mnemonicParsing="false" onAction="#goBackToGameFromPausePane" text="Back to Game">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Button layoutX="637.0" layoutY="335.0" mnemonicParsing="false" onAction="#openSaveGamePane" text="Save Game" />
+            <Button layoutX="639.0" layoutY="410.0" mnemonicParsing="false" onAction="#goToMainMenu" text="Quit Game" />
+            <Text fx:id="queueIndexText5" fill="#00d389" layoutX="66.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="queueIndexText6" fill="#1900ff" layoutX="66.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="queueIndexText7" fill="#ff00d9" layoutX="66.0" layoutY="532.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="queueIndexText8" fill="#b700ff" layoutX="66.0" layoutY="607.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   <Rectangle id="0" fx:id="corner1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="1" fx:id="property1" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="125.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="2" fx:id="property2" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="210.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="3" fx:id="communityChest1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="4" fx:id="property3" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="380.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="5" fx:id="property4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="465.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="6" fx:id="property5" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="550.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="7" fx:id="corner2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="8" fx:id="property6" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="865.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+   <Rectangle id="9" fx:id="property7" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="774.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+   <Rectangle id="10" fx:id="chance1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+   <Rectangle id="11" fx:id="property8" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="592.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+   <Rectangle id="12" fx:id="property9" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="501.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+   <Rectangle id="13" fx:id="property10" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="410.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+   <Rectangle id="14" fx:id="corner3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="15" fx:id="property11" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="550.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="16" fx:id="property12" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="465.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="17" fx:id="property13" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="380.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="18" fx:id="communityChest2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="19" fx:id="property14" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="210.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="20" fx:id="property15" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="125.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="21" fx:id="corner4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="22" fx:id="property16" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="410.0" layoutY="4.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+   <Rectangle id="23" fx:id="property17" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="501.0" layoutY="4.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+   <Rectangle id="24" fx:id="chance2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="592.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+   <Rectangle id="25" fx:id="tax1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+   <Rectangle id="26" fx:id="property18" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="774.0" layoutY="4.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+   <Rectangle id="27" fx:id="property19" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="865.0" layoutY="4.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
    <Text fill="#00bc0d" layoutX="999.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go">
       <font>
          <Font name="System Bold Italic" size="28.0" />
@@ -269,7 +327,7 @@
          <Font size="18.0" />
       </font>
    </Button>
-   <Button fx:id="pauseButton" alignment="TOP_CENTER" layoutX="1291.0" layoutY="308.0" mnemonicParsing="false" onAction="#pauseAndReturnMainMenu" styleClass="pause-game-button" text="||" textAlignment="CENTER"> </Button>
+   <Button fx:id="pauseButton" alignment="TOP_CENTER" layoutX="1291.0" layoutY="308.0" mnemonicParsing="false" onAction="#openPausePane" styleClass="pause-game-button" text="||" textAlignment="CENTER"> </Button>
    <HBox layoutX="299.0" layoutY="605.0" prefHeight="25.0" prefWidth="80.0">
       <children>
          <ImageView>
@@ -987,7 +1045,7 @@
    <AnchorPane fx:id="propertyPane" layoutX="455.0" layoutY="142.0" prefHeight="476.0" prefWidth="452.0" style="-fx-background-color: pink; -fx-border-color: black;">
       <children>
          <Rectangle fx:id="propertyNameRect" arcHeight="5.0" arcWidth="5.0" fill="#e455d1" height="59.0" layoutX="127.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-         <Text fx:id = "titleOfPropertyDetails" id="titleOfPropertyDetails" layoutX="127.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" textAlignment="CENTER" wrappingWidth="199.99999302625656">
+         <Text id="titleOfPropertyDetails" fx:id="titleOfPropertyDetails" layoutX="127.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" textAlignment="CENTER" wrappingWidth="199.99999302625656">
             <font>
                <Font size="28.0" />
             </font>
@@ -1222,6 +1280,25 @@
          </Text>
       </children>
    </AnchorPane>
+      <Text fx:id="queueIndexText2" fill="RED" layoutX="66.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="queueIndexText3" fill="#ffaf00" layoutX="66.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="queueIndexText4" fill="#26ff00" layoutX="66.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="queueIndexText1" fill="#000000" layoutX="66.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
 </children>
 </AnchorPane>
-
