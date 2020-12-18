@@ -47,7 +47,7 @@
           <Font name="System Bold" size="24.0" />
         </font>
     </Button>
-    <Button layoutX="581.0" layoutY="524.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" styleClass="main-menu-button" text="Load Game" textAlignment="CENTER">
+    <Button layoutX="581.0" layoutY="524.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" styleClass="main-menu-button" text="Load Game" textAlignment="CENTER" onAction="#goToLoadGame">
         <font>
           <Font size="18.0" />
         </font>

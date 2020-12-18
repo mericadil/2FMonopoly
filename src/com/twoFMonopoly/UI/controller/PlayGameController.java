@@ -34,7 +34,6 @@ public class PlayGameController {
     @FXML
     public void goToNewGame(ActionEvent actionEvent){
 
-
         try {
             int playerCount = Integer.parseInt((String) playerChoiceBox.getSelectionModel().getSelectedItem());
             String modeName = (String) modeChoiceBox.getSelectionModel().getSelectedItem();
@@ -57,7 +56,7 @@ public class PlayGameController {
     @FXML
     public void goToLoadGame(ActionEvent actionEvent){
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../FX/mainMenu.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../FX/loadGame.fxml"));
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
             window.getScene().setRoot(root); window.show();
             System.out.println(window);
