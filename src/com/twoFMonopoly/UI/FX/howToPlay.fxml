@@ -11,12 +11,12 @@
 <AnchorPane id="how-to-play-anchor-pane" focusTraversable="true" prefHeight="1366.0" prefWidth="768.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.HowToPlayController">
     <children>
         <VBox layoutX="558.0" layoutY="234.0" prefHeight="300.0" prefWidth="250.0" />
-        <Button id="button-Quit" accessibleRole="BUTTON" cache="true" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" layoutX="1252.0" layoutY="34.0" styleClass="main-menu-quit-button" text="Back" onAction="#goToMainMenu">
+        <Button id="button-Quit" accessibleRole="BUTTON" cache="true" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" layoutX="1252.0" layoutY="34.0" onAction="#goToMainMenu" styleClass="main-menu-quit-button" text="Back">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Text fill="WHITE" layoutX="504.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-menu-text" text="How to Play" />
+        <Text fill="WHITE" layoutX="504.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-menu-text" text="How to Play" />
       <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="183.0" layoutY="234.0" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="400.0" prefWidth="1000.0">
          <content>
             <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1000.0">
