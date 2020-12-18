@@ -2,6 +2,12 @@ package com.twoFMonopoly.UI.controller;
 
 import com.twoFMonopoly.Constants;
 import com.twoFMonopoly.Main;
+import com.twoFMonopoly.Managers.PlayerManager;
+import com.twoFMonopoly.Managers.PropertyManager;
+import com.twoFMonopoly.Managers.RailroadManager;
+import com.twoFMonopoly.UI.GameInitializer;
+import com.twoFMonopoly.models.Locations.Location;
+import com.twoFMonopoly.models.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
