@@ -175,4 +175,5 @@ public class MapEditorController{
             selectedText = (Text) mouseEvent.getSource();
         }
     }
+
 }

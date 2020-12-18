@@ -58,6 +58,7 @@ public class RailroadManager {
             Railroad railroad = player1Railroads.get(key);
             railroad.setOwner(player2);
             updateRailroads(player2);
+            player2Railroads.put(railroad.getName(), railroad);
         }
     }
 
