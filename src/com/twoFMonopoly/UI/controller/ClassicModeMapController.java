@@ -632,10 +632,18 @@ public class ClassicModeMapController {
     // üstünde olmasına gerek yok clickListenerla almamız lazım
     @FXML
     public void sellButtonPushed(ActionEvent event) {
+        /*
         int playerLocation = playerLocations.get(currentPlayerIndex);
         //lastClickedTradable
         setColorOfLocation(lastClickedTradable, "sell");
         sellButton.setDisable(true);
+        */
+        Property property = (Property) locations.get(lastClickedTradable);
+        playerManager.sellOneBuilding(currentPlayer, property);
+        propertyManager.sellOneBuilding(property);
+        propertyPaneSettings(property);
+        updatePlayer(currentPlayer);
+        // update property kullanılacak
     }
 
     @FXML
@@ -650,6 +658,19 @@ public class ClassicModeMapController {
             propertyManager.mortgageProperty((Property) tradable);
         }
         updatePlayer(currentPlayer);
+        //updatleri göm
+    }
+
+    public void unMortgagedButtonPushed(ActionEvent event) {
+        Tradable tradable =(Tradable) locations.get(lastClickedTradable);
+        if( tradable instanceof Property) {
+            playerManager.removeMortgageProperty(currentPlayer, (Property) tradable);
+            propertyManager.removeMortgageProperty((Property) tradable);
+        }
+        else if( tradable instanceof Railroad) {
+            playerManager.removeMortgageRailroad(currentPlayer, (Railroad) tradable);
+            railroadManager.removeMortgageRailroad((Railroad) tradable, currentPlayer);
+        }
     }
 
     private void setColorOfLocation(int playerLocation, String eventType) {
