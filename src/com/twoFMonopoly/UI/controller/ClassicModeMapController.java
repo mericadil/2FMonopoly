@@ -525,7 +525,8 @@ public class ClassicModeMapController {
             updateRailroadPane(railroad);
             if(railroad.getOwner() == null) {
                 sellButton.setDisable(true);
-                buyButton.setDisable(!playerManager.canAfford(currentPlayer, railroad.getCost()));
+                buyButton.setDisable(!(playerManager.canAfford(currentPlayer, railroad.getCost())
+                                        && currentPlayer.getCurrentLocationIndex() == railroad.getLocationIndex()));
                 buildButton.setDisable(true);
                 mortgageButton.setDisable(true);
             }
