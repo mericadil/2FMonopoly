@@ -94,4 +94,11 @@ public class Property extends Tradable implements Location{
         totalValue += this.cost;
         return totalValue;
     }
+
+    public void setDefaultSettings() {
+        owner = null;
+        isMortgaged = false;
+        isMonopoly = false;
+        noOfBuildings = 0;
+    }
 }
