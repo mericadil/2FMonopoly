@@ -38,6 +38,38 @@ import java.util.Random;
 public class ClassicModeMapController {
 
     @FXML
+    private ImageView house1_1, house1_2, house1_3, house1_4, house2_1, house2_2, house2_3, house2_4;
+    @FXML
+    private ImageView house4_1, house4_2, house4_3, house4_4, house6_1, house6_2, house6_3, house6_4;
+    @FXML
+    private ImageView house8_1, house8_2, house8_3, house8_4, house9_1, house9_2, house9_3, house9_4;
+    @FXML
+    private ImageView house11_1, house11_2, house11_3, house11_4, house13_1, house13_2, house13_3, house13_4;
+    @FXML
+    private ImageView house15_1, house15_2, house15_3, house15_4, house17_1, house17_2, house17_3, house17_4;
+    @FXML
+    private ImageView house19_1, house19_2, house19_3, house19_4, house20_1, house20_2, house20_3, house20_4;
+    @FXML
+    private ImageView house22_1, house22_2, house22_3, house22_4, house23_1, house23_2, house23_3, house23_4;
+    @FXML
+    private ImageView house26_1, house26_2, house26_3, house26_4, house27_1, house27_2, house27_3, house27_4;
+    @FXML
+    private ImageView house1_5, house2_5, house4_5, house6_5, house8_5, house9_5, house11_5, house13_5;
+    @FXML
+    private ImageView house15_5, house17_5, house19_5, house20_5, house22_5, house23_5, house26_5, house27_5;
+
+    @FXML
+    private Text propertyRectName1, propertyRectName2, propertyRectName4, propertyRectName6;
+    @FXML
+    private Text propertyRectName8, propertyRectName9, propertyRectName11, propertyRectName13;
+    @FXML
+    private Text propertyRectName15, propertyRectName17, propertyRectName19, propertyRectName20;
+    @FXML
+    private Text propertyRectName22, propertyRectName23, propertyRectName26, propertyRectName27;
+    @FXML
+    private Text railroadRectName5, railroadRectName12, railroadRectName16;
+
+    @FXML
     private Rectangle property10;
     @FXML
 	private Rectangle corner3;
@@ -61,10 +93,6 @@ public class ClassicModeMapController {
 	private Rectangle property12;
     @FXML
 	private Rectangle property13;
-    @FXML
-	private Rectangle propertyOwner12;
-    @FXML
-	private Rectangle propertyOwner13;
     @FXML
 	private Rectangle communityChest2;
     @FXML
@@ -98,39 +126,43 @@ public class ClassicModeMapController {
     @FXML
 	private Rectangle property1;
     @FXML
-	private Rectangle propertyOwner10;
-    @FXML
-	private Rectangle propertyOwner9;
-    @FXML
-	private Rectangle propertyOwner8;
-    @FXML
-	private Rectangle propertyOwner7;
-    @FXML
-	private Rectangle propertyOwner6;
-    @FXML
-	private Rectangle propertyOwner19;
-    @FXML
-	private Rectangle propertyOwner18;
-    @FXML
-	private Rectangle propertyOwner17;
-    @FXML
-	private Rectangle propertyOwner16;
-    @FXML
-	private Rectangle propertyOwner15;
-    @FXML
-	private Rectangle propertyOwner14;
-    @FXML
-	private Rectangle propertyOwner11;
-    @FXML
 	private Rectangle propertyOwner1;
     @FXML
 	private Rectangle propertyOwner2;
     @FXML
-	private Rectangle propertyOwner3;
-    @FXML
 	private Rectangle propertyOwner4;
     @FXML
 	private Rectangle propertyOwner5;
+    @FXML
+	private Rectangle propertyOwner6;
+    @FXML
+	private Rectangle propertyOwner8;
+    @FXML
+	private Rectangle propertyOwner9;
+    @FXML
+	private Rectangle propertyOwner11;
+    @FXML
+	private Rectangle propertyOwner12;
+    @FXML
+	private Rectangle propertyOwner13;
+    @FXML
+	private Rectangle propertyOwner15;
+    @FXML
+	private Rectangle propertyOwner16;
+    @FXML
+	private Rectangle propertyOwner17;
+    @FXML
+	private Rectangle propertyOwner19;
+    @FXML
+	private Rectangle propertyOwner20;
+    @FXML
+	private Rectangle propertyOwner22;
+    @FXML
+	private Rectangle propertyOwner23;
+    @FXML
+    private Rectangle propertyOwner26;
+    @FXML
+    private Rectangle propertyOwner27;
     @FXML
 	private Text playerName1;
     @FXML
@@ -291,6 +323,10 @@ public class ClassicModeMapController {
 
     private ArrayList<Text> playerNames, playerTimes, playerMoneys;
     private ArrayList<Rectangle> propertyViews, corners, chanceViews, communityChestViews, locationViews, propertyOwnerViews;
+    private ArrayList<Text> propertyRectNameViews;
+    private ArrayList<Text> railroadRectNameViews;
+    private ArrayList<ImageView> houseViews;
+
     private ArrayList<Circle> playerTokens;
 
     private PlayerManager playerManager;
@@ -324,17 +360,28 @@ public class ClassicModeMapController {
         corners = new ArrayList<>(Arrays.asList(corner1, corner2, corner3, corner4));
         chanceViews = new ArrayList<>(Arrays.asList(chance1, chance2));
         communityChestViews = new ArrayList<>(Arrays.asList(communityChest1, communityChest2));
-        propertyOwnerViews = new ArrayList<>(Arrays.asList(propertyOwner1, propertyOwner2, propertyOwner3, propertyOwner3, propertyOwner4, propertyOwner5, propertyOwner6, propertyOwner7, propertyOwner8, propertyOwner9, propertyOwner10, propertyOwner11, propertyOwner12, propertyOwner13, propertyOwner14, propertyOwner15, propertyOwner16, propertyOwner17, propertyOwner18, propertyOwner19));
+        propertyOwnerViews = new ArrayList<>(Arrays.asList(propertyOwner1, propertyOwner2, propertyOwner4, propertyOwner5, propertyOwner6, propertyOwner8, propertyOwner9,
+                                                                        propertyOwner11, propertyOwner12, propertyOwner13, propertyOwner15, propertyOwner16, propertyOwner17, propertyOwner19,
+                                                                        propertyOwner20, propertyOwner22, propertyOwner23, propertyOwner26, propertyOwner27));
         playerLocations = new ArrayList<>();
         locationViews = new ArrayList<>(Arrays.asList(  corner1, property1, property2, communityChest1, property3, property4, property5,
                                                     corner2, property6, property7, chance1, property8, property9, property10,
                                                     corner3, property11, property12, property13, communityChest2, property14, property15,
                                                     corner4, property16, property17, chance2, tax1, property18, property19));
-        propertyOwnerViews = new ArrayList<>(Arrays.asList( propertyOwner1, propertyOwner2, propertyOwner3, propertyOwner4, propertyOwner5,
-                                                        propertyOwner6, propertyOwner7, propertyOwner8, propertyOwner9, propertyOwner10,
-                                                        propertyOwner11, propertyOwner12, propertyOwner13, propertyOwner14, propertyOwner15,
-                                                        propertyOwner16, propertyOwner17, propertyOwner18, propertyOwner19));
+        propertyRectNameViews = new ArrayList<>(Arrays.asList(propertyRectName1, propertyRectName2, propertyRectName4, propertyRectName6, propertyRectName8,
+                                                            propertyRectName9, propertyRectName11, propertyRectName13, propertyRectName15, propertyRectName17,
+                                                            propertyRectName19, propertyRectName20, propertyRectName22, propertyRectName23, propertyRectName26, propertyRectName27));
 
+        railroadRectNameViews = new ArrayList<>(Arrays.asList(railroadRectName5, railroadRectName12, railroadRectName16));
+
+        houseViews = new ArrayList<>(Arrays.asList( house1_1, house1_2, house1_3, house1_4, house1_5, house2_1, house2_2, house2_3, house2_4, house2_5,
+                                                    house4_1, house4_2, house4_3, house4_4, house4_5, house6_1, house6_2, house6_3, house6_4, house6_5,
+                                                    house8_1, house8_2, house8_3, house8_4, house8_5, house9_1, house9_2, house9_3, house9_4, house9_5,
+                                                    house11_1, house11_2, house11_3, house11_4, house11_5, house13_1, house13_2, house13_3, house13_4, house13_5,
+                                                    house15_1, house15_2, house15_3, house15_4, house15_4, house17_1, house17_2, house17_3, house17_4, house17_5,
+                                                    house19_1, house19_2, house19_3, house19_4, house19_5, house20_1, house20_2, house20_3, house20_4, house20_5,
+                                                    house22_1, house22_2, house22_3, house22_4, house22_5, house23_1, house23_2, house23_3, house23_4, house23_5,
+                                                    house26_1, house26_2, house26_3, house26_4, house26_5, house27_1, house27_2, house27_3, house27_4, house27_5));
 
 
         gameInitializer = new GameInitializer();
@@ -789,4 +836,78 @@ public class ClassicModeMapController {
         hotelRent.setText("$" + rentPrices.get(3) + "K" );
     }
 
+    private void updateProperty( Property property, int propertyLocationIndex){
+        String propertyRectName = "propertyRectName" + propertyLocationIndex;
+        String propertyOwner = "propertyOwner" + propertyLocationIndex;
+        int noOfBuildings = property.getNoOfBuildings();
+        ArrayList<String> buildingNames = new ArrayList<String>();
+
+        for(int i = 1; i <= noOfBuildings; i++){
+            buildingNames.add(propertyLocationIndex + "house" + i);
+        }
+
+        for(Text prop: propertyRectNameViews){
+            if(prop.getId().equals(propertyRectName)){
+                prop.setText(property.getName());
+            }
+        }
+        for(Rectangle rect: propertyOwnerViews){
+            if(rect.getId().equals(propertyOwner)){
+                String color = property.getOwner().getColor();
+                rect.setFill(Color.web(color));
+            }
+        }
+        for(ImageView imageView: houseViews){
+            for(int i = 0; i < buildingNames.size(); i++){
+                if(imageView.getId().equals(buildingNames.get(i))){
+                    Image hotelOpaqueImage;
+                    if(i == 4){
+                        hotelOpaqueImage = new Image("@../assets/hotel_opaque.png");
+                    }
+                    else {
+                        hotelOpaqueImage = new Image("@../assets/house_opaque.png");
+                    }
+                    imageView.setImage(hotelOpaqueImage);
+                }
+            }
+        }
+    }
+
+    private void updateRailroad( Railroad railroad, int propertyLocationIndex) {
+        String propertyRectName = "railroadRectName" + propertyLocationIndex;
+        String propertyOwner = "propertyOwner" + propertyLocationIndex;
+
+        for (Text rail : railroadRectNameViews) {
+            if (rail.getId().equals(propertyRectName)) {
+                rail.setText(railroad.getName());
+            }
+        }
+        for (Rectangle rect : propertyOwnerViews) {
+            if (rect.getId().equals(propertyOwner)) {
+                String color = railroad.getOwner().getColor();
+                rect.setFill(Color.web(color));
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
