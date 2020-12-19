@@ -120,6 +120,7 @@ public class PlayerManager {
         player1.setNoOfRailroads(0);
         player1.setNoOfHotels(0);
         player1.setNoOfHouses(0);
+        player1.setJailStatus(0);
         player1.bankrupt();
 
     }
@@ -131,6 +132,7 @@ public class PlayerManager {
         player.setNoOfHotels(0);
         player.setNoOfHouses(0);
         player.bankrupt();
+        player.setJailStatus(0);
 
         HashMap<String, Railroad> railroads = player.getRailroads();
         HashMap<String, Property> properties = player.getProperties();

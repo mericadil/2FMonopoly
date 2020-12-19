@@ -472,7 +472,7 @@ public class ClassicModeMapController {
             takeNormalTurn(dice1, dice2);
         }
         else {
-            takeJailTurn(dice1, dice2);
+            takeJailTurn();
         }
     }
 
@@ -502,33 +502,60 @@ public class ClassicModeMapController {
         rollButton.setDisable(true);
     }
 
-    public void takeJailTurn(int dice1, int dice2) {
+    public void takeJailTurn() {
         if(currentPlayer.getJailStatus() == 3) {
-            if(playerManager.canAfford(currentPlayer, JAIL_FINE)) {
-                playerManager.giveMoney(currentPlayer, JAIL_FINE);
-                playerManager.exitJail(currentPlayer);
-                updatePlayer(currentPlayer);
-                takeNormalTurn(dice1, dice2);
-            }
-            else if(playerManager.tenderToAvoidBankrupt(currentPlayer, JAIL_FINE)) {
-                currentPlayer.addDebt(JAIL_FINE);
-                // buton updatei lazım
-                playerManager.exitJail(currentPlayer);
-                updatePlayer(currentPlayer);
+            if(playerManager.canAfford(currentPlayer, JAIL_FINE) ||
+                    playerManager.tenderToAvoidBankrupt(currentPlayer, JAIL_FINE)) {
+                // payFine button active
+                //use freedom right button active if player has freedomRights
+                endOfTurnButton.setDisable(true);
             }
             else {
                 playerManager.bankrupt(currentPlayer);
                 updatePlayer(currentPlayer);
+                endOfTurnButton.setDisable(false);
             }
         }
         else {
             //pay fine button active
             //use freedom right button active if player has freedomRights
-            //end turn button active
-            /*
-            end turne taşınacak
-             */
-            playerManager.updateJailStatus(currentPlayer);
+            endOfTurnButton.setDisable(false);
+        }
+    }
+
+    public void payJailFine() {
+        if(currentPlayer.getJailStatus() == 3) {
+            if(playerManager.canAfford(currentPlayer, JAIL_FINE)) {
+                playerManager.giveMoney(currentPlayer, JAIL_FINE);
+                playerManager.exitJail(currentPlayer);
+                updatePlayer(currentPlayer);
+                endOfTurnButton.setDisable(false);
+                //pay fine disabled
+            }
+            else if(playerManager.tenderToAvoidBankrupt(currentPlayer, JAIL_FINE)) {
+                // Text düş tepeye you have to sell sth to pay your fine
+            }
+            else {
+                playerManager.bankrupt(currentPlayer);
+                updatePlayer(currentPlayer);
+                endOfTurnButton.setDisable(true);
+                //pay fine disabled
+            }
+        }
+        else {
+            playerManager.giveMoney(currentPlayer, JAIL_FINE);
+            playerManager.exitJail(currentPlayer);
+            updatePlayer(currentPlayer);
+            endOfTurnButton.setDisable(false);
+            //pay fine disabled
+        }
+    }
+
+    //Only active when there are freedom rights
+    public void useFreedomRight() {
+        if(playerManager.useFreedomRightToExitJail(currentPlayer)) {
+            endOfTurnButton.setDisable(false);
+            //disable freedom right button
         }
     }
 
@@ -550,16 +577,19 @@ public class ClassicModeMapController {
         double taxAmount = tax.getTaxAmount();
         if(playerManager.canAfford(currentPlayer,taxAmount)) {
             playerManager.giveMoney(currentPlayer,taxAmount);
+            endOfTurnButton.setDisable(false);
         }
         else if(playerManager.tenderToAvoidBankrupt(currentPlayer, taxAmount)) {
             currentPlayer.addDebt(taxAmount);
+            endOfTurnButton.setDisable(true);
             // Debt butonu lazım
         }
-        else
+        else {
             playerManager.bankrupt(currentPlayer);
+            endOfTurnButton.setDisable(false);
+        }
         moneyInTheMiddle += taxAmount;
         updatePlayer(currentPlayer);
-        endOfTurnButton.setDisable(false);
     }
 
     private void takeTradableAction() {
@@ -568,22 +598,25 @@ public class ClassicModeMapController {
         // If the property is owned by other player
         if(tradable.getOwner() != null && tradable.getOwner() != currentPlayer) {
 
-            if(playerManager.canAfford(currentPlayer, tradable.getRentCost()))
+            if(playerManager.canAfford(currentPlayer, tradable.getRentCost())) {
                 playerManager.payRent(currentPlayer, tradable);
+                endOfTurnButton.setDisable(false);
+            }
             else if(playerManager.tenderToAvoidBankrupt(currentPlayer, tradable.getRentCost())) {
                 currentPlayer.addDebt(tradable.getRentCost());
-                // Yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
-                // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
+                endOfTurnButton.setDisable(true);
+                //debt butonu aktif
             }
             else {
                 playerManager.bankrupt(currentPlayer, tradable.getOwner());
+                endOfTurnButton.setDisable(false);
             }
         }
         else if( tradable.getOwner() == null) {
             propertyPaneSettings(tradable);
             propertyPane.setVisible(true);
+            endOfTurnButton.setDisable(false);
         }
-        endOfTurnButton.setDisable(false);
     }
 
     private void propertyPaneSettings( Tradable tradable) { //railroad için sonradan yapılacak
@@ -771,6 +804,19 @@ public class ClassicModeMapController {
         else if( tradable instanceof Railroad) {
             playerManager.removeMortgageRailroad(currentPlayer, (Railroad) tradable);
             railroadManager.removeMortgageRailroad((Railroad) tradable, currentPlayer);
+        }
+    }
+
+    public void payDebtButtonPushed() {
+        double debt = currentPlayer.getDebt();
+        if(payDebt()) {
+            //disable button
+            endOfTurnButton.setDisable(false);
+        }
+        else if(playerManager.tenderToAvoidBankrupt(currentPlayer, debt)) {
+            //yukarı setText (You have to sell buildings or mortgage tradables to pay your dedbt)
+        }
+        else {
         }
     }
 
@@ -988,5 +1034,16 @@ public class ClassicModeMapController {
             if(!player.isBankrupt()) playingPlayerCount++;
         }
         return playingPlayerCount > 1;
+    }
+
+    private boolean payDebt() {
+        double debt = currentPlayer.getDebt();
+        if(playerManager.canAfford(currentPlayer, debt)) {
+            playerManager.giveMoney(currentPlayer, debt);
+            currentPlayer.setDebt(0);
+            return true;
+        }
+        else
+            return false;
     }
 }
