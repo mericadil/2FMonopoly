@@ -1,25 +1,27 @@
 package com.twoFMonopoly.models.Card;
 
+import com.twoFMonopoly.Managers.PlayerManager;
 import com.twoFMonopoly.models.Player;
 
-public abstract class Card {
+import java.io.Serializable;
+
+public abstract class Card implements Serializable {
 
     // Attributes
     protected final CardActionStrategy actionStrategy;
-    protected final String cardText;
 
     // Methods
 
-    public Card( CardActionStrategy actionStrategy, String cardText ) {
+    public Card( CardActionStrategy actionStrategy ) {
         this.actionStrategy = actionStrategy;
-        this.cardText = cardText;
     }
 
-    public void makeCardAction(Player p) {
-        actionStrategy.act( p );
+    public void makeCardAction(Player player, PlayerManager playerManager) {
+        actionStrategy.act( player, playerManager );
     }
 
-    public String getCardText() {
-        return cardText;
+    @Override
+    public String toString() {
+        return actionStrategy.toString();
     }
 }

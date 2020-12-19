@@ -13,9 +13,7 @@ public class Chance implements Location, CardDeck {
     // Methods
     public Chance( ArrayList<ChanceCard> cards ) {
         this.cards = cards;
-    }
-
-    public Chance() {
+        shuffleCard();
     }
 
     public void shuffleCard( ) {
@@ -30,7 +28,7 @@ public class Chance implements Location, CardDeck {
 
     @Override
     public String getLocationText() {
-        return null;
+        return "Chance";
     }
 
     @Override

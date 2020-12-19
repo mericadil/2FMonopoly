@@ -2,7 +2,7 @@ package com.twoFMonopoly.Managers;
 
 import com.twoFMonopoly.Constants;
 import com.twoFMonopoly.models.Buildings.Building;
-import com.twoFMonopoly.models.Card.Card;
+import com.twoFMonopoly.models.Card.*;
 import com.twoFMonopoly.models.Locations.Property;
 import com.twoFMonopoly.models.Locations.Railroad;
 import com.twoFMonopoly.models.Locations.Tradable;
@@ -12,13 +12,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PlayerManager {
-
+    private ArrayList<Player> players;
     private static PlayerManager instance = new PlayerManager();
 
     private PlayerManager() {}
 
     public static PlayerManager getInstance() {
         return instance;
+    }
+
+    public void setPlayer( ArrayList<Player> players) {
+        this.players = players;
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return players;
     }
 
     public void buyProperty(Player player, Property property) {
@@ -115,7 +123,14 @@ public class PlayerManager {
         for( String key : player1Railroads.keySet())
             player2Railroads.put(key, player1Railroads.get(key));
 
-        bankrupt(player1);
+        player1.setMoneyAmount(0);
+        player1.setNoOfFreedomRights(0);
+        player1.setNoOfRailroads(0);
+        player1.setNoOfHotels(0);
+        player1.setNoOfHouses(0);
+        player1.setJailStatus(0);
+        player1.bankrupt();
+
     }
 
     public void bankrupt(Player player) {
@@ -125,6 +140,19 @@ public class PlayerManager {
         player.setNoOfHotels(0);
         player.setNoOfHouses(0);
         player.bankrupt();
+        player.setJailStatus(0);
+
+        HashMap<String, Railroad> railroads = player.getRailroads();
+        HashMap<String, Property> properties = player.getProperties();
+        for( String key : railroads.keySet()) {
+            Railroad railroad = railroads.get(key);
+            railroad.setDefaultSettings();
+        }
+
+        for(String key : properties.keySet()) {
+            Property property = properties.get(key);
+            property.setDefaultSettings();
+        }
     }
 
     public void payRent(Player player, Tradable tradable) {
@@ -212,7 +240,7 @@ public class PlayerManager {
     }
 
     public void makeCardAction(Player player, Card card) {
-        card.makeCardAction(player);
+        card.makeCardAction( player, this );
     }
 
     public void setLocation(Player player, int location) {
@@ -222,4 +250,31 @@ public class PlayerManager {
         player.setCurrentLocationIndex(location);
     }
 
+    public ArrayList<Player> getAllPlayers() {
+        return players;
+    }
+
+    public void payForcedMoney( Player player, double amount ) {
+        if ( canAfford(player, amount) )
+            giveMoney(player , amount);
+        else if (tenderToAvoidBankrupt( player , amount ))  {
+            player.setDebt(amount);
+            // Yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
+            // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
+        } else {
+            bankrupt( player );
+        }
+    }
+
+    public void payForcedMoneyToOtherPlayer( Player player, Player receiver, double amount ) {
+        if ( canAfford(player, amount) )
+            giveMoney(player , amount);
+        else if (tenderToAvoidBankrupt( player , amount ))  {
+            player.setDebt(amount);
+            // Yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
+            // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
+        } else {
+            bankrupt( player, receiver );
+        }
+    }
 }

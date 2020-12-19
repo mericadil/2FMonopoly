@@ -1,6 +1,8 @@
 package com.twoFMonopoly.models.Buildings;
 
-public class Building {
+import java.io.Serializable;
+
+public class Building implements Serializable {
     protected double buildingPrice;
     protected double sellingPrice;
 
