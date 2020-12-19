@@ -1076,7 +1076,7 @@
                <Font name="System Bold" size="13.0" />
             </font>
          </Button>
-         <Button fx:id="mortgageButton" layoutX="311.0" layoutY="424.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: yellow;" text="Mortgage">
+         <Button fx:id="mortgageButton" onAction="#mortgageButtonPushed" layoutX="311.0" layoutY="424.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: yellow;" text="Mortgage">
             <font>
                <Font name="System Bold" size="13.0" />
             </font>

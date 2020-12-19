@@ -648,17 +648,19 @@ public class ClassicModeMapController {
 
     @FXML
     public void mortgageButtonPushed(ActionEvent event) {
-        Tradable tradable = (Tradable) locations.get(lastClickedTradable);
-        if(tradable instanceof Railroad) {
-            playerManager.mortgageRailroad(currentPlayer, (Railroad) tradable);
-            railroadManager.mortgageRailroad((Railroad) tradable, currentPlayer);
+
+        if(locations.get(lastClickedTradable) instanceof Railroad) {
+            Railroad railroad = (Railroad) locations.get(lastClickedTradable);
+            playerManager.mortgageRailroad(currentPlayer, railroad);
+            railroadManager.mortgageRailroad(railroad, currentPlayer);
         }
-        else if( tradable instanceof Property) {
-            playerManager.mortgageProperty(currentPlayer, (Property) tradable);
-            propertyManager.mortgageProperty((Property) tradable);
+        else if( locations.get(lastClickedTradable) instanceof Property) {
+            Property property = (Property) locations.get(lastClickedTradable);
+            playerManager.mortgageProperty(currentPlayer, property);
+            propertyManager.mortgageProperty(property);
         }
+        propertyPaneSettings((Tradable) locations.get(lastClickedTradable));
         updatePlayer(currentPlayer);
-        //updatleri göm
     }
 
     public void unMortgagedButtonPushed(ActionEvent event) {
