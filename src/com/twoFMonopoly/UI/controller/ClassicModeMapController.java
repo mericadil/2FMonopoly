@@ -60,6 +60,39 @@ public class ClassicModeMapController {
     public Text queueIndexText7;
     @FXML
     public Text queueIndexText8;
+
+    @FXML
+    private ImageView house1_1, house1_2, house1_3, house1_4, house2_1, house2_2, house2_3, house2_4;
+    @FXML
+    private ImageView house4_1, house4_2, house4_3, house4_4, house6_1, house6_2, house6_3, house6_4;
+    @FXML
+    private ImageView house8_1, house8_2, house8_3, house8_4, house9_1, house9_2, house9_3, house9_4;
+    @FXML
+    private ImageView house11_1, house11_2, house11_3, house11_4, house13_1, house13_2, house13_3, house13_4;
+    @FXML
+    private ImageView house15_1, house15_2, house15_3, house15_4, house17_1, house17_2, house17_3, house17_4;
+    @FXML
+    private ImageView house19_1, house19_2, house19_3, house19_4, house20_1, house20_2, house20_3, house20_4;
+    @FXML
+    private ImageView house22_1, house22_2, house22_3, house22_4, house23_1, house23_2, house23_3, house23_4;
+    @FXML
+    private ImageView house26_1, house26_2, house26_3, house26_4, house27_1, house27_2, house27_3, house27_4;
+    @FXML
+    private ImageView house1_5, house2_5, house4_5, house6_5, house8_5, house9_5, house11_5, house13_5;
+    @FXML
+    private ImageView house15_5, house17_5, house19_5, house20_5, house22_5, house23_5, house26_5, house27_5;
+
+    @FXML
+    private Text propertyRectName1, propertyRectName2, propertyRectName4, propertyRectName6;
+    @FXML
+    private Text propertyRectName8, propertyRectName9, propertyRectName11, propertyRectName13;
+    @FXML
+    private Text propertyRectName15, propertyRectName17, propertyRectName19, propertyRectName20;
+    @FXML
+    private Text propertyRectName22, propertyRectName23, propertyRectName26, propertyRectName27;
+    @FXML
+    private Text railroadRectName5, railroadRectName12, railroadRectName16;
+
     @FXML
     private Rectangle property10;
     @FXML
@@ -84,10 +117,6 @@ public class ClassicModeMapController {
 	private Rectangle property12;
     @FXML
 	private Rectangle property13;
-    @FXML
-	private Rectangle propertyOwner12;
-    @FXML
-	private Rectangle propertyOwner13;
     @FXML
 	private Rectangle communityChest2;
     @FXML
@@ -121,39 +150,43 @@ public class ClassicModeMapController {
     @FXML
 	private Rectangle property1;
     @FXML
-	private Rectangle propertyOwner10;
-    @FXML
-	private Rectangle propertyOwner9;
-    @FXML
-	private Rectangle propertyOwner8;
-    @FXML
-	private Rectangle propertyOwner7;
-    @FXML
-	private Rectangle propertyOwner6;
-    @FXML
-	private Rectangle propertyOwner19;
-    @FXML
-	private Rectangle propertyOwner18;
-    @FXML
-	private Rectangle propertyOwner17;
-    @FXML
-	private Rectangle propertyOwner16;
-    @FXML
-	private Rectangle propertyOwner15;
-    @FXML
-	private Rectangle propertyOwner14;
-    @FXML
-	private Rectangle propertyOwner11;
-    @FXML
 	private Rectangle propertyOwner1;
     @FXML
 	private Rectangle propertyOwner2;
     @FXML
-	private Rectangle propertyOwner3;
-    @FXML
 	private Rectangle propertyOwner4;
     @FXML
 	private Rectangle propertyOwner5;
+    @FXML
+	private Rectangle propertyOwner6;
+    @FXML
+	private Rectangle propertyOwner8;
+    @FXML
+	private Rectangle propertyOwner9;
+    @FXML
+	private Rectangle propertyOwner11;
+    @FXML
+	private Rectangle propertyOwner12;
+    @FXML
+	private Rectangle propertyOwner13;
+    @FXML
+	private Rectangle propertyOwner15;
+    @FXML
+	private Rectangle propertyOwner16;
+    @FXML
+	private Rectangle propertyOwner17;
+    @FXML
+	private Rectangle propertyOwner19;
+    @FXML
+	private Rectangle propertyOwner20;
+    @FXML
+	private Rectangle propertyOwner22;
+    @FXML
+	private Rectangle propertyOwner23;
+    @FXML
+    private Rectangle propertyOwner26;
+    @FXML
+    private Rectangle propertyOwner27;
     @FXML
 	private Text playerName1;
     @FXML
@@ -305,6 +338,7 @@ public class ClassicModeMapController {
     @FXML
     private Text titleOfPropertyDetails;
 
+    private final double JAIL_FINE = 250;
     private Random dice;
     private int currentPlayerIndex;
     private int playerCount;
@@ -314,6 +348,10 @@ public class ClassicModeMapController {
 
     private ArrayList<Text> playerNames, playerTimes, playerMoneys, queueIndexTexts;
     private ArrayList<Rectangle> propertyViews, corners, chanceViews, communityChestViews, locationViews, propertyOwnerViews;
+    private ArrayList<Text> propertyRectNameViews;
+    private ArrayList<Text> railroadRectNameViews;
+    private ArrayList<ImageView> houseViews;
+
     private ArrayList<Circle> playerTokens;
 
     private PlayerManager playerManager;
@@ -348,17 +386,28 @@ public class ClassicModeMapController {
         corners = new ArrayList<>(Arrays.asList(corner1, corner2, corner3, corner4));
         chanceViews = new ArrayList<>(Arrays.asList(chance1, chance2));
         communityChestViews = new ArrayList<>(Arrays.asList(communityChest1, communityChest2));
-        propertyOwnerViews = new ArrayList<>(Arrays.asList(propertyOwner1, propertyOwner2, propertyOwner3, propertyOwner3, propertyOwner4, propertyOwner5, propertyOwner6, propertyOwner7, propertyOwner8, propertyOwner9, propertyOwner10, propertyOwner11, propertyOwner12, propertyOwner13, propertyOwner14, propertyOwner15, propertyOwner16, propertyOwner17, propertyOwner18, propertyOwner19));
+        propertyOwnerViews = new ArrayList<>(Arrays.asList(propertyOwner1, propertyOwner2, propertyOwner4, propertyOwner5, propertyOwner6, propertyOwner8, propertyOwner9,
+                                                                        propertyOwner11, propertyOwner12, propertyOwner13, propertyOwner15, propertyOwner16, propertyOwner17, propertyOwner19,
+                                                                        propertyOwner20, propertyOwner22, propertyOwner23, propertyOwner26, propertyOwner27));
         playerLocations = new ArrayList<>();
         locationViews = new ArrayList<>(Arrays.asList(  corner1, property1, property2, communityChest1, property3, property4, property5,
                                                     corner2, property6, property7, chance1, property8, property9, property10,
                                                     corner3, property11, property12, property13, communityChest2, property14, property15,
                                                     corner4, property16, property17, chance2, tax1, property18, property19));
-        propertyOwnerViews = new ArrayList<>(Arrays.asList( propertyOwner1, propertyOwner2, propertyOwner3, propertyOwner4, propertyOwner5,
-                                                        propertyOwner6, propertyOwner7, propertyOwner8, propertyOwner9, propertyOwner10,
-                                                        propertyOwner11, propertyOwner12, propertyOwner13, propertyOwner14, propertyOwner15,
-                                                        propertyOwner16, propertyOwner17, propertyOwner18, propertyOwner19));
+        propertyRectNameViews = new ArrayList<>(Arrays.asList(propertyRectName1, propertyRectName2, propertyRectName4, propertyRectName6, propertyRectName8,
+                                                            propertyRectName9, propertyRectName11, propertyRectName13, propertyRectName15, propertyRectName17,
+                                                            propertyRectName19, propertyRectName20, propertyRectName22, propertyRectName23, propertyRectName26, propertyRectName27));
 
+        railroadRectNameViews = new ArrayList<>(Arrays.asList(railroadRectName5, railroadRectName12, railroadRectName16));
+
+        houseViews = new ArrayList<>(Arrays.asList( house1_1, house1_2, house1_3, house1_4, house1_5, house2_1, house2_2, house2_3, house2_4, house2_5,
+                                                    house4_1, house4_2, house4_3, house4_4, house4_5, house6_1, house6_2, house6_3, house6_4, house6_5,
+                                                    house8_1, house8_2, house8_3, house8_4, house8_5, house9_1, house9_2, house9_3, house9_4, house9_5,
+                                                    house11_1, house11_2, house11_3, house11_4, house11_5, house13_1, house13_2, house13_3, house13_4, house13_5,
+                                                    house15_1, house15_2, house15_3, house15_4, house15_4, house17_1, house17_2, house17_3, house17_4, house17_5,
+                                                    house19_1, house19_2, house19_3, house19_4, house19_5, house20_1, house20_2, house20_3, house20_4, house20_5,
+                                                    house22_1, house22_2, house22_3, house22_4, house22_5, house23_1, house23_2, house23_3, house23_4, house23_5,
+                                                    house26_1, house26_2, house26_3, house26_4, house26_5, house27_1, house27_2, house27_3, house27_4, house27_5));
 
 
         gameInitializer = new GameInitializer();
@@ -379,13 +428,12 @@ public class ClassicModeMapController {
         railroadManager = RailroadManager.getInstance();
 
         for( int i = 0; i < playerCount; i++) {
-            int index = queueIndices.get(i);
-            Player player = new Player(index, names.get(index), 1500.0, colors.get(index));
+            Player player = new Player(i, names.get(i), 1500.0, colors.get(i));
             players.add(player);
         }
 
         playerManager.setPlayer(players);
-        currentPlayer = players.get(currentPlayerIndex);
+        currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
         refactorPlayers();
         endOfTurnButton.setDisable(true);
         setTurnText(currentPlayerIndex);
@@ -394,6 +442,8 @@ public class ClassicModeMapController {
         pausePane.setVisible(false);
         saveGamePane.setVisible(false);
 
+        //updateProperty((Property)locations.get(2));
+        //initTradables();
         //GameInitializer.init();
     }
 
@@ -422,6 +472,17 @@ public class ClassicModeMapController {
         queueIndexTexts.get(0).toFront();
         System.out.println(queueIndexTexts.get(0) + ", ");
 
+        for(Player player : players) {
+            updatePlayer(player);
+        }
+
+    }
+
+    private void initTradables() {
+        for(Location location : locations) {
+            if(location instanceof Property)
+                updateProperty((Property) location);
+        }
     }
 
     private int rollDice(){
@@ -441,36 +502,104 @@ public class ClassicModeMapController {
         diceImage2.setImage(new Image(getClass().getResourceAsStream(dice2Url)));
 
         if(currentPlayer.getJailStatus() == 0) {
-            int newLocation = (playerLocations.get(currentPlayerIndex) + dice1 + dice2) % 28;
-            playerLocations.set(currentPlayerIndex, newLocation);
+            takeNormalTurn(dice1, dice2);
+        }
+        else if( dice1 == dice2) {
+            //exit from jail
+            playerManager.exitJail(currentPlayer);
+            takeNormalTurn(dice1, dice2);
+        }
+        else {
+            takeJailTurn();
+        }
+    }
 
-            setNewCoordinate(newLocation);
-            playerManager.setLocation(currentPlayer, newLocation);
+    private void takeNormalTurn(int dice1, int dice2) {
+        int newLocation = (playerLocations.get(currentPlayerIndex) + dice1 + dice2) % 28;
+        playerLocations.set(currentPlayerIndex, newLocation);
+        setNewCoordinate(newLocation);
+        playerManager.setLocation(currentPlayer, newLocation);
 
-            if(locations.get(newLocation) instanceof Property) {
-                lastClickedTradable = newLocation;
-                takeTradableAction();
+        if(locations.get(newLocation) instanceof Property) {
+            lastClickedTradable = newLocation;
+            takeTradableAction();
+        }
+        else if(locations.get(newLocation) instanceof Railroad) {
+            lastClickedTradable = newLocation;
+            takeTradableAction();
+        }
+        else if(locations.get(newLocation) instanceof Tax)
+            takeTaxAction();
+        else if(locations.get(newLocation) instanceof DirectToJail)
+            takeGoToJailAction();
+        else if(locations.get(newLocation) instanceof CardDeck)
+            takeCardDeckAction();
+        else
+            endOfTurnButton.setDisable(false);
+
+        rollButton.setDisable(true);
+    }
+
+    public void takeJailTurn() {
+        if(currentPlayer.getJailStatus() == 3) {
+            if(playerManager.canAfford(currentPlayer, JAIL_FINE) ||
+                    playerManager.tenderToAvoidBankrupt(currentPlayer, JAIL_FINE)) {
+                // payFine button active
+                //use freedom right button active if player has freedomRights
+                endOfTurnButton.setDisable(true);
             }
-            else if(locations.get(newLocation) instanceof Railroad) {
-                lastClickedTradable = newLocation;
-                takeTradableAction();
-            }
-            else if(locations.get(newLocation) instanceof Tax)
-                takeTaxAction();
-            else if(locations.get(newLocation) instanceof DirectToJail)
-                takeGoToJailAction();
-            else if(locations.get(newLocation) instanceof CardDeck)
-                takeCardDeckAction();
-            else
+            else {
+                playerManager.bankrupt(currentPlayer);
+                updatePlayer(currentPlayer);
                 endOfTurnButton.setDisable(false);
+            }
+        }
+        else {
+            //pay fine button active
+            //use freedom right button active if player has freedomRights
+            endOfTurnButton.setDisable(false);
+        }
+    }
 
-            rollButton.setDisable(true);
-            //endOfTurnButton.setDisable(false);
-            /*
-            if (locationViews.get(newLocation).getId().substring(0, 4).equals("prop")) {
-                propertyPane.setVisible(true);
-                propertyPaneSettings();
-            }*/
+    public void payJailFine() {
+        if(currentPlayer.getJailStatus() == 3) {
+            if(playerManager.canAfford(currentPlayer, JAIL_FINE)) {
+                playerManager.giveMoney(currentPlayer, JAIL_FINE);
+                playerManager.exitJail(currentPlayer);
+                updatePlayer(currentPlayer);
+                endOfTurnButton.setDisable(false);
+                //pay fine disabled
+            }
+            else if(playerManager.tenderToAvoidBankrupt(currentPlayer, JAIL_FINE)) {
+                // Text düş tepeye you have to sell sth to pay your fine
+            }
+            else {
+                playerManager.bankrupt(currentPlayer);
+                updatePlayer(currentPlayer);
+                endOfTurnButton.setDisable(false);
+                //pay fine disabled
+            }
+        }
+        else {
+            if(playerManager.canAfford(currentPlayer, JAIL_FINE)) {
+                playerManager.giveMoney(currentPlayer, JAIL_FINE);
+                playerManager.exitJail(currentPlayer);
+                updatePlayer(currentPlayer);
+                //pay fine disabled
+            }
+            else {
+                //jail texti you do not have enough money.
+            }
+            endOfTurnButton.setDisable(false);
+        }
+    }
+
+    //Only active when there are freedom rights
+    public void useFreedomRight() {
+        if(playerManager.useFreedomRightToExitJail(currentPlayer)) {
+            endOfTurnButton.setDisable(false);
+            updatePlayer(currentPlayer);
+            //disable freedom right button
         }
     }
 
@@ -492,44 +621,46 @@ public class ClassicModeMapController {
         double taxAmount = tax.getTaxAmount();
         if(playerManager.canAfford(currentPlayer,taxAmount)) {
             playerManager.giveMoney(currentPlayer,taxAmount);
+            endOfTurnButton.setDisable(false);
         }
         else if(playerManager.tenderToAvoidBankrupt(currentPlayer, taxAmount)) {
-            currentPlayer.setDebt(taxAmount);
+            currentPlayer.addDebt(taxAmount);
+            endOfTurnButton.setDisable(true);
             // Debt butonu lazım
         }
-        else
+        else {
             playerManager.bankrupt(currentPlayer);
+            endOfTurnButton.setDisable(false);
+        }
+        moneyInTheMiddle += taxAmount;
         updatePlayer(currentPlayer);
-        endOfTurnButton.setDisable(false);
     }
 
-    // Ayrı classa taşınabilir boolean yaparız
-    // true dönerse devamke (bankrupt dahil)
-    // false dönerse reisin borcu varmış
-    // Bu durumda yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
-    // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
     private void takeTradableAction() {
         Tradable tradable = (Tradable) locations.get(lastClickedTradable);
         //lastClickedTradable = currentLocation;
         // If the property is owned by other player
         if(tradable.getOwner() != null && tradable.getOwner() != currentPlayer) {
 
-            if(playerManager.canAfford(currentPlayer, tradable.getRentCost()))
+            if(playerManager.canAfford(currentPlayer, tradable.getRentCost())) {
                 playerManager.payRent(currentPlayer, tradable);
+                endOfTurnButton.setDisable(false);
+            }
             else if(playerManager.tenderToAvoidBankrupt(currentPlayer, tradable.getRentCost())) {
-                currentPlayer.setDebt(tradable.getRentCost());
-                // Yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
-                // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
+                currentPlayer.addDebt(tradable.getRentCost());
+                endOfTurnButton.setDisable(true);
+                //debt butonu aktif
             }
             else {
                 playerManager.bankrupt(currentPlayer, tradable.getOwner());
+                endOfTurnButton.setDisable(false);
             }
         }
         else if( tradable.getOwner() == null) {
             propertyPaneSettings(tradable);
             propertyPane.setVisible(true);
+            endOfTurnButton.setDisable(false);
         }
-        endOfTurnButton.setDisable(false);
     }
 
     private void propertyPaneSettings( Tradable tradable) { //railroad için sonradan yapılacak
@@ -607,13 +738,21 @@ public class ClassicModeMapController {
 
     @FXML
     public void endTurnButtonPushed(ActionEvent event) {
-        currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
-        setTurnText(currentPlayerIndex);
+        if(isGameOver()) {
+            //finish the game
+        }
+        else {
+            updatePlayer(currentPlayer);
+            currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
 
-        currentPlayer = players.get(currentPlayerIndex);
+            while(currentPlayer.isBankrupt())
+                currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
 
-        rollButton.setDisable(false);
-        endOfTurnButton.setDisable(true);
+            setTurnText(currentPlayerIndex);
+            currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
+            rollButton.setDisable(false);
+            endOfTurnButton.setDisable(true);
+        }
     }
 
     @FXML
@@ -629,7 +768,6 @@ public class ClassicModeMapController {
         propertyPane.setVisible(true);
     }
 
-    //Buy button sadece playermanager.canEfford(player, amount) true ise aktif olacak
     @FXML
     public void buyButtonPushed(ActionEvent event) {
         //int playerLocation = currentPlayer.getCurrentLocationIndex();
@@ -663,24 +801,63 @@ public class ClassicModeMapController {
     // üstünde olmasına gerek yok clickListenerla almamız lazım
     @FXML
     public void sellButtonPushed(ActionEvent event) {
+        /*
         int playerLocation = playerLocations.get(currentPlayerIndex);
         //lastClickedTradable
         setColorOfLocation(lastClickedTradable, "sell");
         sellButton.setDisable(true);
+        */
+        Property property = (Property) locations.get(lastClickedTradable);
+        playerManager.sellOneBuilding(currentPlayer, property);
+        propertyManager.sellOneBuilding(property);
+        propertyPaneSettings(property);
+        updatePlayer(currentPlayer);
+        // update property kullanılacak
     }
 
     @FXML
     public void mortgageButtonPushed(ActionEvent event) {
-        Tradable tradable = (Tradable) locations.get(lastClickedTradable);
-        if(tradable instanceof Railroad) {
-            playerManager.mortgageRailroad(currentPlayer, (Railroad) tradable);
-            railroadManager.mortgageRailroad((Railroad) tradable, currentPlayer);
+
+        if(locations.get(lastClickedTradable) instanceof Railroad) {
+            Railroad railroad = (Railroad) locations.get(lastClickedTradable);
+            playerManager.mortgageRailroad(currentPlayer, railroad);
+            railroadManager.mortgageRailroad(railroad, currentPlayer);
         }
-        else if( tradable instanceof Property) {
-            playerManager.mortgageProperty(currentPlayer, (Property) tradable);
-            propertyManager.mortgageProperty((Property) tradable);
+        else if( locations.get(lastClickedTradable) instanceof Property) {
+            Property property = (Property) locations.get(lastClickedTradable);
+            playerManager.mortgageProperty(currentPlayer, property);
+            propertyManager.mortgageProperty(property);
         }
+        propertyPaneSettings((Tradable) locations.get(lastClickedTradable));
         updatePlayer(currentPlayer);
+    }
+
+    public void unMortgagedButtonPushed(ActionEvent event) {
+        Tradable tradable =(Tradable) locations.get(lastClickedTradable);
+        if( tradable instanceof Property) {
+            playerManager.removeMortgageProperty(currentPlayer, (Property) tradable);
+            propertyManager.removeMortgageProperty((Property) tradable);
+        }
+        else if( tradable instanceof Railroad) {
+            playerManager.removeMortgageRailroad(currentPlayer, (Railroad) tradable);
+            railroadManager.removeMortgageRailroad((Railroad) tradable, currentPlayer);
+        }
+    }
+
+    public void payDebtButtonPushed() {
+        double debt = currentPlayer.getDebt();
+        if(payDebt()) {
+            //disable button
+            endOfTurnButton.setDisable(false);
+        }
+        else if(playerManager.tenderToAvoidBankrupt(currentPlayer, debt)) {
+            //yukarı setText (You have to sell buildings or mortgage tradables to pay your dedbt)
+        }
+        else {
+            playerManager.bankrupt(currentPlayer);
+            updatePlayer(currentPlayer);
+            endOfTurnButton.setDisable(false);
+        }
     }
 
     private void setColorOfLocation(int playerLocation, String eventType) {
@@ -820,6 +997,23 @@ public class ClassicModeMapController {
         hotelRent.setText("$" + rentPrices.get(3) + "K" );
     }
 
+    private void updateTradable(Tradable tradable) {
+        if( tradable instanceof Railroad)
+            updateRailroad((Railroad) tradable);
+        else if( tradable instanceof Property)
+            updateProperty((Property) tradable);
+    }
+
+    private void updateProperty( Property property){
+        int propertyLocationIndex = property.getLocationIndex();
+        String propertyRectName = "propertyRectName" + propertyLocationIndex;
+        String propertyOwner = "propertyOwner" + propertyLocationIndex;
+        int noOfBuildings = property.getNoOfBuildings();
+        ArrayList<String> buildingNames = new ArrayList<String>();
+
+        for(int i = 1; i <= noOfBuildings; i++){
+            buildingNames.add(propertyLocationIndex + "house" + i);
+        }
     public void goBackToGameFromPausePane(ActionEvent actionEvent) {
         pausePane.setVisible(false);
         pausePane.toBack();
@@ -858,5 +1052,78 @@ public class ClassicModeMapController {
      */
     public void saveGame(ActionEvent actionEvent) {
         System.out.println(saveGameNameTextField.getText().trim());
+    }
+}
+
+        for(Text prop: propertyRectNameViews){
+            if(prop.getId().equals(propertyRectName)){
+                prop.setText(property.getName());
+            }
+        }
+        for(Rectangle rect: propertyOwnerViews){
+            if(rect.getId().equals(propertyOwner)){
+                if(property.getOwner() != null) {
+                    String color = property.getOwner().getColor();
+                    rect.setFill(Color.web(color));
+                }
+                else
+                    rect.setFill(Color.WHITE);
+            }
+        }
+        for(ImageView imageView: houseViews){
+            for(int i = 0; i < buildingNames.size(); i++) {
+                if(imageView.getId().equals(buildingNames.get(i))){
+                    Image hotelOpaqueImage;
+                    if(i == 4){
+                        hotelOpaqueImage = new Image("@../assets/hotel_opaque.png");
+                    }
+                    else {
+                        hotelOpaqueImage = new Image("@../assets/house_opaque.png");
+                    }
+                    imageView.setImage(hotelOpaqueImage);
+                }
+            }
+        }
+    }
+
+    private void updateRailroad( Railroad railroad) {
+        int propertyLocationIndex = railroad.getLocationIndex();
+        String propertyRectName = "railroadRectName" + propertyLocationIndex;
+        String propertyOwner = "propertyOwner" + propertyLocationIndex;
+
+        for (Text rail : railroadRectNameViews) {
+            if (rail.getId().equals(propertyRectName)) {
+                rail.setText(railroad.getName());
+            }
+        }
+        for (Rectangle rect : propertyOwnerViews) {
+            if (rect.getId().equals(propertyOwner)) {
+                if( railroad.getOwner() != null) {
+                    String color = railroad.getOwner().getColor();
+                    rect.setFill(Color.web(color));
+                }
+                else
+                    rect.setFill(Color.WHITE);
+            }
+        }
+    }
+
+    private boolean isGameOver() {
+        int playingPlayerCount = 0;
+        for( Player player : players) {
+            if(!player.isBankrupt()) playingPlayerCount++;
+        }
+        return playingPlayerCount > 1;
+    }
+
+    private boolean payDebt() {
+        double debt = currentPlayer.getDebt();
+        if(playerManager.canAfford(currentPlayer, debt)) {
+            playerManager.giveMoney(currentPlayer, debt);
+            currentPlayer.setDebt(0);
+            return true;
+        }
+        else
+            return false;
     }
 }
