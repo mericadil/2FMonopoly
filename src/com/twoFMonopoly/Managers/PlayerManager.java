@@ -251,7 +251,7 @@ public class PlayerManager {
     }
 
     public ArrayList<Player> getAllPlayers() {
-        return null;
+        return players;
     }
 
     public void payForcedMoney( Player player, double amount ) {
