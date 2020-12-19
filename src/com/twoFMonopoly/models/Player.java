@@ -145,4 +145,8 @@ public class Player {
     public void setColor(String color) {
         this.color = color;
     }
+
+    public void addDebt(double amount) {
+        debt += amount;
+    }
 }

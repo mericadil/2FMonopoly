@@ -314,6 +314,7 @@ public class ClassicModeMapController {
     @FXML
     private Text titleOfPropertyDetails;
 
+    private final double JAIL_FINE = 250;
     private Random dice;
     private int currentPlayerIndex;
     private int playerCount;
@@ -406,7 +407,7 @@ public class ClassicModeMapController {
             players.add(player);
         }
 
-        currentPlayer = players.get(currentPlayerIndex);
+        currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
         refactorPlayers();
         endOfTurnButton.setDisable(true);
         setTurnText(currentPlayerIndex);
@@ -463,36 +464,71 @@ public class ClassicModeMapController {
         diceImage2.setImage(new Image(getClass().getResourceAsStream(dice2Url)));
 
         if(currentPlayer.getJailStatus() == 0) {
-            int newLocation = (playerLocations.get(currentPlayerIndex) + dice1 + dice2) % 28;
-            playerLocations.set(currentPlayerIndex, newLocation);
+            takeNormalTurn(dice1, dice2);
+        }
+        else if( dice1 == dice2) {
+            //exit from jail
+            playerManager.exitJail(currentPlayer);
+            takeNormalTurn(dice1, dice2);
+        }
+        else {
+            takeJailTurn(dice1, dice2);
+        }
+    }
 
-            setNewCoordinate(newLocation);
-            playerManager.setLocation(currentPlayer, newLocation);
+    private void takeNormalTurn(int dice1, int dice2) {
+        int newLocation = (playerLocations.get(currentPlayerIndex) + dice1 + dice2) % 28;
+        playerLocations.set(currentPlayerIndex, newLocation);
+        setNewCoordinate(newLocation);
+        playerManager.setLocation(currentPlayer, newLocation);
 
-            if(locations.get(newLocation) instanceof Property) {
-                lastClickedTradable = newLocation;
-                takeTradableAction();
+        if(locations.get(newLocation) instanceof Property) {
+            lastClickedTradable = newLocation;
+            takeTradableAction();
+        }
+        else if(locations.get(newLocation) instanceof Railroad) {
+            lastClickedTradable = newLocation;
+            takeTradableAction();
+        }
+        else if(locations.get(newLocation) instanceof Tax)
+            takeTaxAction();
+        else if(locations.get(newLocation) instanceof DirectToJail)
+            takeGoToJailAction();
+        else if(locations.get(newLocation) instanceof CardDeck)
+            takeCardDeckAction();
+        else
+            endOfTurnButton.setDisable(false);
+
+        rollButton.setDisable(true);
+    }
+
+    public void takeJailTurn(int dice1, int dice2) {
+        if(currentPlayer.getJailStatus() == 3) {
+            if(playerManager.canAfford(currentPlayer, JAIL_FINE)) {
+                playerManager.giveMoney(currentPlayer, JAIL_FINE);
+                playerManager.exitJail(currentPlayer);
+                updatePlayer(currentPlayer);
+                takeNormalTurn(dice1, dice2);
             }
-            else if(locations.get(newLocation) instanceof Railroad) {
-                lastClickedTradable = newLocation;
-                takeTradableAction();
+            else if(playerManager.tenderToAvoidBankrupt(currentPlayer, JAIL_FINE)) {
+                currentPlayer.addDebt(JAIL_FINE);
+                // buton updatei lazım
+                playerManager.exitJail(currentPlayer);
+                updatePlayer(currentPlayer);
             }
-            else if(locations.get(newLocation) instanceof Tax)
-                takeTaxAction();
-            else if(locations.get(newLocation) instanceof DirectToJail)
-                takeGoToJailAction();
-            else if(locations.get(newLocation) instanceof CardDeck)
-                takeCardDeckAction();
-            else
-                endOfTurnButton.setDisable(false);
-
-            rollButton.setDisable(true);
-            //endOfTurnButton.setDisable(false);
+            else {
+                playerManager.bankrupt(currentPlayer);
+                updatePlayer(currentPlayer);
+            }
+        }
+        else {
+            //pay fine button active
+            //use freedom right button active if player has freedomRights
+            //end turn button active
             /*
-            if (locationViews.get(newLocation).getId().substring(0, 4).equals("prop")) {
-                propertyPane.setVisible(true);
-                propertyPaneSettings();
-            }*/
+            end turne taşınacak
+             */
+            playerManager.updateJailStatus(currentPlayer);
         }
     }
 
@@ -516,20 +552,16 @@ public class ClassicModeMapController {
             playerManager.giveMoney(currentPlayer,taxAmount);
         }
         else if(playerManager.tenderToAvoidBankrupt(currentPlayer, taxAmount)) {
-            currentPlayer.setDebt(taxAmount);
+            currentPlayer.addDebt(taxAmount);
             // Debt butonu lazım
         }
         else
             playerManager.bankrupt(currentPlayer);
+        moneyInTheMiddle += taxAmount;
         updatePlayer(currentPlayer);
         endOfTurnButton.setDisable(false);
     }
 
-    // Ayrı classa taşınabilir boolean yaparız
-    // true dönerse devamke (bankrupt dahil)
-    // false dönerse reisin borcu varmış
-    // Bu durumda yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
-    // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
     private void takeTradableAction() {
         Tradable tradable = (Tradable) locations.get(lastClickedTradable);
         //lastClickedTradable = currentLocation;
@@ -539,7 +571,7 @@ public class ClassicModeMapController {
             if(playerManager.canAfford(currentPlayer, tradable.getRentCost()))
                 playerManager.payRent(currentPlayer, tradable);
             else if(playerManager.tenderToAvoidBankrupt(currentPlayer, tradable.getRentCost())) {
-                currentPlayer.setDebt(tradable.getRentCost());
+                currentPlayer.addDebt(tradable.getRentCost());
                 // Yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
                 // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
             }
@@ -628,13 +660,21 @@ public class ClassicModeMapController {
 
     @FXML
     public void endTurnButtonPushed(ActionEvent event) {
-        currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
-        setTurnText(currentPlayerIndex);
+        if(isGameOver()) {
+            //finish the game
+        }
+        else {
+            updatePlayer(currentPlayer);
+            currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
 
-        currentPlayer = players.get(currentPlayerIndex);
+            while(currentPlayer.isBankrupt())
+                currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
 
-        rollButton.setDisable(false);
-        endOfTurnButton.setDisable(true);
+            setTurnText(currentPlayerIndex);
+            currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
+            rollButton.setDisable(false);
+            endOfTurnButton.setDisable(true);
+        }
     }
 
     @FXML
@@ -658,7 +698,6 @@ public class ClassicModeMapController {
         propertyPane.setVisible(true);
     }
 
-    //Buy button sadece playermanager.canEfford(player, amount) true ise aktif olacak
     @FXML
     public void buyButtonPushed(ActionEvent event) {
         //int playerLocation = currentPlayer.getCurrentLocationIndex();
@@ -941,5 +980,13 @@ public class ClassicModeMapController {
                     rect.setFill(Color.WHITE);
             }
         }
+    }
+
+    private boolean isGameOver() {
+        int playingPlayerCount = 0;
+        for( Player player : players) {
+            if(!player.isBankrupt()) playingPlayerCount++;
+        }
+        return playingPlayerCount > 1;
     }
 }
