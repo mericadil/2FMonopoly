@@ -6,10 +6,10 @@ import com.twoFMonopoly.models.Player;
 public class PayToOtherPlayers implements PayStrategy {
 
     // Attributes
-    private final double amount;
+    private final int amount;
 
     // Methods
-    public PayToOtherPlayers( double amount ) {
+    public PayToOtherPlayers( int amount ) {
         this.amount = amount;
     }
 

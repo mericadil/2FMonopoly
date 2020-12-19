@@ -6,10 +6,10 @@ import com.twoFMonopoly.models.Player;
 public class ReceiveFromBank implements ReceiveStrategy {
 
     // Attributes
-    private final double amount;
+    private final int amount;
 
     // Methods
-    public ReceiveFromBank( double amount ) {
+    public ReceiveFromBank( int amount ) {
         this.amount = amount;
     }
 
