@@ -851,7 +851,10 @@ public class ClassicModeMapController {
         saveGamePane.setVisible(true);
     }
 
-
+    /**
+        ÖÇA SAVEGAME FONKSİYONU BURADA
+     */
     public void saveGame(ActionEvent actionEvent) {
+        System.out.println(saveGameNameTextField.getText().trim());
     }
 }

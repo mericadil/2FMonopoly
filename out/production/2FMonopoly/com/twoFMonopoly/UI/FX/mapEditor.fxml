@@ -13,36 +13,36 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1366.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.MapEditorController">
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.MapEditorController">
    <children>
-      <Rectangle fx:id="property10" id="property10" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="410.0" layoutY="635.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="property10" fx:id="property10" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="410.0" layoutY="635.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="corner3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
       <Rectangle fx:id="corner2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property9" id="property9" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="501.0" layoutY="635.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="property8" id="property8" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="592.0" layoutY="635.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="property9" fx:id="property9" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="501.0" layoutY="635.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="property8" fx:id="property8" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="592.0" layoutY="635.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="chance1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="property7" id="property7" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="774.0" layoutY="635.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="property6" id="property6" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="865.0" layoutY="635.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="property7" fx:id="property7" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="774.0" layoutY="635.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="property6" fx:id="property6" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="865.0" layoutY="635.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="corner4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property11" id="property11" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="550.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property12" id="property12" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="465.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property13" id="property13" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="380.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="property11" fx:id="property11" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="550.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="property12" fx:id="property12" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="465.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="property13" fx:id="property13" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="380.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
       <Rectangle fx:id="communityChest2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property14" id="property14" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="210.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property15" id="property15" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="125.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property16" id="property16" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="410.0" layoutY="4.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="property14" fx:id="property14" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="210.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="property15" fx:id="property15" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="125.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="property16" fx:id="property16" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="410.0" layoutY="4.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="corner1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property17" id="property17" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="501.0" layoutY="4.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="property17" fx:id="property17" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="501.0" layoutY="4.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="chance2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="592.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="tax1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="property18" id="property18" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="774.0" layoutY="4.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="property19" id="property19" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="865.0" layoutY="4.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
-      <Rectangle fx:id="property5" id="property5" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="550.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property4" id="property4" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="465.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property3" id="property3" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="380.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="property18" fx:id="property18" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="774.0" layoutY="4.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="property19" fx:id="property19" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="865.0" layoutY="4.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="property5" fx:id="property5" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="550.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="property4" fx:id="property4" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="465.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="property3" fx:id="property3" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="380.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
       <Rectangle fx:id="communityChest1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property2" id="property2" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="210.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="property1" id="property1" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="125.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="property2" fx:id="property2" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="210.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="property1" fx:id="property1" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="125.0" onMouseClicked="#mouseClickedOnPropertyRectangle" stroke="#797979" strokeType="INSIDE" width="121.0" />
       <Text fill="#00bc0d" layoutX="999.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go">
          <font>
             <Font name="System Bold Italic" size="28.0" />
@@ -108,7 +108,7 @@
             <Font name="System Bold Italic" size="64.0" />
          </font>
       </Text>
-      <Button fx:id="pauseButton" alignment="TOP_CENTER" layoutX="1291.0" layoutY="308.0" mnemonicParsing="false" onAction="#pauseAndReturnMainMenu" styleClass="pause-game-button" text="||" textAlignment="CENTER"> </Button>
+      <Button fx:id="pauseButton" alignment="TOP_CENTER" layoutX="1291.0" layoutY="313.0" mnemonicParsing="false" onAction="#pauseAndReturnMainMenu" styleClass="pause-game-button" text="||" textAlignment="CENTER"> </Button>
       <HBox layoutX="299.0" layoutY="605.0" prefHeight="25.0" prefWidth="80.0">
          <children>
             <ImageView>
@@ -1018,7 +1018,7 @@
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Text>
-            <Button fx:id="saveButton" layoutX="164.0" layoutY="387.0" mnemonicParsing="false" onAction="#saveButtonPushed" prefHeight="59.0" prefWidth="128.0" style="-fx-background-color: green;" text="Save">
+            <Button fx:id="saveButton" layoutX="164.0" layoutY="387.0" mnemonicParsing="false" onAction="#saveButtonPushed" prefHeight="59.0" prefWidth="128.0" style="-fx-background-color: green; -fx-font-size: 24; -fx-text-fill: white;" text="Save">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -1045,101 +1045,101 @@
             <TextField alignment="CENTER" layoutX="270.0" layoutY="328.0" prefHeight="26.0" prefWidth="56.0" promptText="120K $" />
          </children>
       </AnchorPane>
-      <Text fx:id="propertyField11" id="propertyField11" layoutX="310.0" layoutY="583.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
+      <Text id="propertyField11" fx:id="propertyField11" layoutX="310.0" layoutY="583.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField10" id="propertyField10" layoutX="426.0" layoutY="693.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62597180902958">
+      <Text id="propertyField10" fx:id="propertyField10" layoutX="426.0" layoutY="693.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62597180902958">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField9" id="propertyField9" layoutX="514.0" layoutY="692.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62597180902958">
+      <Text id="propertyField9" fx:id="propertyField9" layoutX="514.0" layoutY="692.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62597180902958">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField8" id="propertyField8" layoutX="605.0" layoutY="693.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62597180902958">
+      <Text id="propertyField8" fx:id="propertyField8" layoutX="605.0" layoutY="693.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62597180902958">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField7" id="propertyField7" layoutX="787.0" layoutY="692.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62597180902958">
+      <Text id="propertyField7" fx:id="propertyField7" layoutX="787.0" layoutY="692.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62597180902958">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField6" id="propertyField6" layoutX="878.0" layoutY="692.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62598198652267">
+      <Text id="propertyField6" fx:id="propertyField6" layoutX="878.0" layoutY="692.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62598198652267">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField5" id="propertyField5" layoutX="990.0" layoutY="583.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62597180902958">
+      <Text id="propertyField5" fx:id="propertyField5" layoutX="990.0" layoutY="583.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62597180902958">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField4" id="propertyField4" layoutX="994.0" layoutY="497.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62597180902958">
+      <Text id="propertyField4" fx:id="propertyField4" layoutX="994.0" layoutY="497.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62597180902958">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField3" id="propertyField3" layoutX="995.0" layoutY="416.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333969593048096">
+      <Text id="propertyField3" fx:id="propertyField3" layoutX="995.0" layoutY="416.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333969593048096">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField2" id="propertyField2" layoutX="995.0" layoutY="245.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333969593048096">
+      <Text id="propertyField2" fx:id="propertyField2" layoutX="995.0" layoutY="245.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333969593048096">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField1" id="propertyField1" layoutX="995.0" layoutY="157.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62597180902958">
+      <Text id="propertyField1" fx:id="propertyField1" layoutX="995.0" layoutY="157.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="64.62597180902958">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField19" id="propertyField19" layoutX="878.0" layoutY="42.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
+      <Text id="propertyField19" fx:id="propertyField19" layoutX="878.0" layoutY="42.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField18" id="propertyField18" layoutX="789.0" layoutY="43.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
+      <Text id="propertyField18" fx:id="propertyField18" layoutX="789.0" layoutY="43.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField17" id="propertyField17" layoutX="515.0" layoutY="44.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
+      <Text id="propertyField17" fx:id="propertyField17" layoutX="515.0" layoutY="44.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField16" id="propertyField16" layoutX="423.0" layoutY="43.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
+      <Text id="propertyField16" fx:id="propertyField16" layoutX="423.0" layoutY="43.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField15" id="propertyField15" layoutX="309.0" layoutY="157.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
+      <Text id="propertyField15" fx:id="propertyField15" layoutX="309.0" layoutY="157.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField14" id="propertyField14" layoutX="309.0" layoutY="245.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
+      <Text id="propertyField14" fx:id="propertyField14" layoutX="309.0" layoutY="245.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField13" id="propertyField13" layoutX="310.0" layoutY="419.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
+      <Text id="propertyField13" fx:id="propertyField13" layoutX="310.0" layoutY="419.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="propertyField12" id="propertyField12" layoutX="310.0" layoutY="497.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
+      <Text id="propertyField12" fx:id="propertyField12" layoutX="310.0" layoutY="497.0" onMouseClicked="#mouseClickedOnPropertyRectangle" strokeType="OUTSIDE" strokeWidth="0.0" text="Property Name" underline="true" wrappingWidth="63.333982314914465">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Button fx:id="finishDesignButton" layoutX="50.0" layoutY="333.0" mnemonicParsing="false" onAction="#finishDesignAndGoToMainMenu" prefHeight="74.0" prefWidth="152.0" text="Finish Design" />
+      <Button fx:id="finishDesignButton" layoutX="51.0" layoutY="318.0" mnemonicParsing="false" onAction="#finishDesignAndGoToMainMenu" prefHeight="74.0" prefWidth="152.0" style="-fx-font-size: 18;" text="Finish Design" />
    </children>
 </AnchorPane>
