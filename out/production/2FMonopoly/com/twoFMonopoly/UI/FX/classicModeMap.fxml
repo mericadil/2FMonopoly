@@ -83,7 +83,7 @@
    <Rectangle id="4" fx:id="property3" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="380.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
    <Rectangle id="5" fx:id="property4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="465.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
    <Rectangle id="6" fx:id="property5" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="550.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="7" fx:id="corner2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="7" fx:id="corner2" onMouseClicked="#jailClicked" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
    <Rectangle id="8" fx:id="property6" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="865.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
    <Rectangle id="9" fx:id="property7" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="774.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
    <Rectangle id="10" fx:id="chance1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
@@ -342,7 +342,7 @@
       <children>
          <ImageView id="15house1" fx:id="house15_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -350,7 +350,7 @@
          </ImageView>
          <ImageView id="15house2" fx:id="house15_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -358,7 +358,7 @@
          </ImageView>
          <ImageView id="15house3" fx:id="house15_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -366,7 +366,7 @@
          </ImageView>
          <ImageView id="15house4" fx:id="house15_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -374,7 +374,7 @@
          </ImageView>
          <ImageView id="15house5" fx:id="house15_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -386,7 +386,7 @@
       <children>
          <ImageView id="17house1" fx:id="house17_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -394,7 +394,7 @@
          </ImageView>
          <ImageView id="17house2" fx:id="house17_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -402,7 +402,7 @@
          </ImageView>
          <ImageView id="17house3" fx:id="house17_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -410,7 +410,7 @@
          </ImageView>
          <ImageView id="17house4" fx:id="house17_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -418,7 +418,7 @@
          </ImageView>
          <ImageView id="17house5" fx:id="house17_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -430,7 +430,7 @@
       <children>
          <ImageView id="19house1" fx:id="house19_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -438,7 +438,7 @@
          </ImageView>
          <ImageView id="19house2" fx:id="house19_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -446,7 +446,7 @@
          </ImageView>
          <ImageView id="19house3" fx:id="house19_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -454,7 +454,7 @@
          </ImageView>
          <ImageView id="19house4" fx:id="house19_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -462,7 +462,7 @@
          </ImageView>
          <ImageView id="19house5" fx:id="house19_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -474,7 +474,7 @@
       <children>
          <ImageView id="20house1" fx:id="house20_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -482,7 +482,7 @@
          </ImageView>
          <ImageView id="20house2" fx:id="house20_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -490,7 +490,7 @@
          </ImageView>
          <ImageView id="20house3" fx:id="house20_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -498,7 +498,7 @@
          </ImageView>
          <ImageView id="20house4" fx:id="house20_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -506,7 +506,7 @@
          </ImageView>
          <ImageView id="20house5" fx:id="house20_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -518,7 +518,7 @@
       <children>
          <ImageView id="1house1" fx:id="house1_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -526,7 +526,7 @@
          </ImageView>
          <ImageView id="1house2" fx:id="house1_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -534,7 +534,7 @@
          </ImageView>
          <ImageView id="1house3" fx:id="house1_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -542,7 +542,7 @@
          </ImageView>
          <ImageView id="1house4" fx:id="house1_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -550,7 +550,7 @@
          </ImageView>
          <ImageView id="1house5" fx:id="house1_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -562,7 +562,7 @@
       <children>
          <ImageView id="2house1" fx:id="house2_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -570,7 +570,7 @@
          </ImageView>
          <ImageView id="2house2" fx:id="house2_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -578,7 +578,7 @@
          </ImageView>
          <ImageView id="2house3" fx:id="house2_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -586,7 +586,7 @@
          </ImageView>
          <ImageView id="2house4" fx:id="house2_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -594,7 +594,7 @@
          </ImageView>
          <ImageView id="2house5" fx:id="house2_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -606,7 +606,7 @@
       <children>
          <ImageView id="4house1" fx:id="house4_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -614,7 +614,7 @@
          </ImageView>
          <ImageView id="4house2" fx:id="house4_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -622,7 +622,7 @@
          </ImageView>
          <ImageView id="4house3" fx:id="house4_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -630,7 +630,7 @@
          </ImageView>
          <ImageView id="4house4" fx:id="house4_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -638,7 +638,7 @@
          </ImageView>
          <ImageView id="4house5" fx:id="house4_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -650,7 +650,7 @@
       <children>
          <ImageView id="6house1" fx:id="house6_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -658,7 +658,7 @@
          </ImageView>
          <ImageView id="6house2" fx:id="house6_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -666,7 +666,7 @@
          </ImageView>
          <ImageView id="6house3" fx:id="house6_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -674,7 +674,7 @@
          </ImageView>
          <ImageView id="6house4" fx:id="house6_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -682,7 +682,7 @@
          </ImageView>
          <ImageView id="6house5" fx:id="house6_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -694,7 +694,7 @@
       <children>
          <ImageView id="8house1" fx:id="house8_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -702,7 +702,7 @@
          </ImageView>
          <ImageView id="8house2" fx:id="house8_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -710,7 +710,7 @@
          </ImageView>
          <ImageView id="8house3" fx:id="house8_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -718,7 +718,7 @@
          </ImageView>
          <ImageView id="8house4" fx:id="house8_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -726,7 +726,7 @@
          </ImageView>
          <ImageView id="8house5" fx:id="house8_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -738,7 +738,7 @@
       <children>
          <ImageView id="9house1" fx:id="house9_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -746,7 +746,7 @@
          </ImageView>
          <ImageView id="9house2" fx:id="house9_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -754,7 +754,7 @@
          </ImageView>
          <ImageView id="9house3" fx:id="house9_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -762,7 +762,7 @@
          </ImageView>
          <ImageView id="9house4" fx:id="house9_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -770,7 +770,7 @@
          </ImageView>
          <ImageView id="9house5" fx:id="house9_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -782,7 +782,7 @@
       <children>
          <ImageView id="11house1" fx:id="house11_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -790,7 +790,7 @@
          </ImageView>
          <ImageView id="11house2" fx:id="house11_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -798,7 +798,7 @@
          </ImageView>
          <ImageView id="11house3" fx:id="house11_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -806,7 +806,7 @@
          </ImageView>
          <ImageView id="11house4" fx:id="house11_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -814,7 +814,7 @@
          </ImageView>
          <ImageView id="11house5" fx:id="house11_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -826,7 +826,7 @@
       <children>
          <ImageView id="13house1" fx:id="house13_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -834,7 +834,7 @@
          </ImageView>
          <ImageView id="13house2" fx:id="house13_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -842,7 +842,7 @@
          </ImageView>
          <ImageView id="13house3" fx:id="house13_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -850,7 +850,7 @@
          </ImageView>
          <ImageView id="13house4" fx:id="house13_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -858,7 +858,7 @@
          </ImageView>
          <ImageView id="13house5" fx:id="house13_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -870,7 +870,7 @@
       <children>
          <ImageView id="22house1" fx:id="house22_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -878,7 +878,7 @@
          </ImageView>
          <ImageView id="22house2" fx:id="house22_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -886,7 +886,7 @@
          </ImageView>
          <ImageView id="22house3" fx:id="house22_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -894,7 +894,7 @@
          </ImageView>
          <ImageView id="22house4" fx:id="house22_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -902,7 +902,7 @@
          </ImageView>
          <ImageView id="22house5" fx:id="house22_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -914,7 +914,7 @@
       <children>
          <ImageView id="23house1" fx:id="house23_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -922,7 +922,7 @@
          </ImageView>
          <ImageView id="23house2" fx:id="house23_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -930,7 +930,7 @@
          </ImageView>
          <ImageView id="23house3" fx:id="house23_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -938,7 +938,7 @@
          </ImageView>
          <ImageView id="23house4" fx:id="house23_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -946,7 +946,7 @@
          </ImageView>
          <ImageView id="23house5" fx:id="house23_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -958,7 +958,7 @@
       <children>
          <ImageView id="26house1" fx:id="house26_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -966,7 +966,7 @@
          </ImageView>
          <ImageView id="26house2" fx:id="house26_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -974,7 +974,7 @@
          </ImageView>
          <ImageView id="26house3" fx:id="house26_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -982,7 +982,7 @@
          </ImageView>
          <ImageView id="26house4" fx:id="house26_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -990,7 +990,7 @@
          </ImageView>
          <ImageView id="26house5" fx:id="house26_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -1002,7 +1002,7 @@
       <children>
          <ImageView id="27house1" fx:id="house27_1">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -1010,7 +1010,7 @@
          </ImageView>
          <ImageView id="27house2" fx:id="house27_2">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -1018,7 +1018,7 @@
          </ImageView>
          <ImageView id="27house3" fx:id="house27_3">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -1026,7 +1026,7 @@
          </ImageView>
          <ImageView id="27house4" fx:id="house27_4">
             <image>
-               <Image url="@../assets/house_transparent.png" />
+               <Image url="@../assets/house_opaque.png" />
             </image>
             <HBox.margin>
                <Insets top="5.0" />
@@ -1034,7 +1034,7 @@
          </ImageView>
          <ImageView id="27house5" fx:id="house27_5">
             <image>
-               <Image url="@../assets/hotel_transparent.png" />
+               <Image url="@../assets/hotel_opaque.png" />
             </image>
             <HBox.margin>
                <Insets left="6.0" />
@@ -1412,9 +1412,9 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Text>
-            <Button id="payFineButton" layoutX="54.0" layoutY="167.0" mnemonicParsing="false" style="-fx-background-color: RED;" text="Pay Fine" textFill="WHITE" />
-            <Button id="useFreedomCardButton" layoutX="188.0" layoutY="167.0" mnemonicParsing="false" style="-fx-background-color: green;" text="Use Freedom Card" textFill="WHITE" />
-            <Button id="closeJailPaneButton" layoutX="328.0" layoutY="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="20.0" style="-fx-font-weight: bold;" text="X" />
+            <Button id="payFineButton" fx:id="payFineButton" onAction="#payFineButtonClicked" layoutX="54.0" layoutY="167.0" mnemonicParsing="false" style="-fx-background-color: RED;" text="Pay Fine" textFill="WHITE" />
+            <Button id="useFreedomCardButton" fx:id="useFreedomCardButton" onAction="#useFreedomButtonClicked" layoutX="188.0" layoutY="167.0" mnemonicParsing="false" style="-fx-background-color: green;" text="Use Freedom Card" textFill="WHITE" />
+            <Button id="closeJailPaneButton" fx:id="closeJailPaneButton" onAction="#closeJailPaneClicked" layoutX="328.0" layoutY="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="20.0" style="-fx-font-weight: bold;" text="X" />
             <Text id="jailFineAmount" fill="WHITE" layoutX="236.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$200k" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
