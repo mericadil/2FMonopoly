@@ -78,7 +78,7 @@ public class Property extends Tradable implements Location{
     // Çağırılmadan önce condition check yapılacak...
     //noOfBuilding 4ten büyük olamaz
     public double getNextBuildingsBuildingCost() {
-        return buildings.get(noOfBuildings).getSellingPrice();
+        return buildings.get(noOfBuildings).getBuildingPrice();
     }
 
     // Çağırılmadan önce condition check yapılacak...
