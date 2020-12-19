@@ -83,7 +83,7 @@
    <Rectangle id="4" fx:id="property3" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="380.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
    <Rectangle id="5" fx:id="property4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="465.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
    <Rectangle id="6" fx:id="property5" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="550.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="7" fx:id="corner2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+   <Rectangle id="7" fx:id="corner2" onMouseClicked="#jailClicked" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
    <Rectangle id="8" fx:id="property6" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="865.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
    <Rectangle id="9" fx:id="property7" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="774.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
    <Rectangle id="10" fx:id="chance1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
@@ -1412,9 +1412,9 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Text>
-            <Button id="payFineButton" layoutX="54.0" layoutY="167.0" mnemonicParsing="false" style="-fx-background-color: RED;" text="Pay Fine" textFill="WHITE" />
-            <Button id="useFreedomCardButton" layoutX="188.0" layoutY="167.0" mnemonicParsing="false" style="-fx-background-color: green;" text="Use Freedom Card" textFill="WHITE" />
-            <Button id="closeJailPaneButton" layoutX="328.0" layoutY="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="20.0" style="-fx-font-weight: bold;" text="X" />
+            <Button id="payFineButton" fx:id="payFineButton" onAction="#payFineButtonClicked" layoutX="54.0" layoutY="167.0" mnemonicParsing="false" style="-fx-background-color: RED;" text="Pay Fine" textFill="WHITE" />
+            <Button id="useFreedomCardButton" fx:id="useFreedomCardButton" onAction="#useFreedomButtonClicked" layoutX="188.0" layoutY="167.0" mnemonicParsing="false" style="-fx-background-color: green;" text="Use Freedom Card" textFill="WHITE" />
+            <Button id="closeJailPaneButton" fx:id="closeJailPaneButton" onAction="#closeJailPaneClicked" layoutX="328.0" layoutY="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="20.0" style="-fx-font-weight: bold;" text="X" />
             <Text id="jailFineAmount" fill="WHITE" layoutX="236.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$200k" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
