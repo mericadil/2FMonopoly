@@ -353,6 +353,13 @@ public class ClassicModeMapController {
     private Text cardContentText;
     @FXML
     private Button cardCloseButton;
+    @FXML
+    private Button closeJailPaneButton;
+    @FXML
+    private Button payFineButton;
+    @FXML
+    private Button useFreedomCardButton;
+
 
     @FXML
     protected AnchorPane root;
@@ -389,6 +396,7 @@ public class ClassicModeMapController {
     private Player currentPlayer;
     private int lastClickedTradable;
     private GameInitializer gameInitializer;
+    private Card currentCard;
 
     public void init(int playerCount, ArrayList<String> colors, ArrayList<String> names, ArrayList<Integer> queueIndices){
         Main.player.stop();
@@ -427,7 +435,7 @@ public class ClassicModeMapController {
                                                     house4_1, house4_2, house4_3, house4_4, house4_5, house6_1, house6_2, house6_3, house6_4, house6_5,
                                                     house8_1, house8_2, house8_3, house8_4, house8_5, house9_1, house9_2, house9_3, house9_4, house9_5,
                                                     house11_1, house11_2, house11_3, house11_4, house11_5, house13_1, house13_2, house13_3, house13_4, house13_5,
-                                                    house15_1, house15_2, house15_3, house15_4, house15_4, house17_1, house17_2, house17_3, house17_4, house17_5,
+                                                    house15_1, house15_2, house15_3, house15_4, house15_5, house17_1, house17_2, house17_3, house17_4, house17_5,
                                                     house19_1, house19_2, house19_3, house19_4, house19_5, house20_1, house20_2, house20_3, house20_4, house20_5,
                                                     house22_1, house22_2, house22_3, house22_4, house22_5, house23_1, house23_2, house23_3, house23_4, house23_5,
                                                     house26_1, house26_2, house26_3, house26_4, house26_5, house27_1, house27_2, house27_3, house27_4, house27_5));
@@ -474,6 +482,9 @@ public class ClassicModeMapController {
 
         for(Text mortgage: mortgagedViews){
             mortgage.setVisible(false);
+        }
+        for(ImageView imageView: houseViews){
+            imageView.setVisible(false);
         }
 
         updatePlayers();
@@ -632,13 +643,11 @@ public class ClassicModeMapController {
      * Take Actionlar ayrı bir classa taşınabilir!
      */
     private void takeCardDeckAction() {
-        Card card = ((CardDeck)locations.get(currentPlayer.getCurrentLocationIndex())).drawCard();
-        System.out.println(card);
+        currentCard = ((CardDeck)locations.get(currentPlayer.getCurrentLocationIndex())).drawCard();
+        System.out.println(currentCard);
         payDebtButton.setDisable(true);
-        cardContentText.setText(card.toString());
+        cardContentText.setText(currentCard.toString());
         cardPane.setVisible(true);
-        playerManager.makeCardAction( currentPlayer, card );
-        updatePlayers();
         endOfTurnButton.setDisable(true);
     }
 
@@ -849,7 +858,7 @@ public class ClassicModeMapController {
         playerManager.buildOneBuilding(currentPlayer, property);
         propertyManager.buildOneBuilding(property);
         propertyPaneSettings(property);
-        //updateProperty(property);
+        updateProperty(property);
         updatePlayers();
         System.out.println();
     }
@@ -870,12 +879,10 @@ public class ClassicModeMapController {
         propertyPaneSettings(property);
         updateProperty(property);
         updatePlayers();
-        // update property kullanılacak
     }
 
     @FXML
     public void mortgageButtonPushed(ActionEvent event) {
-
         if(locations.get(lastClickedTradable) instanceof Railroad) {
             Railroad railroad = (Railroad) locations.get(lastClickedTradable);
             playerManager.mortgageRailroad(currentPlayer, railroad);
@@ -1005,38 +1012,6 @@ public class ClassicModeMapController {
         //setColorOfTradable((Tradable) property);
     }
 
-    private void setColorOfTradable(Tradable property) {
-        String idOfLocation = locationViews.get(lastClickedTradable).getId();
-        if(idOfLocation.substring(0, 4).equals("prop")){
-            int propertyNum;
-            if(lastClickedTradable >12){
-                propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 2));
-            }
-            else{
-                propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 1));
-            }
-            /*
-            if(eventType.equals("buy")) {
-                if (propertyOwnerViews.get(propertyNum - 1).getFill() == Color.WHITE) {
-                    Paint playerColor = playerTokens.get(queueIndices.get(currentPlayerIndex)).getFill();
-                    propertyOwnerViews.get(propertyNum - 1).setFill(playerColor);
-                }
-            }
-            else{
-                propertyOwnerViews.get(propertyNum - 1).setFill(Color.WHITE);
-                propertyPane.setVisible(false);
-            }*/
-            Tradable tradable = (Tradable) locations.get(lastClickedTradable);
-            if( tradable.getOwner() == null  ) {
-                propertyOwnerViews.get(propertyNum - 1).setFill(Color.WHITE);
-            }
-            else {
-                Color color = Color.web(tradable.getOwner().getColor());
-                propertyOwnerViews.get(propertyNum - 1).setFill(color);
-            }
-        }
-    }
-
     private void updateRailroadPane(Railroad railroad){
         titleOfPropertyDetails.setText(railroad.getName());
         ArrayList<Double> rentPrices = railroad.getRentPrices();
@@ -1117,19 +1092,17 @@ public class ClassicModeMapController {
                     rect.setFill(Color.WHITE);
             }
         }
+        String house = propertyLocationIndex + "house" ;
+        ArrayList<String> houseNames = new ArrayList<String>();
+        for(int i = 1; i <= property.getNoOfBuildings(); i++){
+            houseNames.add(house + i);
+        }
         for(ImageView imageView: houseViews){
-            for(int i = 0; i < buildingNames.size(); i++) {
-                if(imageView.getId().equals(buildingNames.get(i))){
-                    Image hotelOpaqueImage;
-                    if(i == 4){
-                        hotelOpaqueImage = new Image("src/com/twoFMonopoly/UI/assets/hotel_opaque.png");
-                    }
-                    else {
-                        hotelOpaqueImage = new Image("src/com/twoFMonopoly/UI/assets/house_opaque.png");
-                    }
-                    imageView.setImage(hotelOpaqueImage);
-                }
+            if(houseNames.contains(imageView.getId())){
+                imageView.setVisible(true);
             }
+            else
+                imageView.setVisible(false);
         }
     }
     private void updateRailroad( Railroad railroad) {
@@ -1237,8 +1210,25 @@ public class ClassicModeMapController {
 
     @FXML
     public void closeCardPane(MouseEvent mouseEvent) {
+        playerManager.makeCardAction( currentPlayer, currentCard );
+        updatePlayers();
         cardPane.setVisible(false);
         endOfTurnButton.setDisable(false);
         payDebtButton.setDisable(true);
+    }
+    @FXML
+    public void jailClicked(MouseEvent mouseEvent) {
+    }
+
+    @FXML
+    public void closeJailPaneClicked(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void payFineButtonClicked(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void useFreedomButtonClicked(ActionEvent actionEvent) {
     }
 }
