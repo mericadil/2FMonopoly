@@ -389,6 +389,7 @@ public class ClassicModeMapController {
     private Player currentPlayer;
     private int lastClickedTradable;
     private GameInitializer gameInitializer;
+    private Card currentCard;
 
     public void init(int playerCount, ArrayList<String> colors, ArrayList<String> names, ArrayList<Integer> queueIndices){
         Main.player.stop();
@@ -632,13 +633,11 @@ public class ClassicModeMapController {
      * Take Actionlar ayrı bir classa taşınabilir!
      */
     private void takeCardDeckAction() {
-        Card card = ((CardDeck)locations.get(currentPlayer.getCurrentLocationIndex())).drawCard();
-        System.out.println(card);
+        currentCard = ((CardDeck)locations.get(currentPlayer.getCurrentLocationIndex())).drawCard();
+        System.out.println(currentCard);
         payDebtButton.setDisable(true);
-        cardContentText.setText(card.toString());
+        cardContentText.setText(currentCard.toString());
         cardPane.setVisible(true);
-        playerManager.makeCardAction( currentPlayer, card );
-        updatePlayers();
         endOfTurnButton.setDisable(true);
     }
 
@@ -870,12 +869,10 @@ public class ClassicModeMapController {
         propertyPaneSettings(property);
         updateProperty(property);
         updatePlayers();
-        // update property kullanılacak
     }
 
     @FXML
     public void mortgageButtonPushed(ActionEvent event) {
-
         if(locations.get(lastClickedTradable) instanceof Railroad) {
             Railroad railroad = (Railroad) locations.get(lastClickedTradable);
             playerManager.mortgageRailroad(currentPlayer, railroad);
@@ -1003,38 +1000,6 @@ public class ClassicModeMapController {
         mortgageValue.setText("$" + mortgagePrice + "K");
 
         //setColorOfTradable((Tradable) property);
-    }
-
-    private void setColorOfTradable(Tradable property) {
-        String idOfLocation = locationViews.get(lastClickedTradable).getId();
-        if(idOfLocation.substring(0, 4).equals("prop")){
-            int propertyNum;
-            if(lastClickedTradable >12){
-                propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 2));
-            }
-            else{
-                propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 1));
-            }
-            /*
-            if(eventType.equals("buy")) {
-                if (propertyOwnerViews.get(propertyNum - 1).getFill() == Color.WHITE) {
-                    Paint playerColor = playerTokens.get(queueIndices.get(currentPlayerIndex)).getFill();
-                    propertyOwnerViews.get(propertyNum - 1).setFill(playerColor);
-                }
-            }
-            else{
-                propertyOwnerViews.get(propertyNum - 1).setFill(Color.WHITE);
-                propertyPane.setVisible(false);
-            }*/
-            Tradable tradable = (Tradable) locations.get(lastClickedTradable);
-            if( tradable.getOwner() == null  ) {
-                propertyOwnerViews.get(propertyNum - 1).setFill(Color.WHITE);
-            }
-            else {
-                Color color = Color.web(tradable.getOwner().getColor());
-                propertyOwnerViews.get(propertyNum - 1).setFill(color);
-            }
-        }
     }
 
     private void updateRailroadPane(Railroad railroad){
@@ -1237,6 +1202,8 @@ public class ClassicModeMapController {
 
     @FXML
     public void closeCardPane(MouseEvent mouseEvent) {
+        playerManager.makeCardAction( currentPlayer, currentCard );
+        updatePlayers();
         cardPane.setVisible(false);
         endOfTurnButton.setDisable(false);
         payDebtButton.setDisable(true);
