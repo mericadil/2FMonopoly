@@ -14,9 +14,9 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Text fill="WHITE" layoutX="596.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-menu-text" text="Options" />
-      <Slider blockIncrement="5.0" layoutX="717.0" layoutY="298.0" showTickLabels="true" value="100.0" fx:id="musicVolume" onMouseReleased="#setMusicVolume"/>
-      <Slider blockIncrement="5.0" layoutX="716.0" layoutY="420.0" showTickLabels="true" value="100.0" fx:id="sfxVolume" onMouseReleased="#setSFXVolume"/>
+        <Text fill="WHITE" layoutX="586.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-menu-text" text="Options" />
+      <Slider fx:id="musicVolume" blockIncrement="5.0" layoutX="717.0" layoutY="298.0" onMouseReleased="#setMusicVolume" showTickLabels="true" value="100.0" />
+      <Slider fx:id="sfxVolume" blockIncrement="5.0" layoutX="716.0" layoutY="420.0" onMouseReleased="#setSFXVolume" showTickLabels="true" value="100.0" />
       <Text fill="WHITE" layoutX="554.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Music">
          <font>
             <Font size="36.0" />
@@ -27,7 +27,7 @@
             <Font size="36.0" />
          </font>
       </Text>
-        <Button layoutX="588.0" layoutY="576.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToMainMenu" styleClass="play-game-button" text="Save" textAlignment="CENTER">
+        <Button layoutX="630.0" layoutY="577.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToMainMenu" styleClass="play-game-button" text="Save" textAlignment="CENTER">
             <font>
                 <Font size="18.0" />
             </font>
