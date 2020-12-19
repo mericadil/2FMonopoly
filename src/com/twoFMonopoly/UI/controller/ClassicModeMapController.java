@@ -413,6 +413,8 @@ public class ClassicModeMapController {
         propertyPane.setVisible(false);
         negotiatePane.setVisible(false);
 
+        //updateProperty((Property)locations.get(2));
+        //initTradables();
         //GameInitializer.init();
     }
 
@@ -431,6 +433,17 @@ public class ClassicModeMapController {
             playerLocations.add(0);
         }
 
+        for(Player player : players) {
+            updatePlayer(player);
+        }
+
+    }
+
+    private void initTradables() {
+        for(Location location : locations) {
+            if(location instanceof Property)
+                updateProperty((Property) location);
+        }
     }
 
     private int rollDice(){
@@ -859,7 +872,15 @@ public class ClassicModeMapController {
         hotelRent.setText("$" + rentPrices.get(3) + "K" );
     }
 
-    private void updateProperty( Property property, int propertyLocationIndex){
+    private void updateTradable(Tradable tradable) {
+        if( tradable instanceof Railroad)
+            updateRailroad((Railroad) tradable);
+        else if( tradable instanceof Property)
+            updateProperty((Property) tradable);
+    }
+
+    private void updateProperty( Property property){
+        int propertyLocationIndex = property.getLocationIndex();
         String propertyRectName = "propertyRectName" + propertyLocationIndex;
         String propertyOwner = "propertyOwner" + propertyLocationIndex;
         int noOfBuildings = property.getNoOfBuildings();
@@ -876,12 +897,16 @@ public class ClassicModeMapController {
         }
         for(Rectangle rect: propertyOwnerViews){
             if(rect.getId().equals(propertyOwner)){
-                String color = property.getOwner().getColor();
-                rect.setFill(Color.web(color));
+                if(property.getOwner() != null) {
+                    String color = property.getOwner().getColor();
+                    rect.setFill(Color.web(color));
+                }
+                else
+                    rect.setFill(Color.WHITE);
             }
         }
         for(ImageView imageView: houseViews){
-            for(int i = 0; i < buildingNames.size(); i++){
+            for(int i = 0; i < buildingNames.size(); i++) {
                 if(imageView.getId().equals(buildingNames.get(i))){
                     Image hotelOpaqueImage;
                     if(i == 4){
@@ -896,7 +921,8 @@ public class ClassicModeMapController {
         }
     }
 
-    private void updateRailroad( Railroad railroad, int propertyLocationIndex) {
+    private void updateRailroad( Railroad railroad) {
+        int propertyLocationIndex = railroad.getLocationIndex();
         String propertyRectName = "railroadRectName" + propertyLocationIndex;
         String propertyOwner = "propertyOwner" + propertyLocationIndex;
 
@@ -907,30 +933,13 @@ public class ClassicModeMapController {
         }
         for (Rectangle rect : propertyOwnerViews) {
             if (rect.getId().equals(propertyOwner)) {
-                String color = railroad.getOwner().getColor();
-                rect.setFill(Color.web(color));
+                if( railroad.getOwner() != null) {
+                    String color = railroad.getOwner().getColor();
+                    rect.setFill(Color.web(color));
+                }
+                else
+                    rect.setFill(Color.WHITE);
             }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
