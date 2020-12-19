@@ -1218,6 +1218,7 @@ public class ClassicModeMapController {
     }
     @FXML
     public void jailClicked(MouseEvent mouseEvent) {
+        return;
     }
 
     @FXML
