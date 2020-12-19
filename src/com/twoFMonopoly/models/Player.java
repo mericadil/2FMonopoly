@@ -146,4 +146,8 @@ public class Player implements Serializable {
     public void setColor(String color) {
         this.color = color;
     }
+
+    public void addDebt(double amount) {
+        debt += amount;
+    }
 }

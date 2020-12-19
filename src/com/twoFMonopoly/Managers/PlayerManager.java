@@ -123,7 +123,14 @@ public class PlayerManager {
         for( String key : player1Railroads.keySet())
             player2Railroads.put(key, player1Railroads.get(key));
 
-        bankrupt(player1);
+        player1.setMoneyAmount(0);
+        player1.setNoOfFreedomRights(0);
+        player1.setNoOfRailroads(0);
+        player1.setNoOfHotels(0);
+        player1.setNoOfHouses(0);
+        player1.setJailStatus(0);
+        player1.bankrupt();
+
     }
 
     public void bankrupt(Player player) {
@@ -133,6 +140,19 @@ public class PlayerManager {
         player.setNoOfHotels(0);
         player.setNoOfHouses(0);
         player.bankrupt();
+        player.setJailStatus(0);
+
+        HashMap<String, Railroad> railroads = player.getRailroads();
+        HashMap<String, Property> properties = player.getProperties();
+        for( String key : railroads.keySet()) {
+            Railroad railroad = railroads.get(key);
+            railroad.setDefaultSettings();
+        }
+
+        for(String key : properties.keySet()) {
+            Property property = properties.get(key);
+            property.setDefaultSettings();
+        }
     }
 
     public void payRent(Player player, Tradable tradable) {
