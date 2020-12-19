@@ -538,16 +538,21 @@ public class ClassicModeMapController {
             else {
                 playerManager.bankrupt(currentPlayer);
                 updatePlayer(currentPlayer);
-                endOfTurnButton.setDisable(true);
+                endOfTurnButton.setDisable(false);
                 //pay fine disabled
             }
         }
         else {
-            playerManager.giveMoney(currentPlayer, JAIL_FINE);
-            playerManager.exitJail(currentPlayer);
-            updatePlayer(currentPlayer);
+            if(playerManager.canAfford(currentPlayer, JAIL_FINE)) {
+                playerManager.giveMoney(currentPlayer, JAIL_FINE);
+                playerManager.exitJail(currentPlayer);
+                updatePlayer(currentPlayer);
+                //pay fine disabled
+            }
+            else {
+                //jail texti you do not have enough money.
+            }
             endOfTurnButton.setDisable(false);
-            //pay fine disabled
         }
     }
 
@@ -555,6 +560,7 @@ public class ClassicModeMapController {
     public void useFreedomRight() {
         if(playerManager.useFreedomRightToExitJail(currentPlayer)) {
             endOfTurnButton.setDisable(false);
+            updatePlayer(currentPlayer);
             //disable freedom right button
         }
     }
@@ -817,6 +823,9 @@ public class ClassicModeMapController {
             //yukarı setText (You have to sell buildings or mortgage tradables to pay your dedbt)
         }
         else {
+            playerManager.bankrupt(currentPlayer);
+            updatePlayer(currentPlayer);
+            endOfTurnButton.setDisable(false);
         }
     }
 
