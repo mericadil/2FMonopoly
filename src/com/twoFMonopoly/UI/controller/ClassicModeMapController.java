@@ -658,7 +658,7 @@ public class ClassicModeMapController {
         else if(playerManager.tenderToAvoidBankrupt(currentPlayer, taxAmount)) {
             currentPlayer.addDebt(taxAmount);
             endOfTurnButton.setDisable(true);
-            // Debt butonu lazım
+            payDebtButton.setDisable(false);
         }
         else {
             playerManager.bankrupt(currentPlayer);
@@ -681,7 +681,7 @@ public class ClassicModeMapController {
             else if(playerManager.tenderToAvoidBankrupt(currentPlayer, tradable.getRentCost())) {
                 currentPlayer.addDebt(tradable.getRentCost());
                 endOfTurnButton.setDisable(true);
-                //debt butonu aktif
+                payDebtButton.setDisable(false);
             }
             else {
                 playerManager.bankrupt(currentPlayer, tradable.getOwner());
@@ -900,19 +900,21 @@ public class ClassicModeMapController {
         }
     }
 
-    public void payDebtButtonPushed() {
+    @FXML
+    public void payDebtButtonPushed( ActionEvent actionEvent) {
         double debt = currentPlayer.getDebt();
         if(payDebt()) {
-            //disable button
+            payDebtButton.setDisable(true);
             endOfTurnButton.setDisable(false);
         }
         else if(playerManager.tenderToAvoidBankrupt(currentPlayer, debt)) {
-            //yukarı setText (You have to sell buildings or mortgage tradables to pay your dedbt)
+            payDebtButton.setDisable(false);
         }
         else {
             playerManager.bankrupt(currentPlayer);
             updatePlayer(currentPlayer);
             endOfTurnButton.setDisable(false);
+            payDebtButton.setDisable(true);
         }
     }
 
@@ -1205,7 +1207,12 @@ public class ClassicModeMapController {
         playerManager.makeCardAction( currentPlayer, currentCard );
         updatePlayers();
         cardPane.setVisible(false);
-        endOfTurnButton.setDisable(false);
-        payDebtButton.setDisable(true);
+        if(currentPlayer.getDebt() != 0) {
+            payDebtButton.setDisable(false);
+        }
+        else {
+            endOfTurnButton.setDisable(false);
+            payDebtButton.setDisable(true);
+        }
     }
 }
