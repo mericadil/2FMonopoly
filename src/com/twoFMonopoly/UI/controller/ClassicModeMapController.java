@@ -20,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -96,6 +97,11 @@ public class ClassicModeMapController {
     private Text propertyRectName22, propertyRectName23, propertyRectName26, propertyRectName27;
     @FXML
     private Text railroadRectName5, railroadRectName12, railroadRectName16;
+
+    @FXML
+    private Text mortgaged1, mortgaged2, mortgaged4, mortgaged6, mortgaged8, mortgaged9, mortgaged11,
+            mortgaged13, mortgaged15, mortgaged17, mortgaged19, mortgaged20, mortgaged22, mortgaged23,
+            mortgaged26, mortgaged27, mortgaged5, mortgaged12, mortgaged16;
 
     @FXML
     private Rectangle property10;
@@ -333,9 +339,20 @@ public class ClassicModeMapController {
     private Text houseCost3;
     @FXML
     private Text houseCost4;
-
     @FXML
     private Text costPriceText;
+    @FXML
+    private Text popUpScreen;
+    @FXML
+    private Button payDebtButton;
+    @FXML
+    private AnchorPane cardPane;
+    @FXML
+    private AnchorPane jailPane;
+    @FXML
+    private Text cardContentText;
+    @FXML
+    private Button cardCloseButton;
 
     @FXML
     protected AnchorPane root;
@@ -355,12 +372,14 @@ public class ClassicModeMapController {
     private ArrayList<Text> propertyRectNameViews;
     private ArrayList<Text> railroadRectNameViews;
     private ArrayList<ImageView> houseViews;
+    private ArrayList<Text> mortgagedViews;
 
     private ArrayList<Circle> playerTokens;
 
     private PlayerManager playerManager;
     private RailroadManager railroadManager;
     private PropertyManager propertyManager;
+
 
     // Define model attributes
     private ArrayList<Location> locations;
@@ -413,6 +432,9 @@ public class ClassicModeMapController {
                                                     house22_1, house22_2, house22_3, house22_4, house22_5, house23_1, house23_2, house23_3, house23_4, house23_5,
                                                     house26_1, house26_2, house26_3, house26_4, house26_5, house27_1, house27_2, house27_3, house27_4, house27_5));
 
+        mortgagedViews = new ArrayList<>( Arrays.asList(mortgaged1, mortgaged2, mortgaged4, mortgaged6, mortgaged8, mortgaged9, mortgaged11,
+                                                        mortgaged13, mortgaged15, mortgaged17, mortgaged19, mortgaged20, mortgaged22, mortgaged23,
+                                                        mortgaged26, mortgaged27, mortgaged5, mortgaged12, mortgaged16));
 
         gameInitializer = new GameInitializer();
         locations = gameInitializer.initTurkeyMap();
@@ -445,6 +467,13 @@ public class ClassicModeMapController {
         negotiatePane.setVisible(false);
         pausePane.setVisible(false);
         saveGamePane.setVisible(false);
+        payDebtButton.setVisible(true);
+        cardPane.setVisible(false);
+        jailPane.setVisible(false);
+
+        for(Text mortgage: mortgagedViews){
+            mortgage.setVisible(false);
+        }
 
         updatePlayers();
         updateProperties();
@@ -604,6 +633,9 @@ public class ClassicModeMapController {
     private void takeCardDeckAction() {
         Card card = ((CardDeck)locations.get(currentPlayer.getCurrentLocationIndex())).drawCard();
         System.out.println(card);
+        payDebtButton.setDisable(true);
+        cardContentText.setText(card.toString());
+        cardPane.setVisible(true);
         playerManager.makeCardAction( currentPlayer, card );
         updatePlayers();
         endOfTurnButton.setDisable(false);
@@ -659,6 +691,7 @@ public class ClassicModeMapController {
         else if( tradable.getOwner() == null) {
             propertyPaneSettings(tradable);
             propertyPane.setVisible(true);
+            jailPane.setVisible(false);
             endOfTurnButton.setDisable(false);
         }
         else
@@ -770,6 +803,7 @@ public class ClassicModeMapController {
         Tradable tradable = (Tradable) locations.get(lastClickedTradable);
         propertyPaneSettings(tradable);
         propertyPane.setVisible(true);
+        jailPane.setVisible(false);
     }
 
     @FXML
@@ -779,6 +813,10 @@ public class ClassicModeMapController {
         if( locations.get(lastClickedTradable) instanceof Property) {
             Property property = (Property) locations.get(lastClickedTradable);
             buyProperty(property);
+            popUpScreen.setText("$" + property.getCost() + "K withdrawn for buying operation from " + currentPlayer.getName());
+
+            System.out.println(property.getOwner().getName());
+            System.out.println(property.getOwner().getColor());
             System.out.println("**************************");
             System.out.println(currentPlayer.getName());
             updateProperty(property);
@@ -1194,5 +1232,12 @@ public class ClassicModeMapController {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    @FXML
+    public void closeCardPane(MouseEvent mouseEvent) {
+        cardPane.setVisible(false);
+        endOfTurnButton.setDisable(false);
+        payDebtButton.setDisable(true);
     }
 }
