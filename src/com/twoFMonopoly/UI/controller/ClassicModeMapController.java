@@ -1,5 +1,6 @@
 package com.twoFMonopoly.UI.controller;
 
+import com.sun.deploy.panel.IProperty;
 import com.twoFMonopoly.Constants;
 import com.twoFMonopoly.Main;
 import com.twoFMonopoly.Managers.PlayerManager;
@@ -445,15 +446,13 @@ public class ClassicModeMapController {
         pausePane.setVisible(false);
         saveGamePane.setVisible(false);
 
-        //updateProperty((Property)locations.get(2));
-        initTradables();
-        //GameInitializer.init();
-        for(String color : colors)
-            System.out.println(color);
+        updatePlayers();
+        updateProperties();
+        updateRailroads();
     }
 
     private void refactorPlayers() {
-        for(int i = playerCount; i < 8; ++i){
+        for(int i = playerCount; i < 8; ++i) {
             playerNames.get(i).setVisible(false);
             playerTokens.get(i).setVisible(false);
             playerMoneys.get(i).setVisible(false);
@@ -477,17 +476,7 @@ public class ClassicModeMapController {
         queueIndexTexts.get(0).toFront();
         System.out.println(queueIndexTexts.get(0) + ", ");
 
-        for(Player player : players) {
-            updatePlayer(player);
-        }
 
-    }
-
-    private void initTradables() {
-        for(Location location : locations) {
-            if(location instanceof Property)
-                updateProperty((Property) location);
-        }
     }
 
     private int rollDice(){
@@ -524,7 +513,7 @@ public class ClassicModeMapController {
         playerLocations.set(currentPlayerIndex, newLocation);
         setNewCoordinate(newLocation);
         playerManager.setLocation(currentPlayer, newLocation);
-
+        updatePlayers();
         if(locations.get(newLocation) instanceof Property) {
             lastClickedTradable = newLocation;
             takeTradableAction();
@@ -613,8 +602,10 @@ public class ClassicModeMapController {
      * Take Actionlar ayrı bir classa taşınabilir!
      */
     private void takeCardDeckAction() {
-        Card card = ((CardDeck)locations.get( currentPlayerIndex ) ).drawCard();
+        Card card = ((CardDeck)locations.get(currentPlayer.getCurrentLocationIndex())).drawCard();
+        System.out.println(card);
         playerManager.makeCardAction( currentPlayer, card );
+        updatePlayer(currentPlayer);
         endOfTurnButton.setDisable(false);
     }
 
@@ -669,6 +660,8 @@ public class ClassicModeMapController {
             propertyPane.setVisible(true);
             endOfTurnButton.setDisable(false);
         }
+        else
+            endOfTurnButton.setDisable(false);
     }
 
     private void propertyPaneSettings( Tradable tradable) { //railroad için sonradan yapılacak
@@ -810,6 +803,13 @@ public class ClassicModeMapController {
     private void buyProperty( Property property) {
         playerManager.buyProperty(currentPlayer, property);
         propertyManager.buyProperty(property, currentPlayer);
+    }
+
+    @FXML
+    public void buildButtonPushed() {
+        playerManager.buildOneBuilding(currentPlayer, (Property) locations.get(lastClickedTradable));
+        propertyManager.buildOneBuilding((Property) locations.get(lastClickedTradable));
+        propertyPaneSettings((Tradable) locations.get(lastClickedTradable));
     }
 
     // Sell button ev satmak için mortgage değil
@@ -1017,6 +1017,23 @@ public class ClassicModeMapController {
             updateRailroad((Railroad) tradable);
         else if( tradable instanceof Property)
             updateProperty((Property) tradable);
+    }
+
+    private void updateRailroads() {
+        for( Location location : locations) {
+            if(location instanceof Railroad) updateRailroad((Railroad) location);
+        }
+    }
+
+    private void updateProperties() {
+        for( Location location : locations) {
+            if(location instanceof Property) updateProperty((Property) location);
+        }
+    }
+
+    private void updatePlayers() {
+        for( Player player : players)
+            updatePlayer(player);
     }
 
     private void updateProperty( Property property){
