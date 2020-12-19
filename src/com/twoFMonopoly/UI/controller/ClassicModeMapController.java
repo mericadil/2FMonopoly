@@ -848,7 +848,7 @@ public class ClassicModeMapController {
         playerManager.buildOneBuilding(currentPlayer, property);
         propertyManager.buildOneBuilding(property);
         propertyPaneSettings(property);
-        //updateProperty(property);
+        updateProperty(property);
         updatePlayers();
         System.out.println();
     }
