@@ -470,6 +470,7 @@ public class ClassicModeMapController {
         payDebtButton.setVisible(true);
         cardPane.setVisible(false);
         jailPane.setVisible(false);
+        payDebtButton.setDisable(true);
 
         for(Text mortgage: mortgagedViews){
             mortgage.setVisible(false);
@@ -638,7 +639,7 @@ public class ClassicModeMapController {
         cardPane.setVisible(true);
         playerManager.makeCardAction( currentPlayer, card );
         updatePlayers();
-        endOfTurnButton.setDisable(false);
+        endOfTurnButton.setDisable(true);
     }
 
     private void takeGoToJailAction() {
@@ -713,8 +714,8 @@ public class ClassicModeMapController {
             else if(property.getOwner() == currentPlayer) {
                 sellButton.setDisable(!(property.getNoOfBuildings() > 0));
                 buyButton.setDisable(true);
-                buildButton.setDisable(!(playerManager.canAfford(currentPlayer, property.getNextBuildingsBuildingCost())
-                                        && property.isMonopoly() && property.getNoOfBuildings() < 5));
+                buildButton.setDisable(!( property.isMonopoly() && property.getNoOfBuildings() < 5
+                                        && playerManager.canAfford(currentPlayer, property.getNextBuildingsBuildingCost())));
                 mortgageButton.setDisable(!(property.getNoOfBuildings() == 0 && !property.isMortgaged()));
             }
             else {
@@ -847,7 +848,7 @@ public class ClassicModeMapController {
         Property property = (Property) locations.get(lastClickedTradable);
         playerManager.buildOneBuilding(currentPlayer, property);
         propertyManager.buildOneBuilding(property);
-        propertyPaneSettings((Tradable) locations.get(lastClickedTradable));
+        propertyPaneSettings(property);
         //updateProperty(property);
         updatePlayers();
         System.out.println();
@@ -1121,10 +1122,10 @@ public class ClassicModeMapController {
                 if(imageView.getId().equals(buildingNames.get(i))){
                     Image hotelOpaqueImage;
                     if(i == 4){
-                        hotelOpaqueImage = new Image("@../assets/hotel_opaque.png");
+                        hotelOpaqueImage = new Image("src/com/twoFMonopoly/UI/assets/hotel_opaque.png");
                     }
                     else {
-                        hotelOpaqueImage = new Image("@../assets/house_opaque.png");
+                        hotelOpaqueImage = new Image("src/com/twoFMonopoly/UI/assets/house_opaque.png");
                     }
                     imageView.setImage(hotelOpaqueImage);
                 }
