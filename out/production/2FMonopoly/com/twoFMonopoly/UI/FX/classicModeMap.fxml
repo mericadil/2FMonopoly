@@ -12,8 +12,65 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1366.0" styleClass="mapPane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.ClassicModeMapController">
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" styleClass="mapPane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.ClassicModeMapController">
 <children>
+      <AnchorPane fx:id="saveGamePane" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fill="#111111" layoutX="498.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save Game">
+               <font>
+                  <Font name="System Bold" size="72.0" />
+               </font>
+            </Text>
+            <TextField fx:id="saveGameNameTextField" layoutX="535.0" layoutY="245.0" promptText="Name" text="Current Date">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <Text layoutX="535.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="650.0" layoutY="525.0" mnemonicParsing="false" onAction="#saveGame" style="-fx-font-weight: bold; -fx-font-size: 18;" text="Save" />
+            <Button layoutX="1264.0" layoutY="47.0" mnemonicParsing="false" onAction="#goBackToGameFromSaveGamePane" style="-fx-font-weight: bold; -fx-background-color: red; -fx-text-fill: white; -fx-font-size: 18;" text="Back" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pausePane" layoutX="-2.0" layoutY="-1.0" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fill="#111111" layoutX="562.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paused">
+               <font>
+                  <Font name="System Bold" size="72.0" />
+               </font>
+            </Text>
+            <Button layoutX="629.0" layoutY="260.0" mnemonicParsing="false" onAction="#goBackToGameFromPausePane" text="Back to Game">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Button layoutX="637.0" layoutY="335.0" mnemonicParsing="false" onAction="#openSaveGamePane" text="Save Game" />
+            <Button layoutX="639.0" layoutY="410.0" mnemonicParsing="false" onAction="#goToMainMenu" text="Quit Game" />
+            <Text fx:id="queueIndexText5" fill="#00d389" layoutX="66.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="queueIndexText6" fill="#1900ff" layoutX="66.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="queueIndexText7" fill="#ff00d9" layoutX="66.0" layoutY="532.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="queueIndexText8" fill="#b700ff" layoutX="66.0" layoutY="607.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
    <Rectangle id="0" fx:id="corner1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
    <Rectangle id="1" fx:id="property1" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="125.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
    <Rectangle id="2" fx:id="property2" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="210.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
@@ -270,7 +327,7 @@
          <Font size="18.0" />
       </font>
    </Button>
-   <Button fx:id="pauseButton" alignment="TOP_CENTER" layoutX="1291.0" layoutY="308.0" mnemonicParsing="false" onAction="#pauseAndReturnMainMenu" styleClass="pause-game-button" text="||" textAlignment="CENTER"> </Button>
+   <Button fx:id="pauseButton" alignment="TOP_CENTER" layoutX="1291.0" layoutY="308.0" mnemonicParsing="false" onAction="#openPausePane" styleClass="pause-game-button" text="||" textAlignment="CENTER"> </Button>
    <HBox layoutX="299.0" layoutY="605.0" prefHeight="25.0" prefWidth="80.0">
       <children>
          <ImageView id="15house1" fx:id="house15_1">
@@ -985,7 +1042,7 @@
          <Image url="@../assets/dice5.png" />
       </image>
    </ImageView>
-   <AnchorPane fx:id="propertyPane" layoutX="455.0" layoutY="142.0" prefHeight="476.0" prefWidth="452.0" style="-fx-background-color: pink; -fx-border-color: black;">
+   <AnchorPane fx:id="propertyPane" layoutX="455.0" layoutY="142.0" prefHeight="476.0" prefWidth="452.0" style="-fx-background-color: pink; -fx-background-radius: 15;">
       <children>
          <Rectangle fx:id="propertyNameRect" arcHeight="5.0" arcWidth="5.0" fill="#e455d1" height="59.0" layoutX="127.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
          <Text id="titleOfPropertyDetails" fx:id="titleOfPropertyDetails" layoutX="127.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" textAlignment="CENTER" wrappingWidth="199.99999302625656">
@@ -1062,22 +1119,22 @@
          <Text id="houseCost3" fx:id="houseCost2" layoutX="271.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
          <Text id="hotelCost" fx:id="hotelCost" layoutX="290.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
          <Text id="mortgageValue" fx:id="mortgageValue" layoutX="290.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="120K $" />
-         <Button fx:id="buildButton" layoutX="189.0" layoutY="366.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: gray;" text="Build" textAlignment="CENTER">
+         <Button fx:id="buildButton" layoutX="189.0" layoutY="366.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: gray; -fx-text-fill: white;" text="Build" textAlignment="CENTER">
             <font>
                <Font name="System Bold" size="13.0" />
             </font>
          </Button>
-         <Button fx:id="buyButton" layoutX="67.0" layoutY="425.0" mnemonicParsing="false" onAction="#buyButtonPushed" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: green;" text="Buy">
+         <Button fx:id="buyButton" layoutX="67.0" layoutY="425.0" mnemonicParsing="false" onAction="#buyButtonPushed" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: green; -fx-text-fill: white;" text="Buy">
             <font>
                <Font name="System Bold" size="13.0" />
             </font>
          </Button>
-         <Button fx:id="sellButton" layoutX="189.0" layoutY="425.0" mnemonicParsing="false" onAction="#sellButtonPushed" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: red;" text="Sell">
+         <Button fx:id="sellButton" layoutX="189.0" layoutY="425.0" mnemonicParsing="false" onAction="#sellButtonPushed" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: red; -fx-text-fill: white;" text="Sell">
             <font>
                <Font name="System Bold" size="13.0" />
             </font>
          </Button>
-         <Button fx:id="mortgageButton" onAction="#mortgageButtonPushed" layoutX="311.0" layoutY="424.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: yellow;" text="Mortgage">
+         <Button fx:id="mortgageButton" onAction="#mortgageButtonPushed" layoutX="311.0" layoutY="424.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: yellow; -fx-text-fill: black;" text="Mortgage">
             <font>
                <Font name="System Bold" size="13.0" />
             </font>
@@ -1093,7 +1150,7 @@
       </children>
    </AnchorPane>
    <Text layoutX="310.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Free Parking" textAlignment="CENTER" wrappingWidth="80.00000128149986" />
-   <Text layoutX="313.0" layoutY="668.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go To Jail" textAlignment="CENTER" />
+   <Text layoutX="317.0" layoutY="665.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go to Jail" textAlignment="CENTER" />
    <Text layoutX="1006.0" layoutY="657.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jail" />
    <ImageView fitHeight="59.0" fitWidth="80.0" layoutX="303.0" layoutY="490.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
       <image>
@@ -1150,82 +1207,98 @@
          <Image url="@../assets/tax.jpg" />
       </image>
    </ImageView>
-   <AnchorPane id="negotiate" fx:id="negotiatePane" layoutX="402.0" layoutY="88.0" prefHeight="311.0" prefWidth="563.0" style="-fx-background-color: purple;">
+   <AnchorPane id="negotiate" fx:id="negotiatePane" layoutX="400.0" layoutY="58.0" prefHeight="343.0" prefWidth="563.0" style="-fx-background-color: purple; -fx-background-radius: 10;">
       <children>
-         <Button layoutX="51.0" layoutY="86.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="14.0" text="+" />
-         <Button layoutX="451.0" layoutY="191.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="0.0" text="+" />
-         <Button layoutX="451.0" layoutY="86.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="14.0" text="+" />
-         <Button layoutX="183.0" layoutY="86.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="14.0" text="+" />
-         <Button layoutX="183.0" layoutY="191.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="15.0" text="+" />
-         <Button layoutX="51.0" layoutY="191.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="4.0" text="+" />
-         <Button layoutX="311.0" layoutY="191.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" text="+" />
-         <Button layoutX="311.0" layoutY="86.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="14.0" text="+" />
-         <Button layoutX="515.0" layoutY="15.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="20.0" text="x" />
-         <TextField layoutX="40.0" layoutY="54.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <TextField layoutX="172.0" layoutY="54.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <TextField layoutX="40.0" layoutY="158.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <TextField layoutX="300.0" layoutY="54.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <TextField layoutX="172.0" layoutY="158.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <TextField layoutX="300.0" layoutY="158.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <TextField layoutX="438.0" layoutY="54.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <TextField layoutX="438.0" layoutY="158.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <Text layoutX="44.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+         <Button layoutX="51.0" layoutY="118.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="14.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+         <Button layoutX="451.0" layoutY="223.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+         <Button layoutX="451.0" layoutY="118.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="14.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+         <Button layoutX="183.0" layoutY="118.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="14.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+         <Button layoutX="183.0" layoutY="223.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="15.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+         <Button layoutX="51.0" layoutY="223.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="4.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+         <Button layoutX="311.0" layoutY="223.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+         <Button layoutX="311.0" layoutY="118.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="14.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+         <Button layoutX="515.0" layoutY="15.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="20.0" style="-fx-font-weight: bold;" text="X" />
+         <TextField layoutX="40.0" layoutY="86.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+         <TextField layoutX="172.0" layoutY="86.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+         <TextField layoutX="40.0" layoutY="190.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+         <TextField layoutX="300.0" layoutY="86.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+         <TextField layoutX="172.0" layoutY="190.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+         <TextField layoutX="300.0" layoutY="190.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+         <TextField layoutX="438.0" layoutY="86.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+         <TextField layoutX="438.0" layoutY="190.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+         <Text fill="WHITE" layoutX="44.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
             <font>
                <Font size="14.0" />
             </font>
          </Text>
-         <Text layoutX="176.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+         <Text fill="WHITE" layoutX="176.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
             <font>
                <Font size="14.0" />
             </font>
          </Text>
-         <Text layoutX="44.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+         <Text fill="WHITE" layoutX="44.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
             <font>
                <Font size="14.0" />
             </font>
          </Text>
-         <Text layoutX="176.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+         <Text fill="WHITE" layoutX="176.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
             <font>
                <Font size="14.0" />
             </font>
          </Text>
-         <Text layoutX="304.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+         <Text fill="WHITE" layoutX="304.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
             <font>
                <Font size="14.0" />
             </font>
          </Text>
-         <Text layoutX="304.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+         <Text fill="WHITE" layoutX="304.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
             <font>
                <Font size="14.0" />
             </font>
          </Text>
-         <Text layoutX="444.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+         <Text fill="WHITE" layoutX="444.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
             <font>
                <Font size="14.0" />
             </font>
          </Text>
-         <Text layoutX="442.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+         <Text fill="WHITE" layoutX="442.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
             <font>
                <Font size="14.0" />
             </font>
          </Text>
-         <Text layoutX="139.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best Offer" textAlignment="CENTER" wrappingWidth="66.6123029589653">
+         <Text fill="WHITE" layoutX="105.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Best Offer" textAlignment="CENTER" wrappingWidth="92.0">
             <font>
                <Font size="14.0" />
             </font>
          </Text>
-         <Button layoutX="308.0" layoutY="255.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="91.0" text="Approve" />
-         <Text fill="WHITE" layoutX="247.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tender" textAlignment="CENTER">
+         <Button layoutX="308.0" layoutY="282.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="91.0" text="Approve" />
+         <Text fill="WHITE" layoutX="237.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tender" textAlignment="CENTER">
             <font>
-               <Font size="14.0" />
+               <Font name="System Bold" size="22.0" />
             </font>
          </Text>
-            <Text fill="WHITE" layoutX="204.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$100k" textAlignment="CENTER" wrappingWidth="66.6123029589653">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
+            <Text layoutX="202.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16; -fx-fill: white;" text="1.5K$" />
       </children>
    </AnchorPane>
+      <Text fx:id="queueIndexText2" fill="RED" layoutX="66.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="queueIndexText3" fill="#ffaf00" layoutX="66.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="queueIndexText4" fill="#26ff00" layoutX="66.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="queueIndexText1" fill="#000000" layoutX="66.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
 </children>
 </AnchorPane>

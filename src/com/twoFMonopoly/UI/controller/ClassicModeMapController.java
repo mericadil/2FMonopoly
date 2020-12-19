@@ -443,11 +443,13 @@ public class ClassicModeMapController {
         saveGamePane.setVisible(false);
 
         //updateProperty((Property)locations.get(2));
-        //initTradables();
+        initTradables();
         //GameInitializer.init();
+        for(String color : colors)
+            System.out.println(color);
     }
 
-    private void refactorPlayers(){
+    private void refactorPlayers() {
         for(int i = playerCount; i < 8; ++i){
             playerNames.get(i).setVisible(false);
             playerTokens.get(i).setVisible(false);
@@ -558,6 +560,7 @@ public class ClassicModeMapController {
             //pay fine button active
             //use freedom right button active if player has freedomRights
             endOfTurnButton.setDisable(false);
+            rollButton.setDisable(true);
         }
     }
 
@@ -745,11 +748,13 @@ public class ClassicModeMapController {
             updatePlayer(currentPlayer);
             currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
 
-            while(currentPlayer.isBankrupt())
+            while(currentPlayer.isBankrupt()) {
                 currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
+                currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
+            }
+            currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
 
             setTurnText(currentPlayerIndex);
-            currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
             rollButton.setDisable(false);
             endOfTurnButton.setDisable(true);
         }
@@ -775,12 +780,17 @@ public class ClassicModeMapController {
         if( locations.get(lastClickedTradable) instanceof Property) {
             Property property = (Property) locations.get(lastClickedTradable);
             buyProperty(property);
+            System.out.println(property.getOwner().getName());
+            System.out.println(property.getOwner().getColor());
+            System.out.println("**************************");
+            System.out.println(currentPlayer.getName());
+            updateProperty(property);
         }
         else if( locations.get(lastClickedTradable) instanceof Railroad) {
             Railroad railroad = (Railroad) locations.get(lastClickedTradable);
             buyRailroad(railroad);
+            updateRailroad(railroad);
         }
-        //setColorOfLocation(lastClickedTradable, "buy");
         buyButton.setDisable(true);
         propertyPaneSettings((Tradable) locations.get(lastClickedTradable));
         updatePlayer(currentPlayer);
@@ -1014,6 +1024,81 @@ public class ClassicModeMapController {
         for(int i = 1; i <= noOfBuildings; i++){
             buildingNames.add(propertyLocationIndex + "house" + i);
         }
+
+        for(Text prop: propertyRectNameViews){
+            if(prop == null) continue;
+            if(prop.getId().equals(propertyRectName)){
+                prop.setText(property.getName());
+            }
+        }
+
+        for(Rectangle rect: propertyOwnerViews){
+            if(rect.getId().equals(propertyOwner)){
+                if(property.getOwner() != null) {
+                    String color = property.getOwner().getColor();
+                    System.out.println(color);
+                    rect.setFill(Color.web(color));
+                }
+                else
+                    rect.setFill(Color.WHITE);
+            }
+        }
+        for(ImageView imageView: houseViews){
+            for(int i = 0; i < buildingNames.size(); i++) {
+                if(imageView.getId().equals(buildingNames.get(i))){
+                    Image hotelOpaqueImage;
+                    if(i == 4){
+                        hotelOpaqueImage = new Image("@../assets/hotel_opaque.png");
+                    }
+                    else {
+                        hotelOpaqueImage = new Image("@../assets/house_opaque.png");
+                    }
+                    imageView.setImage(hotelOpaqueImage);
+                }
+            }
+        }
+    }
+    private void updateRailroad( Railroad railroad) {
+        int propertyLocationIndex = railroad.getLocationIndex();
+        String propertyRectName = "railroadRectName" + propertyLocationIndex;
+        String propertyOwner = "propertyOwner" + propertyLocationIndex;
+
+        for (Text rail : railroadRectNameViews) {
+            if (rail.getId().equals(propertyRectName)) {
+                rail.setText(railroad.getName());
+            }
+        }
+        for (Rectangle rect : propertyOwnerViews) {
+            if (rect.getId().equals(propertyOwner)) {
+                if( railroad.getOwner() != null) {
+                    String color = railroad.getOwner().getColor();
+                    rect.setFill(Color.web(color));
+                }
+                else
+                    rect.setFill(Color.WHITE);
+            }
+        }
+    }
+
+    private boolean isGameOver() {
+        int playingPlayerCount = 0;
+        for( Player player : players) {
+            if(!player.isBankrupt()) playingPlayerCount++;
+        }
+        return !(playingPlayerCount > 1);
+    }
+
+    private boolean payDebt() {
+        double debt = currentPlayer.getDebt();
+        if(playerManager.canAfford(currentPlayer, debt)) {
+            playerManager.giveMoney(currentPlayer, debt);
+            currentPlayer.setDebt(0);
+            return true;
+        }
+        else
+            return false;
+    }
+
     public void goBackToGameFromPausePane(ActionEvent actionEvent) {
         pausePane.setVisible(false);
         pausePane.toBack();
@@ -1052,78 +1137,5 @@ public class ClassicModeMapController {
      */
     public void saveGame(ActionEvent actionEvent) {
         System.out.println(saveGameNameTextField.getText().trim());
-    }
-}
-
-        for(Text prop: propertyRectNameViews){
-            if(prop.getId().equals(propertyRectName)){
-                prop.setText(property.getName());
-            }
-        }
-        for(Rectangle rect: propertyOwnerViews){
-            if(rect.getId().equals(propertyOwner)){
-                if(property.getOwner() != null) {
-                    String color = property.getOwner().getColor();
-                    rect.setFill(Color.web(color));
-                }
-                else
-                    rect.setFill(Color.WHITE);
-            }
-        }
-        for(ImageView imageView: houseViews){
-            for(int i = 0; i < buildingNames.size(); i++) {
-                if(imageView.getId().equals(buildingNames.get(i))){
-                    Image hotelOpaqueImage;
-                    if(i == 4){
-                        hotelOpaqueImage = new Image("@../assets/hotel_opaque.png");
-                    }
-                    else {
-                        hotelOpaqueImage = new Image("@../assets/house_opaque.png");
-                    }
-                    imageView.setImage(hotelOpaqueImage);
-                }
-            }
-        }
-    }
-
-    private void updateRailroad( Railroad railroad) {
-        int propertyLocationIndex = railroad.getLocationIndex();
-        String propertyRectName = "railroadRectName" + propertyLocationIndex;
-        String propertyOwner = "propertyOwner" + propertyLocationIndex;
-
-        for (Text rail : railroadRectNameViews) {
-            if (rail.getId().equals(propertyRectName)) {
-                rail.setText(railroad.getName());
-            }
-        }
-        for (Rectangle rect : propertyOwnerViews) {
-            if (rect.getId().equals(propertyOwner)) {
-                if( railroad.getOwner() != null) {
-                    String color = railroad.getOwner().getColor();
-                    rect.setFill(Color.web(color));
-                }
-                else
-                    rect.setFill(Color.WHITE);
-            }
-        }
-    }
-
-    private boolean isGameOver() {
-        int playingPlayerCount = 0;
-        for( Player player : players) {
-            if(!player.isBankrupt()) playingPlayerCount++;
-        }
-        return playingPlayerCount > 1;
-    }
-
-    private boolean payDebt() {
-        double debt = currentPlayer.getDebt();
-        if(playerManager.canAfford(currentPlayer, debt)) {
-            playerManager.giveMoney(currentPlayer, debt);
-            currentPlayer.setDebt(0);
-            return true;
-        }
-        else
-            return false;
     }
 }
