@@ -605,12 +605,13 @@ public class ClassicModeMapController {
         Card card = ((CardDeck)locations.get(currentPlayer.getCurrentLocationIndex())).drawCard();
         System.out.println(card);
         playerManager.makeCardAction( currentPlayer, card );
-        updatePlayer(currentPlayer);
+        updatePlayers();
         endOfTurnButton.setDisable(false);
     }
 
     private void takeGoToJailAction() {
         playerManager.goToJail(currentPlayer, Constants.jailLocation);
+        updatePlayers();
         endOfTurnButton.setDisable(false);
     }
 
@@ -632,7 +633,7 @@ public class ClassicModeMapController {
             endOfTurnButton.setDisable(false);
         }
         moneyInTheMiddle += taxAmount;
-        updatePlayer(currentPlayer);
+        updatePlayers();
     }
 
     private void takeTradableAction() {
@@ -662,10 +663,10 @@ public class ClassicModeMapController {
         }
         else
             endOfTurnButton.setDisable(false);
+        updatePlayers();
     }
 
-    private void propertyPaneSettings( Tradable tradable) { //railroad için sonradan yapılacak
-                                                            // ui hazır değil denemek için tek üzerinde yapıyoruz
+    private void propertyPaneSettings( Tradable tradable) {
         if(locations.get(lastClickedTradable) instanceof Property) {
             Property property = (Property) locations.get(lastClickedTradable);
             updatePropertyPane(property);
@@ -680,7 +681,7 @@ public class ClassicModeMapController {
                 sellButton.setDisable(!(property.getNoOfBuildings() > 0));
                 buyButton.setDisable(true);
                 buildButton.setDisable(!(playerManager.canAfford(currentPlayer, property.getNextBuildingsBuildingCost())
-                                        && property.isMonopoly()));
+                                        && property.isMonopoly() && property.getNoOfBuildings() < 5));
                 mortgageButton.setDisable(!(property.getNoOfBuildings() == 0 && !property.isMortgaged()));
             }
             else {
@@ -704,7 +705,7 @@ public class ClassicModeMapController {
                 sellButton.setDisable(true);
                 buyButton.setDisable(true);
                 buildButton.setDisable(true);
-                mortgageButton.setDisable(!railroad.isMortgaged());
+                mortgageButton.setDisable(railroad.isMortgaged());
             }
             else {
                 sellButton.setDisable(true);
@@ -778,8 +779,6 @@ public class ClassicModeMapController {
         if( locations.get(lastClickedTradable) instanceof Property) {
             Property property = (Property) locations.get(lastClickedTradable);
             buyProperty(property);
-            System.out.println(property.getOwner().getName());
-            System.out.println(property.getOwner().getColor());
             System.out.println("**************************");
             System.out.println(currentPlayer.getName());
             updateProperty(property);
@@ -807,9 +806,13 @@ public class ClassicModeMapController {
 
     @FXML
     public void buildButtonPushed() {
-        playerManager.buildOneBuilding(currentPlayer, (Property) locations.get(lastClickedTradable));
-        propertyManager.buildOneBuilding((Property) locations.get(lastClickedTradable));
+        Property property = (Property) locations.get(lastClickedTradable);
+        playerManager.buildOneBuilding(currentPlayer, property);
+        propertyManager.buildOneBuilding(property);
         propertyPaneSettings((Tradable) locations.get(lastClickedTradable));
+        //updateProperty(property);
+        updatePlayers();
+        System.out.println();
     }
 
     // Sell button ev satmak için mortgage değil
@@ -826,7 +829,8 @@ public class ClassicModeMapController {
         playerManager.sellOneBuilding(currentPlayer, property);
         propertyManager.sellOneBuilding(property);
         propertyPaneSettings(property);
-        updatePlayer(currentPlayer);
+        updateProperty(property);
+        updatePlayers();
         // update property kullanılacak
     }
 
@@ -844,7 +848,8 @@ public class ClassicModeMapController {
             propertyManager.mortgageProperty(property);
         }
         propertyPaneSettings((Tradable) locations.get(lastClickedTradable));
-        updatePlayer(currentPlayer);
+        updatePlayers();
+        updateTradable((Tradable) locations.get(lastClickedTradable));
     }
 
     public void unMortgagedButtonPushed(ActionEvent event) {
@@ -902,11 +907,19 @@ public class ClassicModeMapController {
         double money = player.getMoneyAmount();
         int playerNumber = players.indexOf(player) + 1;
         String playerMoneyX = "playerMoney" + playerNumber;
+
         for(Text playerMoney : playerMoneys){
             if(playerMoney.getId().equals(playerMoneyX)){
                 playerMoney.setText("$" + money + "K");
             }
         }
+        if(player == currentPlayer) {
+            if (playerLocations.get(currentPlayerIndex) != player.getCurrentLocationIndex()) {
+                setNewCoordinate(player.getCurrentLocationIndex());
+                playerLocations.set(currentPlayerIndex, player.getCurrentLocationIndex());
+            }
+        }
+
     }
 
     private void updatePropertyPane( Property property){

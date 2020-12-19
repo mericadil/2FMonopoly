@@ -19,7 +19,7 @@ public class Constants {
 
     public static final double startingPointMoney = 100;
     public static final int boardsMaxIndex = 28;
-    public static final int jailLocation = 14;
+    public static final int jailLocation = 7;
     public static final String OPENING_MUSIC = "src/com/twoFMonopoly/UI/assets/opening.mp3";
     public static final String MAIN_MUSIC = "src/com/twoFMonopoly/UI/assets/music.mp3";
     public static final String SAVE_GAME_FOLDER = "saved_games/";
