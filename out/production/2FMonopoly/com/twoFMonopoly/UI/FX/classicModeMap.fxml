@@ -155,7 +155,7 @@
          <Font size="14.0" />
       </font>
    </Text>
-   <Text id="propertyRectName9" fx:id="propertyRectName29" layoutX="789.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
+   <Text id="propertyRectName9" fx:id="propertyRectName9" layoutX="789.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
       <font>
          <Font size="14.0" />
       </font>
@@ -1119,7 +1119,7 @@
          <Text id="houseCost3" fx:id="houseCost2" layoutX="271.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
          <Text id="hotelCost" fx:id="hotelCost" layoutX="290.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
          <Text id="mortgageValue" fx:id="mortgageValue" layoutX="290.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="120K $" />
-         <Button fx:id="buildButton" layoutX="189.0" layoutY="366.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: gray; -fx-text-fill: white;" text="Build" textAlignment="CENTER">
+         <Button fx:id="buildButton" onAction="#buildButtonPushed" layoutX="189.0" layoutY="366.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: gray; -fx-text-fill: white;" text="Build" textAlignment="CENTER">
             <font>
                <Font name="System Bold" size="13.0" />
             </font>
