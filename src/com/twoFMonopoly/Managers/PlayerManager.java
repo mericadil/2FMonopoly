@@ -2,7 +2,7 @@ package com.twoFMonopoly.Managers;
 
 import com.twoFMonopoly.Constants;
 import com.twoFMonopoly.models.Buildings.Building;
-import com.twoFMonopoly.models.Card.Card;
+import com.twoFMonopoly.models.Card.*;
 import com.twoFMonopoly.models.Locations.Property;
 import com.twoFMonopoly.models.Locations.Railroad;
 import com.twoFMonopoly.models.Locations.Tradable;
@@ -220,7 +220,7 @@ public class PlayerManager {
     }
 
     public void makeCardAction(Player player, Card card) {
-        card.makeCardAction(player);
+        card.makeCardAction( player, this );
     }
 
     public void setLocation(Player player, int location) {
@@ -230,4 +230,31 @@ public class PlayerManager {
         player.setCurrentLocationIndex(location);
     }
 
+    public ArrayList<Player> getAllPlayers() {
+        return null;
+    }
+
+    public void payForcedMoney( Player player, double amount ) {
+        if ( canAfford(player, amount) )
+            giveMoney(player , amount);
+        else if (tenderToAvoidBankrupt( player , amount ))  {
+            player.setDebt(amount);
+            // Yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
+            // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
+        } else {
+            bankrupt( player );
+        }
+    }
+
+    public void payForcedMoneyToOtherPlayer( Player player, Player receiver, double amount ) {
+        if ( canAfford(player, amount) )
+            giveMoney(player , amount);
+        else if (tenderToAvoidBankrupt( player , amount ))  {
+            player.setDebt(amount);
+            // Yukarı yazı düşelim burda kirayı ödemek için eşya satmanız lazım diye
+            // bir de pay butonu yapıştıralım tepeye pay successful olana kadar end turn yapamasın
+        } else {
+            bankrupt( player, receiver );
+        }
+    }
 }

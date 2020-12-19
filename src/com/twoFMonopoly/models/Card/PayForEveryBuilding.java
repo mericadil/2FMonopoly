@@ -1,5 +1,6 @@
 package com.twoFMonopoly.models.Card;
 
+import com.twoFMonopoly.Managers.PlayerManager;
 import com.twoFMonopoly.models.Player;
 
 public class PayForEveryBuilding implements PayStrategy {
@@ -8,13 +9,19 @@ public class PayForEveryBuilding implements PayStrategy {
     private final int amountForHotels;
 
     // Methods
-    PayForEveryBuilding( int amountForHouses, int amountForHotels ) {
+    public PayForEveryBuilding( int amountForHouses, int amountForHotels ) {
         this.amountForHouses = amountForHouses;
         this.amountForHotels = amountForHotels;
     }
 
     @Override
-    public void act(Player p) {
-        // TODO
+    public void act(Player player, PlayerManager playerManager) {
+        int totalAmount = player.getNoOfHotels() * amountForHotels + player.getNoOfHouses() * amountForHouses;
+        playerManager.payForcedMoney( player, totalAmount );
+    }
+
+    @Override
+    public String toString() {
+        return "Pay $" + amountForHouses + " per house and $" +  amountForHotels + " per hotel you own";
     }
 }

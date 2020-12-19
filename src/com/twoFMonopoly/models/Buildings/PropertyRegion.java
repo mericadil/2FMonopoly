@@ -3,9 +3,10 @@ package com.twoFMonopoly.models.Buildings;
 import com.twoFMonopoly.models.Locations.Property;
 import com.twoFMonopoly.models.Player;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class PropertyRegion {
+public class PropertyRegion implements Serializable {
 
     //Attributes
     private ArrayList<Property> properties;

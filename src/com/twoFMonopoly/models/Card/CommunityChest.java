@@ -13,6 +13,7 @@ public class CommunityChest implements Location, CardDeck {
     // Methods
     public CommunityChest( ArrayList<CommunityChestCard> cards ) {
         this.cards = cards;
+        shuffleCard();
     }
 
     public CommunityChest() {
@@ -30,7 +31,7 @@ public class CommunityChest implements Location, CardDeck {
 
     @Override
     public String getLocationText() {
-        return null;
+        return "Community Chest";
     }
 
     @Override

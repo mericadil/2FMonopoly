@@ -1,5 +1,6 @@
 package com.twoFMonopoly.models.Card;
 
+import com.twoFMonopoly.Managers.PlayerManager;
 import com.twoFMonopoly.models.Player;
 
 public class ReceiveFromBank implements ReceiveStrategy {
@@ -13,8 +14,11 @@ public class ReceiveFromBank implements ReceiveStrategy {
     }
 
     @Override
-    public void act(Player player) {
-        player.setMoneyAmount(player.getMoneyAmount() + amount);
-        // TODO
+    public void act(Player player, PlayerManager playerManager) {
+        playerManager.getMoney( player, amount );
+    }
+
+    public String toString() {
+        return "Collect $" + amount;
     }
 }

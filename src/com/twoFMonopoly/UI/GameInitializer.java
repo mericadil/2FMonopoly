@@ -1,14 +1,17 @@
 package com.twoFMonopoly.UI;
 
 import com.twoFMonopoly.Constants;
+import com.twoFMonopoly.Managers.PlayerManager;
 import com.twoFMonopoly.models.Buildings.Building;
 import com.twoFMonopoly.models.Buildings.PropertyRegion;
-import com.twoFMonopoly.models.Card.Chance;
-import com.twoFMonopoly.models.Card.CommunityChest;
+import com.twoFMonopoly.models.Card.*;
 import com.twoFMonopoly.models.Locations.*;
+import com.twoFMonopoly.models.Player;
+import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class GameInitializer { // (Ankara, Antalya)
     public ArrayList<Property> createProperties(ArrayList<String> names, ArrayList<Double> costs,
@@ -88,8 +91,16 @@ public class GameInitializer { // (Ankara, Antalya)
             locations.set(railroad.getLocationIndex(), railroad);
         }
 
-        CommunityChest communityChest = new CommunityChest();
-        Chance chance = new Chance();
+        // Chance kardları için location isimlerini çek
+        HashMap<Integer, String> somePropertyNames = new HashMap<>();
+        somePropertyNames.put( 5, locations.get(5).getLocationText() );
+        somePropertyNames.put( 6, locations.get(6).getLocationText() );
+        somePropertyNames.put( 11, locations.get(11).getLocationText() );
+        somePropertyNames.put( 19, locations.get(19).getLocationText() );
+        somePropertyNames.put( 23, locations.get(23).getLocationText() );
+
+        CommunityChest communityChest = new CommunityChest( initCommunityChestCards() );
+        Chance chance = new Chance( initChanceCards( somePropertyNames ) );
         locations.set(0, new StartingPoint("Starting Point", 0));
         locations.set(3, communityChest);
         locations.set(18, communityChest);
@@ -102,6 +113,52 @@ public class GameInitializer { // (Ankara, Antalya)
         locations.set(25, new Tax(300, "Tax", 25));
 
         return locations;
+    }
+
+    public ArrayList<CommunityChestCard> initCommunityChestCards() {
+        ArrayList<CommunityChestCard> cards = new ArrayList<>();
+
+        cards.add( new CommunityChestCard(new AdvanceToCertainLocation( 0, "Go" ) ) );
+        cards.add( new CommunityChestCard(new ReceiveFromBank( 200 ) ) );
+        cards.add( new CommunityChestCard(new PayToBank( 50 ) ) );
+        cards.add( new CommunityChestCard(new ReceiveFromBank( 50 ) ) );
+        cards.add( new CommunityChestCard(new GetFreeJailCard( ) ) );
+        cards.add( new CommunityChestCard(new GoToJail( ) ) );
+        cards.add( new CommunityChestCard(new ReceiveFromOtherPlayers( 50 ) ) );
+        cards.add( new CommunityChestCard(new ReceiveFromBank( 100 ) ) );
+        cards.add( new CommunityChestCard(new ReceiveFromBank( 20 ) ) );
+        cards.add( new CommunityChestCard(new ReceiveFromOtherPlayers( 10 ) ) );
+        cards.add( new CommunityChestCard(new ReceiveFromBank( 100 ) ) );
+        cards.add( new CommunityChestCard(new PayToBank( 50 ) ) );
+        cards.add( new CommunityChestCard(new PayToBank( 50 ) ) );
+        cards.add( new CommunityChestCard(new ReceiveFromBank( 25 ) ) );
+        cards.add( new CommunityChestCard(new PayForEveryBuilding( 40, 115 ) ) );
+        cards.add( new CommunityChestCard(new ReceiveFromBank( 10 ) ) );
+        cards.add( new CommunityChestCard(new ReceiveFromBank( 100 ) ) );
+
+        return cards;
+    }
+
+    public ArrayList<ChanceCard> initChanceCards( HashMap<Integer, String> propertyNames ) {
+        ArrayList<ChanceCard> cards = new ArrayList<>();
+
+        cards.add( new ChanceCard( new AdvanceToCertainLocation( 0, "Go" ) ) );
+        cards.add( new ChanceCard( new AdvanceToCertainLocation( 5, propertyNames.get(5) ) ) );
+        cards.add( new ChanceCard( new AdvanceToCertainLocation( 6, propertyNames.get(6) ) ) );
+        cards.add( new ChanceCard( new AdvanceToCertainLocation( 11, propertyNames.get(11) ) ) );
+        cards.add( new ChanceCard( new AdvanceToCertainLocation( 19, propertyNames.get(19) ) ) );
+        cards.add( new ChanceCard( new AdvanceToCertainLocation( 23, propertyNames.get(23) ) ) );
+        cards.add( new ChanceCard( new ReceiveFromBank( 50 ) ) );
+        cards.add( new ChanceCard( new GetFreeJailCard( ) ) );
+        cards.add( new ChanceCard( new JumpLocations( -3 ) ) );
+        cards.add( new ChanceCard( new GoToJail( ) ) );
+        cards.add( new ChanceCard( new PayForEveryBuilding( 25, 100 ) ) );
+        cards.add( new ChanceCard( new PayToBank( 15 ) ) );
+        cards.add( new ChanceCard( new PayToOtherPlayers( 50 ) ) );
+        cards.add( new ChanceCard( new ReceiveFromBank( 150 ) ) );
+        cards.add( new ChanceCard( new ReceiveFromBank( 100 ) ) );
+
+        return cards;
     }
 
     public ArrayList<Location> initTurkeyMap() {

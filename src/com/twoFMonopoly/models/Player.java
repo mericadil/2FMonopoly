@@ -3,9 +3,10 @@ package com.twoFMonopoly.models;
 import com.twoFMonopoly.models.Locations.Property;
 import com.twoFMonopoly.models.Locations.Railroad;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Player {
+public class Player implements Serializable {
     //Attributes
     private int id;
     private String name;

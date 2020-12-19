@@ -7,6 +7,7 @@ import com.twoFMonopoly.Managers.PropertyManager;
 import com.twoFMonopoly.Managers.RailroadManager;
 import com.twoFMonopoly.UI.GameInitializer;
 import com.twoFMonopoly.models.Buildings.Building;
+import com.twoFMonopoly.models.Card.Card;
 import com.twoFMonopoly.models.Card.CardDeck;
 import com.twoFMonopoly.models.Locations.*;
 import com.twoFMonopoly.models.Player;
@@ -31,7 +32,9 @@ import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -478,6 +481,8 @@ public class ClassicModeMapController {
      * Take Actionlar ayrı bir classa taşınabilir!
      */
     private void takeCardDeckAction() {
+        Card card = ((CardDeck)locations.get( currentPlayerIndex ) ).drawCard();
+        playerManager.makeCardAction( currentPlayer, card );
         endOfTurnButton.setDisable(false);
     }
 
@@ -857,6 +862,28 @@ public class ClassicModeMapController {
         ÖÇA SAVEGAME FONKSİYONU BURADA
      */
     public void saveGame(ActionEvent actionEvent) {
-        System.out.println(saveGameNameTextField.getText().trim());
+        String filepath = Constants.SAVE_GAME_FOLDER + saveGameNameTextField.getText().trim();
+
+        ArrayList<Object> itemsToSave = new ArrayList<>();
+        itemsToSave.add( locations );
+        itemsToSave.add( players );
+        itemsToSave.add( playerLocations );
+        itemsToSave.add( moneyInTheMiddle );
+
+        writeObjectToFile( itemsToSave, filepath );
+    }
+
+    public void writeObjectToFile( Object serObj, String filepath ) {
+
+        try {
+
+            FileOutputStream fileOut = new FileOutputStream(filepath);
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(serObj);
+            objectOut.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }
