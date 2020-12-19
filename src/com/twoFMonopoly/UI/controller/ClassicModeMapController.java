@@ -320,6 +320,8 @@ public class ClassicModeMapController {
     @FXML
     private Text houseCost;
     @FXML
+    private Button mortgageButton1;
+    @FXML
     private Text hotelCost;
     @FXML
     private Text mortgageValue;
@@ -472,6 +474,7 @@ public class ClassicModeMapController {
         cardPane.setVisible(false);
         jailPane.setVisible(false);
         payDebtButton.setDisable(true);
+        mortgageButton1.setDisable(true);
 
         for(Text mortgage: mortgagedViews){
             mortgage.setVisible(false);
@@ -709,6 +712,7 @@ public class ClassicModeMapController {
                                         && property.getLocationIndex() == currentPlayer.getCurrentLocationIndex()));
                 buildButton.setDisable(true);
                 mortgageButton.setDisable(true);
+
             }
             else if(property.getOwner() == currentPlayer) {
                 sellButton.setDisable(!(property.getNoOfBuildings() > 0));
@@ -848,21 +852,13 @@ public class ClassicModeMapController {
         playerManager.buildOneBuilding(currentPlayer, property);
         propertyManager.buildOneBuilding(property);
         propertyPaneSettings(property);
-        updateProperty(property);
+        //updateProperty(property);
         updatePlayers();
         System.out.println();
     }
 
-    // Sell button ev satmak için mortgage değil
-    // üstünde olmasına gerek yok clickListenerla almamız lazım
     @FXML
     public void sellButtonPushed(ActionEvent event) {
-        /*
-        int playerLocation = playerLocations.get(currentPlayerIndex);
-        //lastClickedTradable
-        setColorOfLocation(lastClickedTradable, "sell");
-        sellButton.setDisable(true);
-        */
         Property property = (Property) locations.get(lastClickedTradable);
         playerManager.sellOneBuilding(currentPlayer, property);
         propertyManager.sellOneBuilding(property);

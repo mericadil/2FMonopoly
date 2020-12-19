@@ -332,7 +332,7 @@
          <Font size="18.0" />
       </font>
    </Button>
-   <Button id="payDebtButton" fx:id="payDebtButton" layoutX="608.0" layoutY="440.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefWidth="168.0" styleClass="play-game-button" text="Pay Debt" textAlignment="CENTER">
+   <Button id="payDebtButton" fx:id="payDebtButton" onAction="#payDebtButtonPushed" layoutX="608.0" layoutY="440.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefWidth="168.0" styleClass="play-game-button" text="Pay Debt" textAlignment="CENTER">
       <font>
          <Font size="18.0" />
       </font>

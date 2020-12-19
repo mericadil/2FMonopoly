@@ -199,7 +199,7 @@ public class PlayerManager {
 
     //Call first
     public boolean buildOneBuilding(Player player, Property property) {
-        if(!property.isMonopoly() || property.getNoOfBuildings() > 4 || canAfford(player, property.getNextBuildingsBuildingCost()))
+        if(!property.isMonopoly() || property.getNoOfBuildings() > 4 || !canAfford(player, property.getNextBuildingsBuildingCost()))
             return false;
         giveMoney(player, property.getNextBuildingsBuildingCost());
         if(property.getNoOfBuildings() == 4)
