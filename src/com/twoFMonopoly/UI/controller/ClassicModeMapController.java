@@ -372,6 +372,8 @@ public class ClassicModeMapController {
     protected AnchorPane root;
     @FXML
     private Text titleOfPropertyDetails;
+    @FXML
+    private Button finishGame1;
 
     private final double JAIL_FINE = 200;
     private Random dice;
@@ -405,11 +407,15 @@ public class ClassicModeMapController {
     private GameInitializer gameInitializer;
     private Card currentCard;
 
+    private int turn;
+
     public void initInterface() {
         Main.player.stop();
         Main.player  = new MediaPlayer(new Media(Paths.get(Constants.MAIN_MUSIC).toUri().toString()));
         Main.player.setOnEndOfMedia( () -> Main.player.seek(Duration.ZERO));
         Main.player.play();
+
+        turn = 0;
 
         playerNames = new ArrayList<>(Arrays.asList(playerName1, playerName2, playerName3, playerName4, playerName5, playerName6, playerName7, playerName8));
         queueIndexTexts = new ArrayList<>(Arrays.asList(queueIndexText1, queueIndexText2, queueIndexText3, queueIndexText4, queueIndexText5, queueIndexText6, queueIndexText7, queueIndexText8));
@@ -460,6 +466,7 @@ public class ClassicModeMapController {
             playerTime.setVisible(false);
         }
 
+        finishGame1.setVisible(false);
         endOfTurnButton.setDisable(true);
         propertyPane.setVisible(false);
         negotiatePane.setVisible(false);
@@ -553,6 +560,7 @@ public class ClassicModeMapController {
         updateRailroads();
 
         reloadAllTokens();
+
     }
 
     private void refactorPlayers() {
@@ -847,22 +855,49 @@ public class ClassicModeMapController {
     }
 
     private void updatePlayer( Player player) {
-        double money = player.getMoneyAmount();
-        int playerNumber = players.indexOf(player) + 1;
-        String playerMoneyX = "playerMoney" + playerNumber;
+        if(player.isBankrupt()){
+            int playerNumber = players.indexOf(player) + 1;
+            String playerMoneyX = "playerMoney" + playerNumber;
+            String playerNameX = "playerName" + playerNumber;
+            String playerTokenX  = "playerToken" + playerNumber;
 
-        for(Text playerMoney : playerMoneys){
-            if(playerMoney.getId().equals(playerMoneyX)){
-                playerMoney.setText("$" + money + "K");
+            for (Text playerMoney : playerMoneys) {
+                if (playerMoney.getId().equals(playerMoneyX)) {
+                    playerMoney.setText("$" + 0 + "K");
+                    playerMoney.setOpacity(0.15);
+                }
+            }
+            for (Text playerName : playerNames) {
+                if (playerName.getId().equals(playerNameX)) {
+                    playerName.setOpacity(0.15);
+                }
+            }
+            for (Circle playerToken : playerTokens) {
+                if (playerToken.getId().equals(playerTokenX)) {
+                    playerToken.setVisible(false);
+                    popUpActionText.setText("!!BANKRUPT!!");
+                    popUpPlayer.setText(currentPlayer.getName());
+                    popUpPane.setVisible(true);
+                }
             }
         }
-        if(player == currentPlayer) {
-            if (playerLocations.get(currentPlayerIndex) != player.getCurrentLocationIndex()) {
-                setNewCoordinate(player.getCurrentLocationIndex(), playerTokens.get(queueIndices.get(currentPlayerIndex)));
-                playerLocations.set(currentPlayerIndex, player.getCurrentLocationIndex());
+        else {
+            double money = player.getMoneyAmount();
+            int playerNumber = players.indexOf(player) + 1;
+            String playerMoneyX = "playerMoney" + playerNumber;
+
+            for (Text playerMoney : playerMoneys) {
+                if (playerMoney.getId().equals(playerMoneyX)) {
+                    playerMoney.setText("$" + money + "K");
+                }
+            }
+            if (player == currentPlayer) {
+                if (playerLocations.get(currentPlayerIndex) != player.getCurrentLocationIndex()) {
+                    setNewCoordinate(player.getCurrentLocationIndex(), playerTokens.get(queueIndices.get(currentPlayerIndex)));
+                    playerLocations.set(currentPlayerIndex, player.getCurrentLocationIndex());
+                }
             }
         }
-
     }
 
     private void updateProperty( Property property){
@@ -975,7 +1010,8 @@ public class ClassicModeMapController {
     private void updateRailroadPane(Railroad railroad){
         titleOfPropertyDetails.setText(railroad.getName());
         ArrayList<Double> rentPrices = railroad.getRentPrices();
-
+        double cost = railroad.getCost();
+        costPriceText.setText("$" + cost + "K");
         siteOnlyText.setText("1 Railroad");
         oneHouseText.setVisible(false);
         oneHouseRent.setVisible(false);
@@ -1063,6 +1099,7 @@ public class ClassicModeMapController {
 
     private void jailPaneSettings() {
         payFineButton.setDisable(true);
+        numberOfFreedomRights.setText(currentPlayer.getNoOfFreedomRights()+"");
         if(currentPlayer.getJailStatus() == 0 || currentPlayer.isBankrupt()) {
             useFreedomCardButton.setDisable(true);
         }
@@ -1319,7 +1356,7 @@ public class ClassicModeMapController {
     public void endTurnButtonPushed(ActionEvent event) {
         popUpPane.setVisible(false);
         if(isGameOver()) {
-            //finish the game
+            finishGame1.setVisible(true);
         }
         else {
             updatePlayer(currentPlayer);
@@ -1374,6 +1411,31 @@ public class ClassicModeMapController {
         }
         else {
             takeJailTurn();
+        }
+    }
+
+    @FXML
+    public void finishGame(ActionEvent actionEvent){
+        Player winner = players.get(0);
+        for( Player player : players) {
+            if(!player.isBankrupt())
+                winner = player;
+        }
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("com/twoFMonopoly/UI/FX/winnerScreen.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            window.getScene().setRoot(root);
+            window.show();
+
+            WinnerScreenController winnerScreenController = fxmlLoader.getController();
+            fxmlLoader.setController(winnerScreenController);
+            winnerScreenController.init(winner.getName());
+
+            System.out.println(window);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
