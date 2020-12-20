@@ -1147,7 +1147,7 @@
          <Text id="houseCost3" fx:id="houseCost3" layoutX="337.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
          <Text id="houseCost1" fx:id="houseCost1" layoutX="200.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
          <Text id="houseCost4" fx:id="houseCost4" layoutX="401.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
-            <Button fx:id="mortgageButton1" layoutX="311.0" layoutY="366.0" mnemonicParsing="false" onAction="#mortgageButtonPushed" prefHeight="40.0" prefWidth="121.0" style="-fx-background-color: purple; -fx-text-fill: white;" text="Unmortgage">
+            <Button fx:id="unMortgageButton" layoutX="311.0" layoutY="366.0" mnemonicParsing="false" onAction="#unMortgagedButtonPushed" prefHeight="40.0" prefWidth="121.0" style="-fx-background-color: purple; -fx-text-fill: white;" text="Unmortgage">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

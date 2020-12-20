@@ -320,7 +320,7 @@ public class ClassicModeMapController {
     @FXML
     private Text houseCost;
     @FXML
-    private Button mortgageButton1;
+    private Button unMortgageButton;
     @FXML
     private Text hotelCost;
     @FXML
@@ -483,7 +483,7 @@ public class ClassicModeMapController {
         cardPane.setVisible(false);
         jailPane.setVisible(false);
         payDebtButton.setDisable(true);
-        mortgageButton1.setDisable(true);
+        unMortgageButton.setDisable(true);
 
         for(Text mortgage: mortgagedViews){
             mortgage.setVisible(false);
@@ -682,6 +682,7 @@ public class ClassicModeMapController {
                             && property.getLocationIndex() == currentPlayer.getCurrentLocationIndex()));
                     buildButton.setDisable(true);
                     mortgageButton.setDisable(true);
+                    unMortgageButton.setDisable(true);
 
                 } else if (property.getOwner() == currentPlayer) {
                     sellButton.setDisable(!(property.getNoOfBuildings() > 0));
@@ -689,11 +690,14 @@ public class ClassicModeMapController {
                     buildButton.setDisable(!(property.isMonopoly() && property.getNoOfBuildings() < 5
                             && playerManager.canAfford(currentPlayer, property.getNextBuildingsBuildingCost())));
                     mortgageButton.setDisable(!(property.getNoOfBuildings() == 0 && !property.isMortgaged()));
+                    unMortgageButton.setDisable(!(property.isMortgaged() &&
+                            playerManager.canAfford(currentPlayer, property.getCurrentMortgagePrice())));
                 } else {
                     sellButton.setDisable(true);
                     buyButton.setDisable(true);
                     buildButton.setDisable(true);
                     mortgageButton.setDisable(true);
+                    unMortgageButton.setDisable(true);
                 }
             } else {
                 Railroad railroad = (Railroad) locations.get(lastClickedTradable);
@@ -704,16 +708,20 @@ public class ClassicModeMapController {
                             && currentPlayer.getCurrentLocationIndex() == railroad.getLocationIndex()));
                     buildButton.setDisable(true);
                     mortgageButton.setDisable(true);
+                    unMortgageButton.setDisable(true);
                 } else if (railroad.getOwner() == currentPlayer) {
                     sellButton.setDisable(true);
                     buyButton.setDisable(true);
                     buildButton.setDisable(true);
                     mortgageButton.setDisable(railroad.isMortgaged());
+                    unMortgageButton.setDisable(!(railroad.isMortgaged() &&
+                            playerManager.canAfford(currentPlayer,railroad.getCurrentMortgagePrice())));
                 } else {
                     sellButton.setDisable(true);
                     buyButton.setDisable(true);
                     buildButton.setDisable(true);
                     mortgageButton.setDisable(true);
+                    unMortgageButton.setDisable(true);
                 }
             }
         }
@@ -856,6 +864,7 @@ public class ClassicModeMapController {
         updateTradable((Tradable) locations.get(lastClickedTradable));
     }
 
+    @FXML
     public void unMortgagedButtonPushed(ActionEvent event) {
         Tradable tradable =(Tradable) locations.get(lastClickedTradable);
         if( tradable instanceof Property) {
@@ -866,6 +875,7 @@ public class ClassicModeMapController {
             playerManager.removeMortgageRailroad(currentPlayer, (Railroad) tradable);
             railroadManager.removeMortgageRailroad((Railroad) tradable, currentPlayer);
         }
+        updateTradable(tradable);
     }
 
     @FXML
