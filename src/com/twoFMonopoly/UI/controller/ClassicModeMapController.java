@@ -1,6 +1,5 @@
 package com.twoFMonopoly.UI.controller;
 
-import com.sun.deploy.panel.IProperty;
 import com.twoFMonopoly.Constants;
 import com.twoFMonopoly.Main;
 import com.twoFMonopoly.Managers.PlayerManager;
@@ -20,7 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -41,6 +40,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+
+enum TradePlayerType {
+    PROPOSER, PROPOSED
+}
 
 public class ClassicModeMapController {
     @FXML
@@ -65,6 +68,14 @@ public class ClassicModeMapController {
     public Text queueIndexText7;
     @FXML
     public Text queueIndexText8;
+    @FXML
+    public VBox rightPlayerPropsVBox;
+    @FXML
+    public VBox rightPlayerGivenVBox;
+    @FXML
+    public VBox leftPlayerGivenVBox;
+    @FXML
+    public VBox leftPlayerPropsVBox;
 
     @FXML
     private ImageView house1_1, house1_2, house1_3, house1_4, house2_1, house2_2, house2_3, house2_4;
@@ -1374,6 +1385,33 @@ public class ClassicModeMapController {
         }
         else {
             takeJailTurn();
+        }
+    }
+
+    public void tradeAccepted(ActionEvent actionEvent) {
+    }
+
+    public void tradeRejected(ActionEvent actionEvent) {
+    }
+
+    public void tradeInitiated(MouseEvent mouseEvent) {
+        Text playerText = (Text) mouseEvent.getSource();
+        String id = playerText.getId();
+        Player clickedPlayer = players.get(Integer.parseInt(id.substring(10)));
+        if (clickedPlayer == currentPlayer) {
+            return;
+        }
+
+
+    }
+
+    public void createPlayerTradeTile( Tradable tradable, TradePlayerType tradePlayerType){
+
+    }
+
+    public void createPlayerTiles( Player player, TradePlayerType tradePlayerType) {
+        for( Tradable t: player.getProperties().values()){
+            createPlayerTradeTile(t, tradePlayerType);
         }
     }
 }
