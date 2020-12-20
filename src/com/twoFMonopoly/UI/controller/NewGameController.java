@@ -1,5 +1,12 @@
 package com.twoFMonopoly.UI.controller;
 
+/**
+ * NewGameController is the controller of the monopoly game. It just manages the new game page
+ * @authors: Adil Meric - Omer Faruk Akgul - Osman Batur Ince - Burak Ocalan - Doga Tansel
+ * @date: 22.11.2020
+ * @version: 20.12.2020
+ */
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

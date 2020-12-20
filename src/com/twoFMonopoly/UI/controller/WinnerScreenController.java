@@ -12,7 +12,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
+/**
+ * WinnerScreenController is the controller of the monopoly game. It just manages winner screen page
+ * @authors: Adil Meric - Omer Faruk Akgul - Osman Batur Ince - Burak Ocalan - Doga Tansel
+ * @date: 22.11.2020
+ * @version: 20.12.2020
+ */
 public class WinnerScreenController {
 
     @FXML

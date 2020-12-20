@@ -1,5 +1,12 @@
 package com.twoFMonopoly.UI.controller;
 
+/**
+ * MainMenuController is the controller of the monopoly game. It just manages the main menu page
+ * @authors: Adil Meric - Omer Faruk Akgul - Osman Batur Ince - Burak Ocalan - Doga Tansel
+ * @date: 22.11.2020
+ * @version: 20.12.2020
+ */
+
 import com.twoFMonopoly.Constants;
 import com.twoFMonopoly.Main;
 import javafx.stage.Stage;
