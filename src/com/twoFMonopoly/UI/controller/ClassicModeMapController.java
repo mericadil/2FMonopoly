@@ -36,9 +36,11 @@ import javafx.util.Duration;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.lang.reflect.Array;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Random;
 
 public class ClassicModeMapController {
@@ -369,17 +371,13 @@ public class ClassicModeMapController {
     private double moneyInTheMiddle;
     private Player currentPlayer;
     private int lastClickedTradable;
-    private GameInitializer gameInitializer;
 
-    public void init(int playerCount, ArrayList<String> colors, ArrayList<String> names, ArrayList<Integer> queueIndices){
+    public void initInterface(){
         Main.player.stop();
         Main.player  = new MediaPlayer(new Media(Paths.get(Constants.MAIN_MUSIC).toUri().toString()));
         Main.player.setOnEndOfMedia( () -> Main.player.seek(Duration.ZERO));
         Main.player.play();
 
-        moneyInTheMiddle = 0;
-
-        this.lastClickedTradable = 1;
         playerNames = new ArrayList<>(Arrays.asList(playerName1, playerName2, playerName3, playerName4, playerName5, playerName6, playerName7, playerName8));
         queueIndexTexts = new ArrayList<>(Arrays.asList(queueIndexText1, queueIndexText2, queueIndexText3, queueIndexText4, queueIndexText5, queueIndexText6, queueIndexText7, queueIndexText8));
         playerTimes = new ArrayList<>(Arrays.asList(playerTime1, playerTime2, playerTime3, playerTime4, playerTime5, playerTime6, playerTime7, playerTime8));
@@ -393,7 +391,6 @@ public class ClassicModeMapController {
         propertyOwnerViews = new ArrayList<>(Arrays.asList(propertyOwner1, propertyOwner2, propertyOwner4, propertyOwner5, propertyOwner6, propertyOwner8, propertyOwner9,
                                                                         propertyOwner11, propertyOwner12, propertyOwner13, propertyOwner15, propertyOwner16, propertyOwner17, propertyOwner19,
                                                                         propertyOwner20, propertyOwner22, propertyOwner23, propertyOwner26, propertyOwner27));
-        playerLocations = new ArrayList<>();
         locationViews = new ArrayList<>(Arrays.asList(  corner1, property1, property2, communityChest1, property3, property4, property5,
                                                     corner2, property6, property7, chance1, property8, property9, property10,
                                                     corner3, property11, property12, property13, communityChest2, property14, property15,
@@ -413,8 +410,26 @@ public class ClassicModeMapController {
                                                     house22_1, house22_2, house22_3, house22_4, house22_5, house23_1, house23_2, house23_3, house23_4, house23_5,
                                                     house26_1, house26_2, house26_3, house26_4, house26_5, house27_1, house27_2, house27_3, house27_4, house27_5));
 
+        playerManager = PlayerManager.getInstance();
+        propertyManager = PropertyManager.getInstance();
+        railroadManager = RailroadManager.getInstance();
 
-        gameInitializer = new GameInitializer();
+        endOfTurnButton.setDisable(true);
+        propertyPane.setVisible(false);
+        negotiatePane.setVisible(false);
+        pausePane.setVisible(false);
+        saveGamePane.setVisible(false);
+
+
+    }
+
+    public void initNewGame( int playerCount, ArrayList<String> colors, ArrayList<String> names, ArrayList<Integer> queueIndices ) {
+        initInterface();
+
+        this.moneyInTheMiddle = 0;
+        this.lastClickedTradable = 1;
+
+        GameInitializer gameInitializer = new GameInitializer();
         locations = gameInitializer.initTurkeyMap();
         for( Location location : locations) {
             System.out.println(location.getLocationText());
@@ -426,29 +441,50 @@ public class ClassicModeMapController {
         this.queueIndices = new ArrayList<>(queueIndices);
 
         players = new ArrayList<>();
-
-        playerManager = PlayerManager.getInstance();
-        propertyManager = PropertyManager.getInstance();
-        railroadManager = RailroadManager.getInstance();
+        playerLocations = new ArrayList<>();
 
         for( int i = 0; i < playerCount; i++) {
             Player player = new Player(i, names.get(i), 1500.0, colors.get(i));
             players.add(player);
         }
 
-        playerManager.setPlayer(players);
         currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
+        playerManager.setPlayer(players);
+
         refactorPlayers();
-        endOfTurnButton.setDisable(true);
-        setTurnText(currentPlayerIndex);
-        propertyPane.setVisible(false);
-        negotiatePane.setVisible(false);
-        pausePane.setVisible(false);
-        saveGamePane.setVisible(false);
 
         updatePlayers();
         updateProperties();
         updateRailroads();
+        setTurnText(currentPlayerIndex);
+    }
+
+    public void initLoadGame(int currentPlayerIndex, int playerCount, ArrayList<String> colors, ArrayList<String> names, ArrayList<Integer> queueIndices,
+                             ArrayList<Location> locations, ArrayList<Player> players, ArrayList<Integer> playerLocations, double moneyInTheMiddle,
+                             int lastClickedTradable) {
+        initInterface();
+
+        this.currentPlayerIndex = currentPlayerIndex;
+        this.playerCount = playerCount;
+        this.colors = colors;
+        this.names = names;
+        this.queueIndices = queueIndices;
+        this.locations = locations;
+        this.players = players;
+        this.playerLocations = playerLocations;
+        this.moneyInTheMiddle = moneyInTheMiddle;
+        this.lastClickedTradable = lastClickedTradable;
+
+        playerManager.setPlayer(this.players);
+        currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
+
+        refactorPlayers();
+
+        updatePlayers();
+        updateProperties();
+        updateRailroads();
+        initNewCoordinate();
+        setTurnText(this.currentPlayerIndex);
     }
 
     private void refactorPlayers() {
@@ -511,7 +547,7 @@ public class ClassicModeMapController {
     private void takeNormalTurn(int dice1, int dice2) {
         int newLocation = (playerLocations.get(currentPlayerIndex) + dice1 + dice2) % 28;
         playerLocations.set(currentPlayerIndex, newLocation);
-        setNewCoordinate(newLocation);
+        setNewCoordinate(newLocation, playerTokens.get(queueIndices.get(currentPlayerIndex)));
         playerManager.setLocation(currentPlayer, newLocation);
         updatePlayers();
         if(locations.get(newLocation) instanceof Property) {
@@ -603,7 +639,6 @@ public class ClassicModeMapController {
      */
     private void takeCardDeckAction() {
         Card card = ((CardDeck)locations.get(currentPlayer.getCurrentLocationIndex())).drawCard();
-        System.out.println(card);
         playerManager.makeCardAction( currentPlayer, card );
         updatePlayer(currentPlayer);
         endOfTurnButton.setDisable(false);
@@ -716,7 +751,7 @@ public class ClassicModeMapController {
 
     }
 
-    private void setNewCoordinate(int playerLocation){
+    private void setNewCoordinate(int playerLocation, Circle playerToken){
         Rectangle playerLocationOnBoard = locationViews.get(playerLocation);
         double xLeftBorder = playerLocationOnBoard.getLayoutX();
         double xRightBorder = xLeftBorder + playerLocationOnBoard.getWidth();
@@ -726,10 +761,15 @@ public class ClassicModeMapController {
         Random random = new Random();
         double newXCoordinate = xLeftBorder + random.nextInt( (int)((xRightBorder - xLeftBorder) - 2 * playerToken1.getRadius())) + playerToken1.getRadius();
         double newYCoordinate = yUpperBorder + random.nextInt( (int)((yDownBorder - yUpperBorder) - 2 * playerToken1.getRadius())) + playerToken1.getRadius();
-        playerTokens.get(queueIndices.get(currentPlayerIndex)).setLayoutX(newXCoordinate);
-        playerTokens.get(queueIndices.get(currentPlayerIndex)).setLayoutY(newYCoordinate);
+        playerToken.setLayoutX(newXCoordinate);
+        playerToken.setLayoutY(newYCoordinate);
     }
 
+    public void initNewCoordinate() {
+        for ( int i = 0; i < playerCount; i++ ) {
+            setNewCoordinate( playerLocations.get( i ), playerTokens.get( i ) );
+        }
+    }
     private void setTurnText(int index){
         String textToDisplayTurn = playerNames.get(queueIndices.get(index)).getText();
         turnText.setText(textToDisplayTurn + "'s Turn");
@@ -1161,10 +1201,18 @@ public class ClassicModeMapController {
         String filepath = Constants.SAVE_GAME_FOLDER + saveGameNameTextField.getText().trim();
 
         ArrayList<Object> itemsToSave = new ArrayList<>();
-        itemsToSave.add( locations );
+
+        // Save primitive types
+        itemsToSave.add( currentPlayerIndex );
+        itemsToSave.add( playerCount );
+        itemsToSave.add( colors );
+        itemsToSave.add( names );
+        itemsToSave.add( queueIndices);
+        itemsToSave.add( playerLocations);
+        itemsToSave.add( moneyInTheMiddle);
+        itemsToSave.add( lastClickedTradable);
         itemsToSave.add( players );
-        itemsToSave.add( playerLocations );
-        itemsToSave.add( moneyInTheMiddle );
+        itemsToSave.add( locations );
 
         writeObjectToFile( itemsToSave, filepath );
     }

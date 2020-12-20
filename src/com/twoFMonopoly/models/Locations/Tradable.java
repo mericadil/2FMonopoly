@@ -3,9 +3,10 @@ package com.twoFMonopoly.models.Locations;
 import com.twoFMonopoly.models.Player;
 import javafx.scene.paint.Paint;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Tradable {
+public abstract class Tradable implements Serializable {
     //Attributes
     protected String name;
     protected double cost;

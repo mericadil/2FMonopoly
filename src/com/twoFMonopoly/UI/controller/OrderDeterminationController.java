@@ -203,7 +203,7 @@ public class OrderDeterminationController {
 
             ClassicModeMapController classicModeMapController = fxmlLoader.getController();
             fxmlLoader.setController(classicModeMapController);
-            classicModeMapController.init(playerCount, colors, names, queueIndices);
+            classicModeMapController.initNewGame(playerCount, colors, names, queueIndices);
 
             System.out.println(window);
 
