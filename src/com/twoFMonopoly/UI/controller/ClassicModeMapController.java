@@ -367,6 +367,8 @@ public class ClassicModeMapController {
     private Text popUpPlayer, popUpActionText;
     @FXML
     private AnchorPane popUpPane;
+    @FXML
+    private Button finishGame1;
 
     @FXML
     protected AnchorPane root;
@@ -500,6 +502,7 @@ public class ClassicModeMapController {
         payDebtButton.setDisable(true);
         unMortgageButton.setDisable(true);
         popUpPane.setVisible(false);
+        finishGame1.setVisible(false);
 
         for(Text mortgage: mortgagedViews){
             mortgage.setVisible(false);
@@ -701,6 +704,7 @@ public class ClassicModeMapController {
         for( Player player : players) {
             if(!player.isBankrupt()) playingPlayerCount++;
         }
+        System.err.println(playingPlayerCount);
         return !(playingPlayerCount > 1);
     }
 
@@ -1289,15 +1293,10 @@ public class ClassicModeMapController {
 
     @FXML
     public void endTurnButtonPushed(ActionEvent event) {
-        turn++;
-        if(turn == 5){
-            currentPlayer.bankrupt();
-            updateProperties();
-            updateRailroads();
-        }
         popUpPane.setVisible(false);
         if(isGameOver()) {
-            //finish the game
+            System.err.println("over");
+            finishGame1.setVisible(true);
         }
         else {
             updatePlayer(currentPlayer);
@@ -1327,6 +1326,14 @@ public class ClassicModeMapController {
                 endOfTurnButton.setDisable(true);
             }
         }
+        /**
+        turn++;
+        if(turn == 2 || turn == 3){
+            playerManager.bankrupt(currentPlayer);
+            updateProperties();
+            updateRailroads();
+        }
+         **/
     }
 
     @FXML
@@ -1351,6 +1358,30 @@ public class ClassicModeMapController {
         }
         else {
             takeJailTurn();
+        }
+    }
+    @FXML
+    public void finishGame(ActionEvent actionEvent){
+        Player winner = players.get(0);
+        for( Player player : players) {
+            if(!player.isBankrupt())
+                winner = player;
+        }
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("com/twoFMonopoly/UI/FX/winnerScreen.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            window.getScene().setRoot(root);
+            window.show();
+
+            WinnerScreenController winnerScreenController = fxmlLoader.getController();
+            fxmlLoader.setController(winnerScreenController);
+            winnerScreenController.init(winner.getName());
+
+            System.out.println(window);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
