@@ -578,9 +578,7 @@ public class ClassicModeMapController {
                 endOfTurnButton.setDisable(true);
             }
             else {
-                playerManager.bankrupt(currentPlayer);
-                updateProperties();
-                updatePlayer(currentPlayer);
+                bankrupt();
                 endOfTurnButton.setDisable(false);
             }
         }
@@ -624,7 +622,7 @@ public class ClassicModeMapController {
             payDebtButton.setDisable(false);
         }
         else {
-            playerManager.bankrupt(currentPlayer);
+            bankrupt();
             endOfTurnButton.setDisable(false);
         }
         moneyInTheMiddle += taxAmount;
@@ -809,9 +807,6 @@ public class ClassicModeMapController {
             for (Circle playerToken : playerTokens) {
                 if (playerToken.getId().equals(playerTokenX)) {
                     playerToken.setVisible(false);
-                    popUpActionText.setText("!!BANKRUPT!!");
-                    popUpPlayer.setText(currentPlayer.getName());
-                    popUpPane.setVisible(true);
                 }
             }
 
@@ -1049,8 +1044,6 @@ public class ClassicModeMapController {
     // FXML Listeners
     @FXML
     public void buyButtonPushed(ActionEvent event) {
-        //int playerLocation = currentPlayer.getCurrentLocationIndex();
-
         if( locations.get(lastClickedTradable) instanceof Property) {
             Property property = (Property) locations.get(lastClickedTradable);
             buyProperty(property);
@@ -1193,8 +1186,7 @@ public class ClassicModeMapController {
             payDebtButton.setDisable(false);
         }
         else {
-            playerManager.bankrupt(currentPlayer);
-            updatePlayer(currentPlayer);
+            bankrupt();
             endOfTurnButton.setDisable(false);
             payDebtButton.setDisable(true);
         }
@@ -1238,11 +1230,12 @@ public class ClassicModeMapController {
                 endOfTurnButton.setDisable(false);
             }
             else if(playerManager.tenderToAvoidBankrupt(currentPlayer, JAIL_FINE)) {
-                // Text düş tepeye you have to sell sth to pay your fine
+                popUpActionText.setText("You have to sell sth. to exit...");
+                popUpPane.setVisible(true);
+                popUpPlayer.setText(currentPlayer.getName());
             }
             else {
-                playerManager.bankrupt(currentPlayer);
-                updatePlayer(currentPlayer);
+                bankrupt();
                 endOfTurnButton.setDisable(false);
             }
             jailPaneSettings();
@@ -1252,9 +1245,6 @@ public class ClassicModeMapController {
                 playerManager.giveMoney(currentPlayer, JAIL_FINE);
                 playerManager.exitJail(currentPlayer);
                 updatePlayer(currentPlayer);
-            }
-            else {
-                //jail texti you do not have enough money.
             }
             jailPaneSettings();
             endOfTurnButton.setDisable(false);
@@ -1294,7 +1284,7 @@ public class ClassicModeMapController {
             //finish the game
         }
         else {
-            updatePlayer(currentPlayer);
+            updatePlayers();
             if(currentPlayer.getJailStatus() != 0) playerManager.updateJailStatus(currentPlayer);
             currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
             currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
@@ -1310,8 +1300,7 @@ public class ClassicModeMapController {
                     payDebtButton.setDisable(false);
                 }
                 else {
-                    playerManager.bankrupt(currentPlayer);
-                    updatePlayer(currentPlayer);
+                    bankrupt();
                     endOfTurnButton.setDisable(false);
                     payDebtButton.setDisable(true);
                 }
@@ -1346,5 +1335,15 @@ public class ClassicModeMapController {
         else {
             takeJailTurn();
         }
+    }
+
+    public void bankrupt() {
+        playerManager.bankrupt(currentPlayer);
+        popUpActionText.setText("!!BANKRUPT!!");
+        popUpPlayer.setText(currentPlayer.getName());
+        popUpPane.setVisible(true);
+        updateProperties();
+        updateRailroads();
+        updatePlayers();
     }
 }
