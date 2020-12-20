@@ -1289,12 +1289,6 @@ public class ClassicModeMapController {
 
     @FXML
     public void endTurnButtonPushed(ActionEvent event) {
-        turn++;
-        if(turn == 5){
-            currentPlayer.bankrupt();
-            updateProperties();
-            updateRailroads();
-        }
         popUpPane.setVisible(false);
         if(isGameOver()) {
             //finish the game
