@@ -1234,7 +1234,7 @@ public class ClassicModeMapController {
     public void useFreedomButtonClicked(ActionEvent actionEvent) {
         if(playerManager.useFreedomRightToExitJail(currentPlayer)) {
             jailPaneSettings();
-            endOfTurnButton.setDisable(false);
+            endOfTurnButton.setDisable(true);
             updatePlayer(currentPlayer);
             popUpActionText.setText("Freedom right is used. Remaining freedom cards: " + currentPlayer.getNoOfFreedomRights());
             popUpPlayer.setText(currentPlayer.getName());
