@@ -876,6 +876,8 @@ public class ClassicModeMapController {
             railroadManager.removeMortgageRailroad((Railroad) tradable, currentPlayer);
         }
         updateTradable(tradable);
+        updatePlayers();
+        propertyPaneSettings();
     }
 
     @FXML
