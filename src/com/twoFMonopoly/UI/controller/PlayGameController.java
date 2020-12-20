@@ -56,9 +56,16 @@ public class PlayGameController {
     @FXML
     public void goToLoadGame(ActionEvent actionEvent){
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../FX/loadGame.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("com/twoFMonopoly/UI/FX/loadGame.fxml"));
+            Parent root = fxmlLoader.load();
             Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-            window.getScene().setRoot(root); window.show();
+            window.getScene().setRoot(root);
+            window.show();
+
+            LoadGameController loadGameController = fxmlLoader.getController();
+            fxmlLoader.setController(loadGameController);
+            loadGameController.createLoadGameTiles();
+
             System.out.println(window);
 
         } catch (IOException e) {
