@@ -1,4 +1,10 @@
 package com.twoFMonopoly.UI.controller;
+/**
+ * ClassicModeMapController is the Game Engine of the monopoly game. The basic functionality of the game is managed by this class.
+ * @authors: Adil Meric - Omer Faruk Akgul - Osman Batur Ince - Burak Ocalan - Doga Tansel
+ * @date: 22.11.2020
+ * @version: 20.12.2020
+ */
 
 import com.sun.deploy.panel.IProperty;
 import com.twoFMonopoly.Constants;
@@ -375,7 +381,7 @@ public class ClassicModeMapController {
     @FXML
     private Button finishGame1;
 
-    private final double JAIL_FINE = 200;
+    private final double JAIL_FINE = 200;   // tha amount of money to get out of jail
     private Random dice;
     private int currentPlayerIndex;
     private int playerCount;
@@ -409,13 +415,16 @@ public class ClassicModeMapController {
 
     private int turn;
 
+    /**
+     * initInterface function is created to initialize the game screen when started
+     * its difference from initNewGame and initLoadGame is that initInterface contains common functionalities
+     */
     public void initInterface() {
         Main.player.stop();
         Main.player  = new MediaPlayer(new Media(Paths.get(Constants.MAIN_MUSIC).toUri().toString()));
         Main.player.setOnEndOfMedia( () -> Main.player.seek(Duration.ZERO));
         Main.player.play();
 
-        turn = 0;
 
         playerNames = new ArrayList<>(Arrays.asList(playerName1, playerName2, playerName3, playerName4, playerName5, playerName6, playerName7, playerName8));
         queueIndexTexts = new ArrayList<>(Arrays.asList(queueIndexText1, queueIndexText2, queueIndexText3, queueIndexText4, queueIndexText5, queueIndexText6, queueIndexText7, queueIndexText8));
@@ -454,6 +463,7 @@ public class ClassicModeMapController {
                 mortgaged13, mortgaged15, mortgaged17, mortgaged19, mortgaged20, mortgaged22, mortgaged23,
                 mortgaged26, mortgaged27, mortgaged5, mortgaged12, mortgaged16));
 
+        // several components of the user interface are made invisible to use when needed
         saveGamePane.setVisible(false);
         pausePane.setVisible(false);
         for(Text mortgage: mortgagedViews){
@@ -488,6 +498,13 @@ public class ClassicModeMapController {
 
     }
 
+    /**
+     * initNewGame function is called when game starts from scratch
+     * @param playerCount: keeps the total number of players
+     * @param colors: keeps the colors of players chosen by each player
+     * @param names: given names of the players
+     * @param queueIndices: player orders is determined by chance and given in this arraylist
+     */
     public void initNewGame(int playerCount, ArrayList<String> colors, ArrayList<String> names, ArrayList<Integer> queueIndices){
         initInterface();
 
@@ -527,6 +544,19 @@ public class ClassicModeMapController {
         updateRailroads();
     }
 
+    /**
+     * initLoadGame function is called when game is loaded from a saved game
+     * @param currentPlayerIndex: keeps the last turn
+     * @param playerCount: keeps the number of players
+     * @param colors: keeps the colors of players
+     * @param names: keeps player names
+     * @param queueIndices: keeps the player indexes pf saved game
+     * @param locations: keeps location contents
+     * @param players: keeps player objects in an array
+     * @param playerLocations: keeps last locations of players
+     * @param moneyInTheMiddle: keeps the money in the middle
+     * @param lastClickedTradable: keeps the last clicked tradable
+     */
     public void initLoadGame(int currentPlayerIndex, int playerCount, ArrayList<String> colors, ArrayList<String> names, ArrayList<Integer> queueIndices,
                              ArrayList<Location> locations, ArrayList<Player> players, ArrayList<Integer> playerLocations, double moneyInTheMiddle,
                              int lastClickedTradable) {
@@ -563,6 +593,9 @@ public class ClassicModeMapController {
 
     }
 
+    /**
+     * refactor player initializes player views based on fiven number of players
+     */
     private void refactorPlayers() {
         for(int i = playerCount; i < 8; ++i) {
             playerNames.get(i).setVisible(false);
@@ -589,11 +622,20 @@ public class ClassicModeMapController {
         System.out.println(queueIndexTexts.get(0) + ", ");
     }
 
+    /**
+     * basic dice function
+     * @return: a number between 1-6
+     */
     private int rollDice(){
         dice = new Random();
         return dice.nextInt(6) + 1;
     }
 
+    /**
+     * makes the movement after rolling dice
+     * @param dice1: value of first dice
+     * @param dice2: value of second dice
+     */
     private void takeNormalTurn(int dice1, int dice2) {
         int newLocation = (playerLocations.get(currentPlayerIndex) + dice1 + dice2) % 28;
         playerLocations.set(currentPlayerIndex, newLocation);
@@ -620,6 +662,9 @@ public class ClassicModeMapController {
             endOfTurnButton.setDisable(false);
     }
 
+    /**
+     * carries out necessary checks and actions when player comes to the jail
+     */
     public void takeJailTurn() {
         rollButton.setDisable(true);
         if(currentPlayer.getJailStatus() == 4) {
@@ -640,7 +685,7 @@ public class ClassicModeMapController {
     }
 
     /**
-     * Take Actionlar ayrı bir classa taşınabilir!
+     * carries out necessary checks and actions when player comes to the card
      */
     private void takeCardDeckAction() {
         currentCard = ((CardDeck)locations.get(currentPlayer.getCurrentLocationIndex())).drawCard();
@@ -651,12 +696,18 @@ public class ClassicModeMapController {
         endOfTurnButton.setDisable(true);
     }
 
+    /**
+     * takeGoToJailAction directs player to jail
+     */
     private void takeGoToJailAction() {
         playerManager.goToJail(currentPlayer, Constants.jailLocation);
         updatePlayers();
         endOfTurnButton.setDisable(false);
     }
 
+    /**
+     * takeTaxAction performs actions when player comes to tax location
+     */
     private void takeTaxAction() {
         int currentLocation = currentPlayer.getCurrentLocationIndex();
         Tax tax = (Tax) locations.get(currentLocation);
@@ -682,6 +733,9 @@ public class ClassicModeMapController {
 
     }
 
+    /**
+     * when player comes to tradeable location, which is either property or railroad, takeTradeableAction is called
+     */
     private void takeTradableAction() {
         Tradable tradable = (Tradable) locations.get(lastClickedTradable);
         propertyPaneSettings();
@@ -714,6 +768,11 @@ public class ClassicModeMapController {
         updatePlayers();
     }
 
+    /**
+     * setNewCoordinate chances the coordinate of player token after rolling dice
+     * @param playerLocation: new location of current player
+     * @param playerToken: token of the current player
+     */
     private void setNewCoordinate(int playerLocation, Circle playerToken){
         Rectangle playerLocationOnBoard = locationViews.get(playerLocation);
         double xLeftBorder = playerLocationOnBoard.getLayoutX();
@@ -728,12 +787,19 @@ public class ClassicModeMapController {
         playerToken.setLayoutY(newYCoordinate);
     }
 
+    /**
+     * reloads all the tokens when game is loaded from file
+     */
     public void reloadAllTokens() {
         for ( Player player : players ) {
             setNewCoordinate(player.getCurrentLocationIndex(), playerTokens.get( players.indexOf( player) ) );
         }
     }
 
+    /**
+     * setTurnText function is called to set the title as current player
+     * @param index: index of the current player
+     */
     private void setTurnText(int index){
         String textToDisplayTurn = playerNames.get(queueIndices.get(index)).getText();
         turnText.setText(textToDisplayTurn + "'s Turn");
@@ -741,17 +807,29 @@ public class ClassicModeMapController {
         turnText.setFill(playerColor);
     }
 
+    /**
+     * buyRailroad is called when a player buy a railroad
+     * @param railroad: the railroad that is bought by a player
+     */
     private void buyRailroad( Railroad railroad) {
         playerManager.buyRailroad(currentPlayer, railroad);
         railroadManager.buyRailroad(railroad, currentPlayer);
         updatePlayer(currentPlayer);
     }
 
+    /**
+     * buyProperty is called when a player buy a railroad
+     * @param property the railroad that is bought by a player
+     */
     private void buyProperty( Property property) {
         playerManager.buyProperty(currentPlayer, property);
         propertyManager.buyProperty(property, currentPlayer);
     }
 
+    /**
+     * checks whether game is over
+     * @return: boolean value
+     */
     private boolean isGameOver() {
         int playingPlayerCount = 0;
         for( Player player : players) {
@@ -760,6 +838,10 @@ public class ClassicModeMapController {
         return !(playingPlayerCount > 1);
     }
 
+    /**
+     * called when player clicks on pay debt button
+     * @return: whether the action is performed based on the player budget
+     */
     private boolean payDebt() {
         double debt = currentPlayer.getDebt();
         if(playerManager.canAfford(currentPlayer, debt)) {
@@ -771,28 +853,45 @@ public class ClassicModeMapController {
             return false;
     }
 
+    /**
+     * called when clicked on return game
+     * @param actionEvent
+     */
     public void goBackToGameFromPausePane(ActionEvent actionEvent) {
         pausePane.setVisible(false);
         pausePane.toBack();
     }
 
+    /**
+     * called when clicked on save game
+     * @param actionEvent
+     */
     public void goBackToGameFromSaveGamePane(ActionEvent actionEvent) {
         saveGamePane.setVisible(false);
         saveGamePane.toBack();
     }
 
+    /**
+     * called when clicked on pause game
+     * @param actionEvent
+     */
     public void openPausePane(ActionEvent actionEvent) {
         pausePane.toFront();
         pausePane.setVisible(true);
     }
 
+    /**
+     * called when clicked on open save game
+     * @param actionEvent
+     */
     public void openSaveGamePane(ActionEvent actionEvent) {
         saveGamePane.toFront();
         saveGamePane.setVisible(true);
     }
 
     /**
-     ÖÇA SAVEGAME FONKSİYONU BURADA
+     * this function saves the game to a file
+     * @param actionEvent
      */
     public void saveGame(ActionEvent actionEvent) {
         String filepath = Constants.SAVE_GAME_FOLDER + saveGameNameTextField.getText().trim();
@@ -814,6 +913,11 @@ public class ClassicModeMapController {
         writeObjectToFile( itemsToSave, filepath );
     }
 
+    /**
+     * writeObjectToFile takes the objects as parameter and writes them to the given path
+     * @param serObj: objects to be written
+     * @param filepath: file path
+     */
     public void writeObjectToFile( Object serObj, String filepath ) {
 
         try {
@@ -830,6 +934,11 @@ public class ClassicModeMapController {
 
 
     //Visual update functions
+
+    /**
+     * updates tradeable object
+     * @param tradable: tradable object
+     */
     private void updateTradable(Tradable tradable) {
         if( tradable instanceof Railroad)
             updateRailroad((Railroad) tradable);
@@ -837,23 +946,36 @@ public class ClassicModeMapController {
             updateProperty((Property) tradable);
     }
 
+    /**
+     * updates railroad object
+     */
     private void updateRailroads() {
         for( Location location : locations) {
             if(location instanceof Railroad) updateRailroad((Railroad) location);
         }
     }
 
+    /**
+     * updates properties
+     */
     private void updateProperties() {
         for( Location location : locations) {
             if(location instanceof Property) updateProperty((Property) location);
         }
     }
 
+    /**
+     * updates players
+     */
     private void updatePlayers() {
         for( Player player : players)
             updatePlayer(player);
     }
 
+    /**
+     * updates single player
+     * @param player: player to be updated
+     */
     private void updatePlayer( Player player) {
         if(player.isBankrupt()){
             int playerNumber = players.indexOf(player) + 1;
@@ -900,6 +1022,10 @@ public class ClassicModeMapController {
         }
     }
 
+    /**
+     * updates single property
+     * @param property: property to be updated
+     */
     private void updateProperty( Property property){
         int propertyLocationIndex = property.getLocationIndex();
         String propertyRectName = "propertyRectName" + propertyLocationIndex;
@@ -943,6 +1069,10 @@ public class ClassicModeMapController {
         }
     }
 
+    /**
+     * updates single railroad
+     * @param railroad: railroad to be updated
+     */
     private void updateRailroad( Railroad railroad) {
         int propertyLocationIndex = railroad.getLocationIndex();
         String propertyRectName = "railroadRectName" + propertyLocationIndex;
@@ -965,6 +1095,10 @@ public class ClassicModeMapController {
         }
     }
 
+    /**
+     * makes te changes on propertyPane
+     * @param property
+     */
     private void updatePropertyPane( Property property){
         double cost = property.getCost();
         double mortgagePrice = property.getCurrentMortgagePrice();
@@ -1007,6 +1141,10 @@ public class ClassicModeMapController {
         mortgageValue.setText("$" + mortgagePrice + "K");
     }
 
+    /**
+     * makes changes on railroad pane
+     * @param railroad: railroad to be updated
+     */
     private void updateRailroadPane(Railroad railroad){
         titleOfPropertyDetails.setText(railroad.getName());
         ArrayList<Double> rentPrices = railroad.getRentPrices();
@@ -1035,6 +1173,9 @@ public class ClassicModeMapController {
         hotelRent.setText("$" + rentPrices.get(3) + "K" );
     }
 
+    /**
+     * applies changes on property pane
+     */
     private void propertyPaneSettings() {
         if(!currentPlayer.isBankrupt()) {
             if (locations.get(lastClickedTradable) instanceof Property) {
@@ -1097,6 +1238,9 @@ public class ClassicModeMapController {
         }
     }
 
+    /**
+     * applies changes on jailpane
+     */
     private void jailPaneSettings() {
         payFineButton.setDisable(true);
         numberOfFreedomRights.setText(currentPlayer.getNoOfFreedomRights()+"");
@@ -1112,6 +1256,11 @@ public class ClassicModeMapController {
 
 
     // FXML Listeners
+
+    /**
+     * called when buyButton pushed
+     * @param event
+     */
     @FXML
     public void buyButtonPushed(ActionEvent event) {
         //int playerLocation = currentPlayer.getCurrentLocationIndex();
@@ -1141,6 +1290,10 @@ public class ClassicModeMapController {
         updatePlayer(currentPlayer);
     }
 
+    /**
+     * called when main menu button pushed
+     * @param actionEvent
+     */
     @FXML
     public void goToMainMenu(ActionEvent actionEvent){
         try {
@@ -1154,6 +1307,9 @@ public class ClassicModeMapController {
         }
     }
 
+    /**
+     * called when build button is pushed
+     */
     @FXML
     public void buildButtonPushed() {
         Property property = (Property) locations.get(lastClickedTradable);
@@ -1168,6 +1324,9 @@ public class ClassicModeMapController {
         System.out.println();
     }
 
+    /**
+     * called when build button is pushed
+     */
     @FXML
     public void sellButtonPushed(ActionEvent event) {
         Property property = (Property) locations.get(lastClickedTradable);
@@ -1181,6 +1340,10 @@ public class ClassicModeMapController {
         updatePlayers();
     }
 
+    /**
+     * called when mortgage button is clicked
+     * @param event
+     */
     @FXML
     public void mortgageButtonPushed(ActionEvent event) {
         if(locations.get(lastClickedTradable) instanceof Railroad) {
@@ -1219,6 +1382,10 @@ public class ClassicModeMapController {
         updateTradable((Tradable) locations.get(lastClickedTradable));
     }
 
+    /**
+     * called when unmortgage is clicked
+     * @param event
+     */
     @FXML
     public void unMortgagedButtonPushed(ActionEvent event) {
         Tradable tradable =(Tradable) locations.get(lastClickedTradable);
@@ -1244,6 +1411,10 @@ public class ClassicModeMapController {
         propertyPaneSettings();
     }
 
+    /**
+     * called when payDebt is clicked
+     * @param actionEvent
+     */
     @FXML
     public void payDebtButtonPushed( ActionEvent actionEvent) {
         double debt = currentPlayer.getDebt();
@@ -1265,6 +1436,10 @@ public class ClassicModeMapController {
         }
     }
 
+    /**
+     * called when close card pane is clicked
+     * @param mouseEvent
+     */
     @FXML
     public void closeCardPane(MouseEvent mouseEvent) {
         playerManager.makeCardAction( currentPlayer, currentCard );
@@ -1279,17 +1454,29 @@ public class ClassicModeMapController {
         }
     }
 
+    /**
+     * called when user clicks on jail
+     * @param mouseEvent
+     */
     @FXML
     public void jailClicked(MouseEvent mouseEvent) {
         jailPaneSettings();
         jailPane.setVisible(true);
     }
 
+    /**
+     * called when jail pane is closed
+     * @param actionEvent
+     */
     @FXML
     public void closeJailPaneClicked(ActionEvent actionEvent) {
         jailPane.setVisible(false);
     }
 
+    /**
+     * called when fine is paid
+     * @param actionEvent
+     */
     @FXML
     public void payFineButtonClicked(ActionEvent actionEvent) {
         if(currentPlayer.getJailStatus() == 4) {
@@ -1326,6 +1513,10 @@ public class ClassicModeMapController {
         }
     }
 
+    /**
+     * called when player uses freedom right
+     * @param actionEvent
+     */
     @FXML
     public void useFreedomButtonClicked(ActionEvent actionEvent) {
         if(playerManager.useFreedomRightToExitJail(currentPlayer)) {
@@ -1338,11 +1529,19 @@ public class ClassicModeMapController {
         }
     }
 
+    /**
+     * called when close button is pushed
+     * @param event
+     */
     @FXML
     public void closeButtonPushed(ActionEvent event) {
         propertyPane.setVisible(false);
     }
 
+    /**
+     * called when property is clicked
+     * @param mouseEvent
+     */
     @FXML
     public void propertyClicked(MouseEvent mouseEvent) {
         lastClickedTradable = Integer.parseInt(((Rectangle) mouseEvent.getSource()).getId());
@@ -1352,6 +1551,10 @@ public class ClassicModeMapController {
         jailPane.setVisible(false);
     }
 
+    /**
+     * called when end turn is pushed
+     * @param event
+     */
     @FXML
     public void endTurnButtonPushed(ActionEvent event) {
         popUpPane.setVisible(false);
@@ -1389,6 +1592,10 @@ public class ClassicModeMapController {
         }
     }
 
+    /**
+     * called when roll button is pushed
+     * @param event
+     */
     @FXML
     public void rollButtonPushed(ActionEvent event){
         int dice1 = rollDice();
@@ -1414,6 +1621,10 @@ public class ClassicModeMapController {
         }
     }
 
+    /**
+     * called when game is finished
+     * @param actionEvent
+     */
     @FXML
     public void finishGame(ActionEvent actionEvent){
         Player winner = players.get(0);
