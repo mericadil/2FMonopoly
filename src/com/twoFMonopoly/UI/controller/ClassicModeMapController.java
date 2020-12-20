@@ -370,7 +370,7 @@ public class ClassicModeMapController {
     @FXML
     private Text titleOfPropertyDetails;
 
-    private final double JAIL_FINE = 250;
+    private final double JAIL_FINE = 200;
     private Random dice;
     private int currentPlayerIndex;
     private int playerCount;
