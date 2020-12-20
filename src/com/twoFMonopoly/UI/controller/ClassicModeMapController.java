@@ -521,37 +521,11 @@ public class ClassicModeMapController {
         queueIndexTexts.get(0).setVisible(true);
         queueIndexTexts.get(0).toFront();
         System.out.println(queueIndexTexts.get(0) + ", ");
-
-
     }
 
     private int rollDice(){
         dice = new Random();
         return dice.nextInt(6) + 1;
-    }
-
-    @FXML
-    public void rollButtonPushed(ActionEvent event){
-        int dice1 = rollDice();
-        int dice2 = rollDice();
-
-        String dice1Url = "/com/twoFMonopoly/UI/assets/dice" + dice1 + ".png";
-        String dice2Url = "/com/twoFMonopoly/UI/assets/dice" + dice2 + ".png";
-
-        diceImage1.setImage(new Image(getClass().getResourceAsStream(dice1Url)));
-        diceImage2.setImage(new Image(getClass().getResourceAsStream(dice2Url)));
-
-        if(currentPlayer.getJailStatus() == 0) {
-            takeNormalTurn(dice1, dice2);
-        }
-        else if( dice1 == dice2) {
-            //exit from jail
-            playerManager.exitJail(currentPlayer);
-            takeNormalTurn(dice1, dice2);
-        }
-        else {
-            takeJailTurn();
-        }
     }
 
     private void takeNormalTurn(int dice1, int dice2) {
@@ -560,6 +534,8 @@ public class ClassicModeMapController {
         setNewCoordinate(newLocation);
         playerManager.setLocation(currentPlayer, newLocation);
         updatePlayers();
+        rollButton.setDisable(true);
+
         if(locations.get(newLocation) instanceof Property) {
             lastClickedTradable = newLocation;
             takeTradableAction();
@@ -576,20 +552,18 @@ public class ClassicModeMapController {
             takeCardDeckAction();
         else
             endOfTurnButton.setDisable(false);
-
-        rollButton.setDisable(true);
     }
 
     public void takeJailTurn() {
-        if(currentPlayer.getJailStatus() == 3) {
+        rollButton.setDisable(true);
+        if(currentPlayer.getJailStatus() == 4) {
             if(playerManager.canAfford(currentPlayer, JAIL_FINE) ||
                     playerManager.tenderToAvoidBankrupt(currentPlayer, JAIL_FINE)) {
-                // payFine button active
-                //use freedom right button active if player has freedomRights
                 endOfTurnButton.setDisable(true);
             }
             else {
                 playerManager.bankrupt(currentPlayer);
+                updateProperties();
                 updatePlayer(currentPlayer);
                 endOfTurnButton.setDisable(false);
             }
@@ -598,7 +572,6 @@ public class ClassicModeMapController {
             //pay fine button active
             //use freedom right button active if player has freedomRights
             endOfTurnButton.setDisable(false);
-            rollButton.setDisable(true);
         }
     }
 
@@ -919,8 +892,6 @@ public class ClassicModeMapController {
         houseCost4.setText("$" + buildings.get(3).getBuildingPrice() + "K");
         hotelCost.setText("$" + buildings.get(4).getBuildingPrice() + "K");
         mortgageValue.setText("$" + mortgagePrice + "K");
-
-        //setColorOfTradable((Tradable) property);
     }
 
     private void updateRailroadPane(Railroad railroad){
@@ -1019,7 +990,7 @@ public class ClassicModeMapController {
         }
         else {
             useFreedomCardButton.setDisable(!(currentPlayer.getNoOfFreedomRights() > 0));
-            payFineButton.setDisable(playerManager.canAfford(currentPlayer,JAIL_FINE));
+            payFineButton.setDisable(!(playerManager.canAfford(currentPlayer,JAIL_FINE)));
         }
     }
 
@@ -1160,7 +1131,7 @@ public class ClassicModeMapController {
 
     @FXML
     public void payFineButtonClicked(ActionEvent actionEvent) {
-        if(currentPlayer.getJailStatus() == 3) {
+        if(currentPlayer.getJailStatus() == 4) {
             if(playerManager.canAfford(currentPlayer, JAIL_FINE)) {
                 playerManager.giveMoney(currentPlayer, JAIL_FINE);
                 playerManager.exitJail(currentPlayer);
@@ -1233,6 +1204,31 @@ public class ClassicModeMapController {
             setTurnText(currentPlayerIndex);
             rollButton.setDisable(false);
             endOfTurnButton.setDisable(true);
+        }
+    }
+
+    @FXML
+    public void rollButtonPushed(ActionEvent event){
+        int dice1 = rollDice();
+        int dice2 = rollDice();
+
+        String dice1Url = "/com/twoFMonopoly/UI/assets/dice" + dice1 + ".png";
+        String dice2Url = "/com/twoFMonopoly/UI/assets/dice" + dice2 + ".png";
+
+        diceImage1.setImage(new Image(getClass().getResourceAsStream(dice1Url)));
+        diceImage2.setImage(new Image(getClass().getResourceAsStream(dice2Url)));
+
+        rollButton.setDisable(true);
+
+        if(currentPlayer.getJailStatus() == 0) {
+            takeNormalTurn(dice1, dice2);
+        }
+        else if( dice1 == dice2) {
+            playerManager.exitJail(currentPlayer);
+            takeNormalTurn(dice1, dice2);
+        }
+        else {
+            takeJailTurn();
         }
     }
 }
