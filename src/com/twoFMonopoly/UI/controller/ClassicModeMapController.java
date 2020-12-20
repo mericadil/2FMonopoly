@@ -612,6 +612,7 @@ public class ClassicModeMapController {
         }
         moneyInTheMiddle += taxAmount;
         updatePlayers();
+
     }
 
     private void takeTradableAction() {
