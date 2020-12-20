@@ -33,6 +33,7 @@ import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -1194,9 +1195,6 @@ public class ClassicModeMapController {
         saveGamePane.setVisible(true);
     }
 
-    /**
-        ÖÇA SAVEGAME FONKSİYONU BURADA
-     */
     public void saveGame(ActionEvent actionEvent) {
         String filepath = Constants.SAVE_GAME_FOLDER + saveGameNameTextField.getText().trim();
 
@@ -1217,10 +1215,12 @@ public class ClassicModeMapController {
         writeObjectToFile( itemsToSave, filepath );
     }
 
-    public void writeObjectToFile( Object serObj, String filepath ) {
-
+    public void writeObjectToFile( Object serObj, String filepath) {
+        File directory = new File(Constants.SAVE_GAME_FOLDER);
+        if (!directory.exists()){
+            directory.mkdir();
+        }
         try {
-
             FileOutputStream fileOut = new FileOutputStream(filepath);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(serObj);
