@@ -569,8 +569,6 @@ public class ClassicModeMapController {
             }
         }
         else {
-            //pay fine button active
-            //use freedom right button active if player has freedomRights
             endOfTurnButton.setDisable(false);
         }
     }
@@ -984,14 +982,15 @@ public class ClassicModeMapController {
     }
 
     private void jailPaneSettings() {
+        payFineButton.setDisable(true);
         if(currentPlayer.getJailStatus() == 0 || currentPlayer.isBankrupt()) {
             useFreedomCardButton.setDisable(true);
-            payFineButton.setDisable(true);
         }
         else {
             useFreedomCardButton.setDisable(!(currentPlayer.getNoOfFreedomRights() > 0));
-            payFineButton.setDisable(!(playerManager.canAfford(currentPlayer,JAIL_FINE)));
         }
+        if( currentPlayer.getJailStatus() == 4)
+            payFineButton.setDisable(!(playerManager.canAfford(currentPlayer,JAIL_FINE)));
     }
 
 
@@ -1020,6 +1019,7 @@ public class ClassicModeMapController {
         propertyPaneSettings();
         updatePlayer(currentPlayer);
     }
+
     @FXML
     public void goToMainMenu(ActionEvent actionEvent){
         try {
@@ -1118,6 +1118,7 @@ public class ClassicModeMapController {
             payDebtButton.setDisable(true);
         }
     }
+
     @FXML
     public void jailClicked(MouseEvent mouseEvent) {
         jailPaneSettings();
@@ -1202,8 +1203,22 @@ public class ClassicModeMapController {
             currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
 
             setTurnText(currentPlayerIndex);
-            rollButton.setDisable(false);
-            endOfTurnButton.setDisable(true);
+            if(currentPlayer.getDebt() > 0) {
+                if(playerManager.canAfford(currentPlayer, currentPlayer.getDebt())
+                    || playerManager.tenderToAvoidBankrupt(currentPlayer, currentPlayer.getDebt())) {
+                    payDebtButton.setDisable(false);
+                }
+                else {
+                    playerManager.bankrupt(currentPlayer);
+                    updatePlayer(currentPlayer);
+                    endOfTurnButton.setDisable(false);
+                    payDebtButton.setDisable(true);
+                }
+            }
+            else {
+                rollButton.setDisable(false);
+                endOfTurnButton.setDisable(true);
+            }
         }
     }
 
