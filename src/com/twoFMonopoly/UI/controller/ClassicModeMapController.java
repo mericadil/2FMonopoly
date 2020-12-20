@@ -671,6 +671,285 @@ public class ClassicModeMapController {
         updatePlayers();
     }
 
+    private void setNewCoordinate(int playerLocation){
+        Rectangle playerLocationOnBoard = locationViews.get(playerLocation);
+        double xLeftBorder = playerLocationOnBoard.getLayoutX();
+        double xRightBorder = xLeftBorder + playerLocationOnBoard.getWidth();
+        double yUpperBorder = playerLocationOnBoard.getLayoutY();
+        double yDownBorder = yUpperBorder + playerLocationOnBoard.getHeight();
+
+        Random random = new Random();
+        double newXCoordinate = xLeftBorder + random.nextInt( (int)((xRightBorder - xLeftBorder) - 2 * playerToken1.getRadius())) + playerToken1.getRadius();
+        double newYCoordinate = yUpperBorder + random.nextInt( (int)((yDownBorder - yUpperBorder) - 2 * playerToken1.getRadius())) + playerToken1.getRadius();
+        playerTokens.get(queueIndices.get(currentPlayerIndex)).setLayoutX(newXCoordinate);
+        playerTokens.get(queueIndices.get(currentPlayerIndex)).setLayoutY(newYCoordinate);
+    }
+
+    private void setTurnText(int index){
+        String textToDisplayTurn = playerNames.get(queueIndices.get(index)).getText();
+        turnText.setText(textToDisplayTurn + "'s Turn");
+        Paint playerColor = playerTokens.get(queueIndices.get(currentPlayerIndex)).getFill();
+        turnText.setFill(playerColor);
+    }
+
+    private void buyRailroad( Railroad railroad) {
+        playerManager.buyRailroad(currentPlayer, railroad);
+        railroadManager.buyRailroad(railroad, currentPlayer);
+        updatePlayer(currentPlayer);
+    }
+
+    private void buyProperty( Property property) {
+        playerManager.buyProperty(currentPlayer, property);
+        propertyManager.buyProperty(property, currentPlayer);
+    }
+
+    private boolean isGameOver() {
+        int playingPlayerCount = 0;
+        for( Player player : players) {
+            if(!player.isBankrupt()) playingPlayerCount++;
+        }
+        return !(playingPlayerCount > 1);
+    }
+
+    private boolean payDebt() {
+        double debt = currentPlayer.getDebt();
+        if(playerManager.canAfford(currentPlayer, debt)) {
+            playerManager.giveMoney(currentPlayer, debt);
+            currentPlayer.setDebt(0);
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public void goBackToGameFromPausePane(ActionEvent actionEvent) {
+        pausePane.setVisible(false);
+        pausePane.toBack();
+    }
+
+    public void goBackToGameFromSaveGamePane(ActionEvent actionEvent) {
+        saveGamePane.setVisible(false);
+        saveGamePane.toBack();
+    }
+
+    public void openPausePane(ActionEvent actionEvent) {
+        pausePane.toFront();
+        pausePane.setVisible(true);
+    }
+
+    public void openSaveGamePane(ActionEvent actionEvent) {
+        saveGamePane.toFront();
+        saveGamePane.setVisible(true);
+    }
+
+    /**
+        ÖÇA SAVEGAME FONKSİYONU BURADA
+     */
+    public void saveGame(ActionEvent actionEvent) {
+        String filepath = Constants.SAVE_GAME_FOLDER + saveGameNameTextField.getText().trim();
+
+        ArrayList<Object> itemsToSave = new ArrayList<>();
+        itemsToSave.add( locations );
+        itemsToSave.add( players );
+        itemsToSave.add( playerLocations );
+        itemsToSave.add( moneyInTheMiddle );
+
+        writeObjectToFile( itemsToSave, filepath );
+    }
+
+    public void writeObjectToFile( Object serObj, String filepath ) {
+        try {
+            FileOutputStream fileOut = new FileOutputStream(filepath);
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(serObj);
+            objectOut.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+    //Visual update functions
+    private void updateTradable(Tradable tradable) {
+        if( tradable instanceof Railroad)
+            updateRailroad((Railroad) tradable);
+        else if( tradable instanceof Property)
+            updateProperty((Property) tradable);
+    }
+
+    private void updateRailroads() {
+        for( Location location : locations) {
+            if(location instanceof Railroad) updateRailroad((Railroad) location);
+        }
+    }
+
+    private void updateProperties() {
+        for( Location location : locations) {
+            if(location instanceof Property) updateProperty((Property) location);
+        }
+    }
+
+    private void updatePlayers() {
+        for( Player player : players)
+            updatePlayer(player);
+    }
+
+    private void updatePlayer( Player player) {
+        double money = player.getMoneyAmount();
+        int playerNumber = players.indexOf(player) + 1;
+        String playerMoneyX = "playerMoney" + playerNumber;
+
+        for(Text playerMoney : playerMoneys){
+            if(playerMoney.getId().equals(playerMoneyX)){
+                playerMoney.setText("$" + money + "K");
+            }
+        }
+        if(player == currentPlayer) {
+            if (playerLocations.get(currentPlayerIndex) != player.getCurrentLocationIndex()) {
+                setNewCoordinate(player.getCurrentLocationIndex());
+                playerLocations.set(currentPlayerIndex, player.getCurrentLocationIndex());
+            }
+        }
+
+    }
+
+    private void updateProperty( Property property){
+        int propertyLocationIndex = property.getLocationIndex();
+        String propertyRectName = "propertyRectName" + propertyLocationIndex;
+        String propertyOwner = "propertyOwner" + propertyLocationIndex;
+        int noOfBuildings = property.getNoOfBuildings();
+        ArrayList<String> buildingNames = new ArrayList<String>();
+
+        for(int i = 1; i <= noOfBuildings; i++){
+            buildingNames.add(propertyLocationIndex + "house" + i);
+        }
+
+        for(Text prop: propertyRectNameViews){
+            if(prop == null) continue;
+            if(prop.getId().equals(propertyRectName)){
+                prop.setText(property.getName());
+            }
+        }
+
+        for(Rectangle rect: propertyOwnerViews){
+            if(rect.getId().equals(propertyOwner)){
+                if(property.getOwner() != null) {
+                    String color = property.getOwner().getColor();
+                    System.out.println(color);
+                    rect.setFill(Color.web(color));
+                }
+                else
+                    rect.setFill(Color.WHITE);
+            }
+        }
+        String house = propertyLocationIndex + "house" ;
+        ArrayList<String> houseNames = new ArrayList<String>();
+        for(int i = 1; i <= property.getNoOfBuildings(); i++){
+            houseNames.add(house + i);
+        }
+        for(ImageView imageView: houseViews){
+            if(houseNames.contains(imageView.getId())){
+                imageView.setVisible(true);
+            }
+            else
+                imageView.setVisible(false);
+        }
+    }
+
+    private void updateRailroad( Railroad railroad) {
+        int propertyLocationIndex = railroad.getLocationIndex();
+        String propertyRectName = "railroadRectName" + propertyLocationIndex;
+        String propertyOwner = "propertyOwner" + propertyLocationIndex;
+
+        for (Text rail : railroadRectNameViews) {
+            if (rail.getId().equals(propertyRectName)) {
+                rail.setText(railroad.getName());
+            }
+        }
+        for (Rectangle rect : propertyOwnerViews) {
+            if (rect.getId().equals(propertyOwner)) {
+                if( railroad.getOwner() != null) {
+                    String color = railroad.getOwner().getColor();
+                    rect.setFill(Color.web(color));
+                }
+                else
+                    rect.setFill(Color.WHITE);
+            }
+        }
+    }
+
+    private void updatePropertyPane( Property property){
+        double cost = property.getCost();
+        double mortgagePrice = property.getCurrentMortgagePrice();
+        String name = property.getName();
+        ArrayList<Double> rentPrices = property.getRentPrices();
+        ArrayList<Building> buildings = property.getBuildings();
+
+        siteOnlyText.setText("Site Only");
+        oneHouseText.setVisible(true);
+        oneHouseRent.setVisible(true);
+        twoHousesText.setText("2 Houses");
+        threeHousesText.setText("3 Houses");
+        fourHousesRent.setVisible(true);
+        fourHousesText.setVisible(true);
+        hotelText.setText("Hotel");
+        houseCostText.setVisible(true);
+        houseCost1.setVisible(true);
+        houseCost2.setVisible(true);
+        houseCost3.setVisible(true);
+        houseCost4.setVisible(true);
+        hotelCostText.setVisible(true);
+        hotelCost.setVisible(true);
+        buildButton.setVisible(true);
+
+        titleOfPropertyDetails.setText(name);
+        costPriceText.setText("$" + cost + "K");
+        mortgageValue.setText("$" + mortgagePrice + "K");
+        siteOnlyRent.setText("$" + rentPrices.get(0) + "K" );
+        oneHouseRent.setText("$" + rentPrices.get(1) + "K" );
+        twoHousesRent.setText("$" + rentPrices.get(2) + "K" );
+        threeHousesRent.setText("$" + rentPrices.get(3) + "K" );
+        fourHousesRent.setText("$" + rentPrices.get(4) + "K" );
+        hotelRent.setText("$" + rentPrices.get(5) + "K" );
+
+        houseCost1.setText("$" + buildings.get(0).getBuildingPrice() + "K");
+        houseCost2.setText("$" + buildings.get(1).getBuildingPrice() + "K");
+        houseCost3.setText("$" + buildings.get(2).getBuildingPrice() + "K");
+        houseCost4.setText("$" + buildings.get(3).getBuildingPrice() + "K");
+        hotelCost.setText("$" + buildings.get(4).getBuildingPrice() + "K");
+        mortgageValue.setText("$" + mortgagePrice + "K");
+
+        //setColorOfTradable((Tradable) property);
+    }
+
+    private void updateRailroadPane(Railroad railroad){
+        titleOfPropertyDetails.setText(railroad.getName());
+        ArrayList<Double> rentPrices = railroad.getRentPrices();
+
+        siteOnlyText.setText("1 Railroad");
+        oneHouseText.setVisible(false);
+        oneHouseRent.setVisible(false);
+        twoHousesText.setText("2 Railroad");
+        threeHousesText.setText("3 Railroad");
+        fourHousesRent.setVisible(false);
+        fourHousesText.setVisible(false);
+        hotelText.setText("4 Railroad");
+        houseCostText.setVisible(false);
+        houseCost1.setVisible(false);
+        houseCost2.setVisible(false);
+        houseCost3.setVisible(false);
+        houseCost4.setVisible(false);
+        hotelCostText.setVisible(false);
+        hotelCost.setVisible(false);
+        buildButton.setVisible(false);
+
+        siteOnlyRent.setText("$" + rentPrices.get(0) + "K" );
+        twoHousesRent.setText("$" + rentPrices.get(1) + "K" );
+        threeHousesRent.setText("$" + rentPrices.get(2) + "K" );
+        hotelRent.setText("$" + rentPrices.get(3) + "K" );
+    }
+
     private void propertyPaneSettings() {
         if(!currentPlayer.isBankrupt()) {
             if (locations.get(lastClickedTradable) instanceof Property) {
@@ -733,63 +1012,19 @@ public class ClassicModeMapController {
         }
     }
 
-    private void setNewCoordinate(int playerLocation){
-        Rectangle playerLocationOnBoard = locationViews.get(playerLocation);
-        double xLeftBorder = playerLocationOnBoard.getLayoutX();
-        double xRightBorder = xLeftBorder + playerLocationOnBoard.getWidth();
-        double yUpperBorder = playerLocationOnBoard.getLayoutY();
-        double yDownBorder = yUpperBorder + playerLocationOnBoard.getHeight();
-
-        Random random = new Random();
-        double newXCoordinate = xLeftBorder + random.nextInt( (int)((xRightBorder - xLeftBorder) - 2 * playerToken1.getRadius())) + playerToken1.getRadius();
-        double newYCoordinate = yUpperBorder + random.nextInt( (int)((yDownBorder - yUpperBorder) - 2 * playerToken1.getRadius())) + playerToken1.getRadius();
-        playerTokens.get(queueIndices.get(currentPlayerIndex)).setLayoutX(newXCoordinate);
-        playerTokens.get(queueIndices.get(currentPlayerIndex)).setLayoutY(newYCoordinate);
-    }
-
-    private void setTurnText(int index){
-        String textToDisplayTurn = playerNames.get(queueIndices.get(index)).getText();
-        turnText.setText(textToDisplayTurn + "'s Turn");
-        Paint playerColor = playerTokens.get(queueIndices.get(currentPlayerIndex)).getFill();
-        turnText.setFill(playerColor);
-    }
-
-    @FXML
-    public void endTurnButtonPushed(ActionEvent event) {
-        if(isGameOver()) {
-            //finish the game
+    private void jailPaneSettings() {
+        if(currentPlayer.getJailStatus() == 0 || currentPlayer.isBankrupt()) {
+            useFreedomCardButton.setDisable(true);
+            payFineButton.setDisable(true);
         }
         else {
-            updatePlayer(currentPlayer);
-            if(currentPlayer.getJailStatus() != 0) playerManager.updateJailStatus(currentPlayer);
-            currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
-
-            while(currentPlayer.isBankrupt()) {
-                currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
-                currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
-            }
-            currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
-
-            setTurnText(currentPlayerIndex);
-            rollButton.setDisable(false);
-            endOfTurnButton.setDisable(true);
+            useFreedomCardButton.setDisable(!(currentPlayer.getNoOfFreedomRights() > 0));
+            payFineButton.setDisable(playerManager.canAfford(currentPlayer,JAIL_FINE));
         }
     }
 
-    @FXML
-    public void closeButtonPushed(ActionEvent event) {
-        propertyPane.setVisible(false);
-    }
 
-    @FXML
-    public void propertyClicked(MouseEvent mouseEvent) {
-        lastClickedTradable = Integer.parseInt(((Rectangle) mouseEvent.getSource()).getId());
-        Tradable tradable = (Tradable) locations.get(lastClickedTradable);
-        propertyPaneSettings();
-        propertyPane.setVisible(true);
-        jailPane.setVisible(false);
-    }
-
+    // FXML Listeners
     @FXML
     public void buyButtonPushed(ActionEvent event) {
         //int playerLocation = currentPlayer.getCurrentLocationIndex();
@@ -814,16 +1049,17 @@ public class ClassicModeMapController {
         propertyPaneSettings();
         updatePlayer(currentPlayer);
     }
+    @FXML
+    public void goToMainMenu(ActionEvent actionEvent){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../FX/mainMenu.fxml"));
+            Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            window.getScene().setRoot(root); window.show();
+            System.out.println(window);
 
-    private void buyRailroad( Railroad railroad) {
-        playerManager.buyRailroad(currentPlayer, railroad);
-        railroadManager.buyRailroad(railroad, currentPlayer);
-        updatePlayer(currentPlayer);
-    }
-
-    private void buyProperty( Property property) {
-        playerManager.buyProperty(currentPlayer, property);
-        propertyManager.buyProperty(property, currentPlayer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -898,263 +1134,6 @@ public class ClassicModeMapController {
         }
     }
 
-    private void updatePlayer( Player player) {
-        double money = player.getMoneyAmount();
-        int playerNumber = players.indexOf(player) + 1;
-        String playerMoneyX = "playerMoney" + playerNumber;
-
-        for(Text playerMoney : playerMoneys){
-            if(playerMoney.getId().equals(playerMoneyX)){
-                playerMoney.setText("$" + money + "K");
-            }
-        }
-        if(player == currentPlayer) {
-            if (playerLocations.get(currentPlayerIndex) != player.getCurrentLocationIndex()) {
-                setNewCoordinate(player.getCurrentLocationIndex());
-                playerLocations.set(currentPlayerIndex, player.getCurrentLocationIndex());
-            }
-        }
-
-    }
-
-    private void updatePropertyPane( Property property){
-        double cost = property.getCost();
-        double mortgagePrice = property.getCurrentMortgagePrice();
-        String name = property.getName();
-        ArrayList<Double> rentPrices = property.getRentPrices();
-        ArrayList<Building> buildings = property.getBuildings();
-
-        siteOnlyText.setText("Site Only");
-        oneHouseText.setVisible(true);
-        oneHouseRent.setVisible(true);
-        twoHousesText.setText("2 Houses");
-        threeHousesText.setText("3 Houses");
-        fourHousesRent.setVisible(true);
-        fourHousesText.setVisible(true);
-        hotelText.setText("Hotel");
-        houseCostText.setVisible(true);
-        houseCost1.setVisible(true);
-        houseCost2.setVisible(true);
-        houseCost3.setVisible(true);
-        houseCost4.setVisible(true);
-        hotelCostText.setVisible(true);
-        hotelCost.setVisible(true);
-        buildButton.setVisible(true);
-
-        titleOfPropertyDetails.setText(name);
-        costPriceText.setText("$" + cost + "K");
-        mortgageValue.setText("$" + mortgagePrice + "K");
-        siteOnlyRent.setText("$" + rentPrices.get(0) + "K" );
-        oneHouseRent.setText("$" + rentPrices.get(1) + "K" );
-        twoHousesRent.setText("$" + rentPrices.get(2) + "K" );
-        threeHousesRent.setText("$" + rentPrices.get(3) + "K" );
-        fourHousesRent.setText("$" + rentPrices.get(4) + "K" );
-        hotelRent.setText("$" + rentPrices.get(5) + "K" );
-
-        houseCost1.setText("$" + buildings.get(0).getBuildingPrice() + "K");
-        houseCost2.setText("$" + buildings.get(1).getBuildingPrice() + "K");
-        houseCost3.setText("$" + buildings.get(2).getBuildingPrice() + "K");
-        houseCost4.setText("$" + buildings.get(3).getBuildingPrice() + "K");
-        hotelCost.setText("$" + buildings.get(4).getBuildingPrice() + "K");
-        mortgageValue.setText("$" + mortgagePrice + "K");
-
-        //setColorOfTradable((Tradable) property);
-    }
-
-    private void updateRailroadPane(Railroad railroad){
-        titleOfPropertyDetails.setText(railroad.getName());
-        ArrayList<Double> rentPrices = railroad.getRentPrices();
-
-        siteOnlyText.setText("1 Railroad");
-        oneHouseText.setVisible(false);
-        oneHouseRent.setVisible(false);
-        twoHousesText.setText("2 Railroad");
-        threeHousesText.setText("3 Railroad");
-        fourHousesRent.setVisible(false);
-        fourHousesText.setVisible(false);
-        hotelText.setText("4 Railroad");
-        houseCostText.setVisible(false);
-        houseCost1.setVisible(false);
-        houseCost2.setVisible(false);
-        houseCost3.setVisible(false);
-        houseCost4.setVisible(false);
-        hotelCostText.setVisible(false);
-        hotelCost.setVisible(false);
-        buildButton.setVisible(false);
-
-        siteOnlyRent.setText("$" + rentPrices.get(0) + "K" );
-        twoHousesRent.setText("$" + rentPrices.get(1) + "K" );
-        threeHousesRent.setText("$" + rentPrices.get(2) + "K" );
-        hotelRent.setText("$" + rentPrices.get(3) + "K" );
-    }
-
-    private void updateTradable(Tradable tradable) {
-        if( tradable instanceof Railroad)
-            updateRailroad((Railroad) tradable);
-        else if( tradable instanceof Property)
-            updateProperty((Property) tradable);
-    }
-
-    private void updateRailroads() {
-        for( Location location : locations) {
-            if(location instanceof Railroad) updateRailroad((Railroad) location);
-        }
-    }
-
-    private void updateProperties() {
-        for( Location location : locations) {
-            if(location instanceof Property) updateProperty((Property) location);
-        }
-    }
-
-    private void updatePlayers() {
-        for( Player player : players)
-            updatePlayer(player);
-    }
-
-    private void updateProperty( Property property){
-        int propertyLocationIndex = property.getLocationIndex();
-        String propertyRectName = "propertyRectName" + propertyLocationIndex;
-        String propertyOwner = "propertyOwner" + propertyLocationIndex;
-        int noOfBuildings = property.getNoOfBuildings();
-        ArrayList<String> buildingNames = new ArrayList<String>();
-
-        for(int i = 1; i <= noOfBuildings; i++){
-            buildingNames.add(propertyLocationIndex + "house" + i);
-        }
-
-        for(Text prop: propertyRectNameViews){
-            if(prop == null) continue;
-            if(prop.getId().equals(propertyRectName)){
-                prop.setText(property.getName());
-            }
-        }
-
-        for(Rectangle rect: propertyOwnerViews){
-            if(rect.getId().equals(propertyOwner)){
-                if(property.getOwner() != null) {
-                    String color = property.getOwner().getColor();
-                    System.out.println(color);
-                    rect.setFill(Color.web(color));
-                }
-                else
-                    rect.setFill(Color.WHITE);
-            }
-        }
-        String house = propertyLocationIndex + "house" ;
-        ArrayList<String> houseNames = new ArrayList<String>();
-        for(int i = 1; i <= property.getNoOfBuildings(); i++){
-            houseNames.add(house + i);
-        }
-        for(ImageView imageView: houseViews){
-            if(houseNames.contains(imageView.getId())){
-                imageView.setVisible(true);
-            }
-            else
-                imageView.setVisible(false);
-        }
-    }
-    private void updateRailroad( Railroad railroad) {
-        int propertyLocationIndex = railroad.getLocationIndex();
-        String propertyRectName = "railroadRectName" + propertyLocationIndex;
-        String propertyOwner = "propertyOwner" + propertyLocationIndex;
-
-        for (Text rail : railroadRectNameViews) {
-            if (rail.getId().equals(propertyRectName)) {
-                rail.setText(railroad.getName());
-            }
-        }
-        for (Rectangle rect : propertyOwnerViews) {
-            if (rect.getId().equals(propertyOwner)) {
-                if( railroad.getOwner() != null) {
-                    String color = railroad.getOwner().getColor();
-                    rect.setFill(Color.web(color));
-                }
-                else
-                    rect.setFill(Color.WHITE);
-            }
-        }
-    }
-
-    private boolean isGameOver() {
-        int playingPlayerCount = 0;
-        for( Player player : players) {
-            if(!player.isBankrupt()) playingPlayerCount++;
-        }
-        return !(playingPlayerCount > 1);
-    }
-
-    private boolean payDebt() {
-        double debt = currentPlayer.getDebt();
-        if(playerManager.canAfford(currentPlayer, debt)) {
-            playerManager.giveMoney(currentPlayer, debt);
-            currentPlayer.setDebt(0);
-            return true;
-        }
-        else
-            return false;
-    }
-
-    public void goBackToGameFromPausePane(ActionEvent actionEvent) {
-        pausePane.setVisible(false);
-        pausePane.toBack();
-    }
-
-    public void goBackToGameFromSaveGamePane(ActionEvent actionEvent) {
-        saveGamePane.setVisible(false);
-        saveGamePane.toBack();
-    }
-
-    @FXML
-    public void goToMainMenu(ActionEvent actionEvent){
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../FX/mainMenu.fxml"));
-            Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-            window.getScene().setRoot(root); window.show();
-            System.out.println(window);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void openPausePane(ActionEvent actionEvent) {
-        pausePane.toFront();
-        pausePane.setVisible(true);
-    }
-
-    public void openSaveGamePane(ActionEvent actionEvent) {
-        saveGamePane.toFront();
-        saveGamePane.setVisible(true);
-    }
-
-    /**
-        ÖÇA SAVEGAME FONKSİYONU BURADA
-     */
-    public void saveGame(ActionEvent actionEvent) {
-        String filepath = Constants.SAVE_GAME_FOLDER + saveGameNameTextField.getText().trim();
-
-        ArrayList<Object> itemsToSave = new ArrayList<>();
-        itemsToSave.add( locations );
-        itemsToSave.add( players );
-        itemsToSave.add( playerLocations );
-        itemsToSave.add( moneyInTheMiddle );
-
-        writeObjectToFile( itemsToSave, filepath );
-    }
-
-    public void writeObjectToFile( Object serObj, String filepath ) {
-        try {
-            FileOutputStream fileOut = new FileOutputStream(filepath);
-            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
-            objectOut.writeObject(serObj);
-            objectOut.close();
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
     @FXML
     public void closeCardPane(MouseEvent mouseEvent) {
         playerManager.makeCardAction( currentPlayer, currentCard );
@@ -1221,14 +1200,39 @@ public class ClassicModeMapController {
         }
     }
 
-    private void jailPaneSettings() {
-        if(currentPlayer.getJailStatus() == 0 || currentPlayer.isBankrupt()) {
-            useFreedomCardButton.setDisable(true);
-            payFineButton.setDisable(true);
+    @FXML
+    public void closeButtonPushed(ActionEvent event) {
+        propertyPane.setVisible(false);
+    }
+
+    @FXML
+    public void propertyClicked(MouseEvent mouseEvent) {
+        lastClickedTradable = Integer.parseInt(((Rectangle) mouseEvent.getSource()).getId());
+        Tradable tradable = (Tradable) locations.get(lastClickedTradable);
+        propertyPaneSettings();
+        propertyPane.setVisible(true);
+        jailPane.setVisible(false);
+    }
+
+    @FXML
+    public void endTurnButtonPushed(ActionEvent event) {
+        if(isGameOver()) {
+            //finish the game
         }
         else {
-            useFreedomCardButton.setDisable(!(currentPlayer.getNoOfFreedomRights() > 0));
-            payFineButton.setDisable(playerManager.canAfford(currentPlayer,JAIL_FINE));
+            updatePlayer(currentPlayer);
+            if(currentPlayer.getJailStatus() != 0) playerManager.updateJailStatus(currentPlayer);
+            currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
+
+            while(currentPlayer.isBankrupt()) {
+                currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
+                currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
+            }
+            currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
+
+            setTurnText(currentPlayerIndex);
+            rollButton.setDisable(false);
+            endOfTurnButton.setDisable(true);
         }
     }
 }
