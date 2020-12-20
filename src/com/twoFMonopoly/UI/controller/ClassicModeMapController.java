@@ -361,6 +361,8 @@ public class ClassicModeMapController {
     private Button payFineButton;
     @FXML
     private Button useFreedomCardButton;
+    @FXML
+    private Text numberOfFreedomRights;
 
 
     @FXML
@@ -600,48 +602,6 @@ public class ClassicModeMapController {
         }
     }
 
-    public void payJailFine() {
-        if(currentPlayer.getJailStatus() == 3) {
-            if(playerManager.canAfford(currentPlayer, JAIL_FINE)) {
-                playerManager.giveMoney(currentPlayer, JAIL_FINE);
-                playerManager.exitJail(currentPlayer);
-                updatePlayer(currentPlayer);
-                endOfTurnButton.setDisable(false);
-                //pay fine disabled
-            }
-            else if(playerManager.tenderToAvoidBankrupt(currentPlayer, JAIL_FINE)) {
-                // Text düş tepeye you have to sell sth to pay your fine
-            }
-            else {
-                playerManager.bankrupt(currentPlayer);
-                updatePlayer(currentPlayer);
-                endOfTurnButton.setDisable(false);
-                //pay fine disabled
-            }
-        }
-        else {
-            if(playerManager.canAfford(currentPlayer, JAIL_FINE)) {
-                playerManager.giveMoney(currentPlayer, JAIL_FINE);
-                playerManager.exitJail(currentPlayer);
-                updatePlayer(currentPlayer);
-                //pay fine disabled
-            }
-            else {
-                //jail texti you do not have enough money.
-            }
-            endOfTurnButton.setDisable(false);
-        }
-    }
-
-    //Only active when there are freedom rights
-    public void useFreedomRight() {
-        if(playerManager.useFreedomRightToExitJail(currentPlayer)) {
-            endOfTurnButton.setDisable(false);
-            updatePlayer(currentPlayer);
-            //disable freedom right button
-        }
-    }
-
     /**
      * Take Actionlar ayrı bir classa taşınabilir!
      */
@@ -683,8 +643,9 @@ public class ClassicModeMapController {
 
     private void takeTradableAction() {
         Tradable tradable = (Tradable) locations.get(lastClickedTradable);
-        //lastClickedTradable = currentLocation;
-        // If the property is owned by other player
+
+        propertyPaneSettings();
+        propertyPane.setVisible(true);
         if(tradable.getOwner() != null && tradable.getOwner() != currentPlayer) {
 
             if(playerManager.canAfford(currentPlayer, tradable.getRentCost())) {
@@ -702,8 +663,6 @@ public class ClassicModeMapController {
             }
         }
         else if( tradable.getOwner() == null) {
-            propertyPaneSettings(tradable);
-            propertyPane.setVisible(true);
             jailPane.setVisible(false);
             endOfTurnButton.setDisable(false);
         }
@@ -712,56 +671,58 @@ public class ClassicModeMapController {
         updatePlayers();
     }
 
-    private void propertyPaneSettings( Tradable tradable) {
-        if(locations.get(lastClickedTradable) instanceof Property) {
-            Property property = (Property) locations.get(lastClickedTradable);
-            updatePropertyPane(property);
-            if(property.getOwner() == null) {
-                sellButton.setDisable(true);
-                buyButton.setDisable(!(playerManager.canAfford(currentPlayer, property.getCost())
-                                        && property.getLocationIndex() == currentPlayer.getCurrentLocationIndex()));
-                buildButton.setDisable(true);
-                mortgageButton.setDisable(true);
+    private void propertyPaneSettings() {
+        if(!currentPlayer.isBankrupt()) {
+            if (locations.get(lastClickedTradable) instanceof Property) {
+                Property property = (Property) locations.get(lastClickedTradable);
+                updatePropertyPane(property);
+                if (property.getOwner() == null) {
+                    sellButton.setDisable(true);
+                    buyButton.setDisable(!(playerManager.canAfford(currentPlayer, property.getCost())
+                            && property.getLocationIndex() == currentPlayer.getCurrentLocationIndex()));
+                    buildButton.setDisable(true);
+                    mortgageButton.setDisable(true);
 
-            }
-            else if(property.getOwner() == currentPlayer) {
-                sellButton.setDisable(!(property.getNoOfBuildings() > 0));
-                buyButton.setDisable(true);
-                buildButton.setDisable(!( property.isMonopoly() && property.getNoOfBuildings() < 5
-                                        && playerManager.canAfford(currentPlayer, property.getNextBuildingsBuildingCost())));
-                mortgageButton.setDisable(!(property.getNoOfBuildings() == 0 && !property.isMortgaged()));
-            }
-            else {
-                sellButton.setDisable(true);
-                buyButton.setDisable(true);
-                buildButton.setDisable(true);
-                mortgageButton.setDisable(true);
+                } else if (property.getOwner() == currentPlayer) {
+                    sellButton.setDisable(!(property.getNoOfBuildings() > 0));
+                    buyButton.setDisable(true);
+                    buildButton.setDisable(!(property.isMonopoly() && property.getNoOfBuildings() < 5
+                            && playerManager.canAfford(currentPlayer, property.getNextBuildingsBuildingCost())));
+                    mortgageButton.setDisable(!(property.getNoOfBuildings() == 0 && !property.isMortgaged()));
+                } else {
+                    sellButton.setDisable(true);
+                    buyButton.setDisable(true);
+                    buildButton.setDisable(true);
+                    mortgageButton.setDisable(true);
+                }
+            } else {
+                Railroad railroad = (Railroad) locations.get(lastClickedTradable);
+                updateRailroadPane(railroad);
+                if (railroad.getOwner() == null) {
+                    sellButton.setDisable(true);
+                    buyButton.setDisable(!(playerManager.canAfford(currentPlayer, railroad.getCost())
+                            && currentPlayer.getCurrentLocationIndex() == railroad.getLocationIndex()));
+                    buildButton.setDisable(true);
+                    mortgageButton.setDisable(true);
+                } else if (railroad.getOwner() == currentPlayer) {
+                    sellButton.setDisable(true);
+                    buyButton.setDisable(true);
+                    buildButton.setDisable(true);
+                    mortgageButton.setDisable(railroad.isMortgaged());
+                } else {
+                    sellButton.setDisable(true);
+                    buyButton.setDisable(true);
+                    buildButton.setDisable(true);
+                    mortgageButton.setDisable(true);
+                }
             }
         }
         else {
-            Railroad railroad = (Railroad) locations.get(lastClickedTradable);
-            updateRailroadPane(railroad);
-            if(railroad.getOwner() == null) {
-                sellButton.setDisable(true);
-                buyButton.setDisable(!(playerManager.canAfford(currentPlayer, railroad.getCost())
-                                        && currentPlayer.getCurrentLocationIndex() == railroad.getLocationIndex()));
-                buildButton.setDisable(true);
-                mortgageButton.setDisable(true);
-            }
-            else if(railroad.getOwner() == currentPlayer) {
-                sellButton.setDisable(true);
-                buyButton.setDisable(true);
-                buildButton.setDisable(true);
-                mortgageButton.setDisable(railroad.isMortgaged());
-            }
-            else {
-                sellButton.setDisable(true);
-                buyButton.setDisable(true);
-                buildButton.setDisable(true);
-                mortgageButton.setDisable(true);
-            }
+            sellButton.setDisable(true);
+            buyButton.setDisable(true);
+            buildButton.setDisable(true);
+            mortgageButton.setDisable(true);
         }
-
     }
 
     private void setNewCoordinate(int playerLocation){
@@ -792,6 +753,7 @@ public class ClassicModeMapController {
         }
         else {
             updatePlayer(currentPlayer);
+            if(currentPlayer.getJailStatus() != 0) playerManager.updateJailStatus(currentPlayer);
             currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
 
             while(currentPlayer.isBankrupt()) {
@@ -815,7 +777,7 @@ public class ClassicModeMapController {
     public void propertyClicked(MouseEvent mouseEvent) {
         lastClickedTradable = Integer.parseInt(((Rectangle) mouseEvent.getSource()).getId());
         Tradable tradable = (Tradable) locations.get(lastClickedTradable);
-        propertyPaneSettings(tradable);
+        propertyPaneSettings();
         propertyPane.setVisible(true);
         jailPane.setVisible(false);
     }
@@ -841,7 +803,7 @@ public class ClassicModeMapController {
             updateRailroad(railroad);
         }
         buyButton.setDisable(true);
-        propertyPaneSettings((Tradable) locations.get(lastClickedTradable));
+        propertyPaneSettings();
         updatePlayer(currentPlayer);
     }
 
@@ -861,8 +823,8 @@ public class ClassicModeMapController {
         Property property = (Property) locations.get(lastClickedTradable);
         playerManager.buildOneBuilding(currentPlayer, property);
         propertyManager.buildOneBuilding(property);
-        propertyPaneSettings(property);
-        //updateProperty(property);
+        propertyPaneSettings();
+        updateProperty(property);
         updatePlayers();
         System.out.println();
     }
@@ -872,7 +834,7 @@ public class ClassicModeMapController {
         Property property = (Property) locations.get(lastClickedTradable);
         playerManager.sellOneBuilding(currentPlayer, property);
         propertyManager.sellOneBuilding(property);
-        propertyPaneSettings(property);
+        propertyPaneSettings();
         updateProperty(property);
         updatePlayers();
     }
@@ -889,7 +851,7 @@ public class ClassicModeMapController {
             playerManager.mortgageProperty(currentPlayer, property);
             propertyManager.mortgageProperty(property);
         }
-        propertyPaneSettings((Tradable) locations.get(lastClickedTradable));
+        propertyPaneSettings();
         updatePlayers();
         updateTradable((Tradable) locations.get(lastClickedTradable));
     }
@@ -921,29 +883,6 @@ public class ClassicModeMapController {
             updatePlayer(currentPlayer);
             endOfTurnButton.setDisable(false);
             payDebtButton.setDisable(true);
-        }
-    }
-
-    private void setColorOfLocation(int playerLocation, String eventType) {
-        String idOfLocation = locationViews.get(playerLocation).getId();
-        if(idOfLocation.substring(0, 4).equals("prop")){
-            int propertyNum;
-            if(playerLocation >12){
-                propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 2));
-            }
-            else{
-                propertyNum = Integer.parseInt(idOfLocation.substring(idOfLocation.length() - 1));
-            }
-            if(eventType.equals("buy")) {
-                if (propertyOwnerViews.get(propertyNum - 1).getFill() == Color.WHITE) {
-                    Paint playerColor = playerTokens.get(queueIndices.get(currentPlayerIndex)).getFill();
-                    propertyOwnerViews.get(propertyNum - 1).setFill(playerColor);
-                }
-            }
-            else{
-                propertyOwnerViews.get(propertyNum - 1).setFill(Color.WHITE);
-                propertyPane.setVisible(false);
-            }
         }
     }
 
@@ -1193,9 +1132,7 @@ public class ClassicModeMapController {
     }
 
     public void writeObjectToFile( Object serObj, String filepath ) {
-
         try {
-
             FileOutputStream fileOut = new FileOutputStream(filepath);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(serObj);
@@ -1221,18 +1158,65 @@ public class ClassicModeMapController {
     }
     @FXML
     public void jailClicked(MouseEvent mouseEvent) {
-        return;
+        jailPaneSettings();
+        jailPane.setVisible(true);
     }
 
     @FXML
     public void closeJailPaneClicked(ActionEvent actionEvent) {
+        jailPane.setVisible(false);
     }
 
     @FXML
     public void payFineButtonClicked(ActionEvent actionEvent) {
+        if(currentPlayer.getJailStatus() == 3) {
+            if(playerManager.canAfford(currentPlayer, JAIL_FINE)) {
+                playerManager.giveMoney(currentPlayer, JAIL_FINE);
+                playerManager.exitJail(currentPlayer);
+                updatePlayer(currentPlayer);
+                endOfTurnButton.setDisable(false);
+            }
+            else if(playerManager.tenderToAvoidBankrupt(currentPlayer, JAIL_FINE)) {
+                // Text düş tepeye you have to sell sth to pay your fine
+            }
+            else {
+                playerManager.bankrupt(currentPlayer);
+                updatePlayer(currentPlayer);
+                endOfTurnButton.setDisable(false);
+            }
+            jailPaneSettings();
+        }
+        else {
+            if(playerManager.canAfford(currentPlayer, JAIL_FINE)) {
+                playerManager.giveMoney(currentPlayer, JAIL_FINE);
+                playerManager.exitJail(currentPlayer);
+                updatePlayer(currentPlayer);
+            }
+            else {
+                //jail texti you do not have enough money.
+            }
+            jailPaneSettings();
+            endOfTurnButton.setDisable(false);
+        }
     }
 
     @FXML
     public void useFreedomButtonClicked(ActionEvent actionEvent) {
+        if(playerManager.useFreedomRightToExitJail(currentPlayer)) {
+            jailPaneSettings();
+            endOfTurnButton.setDisable(false);
+            updatePlayer(currentPlayer);
+        }
+    }
+
+    private void jailPaneSettings() {
+        if(currentPlayer.getJailStatus() == 0 || currentPlayer.isBankrupt()) {
+            useFreedomCardButton.setDisable(true);
+            payFineButton.setDisable(true);
+        }
+        else {
+            useFreedomCardButton.setDisable(!(currentPlayer.getNoOfFreedomRights() > 0));
+            payFineButton.setDisable(playerManager.canAfford(currentPlayer,JAIL_FINE));
+        }
     }
 }

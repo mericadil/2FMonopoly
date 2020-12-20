@@ -1420,7 +1420,7 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text id="numberOfFreedomRights" fill="WHITE" layoutX="242.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER">
+            <Text fx:id="numberOfFreedomRights" id="numberOfFreedomRights" fill="WHITE" layoutX="242.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
