@@ -20,6 +20,7 @@ public class Chance implements Location, CardDeck {
         Collections.shuffle( cards );
     }
 
+    // Draws the top card, returns it for further usage and puts it at the bottom of card deck.
     public ChanceCard drawCard() {
         ChanceCard topCard = cards.remove( 0 );
         cards.add( topCard );

@@ -6,6 +6,9 @@ import com.twoFMonopoly.models.Locations.Railroad;
 import java.io.Serializable;
 import java.util.HashMap;
 
+/**
+ * This class keeps all player related information.
+ */
 public class Player implements Serializable {
     //Attributes
     private int id;

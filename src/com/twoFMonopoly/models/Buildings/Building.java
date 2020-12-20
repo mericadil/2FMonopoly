@@ -2,6 +2,9 @@ package com.twoFMonopoly.models.Buildings;
 
 import java.io.Serializable;
 
+/**
+ * This class is a parent class for house and hotel.
+ */
 public class Building implements Serializable {
     protected double buildingPrice;
     protected double sellingPrice;

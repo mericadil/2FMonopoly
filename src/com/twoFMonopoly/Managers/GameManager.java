@@ -7,6 +7,9 @@ import com.twoFMonopoly.models.Player;
 
 import java.util.ArrayList;
 
+/**
+ * This class is meant to be a super manager for other managers, but we didn't use it.
+ */
 public class GameManager {
     private ArrayList<Location> locations;
     private ArrayList<Player> players;

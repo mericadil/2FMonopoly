@@ -6,6 +6,9 @@ import com.twoFMonopoly.models.Player;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * This class corresponds to a monopoly region in the board
+ */
 public class PropertyRegion implements Serializable {
 
     //Attributes

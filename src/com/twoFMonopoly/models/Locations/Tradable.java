@@ -6,6 +6,10 @@ import javafx.scene.paint.Paint;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Tradable corresponds to the sum of Property and Railroad classes.
+ * Because these two classes share many common properties, we gathered them in a single place
+ */
 public abstract class Tradable implements Serializable {
     //Attributes
     protected String name;

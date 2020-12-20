@@ -30,58 +30,99 @@ public class PlayerManager {
         return players;
     }
 
+    /**
+     * This method handles the player when he buys a property.
+     * @param property the bought property instance
+     * @param player the player
+     */
     public void buyProperty(Player player, Property property) {
         HashMap<String,Property> properties = player.getProperties();
         properties.put(property.getName(),property);
         giveMoney(player, property.getCost());
-        //player.setMoneyAmount(player.getMoneyAmount() - property.getCost());
     }
 
+    /**
+     * This method handles the player when he mortgages a property.
+     * @param property the mortgaged property instance
+     * @param player the player
+     */
     public void mortgageProperty(Player player, Property property) {
         getMoney(player, property.getCost());
-        //player.setMoneyAmount(player.getMoneyAmount() + property.getCost());
     }
 
+    /**
+     * This method handles the player when he unmortgages a property.
+     * @param property the unmortgaged property instance
+     * @param player the player
+     */
     public void removeMortgageProperty(Player player, Property property) {
         giveMoney(player, property.getCurrentMortgagePrice());
-        //player.setMoneyAmount(player.getMoneyAmount() - property.getCurrentMortgagePrice());
     }
 
+    /**
+     * This method handles the player when he buys a railroad.
+     * @param railroad the bought railroad instance
+     * @param player the player
+     */
     public void buyRailroad(Player player, Railroad railroad) {
         HashMap<String,Railroad> railroads = player.getRailroads();
         railroads.put(railroad.getName(),railroad);
         player.setNoOfRailroads(player.getNoOfRailroads()+1);
         giveMoney(player, railroad.getCost());
-        //player.setMoneyAmount(player.getMoneyAmount() - railroad.getCost());
     }
 
+    /**
+     * This method handles the player when he mortgages a railroad.
+     * @param railroad the mortgaged railroad instance
+     * @param player the player
+     */
     public void mortgageRailroad(Player player, Railroad railroad) {
         getMoney(player, railroad.getCost());
-        //player.setMoneyAmount(player.getMoneyAmount() + railroad.getCost());
         player.setNoOfRailroads(player.getNoOfRailroads()-1);
     }
 
+    /**
+     * This method handles the player when he unmortgages a railroad.
+     * @param railroad the unmortgaged railroad instance
+     * @param player the player
+     */
     public void removeMortgageRailroad(Player player, Railroad railroad) {
         giveMoney(player, railroad.getCurrentMortgagePrice());
-        //player.setMoneyAmount(player.getMoneyAmount() - railroad.getCurrentMortgagePrice());
         player.setNoOfRailroads(player.getNoOfRailroads()+1);
     }
 
+    /**
+     * This method is used to handle a player whenever this player must go to jail.
+     * @param player the player
+     * @param jailLocation the index of Jail in the board
+     */
     public void goToJail( Player player, int jailLocation) {
         player.setJailStatus(1);
         player.setCurrentLocationIndex(jailLocation);
     }
 
+    /**
+     * This method is called for each player turn in the Jail. It updates the jail status of the player.
+     * @param player
+     */
     public void updateJailStatus(Player player) {
         player.setJailStatus(player.getJailStatus()+1);
     }
 
+    /**
+     * This method is called when a player pays fine to get out of jail. It handles the player status.
+     * @param player
+     * @param fine the amount of fine that player must pay.
+     */
     public void payFineToExitJail(Player player, double fine) {
         giveMoney(player, fine);
-        //player.setMoneyAmount(player.getMoneyAmount()-fine);
         exitJail(player);
     }
 
+    /**
+     * This method is called when a player uses freedom right to get out of jail. It handles the player status.
+     * @param player
+     */
     public boolean useFreedomRightToExitJail(Player player) {
         if(player.getNoOfFreedomRights() > 0) {
             player.setNoOfFreedomRights(player.getNoOfFreedomRights()-1);
@@ -91,30 +132,49 @@ public class PlayerManager {
         return false;
     }
 
+    /**
+     * The previous exit jail functions uses this basically.
+     * @param player
+     */
     public void exitJail(Player player) {
         player.setJailStatus(0);
     }
 
+    /**
+     * This method is used to add a money to a player in the whole code.
+     * @param player the player who gets money
+     * @param money the amount of money that player gets
+     */
     public void getMoney(Player player, double money) {
         player.setMoneyAmount(player.getMoneyAmount() + money);
     }
 
+    /**
+     * This method is used to remove a money to a player in the whole code.
+     * @param player the player who gives money
+     * @param money the amount of money that player gives
+     */
     public void giveMoney(Player player, double money) {
         player.setMoneyAmount(player.getMoneyAmount() - money);
     }
 
-    public void bankrupt(Player player1, Player player2) {
-        HashMap<String,Property> player1Properties = player1.getProperties();
-        HashMap<String,Property> player2Properties = player2.getProperties();
+    /**
+     * This method handles the situation when a player bankrupts to another player
+     * @param loser the one who bankrupts
+     * @param winner the one who takes everything from the loser
+     */
+    public void bankrupt(Player loser, Player winner) {
+        HashMap<String,Property> player1Properties = loser.getProperties();
+        HashMap<String,Property> player2Properties = winner.getProperties();
 
-        HashMap<String,Railroad> player1Railroads = player1.getRailroads();
-        HashMap<String,Railroad> player2Railroads = player2.getRailroads();
+        HashMap<String,Railroad> player1Railroads = loser.getRailroads();
+        HashMap<String,Railroad> player2Railroads = winner.getRailroads();
 
-        getMoney(player2, player1.getMoneyAmount());
-        player2.setNoOfFreedomRights(player2.getNoOfFreedomRights() + player1.getNoOfFreedomRights());
-        player2.setNoOfRailroads(player2.getNoOfRailroads() + player1.getNoOfRailroads());
-        player2.setNoOfHotels(player2.getNoOfHotels() + player1.getNoOfHotels());
-        player2.setNoOfHouses(player2.getNoOfHouses() + player1.getNoOfHouses());
+        getMoney(winner, loser.getMoneyAmount());
+        winner.setNoOfFreedomRights(winner.getNoOfFreedomRights() + loser.getNoOfFreedomRights());
+        winner.setNoOfRailroads(winner.getNoOfRailroads() + loser.getNoOfRailroads());
+        winner.setNoOfHotels(winner.getNoOfHotels() + loser.getNoOfHotels());
+        winner.setNoOfHouses(winner.getNoOfHouses() + loser.getNoOfHouses());
 
 
         for( String key: player1Properties.keySet()) {
@@ -124,16 +184,20 @@ public class PlayerManager {
         for( String key : player1Railroads.keySet())
             player2Railroads.put(key, player1Railroads.get(key));
 
-        player1.setMoneyAmount(0);
-        player1.setNoOfFreedomRights(0);
-        player1.setNoOfRailroads(0);
-        player1.setNoOfHotels(0);
-        player1.setNoOfHouses(0);
-        player1.setJailStatus(0);
-        player1.bankrupt();
+        loser.setMoneyAmount(0);
+        loser.setNoOfFreedomRights(0);
+        loser.setNoOfRailroads(0);
+        loser.setNoOfHotels(0);
+        loser.setNoOfHouses(0);
+        loser.setJailStatus(0);
+        loser.bankrupt();
 
     }
 
+    /**
+     * This method handles the stiuation when a player bankrupts to the Bank.
+     * @param player
+     */
     public void bankrupt(Player player) {
         player.setMoneyAmount(0);
         player.setNoOfFreedomRights(0);
@@ -156,30 +220,36 @@ public class PlayerManager {
         }
     }
 
+    /**
+     * Whenever a player lands on anyone else's tradable, he must pay the rent to its owner.
+     * @param player the money giver
+     * @param tradable the tradebe
+     */
     public void payRent(Player player, Tradable tradable) {
         double rentCost = tradable.getRentCost();
         giveMoney(player, rentCost);
         getMoney(tradable.getOwner(), rentCost);
     }
-    public void payRentProperty(Player player, Property property) {
-        double rentCost = property.getRentCost();
-        giveMoney(player, rentCost);
-        getMoney(property.getOwner(), rentCost);
-    }
 
-    public void payRentRailroad( Player player, Railroad railroad) {
-        double rentCost = railroad.getRentCost();
-        giveMoney(player, rentCost);
-        getMoney(railroad.getOwner(), rentCost);
-    }
-
-
+    /**
+     * This method is called whenever a has not enough money to pay something.
+     * @param player our action guy
+     * @param amount the amount of money that the player is depted
+     * @return whether the player has enough tradables to pay his debt
+     */
     public boolean tenderToAvoidBankrupt( Player player, double amount) {
         double moneyNeeded = amount - player.getMoneyAmount();
         double totalMoney = calculateTotalMoneyCanBeEarned(player);
         return totalMoney >= moneyNeeded;
     }
 
+    /**
+     * Used in the tender to avoid bankrupt method.
+     * Calculates the total wealth of a player coming from tradables.
+     * Answers the question how much the player can gain by mortgaging everything he has.
+     * @param player our action guy
+     * @return the amount of money that can be gained from tradables
+     */
     private double calculateTotalMoneyCanBeEarned(Player player) {
         double totalMoney = 0;
         HashMap<String,Property> properties = player.getProperties();
@@ -194,11 +264,22 @@ public class PlayerManager {
         return totalMoney;
     }
 
+    /**
+     * Checks whether the player can afford the given amount of money
+     * @param player our action guy
+     * @param amount the amount
+     * @return whether the player can afford the amount
+     */
     public boolean canAfford(Player player, double amount) {
         return player.getMoneyAmount() >= amount;
     }
 
-    //Call first
+    /**
+     * This method handles the player when he builds a building to a property
+     * @param player our action guy
+     * @param property the property which the building will be built on
+     * @return whether the process succeeded
+     */
     public boolean buildOneBuilding(Player player, Property property) {
         if(!property.isMonopoly() || property.getNoOfBuildings() > 4 || !canAfford(player, property.getNextBuildingsBuildingCost()))
             return false;
@@ -210,6 +291,12 @@ public class PlayerManager {
         return true;
     }
 
+    /**
+     * This method handles the player when he sells a building to a property
+     * @param player our action guy
+     * @param property the property which the building will be sells
+     * @return whether the process succeeded
+     */
     public boolean sellOneBuilding(Player player, Property property) {
         if(property.getNoOfBuildings() < 1)
             return false;
@@ -221,6 +308,12 @@ public class PlayerManager {
         return true;
     }
 
+    /**
+     * This method handles the player when he sells all buildings of a property
+     * @param player our action guy
+     * @param property the property which the buildings will be selled
+     * @return whether the process succeeded
+     */
     public boolean sellAllBuildings(Player player, Property property) {
         if(property.getNoOfBuildings() < 1)
             return false;
@@ -240,6 +333,11 @@ public class PlayerManager {
         return true;
     }
 
+    /**
+     * Whenever a player lands on a card location, a card is drawn and this method is called
+     * @param player our action guy
+     * @param card the drawn card
+     */
     public void makeCardAction(Player player, Card card) {
         card.makeCardAction( player, this );
     }
@@ -255,6 +353,11 @@ public class PlayerManager {
         return players;
     }
 
+    /**
+     * This method is used take money forcefully from a player. Note that this one is called when he pays it to the bank.
+     * @param player
+     * @param amount the amount I guess :)
+     */
     public void payForcedMoney( Player player, double amount ) {
         if ( canAfford(player, amount) )
             giveMoney(player , amount);
@@ -267,6 +370,12 @@ public class PlayerManager {
         }
     }
 
+    /**
+     * This method is used take money forcefully from a player. Note that this one is called when he pays it to another player.
+     * @param player the money payer
+     * @param amount the amount I guess :)
+     * @param receiver the guy who receives money from the player
+     */
     public void payForcedMoneyToOtherPlayer( Player player, Player receiver, double amount ) {
         if ( canAfford(player, amount) )
             giveMoney(player , amount);

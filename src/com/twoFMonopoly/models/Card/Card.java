@@ -21,6 +21,7 @@ public abstract class Card implements Serializable {
     }
 
     @Override
+    // Card strings are saved in action strategies.
     public String toString() {
         return actionStrategy.toString();
     }
