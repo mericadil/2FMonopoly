@@ -3,6 +3,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -17,13 +19,13 @@
             </cursor>
         </Button>
         <Text fill="WHITE" layoutX="576.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-menu-text" text="Credits" />
-        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="183.0" layoutY="234.0" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="400.0" prefWidth="1000.0">
+        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="183.0" layoutY="234.0" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="374.0" prefWidth="1000.0">
             <content>
                 <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1000.0">
                     <children>
-                        <AnchorPane prefHeight="400.0" prefWidth="1000.0">
+                        <AnchorPane prefHeight="425.0" prefWidth="1000.0">
                             <children>
-                                <Text layoutX="103.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae tempor purus. Ut malesuada vestibulum rhoncus. Quisque lobortis purus quam, sit amet tincidunt purus porttitor eu. Aliquam ac felis ornare nisi venenatis rutrum facilisis sit amet nunc. Aliquam vehicula, ante eget dignissim rhoncus, purus odio commodo lacus, efficitur vulputate lacus ligula et dui.                                 Donec accumsan volutpat arcu mollis luctus. Donec efficitur vestibulum justo at malesuada. Nam ultricies hendrerit tempor.                                 Ut nibh odio, sodales ut varius tempor, tempor sed velit. Nunc facilisis vel magna ac tristique. Sed venenatis purus in faucibus facilisis.                                 Maecenas sit amet lorem at tortor suscipit tempor.Nunc vestibulum, dui ac maximus sodales, quam eros fermentum leo, in pellentesque metus lorem et dolor.                                 Phasellus sit amet pellentesque sapien, eleifend dignissim ante. Mauris bibendum at massa rhoncus cursus.                                 Ut tempus lacus id velit tincidunt, nec rhoncus sem euismod. Suspendisse quis pharetra tortor, at congue neque.                                 Fusce et blandit lorem, eu auctor eros. Vestibulum congue, magna eget auctor egestas, mi velit molestie libero, at tempor leo nisi ac nisi.                                 In ut magna non est rutrum malesuada eget non diam. Vestibulum laoreet varius sodales. Proin lacus ex, auctor vitae aliquet vitae, tincidunt in elit.                                 Mauris mattis nunc quis faucibus lacinia. Cras sagittis tellus nulla, sit amet consequat ipsum varius sit amet. Phasellus eget sodales est.                                 Proin sed lectus lorem.Quisque sit amet eleifend diam. Sed tincidunt quam ut gravida rutrum. Vivamus eget accumsan purus.                                 Sed placerat nulla at felis imperdiet mattis a ac ex. Suspendisse potenti. Aenean in justo lobortis, tincidunt eros at, consectetur neque.                                 Fusce commodo facilisis mi venenatis ullamcorper. In luctus luctus felis. In convallis in justo vel lobortis.Aliquam erat volutpat. Integer sed sem purus.                                 Nulla dignissim sollicitudin justo et faucibus. Morbi tempus aliquet eros vel vehicula. Sed dignissim justo mauris, et pretium justo euismod lobortis.                                 Nulla scelerisque sem ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;Sed iaculis turpis nec arcu lobortis porta.                                 Phasellus at augue ac quam molestie hendrerit quis eget augue. Mauris rutrum nisl ex, eu ultrices mi congue nec. Phasellus in urna vitae dolor ultricies venenatis ut eu ex. Nullam pharetra odio sit amet nisl convallis facilisis.                                 Ut tincidunt hendrerit dui eget ultrices. Vivamus id felis porttitor, interdum nulla tempus, ultricies nulla. Vivamus eget neque ac eros hendrerit efficitur in vitae neque. Morbi nec nulla non ex accumsan consectetur.Duis porttitor, lorem at eleifend rutrum, ligula turpis vestibulum urna, non scelerisque tellus velit vel elit. Etiam pharetra cursus tincidunt. Nunc at urna eu elit convallis scelerisque vitae quis purus.                                 Cras congue ipsum id euismod imperdiet. Vivamus in nisl quam. Proin at pulvinar lectus. Proin lacinia eu tellus vel tristique. Maecenas ultricies tellus nec lacus iaculis elementum.                                 Vestibulum cursus quis diam vitae vulputate. Nulla a sapien eleifend, consectetur ligula in, tincidunt neque. Ut vel semper nisl. Aliquam efficitur ornare bibendum. Integer libero ante, malesuada non lectus vel, accumsan aliquet leo.                                 In sagittis diam ut luctus porta." textAlignment="JUSTIFY" wrappingWidth="841.13671875">
+                                <Text layoutX="51.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Supervisor &#10;Eray Tüzün &#10; &#10;Project Assistants &#10;Barış Ardıç &#10;Emre Sülün &#10;Elgun Jabrayilzade &#10; &#10;Developers and Project Members &#10;Osman Batur 'obi' İnce &#10;Adil '4!' Meriç                                 &#10;Burak 'öça' Öçalan                                 &#10;Ömer Faruk 'ofaruk-dev22' Akgül                                 &#10;Doğa 'metalci' Tansel" textAlignment="JUSTIFY" wrappingWidth="841.13671875">
                                     <font>
                                         <Font size="18.0" />
                                     </font>
@@ -34,5 +36,55 @@
                 </VBox>
             </content>
         </ScrollPane>
+      <ImageView fitHeight="155.0" fitWidth="396.0" layoutX="121.0" layoutY="44.0">
+         <image>
+            <Image url="@../../../../../../../OneDrive/Masaüstü/doğa.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="410.0" fitWidth="115.0" layoutX="51.0" layoutY="224.0">
+         <image>
+            <Image url="@../../../../../../../OneDrive/Masaüstü/adil.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="112.0" layoutX="931.0" layoutY="14.0">
+         <image>
+            <Image url="@../../../../../../../OneDrive/Masaüstü/öfa.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="117.0" fitWidth="150.0" layoutX="1201.0" layoutY="156.0">
+         <image>
+            <Image url="@../../../../../../../OneDrive/Masaüstü/öça.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="117.0" fitWidth="150.0" layoutX="1068.0" layoutY="44.0">
+         <image>
+            <Image url="@../../../../../../../OneDrive/Masaüstü/öça.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="117.0" fitWidth="150.0" layoutX="33.0" layoutY="44.0">
+         <image>
+            <Image url="@../../../../../../../OneDrive/Masaüstü/öça.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="410.0" fitWidth="115.0" layoutX="1218.0" layoutY="288.0">
+         <image>
+            <Image url="@../../../../../../../OneDrive/Masaüstü/adil.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="112.0" layoutX="808.0" layoutY="14.0">
+         <image>
+            <Image url="@../../../../../../../OneDrive/Masaüstü/öfa.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="148.0" layoutX="1202.0" layoutY="234.0">
+         <image>
+            <Image url="@../../../../../../../OneDrive/Masaüstü/osman.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="148.0" layoutX="14.0" layoutY="514.0">
+         <image>
+            <Image url="@../../../../../../../OneDrive/Masaüstü/osman.jpeg" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

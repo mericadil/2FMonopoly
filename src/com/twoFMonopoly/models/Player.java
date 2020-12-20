@@ -153,4 +153,21 @@ public class Player implements Serializable {
     public void addDebt(double amount) {
         debt += amount;
     }
+
+    public void updateInformation() {
+        noOfRailroads = railroads.size();
+        noOfHotels = 0;
+        noOfHouses = 0;
+
+        for(String key : properties.keySet() ) {
+            Property property = properties.get(key);
+            if(property.getNoOfBuildings() < 5) {
+                noOfHouses += property.getNoOfBuildings();
+            }
+            else {
+                noOfHouses += property.getNoOfBuildings() - 1;
+                noOfHotels++;
+            }
+        }
+    }
 }
