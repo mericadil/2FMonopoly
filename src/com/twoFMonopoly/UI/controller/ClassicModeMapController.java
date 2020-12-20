@@ -405,12 +405,13 @@ public class ClassicModeMapController {
     private GameInitializer gameInitializer;
     private Card currentCard;
 
+    private int turn;
     public void init(int playerCount, ArrayList<String> colors, ArrayList<String> names, ArrayList<Integer> queueIndices){
         Main.player.stop();
         Main.player  = new MediaPlayer(new Media(Paths.get(Constants.MAIN_MUSIC).toUri().toString()));
         Main.player.setOnEndOfMedia( () -> Main.player.seek(Duration.ZERO));
         Main.player.play();
-
+        turn = 0;
         moneyInTheMiddle = 0;
 
         this.lastClickedTradable = 1;
@@ -788,22 +789,51 @@ public class ClassicModeMapController {
     }
 
     private void updatePlayer( Player player) {
-        double money = player.getMoneyAmount();
-        int playerNumber = players.indexOf(player) + 1;
-        String playerMoneyX = "playerMoney" + playerNumber;
+        if(player.isBankrupt()){
+            int playerNumber = players.indexOf(player) + 1;
+            String playerMoneyX = "playerMoney" + playerNumber;
+            String playerNameX = "playerName" + playerNumber;
+            String playerTokenX  = "playerToken" + playerNumber;
 
-        for(Text playerMoney : playerMoneys){
-            if(playerMoney.getId().equals(playerMoneyX)){
-                playerMoney.setText("$" + money + "K");
+            for (Text playerMoney : playerMoneys) {
+                if (playerMoney.getId().equals(playerMoneyX)) {
+                    playerMoney.setText("$" + 0 + "K");
+                    playerMoney.setOpacity(0.15);
+                }
+            }
+            for (Text playerName : playerNames) {
+                if (playerName.getId().equals(playerNameX)) {
+                    playerName.setOpacity(0.15);
+                }
+            }
+            for (Circle playerToken : playerTokens) {
+                if (playerToken.getId().equals(playerTokenX)) {
+                    playerToken.setVisible(false);
+                    popUpActionText.setText("!!BANKRUPT!!");
+                    popUpPlayer.setText(currentPlayer.getName());
+                    popUpPane.setVisible(true);
+                }
+            }
+
+
+        }
+        else {
+            double money = player.getMoneyAmount();
+            int playerNumber = players.indexOf(player) + 1;
+            String playerMoneyX = "playerMoney" + playerNumber;
+
+            for (Text playerMoney : playerMoneys) {
+                if (playerMoney.getId().equals(playerMoneyX)) {
+                    playerMoney.setText("$" + money + "K");
+                }
+            }
+            if (player == currentPlayer) {
+                if (playerLocations.get(currentPlayerIndex) != player.getCurrentLocationIndex()) {
+                    setNewCoordinate(player.getCurrentLocationIndex());
+                    playerLocations.set(currentPlayerIndex, player.getCurrentLocationIndex());
+                }
             }
         }
-        if(player == currentPlayer) {
-            if (playerLocations.get(currentPlayerIndex) != player.getCurrentLocationIndex()) {
-                setNewCoordinate(player.getCurrentLocationIndex());
-                playerLocations.set(currentPlayerIndex, player.getCurrentLocationIndex());
-            }
-        }
-
     }
 
     private void updateProperty( Property property){
@@ -1004,6 +1034,7 @@ public class ClassicModeMapController {
 
     private void jailPaneSettings() {
         payFineButton.setDisable(true);
+        numberOfFreedomRights.setText(currentPlayer.getNoOfFreedomRights()+"");
         if(currentPlayer.getJailStatus() == 0 || currentPlayer.isBankrupt()) {
             useFreedomCardButton.setDisable(true);
         }
@@ -1258,6 +1289,12 @@ public class ClassicModeMapController {
 
     @FXML
     public void endTurnButtonPushed(ActionEvent event) {
+        turn++;
+        if(turn == 5){
+            currentPlayer.bankrupt();
+            updateProperties();
+            updateRailroads();
+        }
         popUpPane.setVisible(false);
         if(isGameOver()) {
             //finish the game
@@ -1266,12 +1303,11 @@ public class ClassicModeMapController {
             updatePlayer(currentPlayer);
             if(currentPlayer.getJailStatus() != 0) playerManager.updateJailStatus(currentPlayer);
             currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
-
+            currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
             while(currentPlayer.isBankrupt()) {
                 currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
                 currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
             }
-            currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
 
             setTurnText(currentPlayerIndex);
             if(currentPlayer.getDebt() > 0) {
