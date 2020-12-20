@@ -106,167 +106,167 @@ public class ClassicModeMapController {
     @FXML
     private Rectangle property10;
     @FXML
-	private Rectangle corner3;
+    private Rectangle corner3;
     @FXML
     private Rectangle corner4;
     @FXML
-	private Rectangle property9;
+    private Rectangle property9;
     @FXML
-	private Rectangle corner2;
+    private Rectangle corner2;
     @FXML
-	private Rectangle property8;
+    private Rectangle property8;
     @FXML
-	private Rectangle chance1;
+    private Rectangle chance1;
     @FXML
-	private Rectangle property7;
+    private Rectangle property7;
     @FXML
-	private Rectangle property6;
+    private Rectangle property6;
     @FXML
-	private Rectangle property11;
+    private Rectangle property11;
     @FXML
-	private Rectangle property12;
+    private Rectangle property12;
     @FXML
-	private Rectangle property13;
+    private Rectangle property13;
     @FXML
-	private Rectangle communityChest2;
+    private Rectangle communityChest2;
     @FXML
-	private Rectangle property14;
+    private Rectangle property14;
     @FXML
-	private Rectangle property15;
+    private Rectangle property15;
     @FXML
-	private Rectangle property16;
+    private Rectangle property16;
     @FXML
-	private Rectangle corner1;
+    private Rectangle corner1;
     @FXML
-	private Rectangle property17;
+    private Rectangle property17;
     @FXML
-	private Rectangle chance2;
+    private Rectangle chance2;
     @FXML
-	private Rectangle tax1;
+    private Rectangle tax1;
     @FXML
-	private Rectangle property18;
+    private Rectangle property18;
     @FXML
-	private Rectangle property19;
+    private Rectangle property19;
     @FXML
-	private Rectangle property5;
+    private Rectangle property5;
     @FXML
-	private Rectangle property4;
+    private Rectangle property4;
     @FXML
-	private Rectangle property3;
+    private Rectangle property3;
     @FXML
-	private Rectangle communityChest1;
+    private Rectangle communityChest1;
     @FXML
-	private Rectangle property2;
+    private Rectangle property2;
     @FXML
-	private Rectangle property1;
+    private Rectangle property1;
     @FXML
-	private Rectangle propertyOwner1;
+    private Rectangle propertyOwner1;
     @FXML
-	private Rectangle propertyOwner2;
+    private Rectangle propertyOwner2;
     @FXML
-	private Rectangle propertyOwner4;
+    private Rectangle propertyOwner4;
     @FXML
-	private Rectangle propertyOwner5;
+    private Rectangle propertyOwner5;
     @FXML
-	private Rectangle propertyOwner6;
+    private Rectangle propertyOwner6;
     @FXML
-	private Rectangle propertyOwner8;
+    private Rectangle propertyOwner8;
     @FXML
-	private Rectangle propertyOwner9;
+    private Rectangle propertyOwner9;
     @FXML
-	private Rectangle propertyOwner11;
+    private Rectangle propertyOwner11;
     @FXML
-	private Rectangle propertyOwner12;
+    private Rectangle propertyOwner12;
     @FXML
-	private Rectangle propertyOwner13;
+    private Rectangle propertyOwner13;
     @FXML
-	private Rectangle propertyOwner15;
+    private Rectangle propertyOwner15;
     @FXML
-	private Rectangle propertyOwner16;
+    private Rectangle propertyOwner16;
     @FXML
-	private Rectangle propertyOwner17;
+    private Rectangle propertyOwner17;
     @FXML
-	private Rectangle propertyOwner19;
+    private Rectangle propertyOwner19;
     @FXML
-	private Rectangle propertyOwner20;
+    private Rectangle propertyOwner20;
     @FXML
-	private Rectangle propertyOwner22;
+    private Rectangle propertyOwner22;
     @FXML
-	private Rectangle propertyOwner23;
+    private Rectangle propertyOwner23;
     @FXML
     private Rectangle propertyOwner26;
     @FXML
     private Rectangle propertyOwner27;
     @FXML
-	private Text playerName1;
+    private Text playerName1;
     @FXML
-	private Text playerName2;
+    private Text playerName2;
     @FXML
-	private Text playerName3;
+    private Text playerName3;
     @FXML
-	private Text playerName4;
+    private Text playerName4;
     @FXML
-	private Text playerName5;
+    private Text playerName5;
     @FXML
-	private Text playerName6;
+    private Text playerName6;
     @FXML
-	private Text playerName7;
+    private Text playerName7;
     @FXML
-	private Text playerName8;
+    private Text playerName8;
     @FXML
-	private Text playerMoney7;
+    private Text playerMoney7;
     @FXML
-	private Text playerMoney8;
+    private Text playerMoney8;
     @FXML
-	private Text playerMoney5;
+    private Text playerMoney5;
     @FXML
-	private Text playerMoney6;
+    private Text playerMoney6;
     @FXML
-	private Text playerMoney4;
+    private Text playerMoney4;
     @FXML
-	private Text playerMoney3;
+    private Text playerMoney3;
     @FXML
-	private Text playerMoney2;
+    private Text playerMoney2;
     @FXML
-	private Text playerMoney1;
+    private Text playerMoney1;
     @FXML
-	private Text turnText;
+    private Text turnText;
     @FXML
-	private Circle playerToken4;
+    private Circle playerToken4;
     @FXML
-	private Circle playerToken5;
+    private Circle playerToken5;
     @FXML
-	private Circle playerToken6;
+    private Circle playerToken6;
     @FXML
-	private Circle playerToken2;
+    private Circle playerToken2;
     @FXML
-	private Circle playerToken3;
+    private Circle playerToken3;
     @FXML
-	private Circle playerToken7;
+    private Circle playerToken7;
     @FXML
-	private Circle playerToken1;
+    private Circle playerToken1;
     @FXML
-	private Circle playerToken8;
+    private Circle playerToken8;
     @FXML
-	private Text playerTime1;
+    private Text playerTime1;
     @FXML
-	private Text playerTime2;
+    private Text playerTime2;
     @FXML
-	private Text playerTime3;
+    private Text playerTime3;
     @FXML
-	private Text playerTime4;
+    private Text playerTime4;
     @FXML
-	private Text playerTime5;
+    private Text playerTime5;
     @FXML
-	private Text playerTime6;
+    private Text playerTime6;
     @FXML
-	private Text playerTime7;
+    private Text playerTime7;
     @FXML
-	private Text playerTime8;
+    private Text playerTime8;
     @FXML
-	private Button rollButton;
+    private Button rollButton;
     @FXML
-	private Button endOfTurnButton;
+    private Button endOfTurnButton;
     @FXML
     private ImageView diceImage1;
     @FXML
@@ -363,7 +363,10 @@ public class ClassicModeMapController {
     private Button useFreedomCardButton;
     @FXML
     private Text numberOfFreedomRights;
-
+    @FXML
+    private Text popUpPlayer, popUpActionText;
+    @FXML
+    private AnchorPane popUpPane;
 
     @FXML
     protected AnchorPane root;
@@ -417,36 +420,36 @@ public class ClassicModeMapController {
         playerMoneys = new ArrayList<>(Arrays.asList(playerMoney1, playerMoney2, playerMoney3, playerMoney4, playerMoney5, playerMoney6, playerMoney7, playerMoney8));
         playerTokens = new ArrayList<>(Arrays.asList(playerToken1, playerToken2, playerToken3, playerToken4, playerToken5, playerToken6, playerToken7, playerToken8));
         propertyViews = new ArrayList<>(Arrays.asList(property1, property2, property3, property4, property5, property6, property7, property8, property9, property10,
-                                                property11, property12, property13, property14, property15, property16, property17, property18, property19));
+                property11, property12, property13, property14, property15, property16, property17, property18, property19));
         corners = new ArrayList<>(Arrays.asList(corner1, corner2, corner3, corner4));
         chanceViews = new ArrayList<>(Arrays.asList(chance1, chance2));
         communityChestViews = new ArrayList<>(Arrays.asList(communityChest1, communityChest2));
         propertyOwnerViews = new ArrayList<>(Arrays.asList(propertyOwner1, propertyOwner2, propertyOwner4, propertyOwner5, propertyOwner6, propertyOwner8, propertyOwner9,
-                                                                        propertyOwner11, propertyOwner12, propertyOwner13, propertyOwner15, propertyOwner16, propertyOwner17, propertyOwner19,
-                                                                        propertyOwner20, propertyOwner22, propertyOwner23, propertyOwner26, propertyOwner27));
+                propertyOwner11, propertyOwner12, propertyOwner13, propertyOwner15, propertyOwner16, propertyOwner17, propertyOwner19,
+                propertyOwner20, propertyOwner22, propertyOwner23, propertyOwner26, propertyOwner27));
         playerLocations = new ArrayList<>();
         locationViews = new ArrayList<>(Arrays.asList(  corner1, property1, property2, communityChest1, property3, property4, property5,
-                                                    corner2, property6, property7, chance1, property8, property9, property10,
-                                                    corner3, property11, property12, property13, communityChest2, property14, property15,
-                                                    corner4, property16, property17, chance2, tax1, property18, property19));
+                corner2, property6, property7, chance1, property8, property9, property10,
+                corner3, property11, property12, property13, communityChest2, property14, property15,
+                corner4, property16, property17, chance2, tax1, property18, property19));
         propertyRectNameViews = new ArrayList<>(Arrays.asList(propertyRectName1, propertyRectName2, propertyRectName4, propertyRectName6, propertyRectName8,
-                                                            propertyRectName9, propertyRectName11, propertyRectName13, propertyRectName15, propertyRectName17,
-                                                            propertyRectName19, propertyRectName20, propertyRectName22, propertyRectName23, propertyRectName26, propertyRectName27));
+                propertyRectName9, propertyRectName11, propertyRectName13, propertyRectName15, propertyRectName17,
+                propertyRectName19, propertyRectName20, propertyRectName22, propertyRectName23, propertyRectName26, propertyRectName27));
 
         railroadRectNameViews = new ArrayList<>(Arrays.asList(railroadRectName5, railroadRectName12, railroadRectName16));
 
         houseViews = new ArrayList<>(Arrays.asList( house1_1, house1_2, house1_3, house1_4, house1_5, house2_1, house2_2, house2_3, house2_4, house2_5,
-                                                    house4_1, house4_2, house4_3, house4_4, house4_5, house6_1, house6_2, house6_3, house6_4, house6_5,
-                                                    house8_1, house8_2, house8_3, house8_4, house8_5, house9_1, house9_2, house9_3, house9_4, house9_5,
-                                                    house11_1, house11_2, house11_3, house11_4, house11_5, house13_1, house13_2, house13_3, house13_4, house13_5,
-                                                    house15_1, house15_2, house15_3, house15_4, house15_5, house17_1, house17_2, house17_3, house17_4, house17_5,
-                                                    house19_1, house19_2, house19_3, house19_4, house19_5, house20_1, house20_2, house20_3, house20_4, house20_5,
-                                                    house22_1, house22_2, house22_3, house22_4, house22_5, house23_1, house23_2, house23_3, house23_4, house23_5,
-                                                    house26_1, house26_2, house26_3, house26_4, house26_5, house27_1, house27_2, house27_3, house27_4, house27_5));
+                house4_1, house4_2, house4_3, house4_4, house4_5, house6_1, house6_2, house6_3, house6_4, house6_5,
+                house8_1, house8_2, house8_3, house8_4, house8_5, house9_1, house9_2, house9_3, house9_4, house9_5,
+                house11_1, house11_2, house11_3, house11_4, house11_5, house13_1, house13_2, house13_3, house13_4, house13_5,
+                house15_1, house15_2, house15_3, house15_4, house15_5, house17_1, house17_2, house17_3, house17_4, house17_5,
+                house19_1, house19_2, house19_3, house19_4, house19_5, house20_1, house20_2, house20_3, house20_4, house20_5,
+                house22_1, house22_2, house22_3, house22_4, house22_5, house23_1, house23_2, house23_3, house23_4, house23_5,
+                house26_1, house26_2, house26_3, house26_4, house26_5, house27_1, house27_2, house27_3, house27_4, house27_5));
 
         mortgagedViews = new ArrayList<>( Arrays.asList(mortgaged1, mortgaged2, mortgaged4, mortgaged6, mortgaged8, mortgaged9, mortgaged11,
-                                                        mortgaged13, mortgaged15, mortgaged17, mortgaged19, mortgaged20, mortgaged22, mortgaged23,
-                                                        mortgaged26, mortgaged27, mortgaged5, mortgaged12, mortgaged16));
+                mortgaged13, mortgaged15, mortgaged17, mortgaged19, mortgaged20, mortgaged22, mortgaged23,
+                mortgaged26, mortgaged27, mortgaged5, mortgaged12, mortgaged16));
 
         gameInitializer = new GameInitializer();
         locations = gameInitializer.initTurkeyMap();
@@ -470,6 +473,17 @@ public class ClassicModeMapController {
             players.add(player);
         }
 
+        saveGamePane.setVisible(false);
+        pausePane.setVisible(false);
+        for(Text mortgage: mortgagedViews){
+            mortgage.setVisible(false);
+        }
+        for(ImageView imageView: houseViews){
+            imageView.setVisible(false);
+        }
+        for(Text playerTime: playerTimes){
+            playerTime.setVisible(false);
+        }
         playerManager.setPlayer(players);
         currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
         refactorPlayers();
@@ -484,6 +498,7 @@ public class ClassicModeMapController {
         jailPane.setVisible(false);
         payDebtButton.setDisable(true);
         unMortgageButton.setDisable(true);
+        popUpPane.setVisible(false);
 
         for(Text mortgage: mortgagedViews){
             mortgage.setVisible(false);
@@ -595,6 +610,9 @@ public class ClassicModeMapController {
         int currentLocation = currentPlayer.getCurrentLocationIndex();
         Tax tax = (Tax) locations.get(currentLocation);
         double taxAmount = tax.getTaxAmount();
+        popUpActionText.setText("$" + taxAmount + "K withdrawn for tax");
+        popUpPlayer.setText(currentPlayer.getName());
+        popUpPane.setVisible(true);
         if(playerManager.canAfford(currentPlayer,taxAmount)) {
             playerManager.giveMoney(currentPlayer,taxAmount);
             endOfTurnButton.setDisable(false);
@@ -610,11 +628,11 @@ public class ClassicModeMapController {
         }
         moneyInTheMiddle += taxAmount;
         updatePlayers();
+
     }
 
     private void takeTradableAction() {
         Tradable tradable = (Tradable) locations.get(lastClickedTradable);
-
         propertyPaneSettings();
         propertyPane.setVisible(true);
         if(tradable.getOwner() != null && tradable.getOwner() != currentPlayer) {
@@ -622,6 +640,9 @@ public class ClassicModeMapController {
             if(playerManager.canAfford(currentPlayer, tradable.getRentCost())) {
                 playerManager.payRent(currentPlayer, tradable);
                 endOfTurnButton.setDisable(false);
+                popUpActionText.setText("$" + tradable.getRentCost() + "K withdrawn to pay rent");
+                popUpPane.setVisible(true);
+                popUpPlayer.setText(currentPlayer.getName());
             }
             else if(playerManager.tenderToAvoidBankrupt(currentPlayer, tradable.getRentCost())) {
                 currentPlayer.addDebt(tradable.getRentCost());
@@ -1002,7 +1023,8 @@ public class ClassicModeMapController {
         if( locations.get(lastClickedTradable) instanceof Property) {
             Property property = (Property) locations.get(lastClickedTradable);
             buyProperty(property);
-            popUpScreen.setText("$" + property.getCost() + "K withdrawn for buying operation from " + currentPlayer.getName());
+            popUpActionText.setText("$" + Math.round(property.getCost()) + "K withdrawn for buying property");
+            popUpPlayer.setText(currentPlayer.getName());
 
             System.out.println(property.getOwner().getName());
             System.out.println(property.getOwner().getColor());
@@ -1014,7 +1036,10 @@ public class ClassicModeMapController {
             Railroad railroad = (Railroad) locations.get(lastClickedTradable);
             buyRailroad(railroad);
             updateRailroad(railroad);
+            popUpActionText.setText("$" + Math.round(railroad.getCost()) + "K withdrawn for buying railroad");
+            popUpPlayer.setText(currentPlayer.getName());
         }
+        popUpPane.setVisible(true);
         buyButton.setDisable(true);
         propertyPaneSettings();
         updatePlayer(currentPlayer);
@@ -1036,6 +1061,9 @@ public class ClassicModeMapController {
     @FXML
     public void buildButtonPushed() {
         Property property = (Property) locations.get(lastClickedTradable);
+        popUpActionText.setText("$" + Math.round(property.getNextBuildingsBuildingCost()) + "K withdrawn for building");
+        popUpPlayer.setText(currentPlayer.getName());
+        popUpPane.setVisible(true);
         playerManager.buildOneBuilding(currentPlayer, property);
         propertyManager.buildOneBuilding(property);
         propertyPaneSettings();
@@ -1047,6 +1075,9 @@ public class ClassicModeMapController {
     @FXML
     public void sellButtonPushed(ActionEvent event) {
         Property property = (Property) locations.get(lastClickedTradable);
+        popUpActionText.setText("$" + Math.round(property.getCurrentBuildingsSellingCost()) + "K deposited, building sold");
+        popUpPlayer.setText(currentPlayer.getName());
+        popUpPane.setVisible(true);
         playerManager.sellOneBuilding(currentPlayer, property);
         propertyManager.sellOneBuilding(property);
         propertyPaneSettings();
@@ -1060,12 +1091,33 @@ public class ClassicModeMapController {
             Railroad railroad = (Railroad) locations.get(lastClickedTradable);
             playerManager.mortgageRailroad(currentPlayer, railroad);
             railroadManager.mortgageRailroad(railroad, currentPlayer);
+
+            popUpActionText.setText("$" + Math.round(railroad.getCost()) + "K deposited for mortgage");
+            popUpPlayer.setText(currentPlayer.getName());
+            popUpPane.setVisible(true);
+
+            String mortgaged = "mortgaged" + railroad.getLocationIndex();
+            for(Text mortgagedView: mortgagedViews){
+                if(mortgaged.equals(mortgagedView.getId()))
+                    mortgagedView.setVisible(true);
+            }
         }
         else if( locations.get(lastClickedTradable) instanceof Property) {
             Property property = (Property) locations.get(lastClickedTradable);
             playerManager.mortgageProperty(currentPlayer, property);
             propertyManager.mortgageProperty(property);
+
+            popUpActionText.setText("$" + Math.round(property.getCost()) + "K deposited for mortgage");
+            popUpPlayer.setText(currentPlayer.getName());
+            popUpPane.setVisible(true);
+
+            String mortgaged = "mortgaged" + property.getLocationIndex();
+            for(Text mortgagedView: mortgagedViews){
+                if(mortgaged.equals(mortgagedView.getId()))
+                    mortgagedView.setVisible(true);
+            }
         }
+
         propertyPaneSettings();
         updatePlayers();
         updateTradable((Tradable) locations.get(lastClickedTradable));
@@ -1082,6 +1134,15 @@ public class ClassicModeMapController {
             playerManager.removeMortgageRailroad(currentPlayer, (Railroad) tradable);
             railroadManager.removeMortgageRailroad((Railroad) tradable, currentPlayer);
         }
+        String mortgaged = "mortgaged" + ((Location) tradable).getLocationIndex();
+        for(Text mortgagedView: mortgagedViews){
+            if(mortgaged.equals(mortgagedView.getId()))
+                mortgagedView.setVisible(false);
+        }
+        popUpActionText.setText("$" + Math.round(tradable.getCurrentMortgagePrice()) + "K withdrawn for unmortgage");
+        popUpPlayer.setText(currentPlayer.getName());
+        popUpPane.setVisible(true);
+
         updateTradable(tradable);
         updatePlayers();
         propertyPaneSettings();
@@ -1090,6 +1151,9 @@ public class ClassicModeMapController {
     @FXML
     public void payDebtButtonPushed( ActionEvent actionEvent) {
         double debt = currentPlayer.getDebt();
+        popUpActionText.setText("$" + debt + "K withdrawn for debt");
+        popUpPlayer.setText(currentPlayer.getName());
+        popUpPane.setVisible(true);
         if(payDebt()) {
             payDebtButton.setDisable(true);
             endOfTurnButton.setDisable(false);
@@ -1134,6 +1198,9 @@ public class ClassicModeMapController {
     public void payFineButtonClicked(ActionEvent actionEvent) {
         if(currentPlayer.getJailStatus() == 4) {
             if(playerManager.canAfford(currentPlayer, JAIL_FINE)) {
+                popUpActionText.setText("$200K withdrawn for leaving jail");
+                popUpPlayer.setText(currentPlayer.getName());
+                popUpPane.setVisible(true);
                 playerManager.giveMoney(currentPlayer, JAIL_FINE);
                 playerManager.exitJail(currentPlayer);
                 updatePlayer(currentPlayer);
@@ -1169,6 +1236,9 @@ public class ClassicModeMapController {
             jailPaneSettings();
             endOfTurnButton.setDisable(false);
             updatePlayer(currentPlayer);
+            popUpActionText.setText("Freedom right is used. Remaining freedom cards: " + currentPlayer.getNoOfFreedomRights());
+            popUpPlayer.setText(currentPlayer.getName());
+            popUpPane.setVisible(true);
         }
     }
 
@@ -1188,6 +1258,7 @@ public class ClassicModeMapController {
 
     @FXML
     public void endTurnButtonPushed(ActionEvent event) {
+        popUpPane.setVisible(false);
         if(isGameOver()) {
             //finish the game
         }

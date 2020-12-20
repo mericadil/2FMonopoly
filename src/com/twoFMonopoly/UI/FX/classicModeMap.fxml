@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="768.0" prefWidth="1366.0" styleClass="mapPane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.ClassicModeMapController">
-<children>
+   <children>
       <AnchorPane fx:id="saveGamePane" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Text fill="#111111" layoutX="498.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save Game">
@@ -69,1222 +69,1217 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text id="popUpScreen" fx:id="popUpScreen" fill="#5b3c3c" layoutX="1094.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pop up screen will be here." textAlignment="CENTER" wrappingWidth="163.00000057555735">
-               <font>
-                  <Font name="System Bold" size="28.0" />
-               </font>
-            </Text>
          </children>
       </AnchorPane>
-   <Rectangle id="0" fx:id="corner1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="1" fx:id="property1" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="125.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="2" fx:id="property2" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="210.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="3" fx:id="communityChest1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="4" fx:id="property3" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="380.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="5" fx:id="property4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="465.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="6" fx:id="property5" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="550.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="7" fx:id="corner2" onMouseClicked="#jailClicked" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="8" fx:id="property6" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="865.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="9" fx:id="property7" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="774.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="10" fx:id="chance1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="11" fx:id="property8" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="592.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="12" fx:id="property9" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="501.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="13" fx:id="property10" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="410.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="14" fx:id="corner3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="15" fx:id="property11" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="550.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="16" fx:id="property12" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="465.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="17" fx:id="property13" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="380.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="18" fx:id="communityChest2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="19" fx:id="property14" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="210.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="20" fx:id="property15" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="125.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="21" fx:id="corner4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-   <Rectangle id="22" fx:id="property16" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="410.0" layoutY="4.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="23" fx:id="property17" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="501.0" layoutY="4.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="24" fx:id="chance2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="592.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="25" fx:id="tax1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="26" fx:id="property18" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="774.0" layoutY="4.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="27" fx:id="property19" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="865.0" layoutY="4.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Text fill="#00bc0d" layoutX="999.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go">
-      <font>
-         <Font name="System Bold Italic" size="28.0" />
-      </font>
-   </Text>
-   <Text fill="#575757" layoutX="992.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Paid!" />
-   <Text id="propertyRectName1" fx:id="propertyRectName1" layoutX="998.0" layoutY="172.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
-   <Text id="propertyRectName2" fx:id="propertyRectName2" layoutX="998.0" layoutY="257.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
-   <Text id="propertyRectName4" fx:id="propertyRectName4" layoutX="998.0" layoutY="428.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
-   <Text id="railroadRectName5" fx:id="railroadRectName5" layoutX="999.0" layoutY="485.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Railroad" underline="true" />
-   <Text id="propertyRectName6" fx:id="propertyRectName6" layoutX="994.0" layoutY="596.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
-   <Text id="propertyRectName8" fx:id="propertyRectName8" layoutX="880.0" layoutY="708.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Text>
-   <Text id="propertyRectName11" fx:id="propertyRectName11" layoutX="607.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Text>
-   <Text id="railroadRectName12" fx:id="railroadRectName12" layoutX="518.0" layoutY="684.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Railroad" underline="true">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Text>
-   <Text id="propertyRectName13" fx:id="propertyRectName13" layoutX="425.0" layoutY="709.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Text>
-   <Text id="propertyRectName15" fx:id="propertyRectName15" layoutX="311.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
-   <Text id="railroadRectName16" fx:id="railroadRectName16" layoutX="314.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Railroad" underline="true" />
-   <Text id="propertyRectName17" fx:id="propertyRectName17" layoutX="311.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
-   <Text id="propertyRectName20" fx:id="propertyRectName20" layoutX="311.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
-   <Text id="propertyRectName19" fx:id="propertyRectName19" layoutX="311.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
-   <Text id="propertyRectName22" fx:id="propertyRectName22" fill="WHITE" layoutX="425.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Text>
-   <Text id="propertyRectName23" fx:id="propertyRectName23" fill="WHITE" layoutX="516.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Text>
-   <Text id="propertyRectName26" fx:id="propertyRectName26" layoutX="789.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Text>
-   <Text id="propertyRectName27" fx:id="propertyRectName27" layoutX="880.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Text>
-   <Text id="propertyRectName9" fx:id="propertyRectName9" layoutX="789.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Text>
-   <Rectangle id="propertyOwner13" fx:id="propertyOwner13" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="410.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="propertyOwner12" fx:id="propertyOwner12" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="501.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="propertyOwner11" fx:id="propertyOwner11" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="592.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="propertyOwner9" fx:id="propertyOwner9" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="774.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="propertyOwner8" fx:id="propertyOwner8" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="865.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="propertyOwner27" fx:id="propertyOwner27" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="865.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="propertyOwner26" fx:id="propertyOwner26" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="774.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="propertyOwner23" fx:id="propertyOwner23" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="501.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="propertyOwner22" fx:id="propertyOwner22" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="409.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
-   <Rectangle id="propertyOwner20" fx:id="propertyOwner20" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-   <Rectangle id="propertyOwner19" fx:id="propertyOwner19" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-   <Rectangle id="propertyOwner17" fx:id="propertyOwner17" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-   <Rectangle id="propertyOwner16" fx:id="propertyOwner16" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="466.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-   <Rectangle id="propertyOwner15" fx:id="propertyOwner15" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-   <Rectangle id="propertyOwner1" fx:id="propertyOwner1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-   <Rectangle id="propertyOwner2" fx:id="propertyOwner2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-   <Rectangle id="propertyOwner4" fx:id="propertyOwner4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-   <Rectangle id="propertyOwner5" fx:id="propertyOwner5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="466.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-   <Rectangle id="propertyOwner6" fx:id="propertyOwner6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-   <Text fx:id="playerName1" layoutX="35.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" wrappingWidth="144.0">
-      <font>
-         <Font name="System Bold" size="18.0" />
-      </font>
-   </Text>
-   <Text fx:id="playerName2" fill="RED" layoutX="35.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" wrappingWidth="144.0">
-      <font>
-         <Font name="System Bold" size="18.0" />
-      </font>
-   </Text>
-   <Text fx:id="playerName3" fill="#ffaf00" layoutX="35.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3" wrappingWidth="144.0">
-      <font>
-         <Font name="System Bold" size="18.0" />
-      </font>
-   </Text>
-   <Text fx:id="playerName4" fill="#26ff00" layoutX="35.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4" wrappingWidth="144.0">
-      <font>
-         <Font name="System Bold" size="18.0" />
-      </font>
-   </Text>
-   <Text fx:id="playerName5" fill="#00d389" layoutX="35.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 5" wrappingWidth="144.0">
-      <font>
-         <Font name="System Bold" size="18.0" />
-      </font>
-   </Text>
-   <Text fx:id="playerName6" fill="#1900ff" layoutX="35.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 6" wrappingWidth="144.0">
-      <font>
-         <Font name="System Bold" size="18.0" />
-      </font>
-   </Text>
-   <Text fx:id="playerName7" fill="#ff00d9" layoutX="35.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 7" wrappingWidth="144.0">
-      <font>
-         <Font name="System Bold" size="18.0" />
-      </font>
-   </Text>
-   <Text fx:id="playerName8" fill="#b700ff" layoutX="35.0" layoutY="628.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 8" wrappingWidth="144.0">
-      <font>
-         <Font name="System Bold" size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerMoney7" fx:id="playerMoney7" fill="#29b200" layoutX="186.0" layoutY="540.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
-      <font>
-         <Font name="System Bold Italic" size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerMoney8" fx:id="playerMoney8" fill="#29b200" layoutX="187.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
-      <font>
-         <Font name="System Bold Italic" size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerMoney5" fx:id="playerMoney5" fill="#29b200" layoutX="186.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
-      <font>
-         <Font name="System Bold Italic" size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerMoney6" fx:id="playerMoney6" fill="#29b200" layoutX="186.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
-      <font>
-         <Font name="System Bold Italic" size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerMoney4" fx:id="playerMoney4" fill="#29b200" layoutX="186.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
-      <font>
-         <Font name="System Bold Italic" size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerMoney3" fx:id="playerMoney3" fill="#29b200" layoutX="186.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
-      <font>
-         <Font name="System Bold Italic" size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerMoney2" fx:id="playerMoney2" fill="#29b200" layoutX="186.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
-      <font>
-         <Font name="System Bold Italic" size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerMoney1" fx:id="playerMoney1" fill="#29b200" layoutX="186.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
-      <font>
-         <Font name="System Bold Italic" size="18.0" />
-      </font>
-   </Text>
-   <Text fx:id="turnText" fill="#0dbc00" layoutX="607.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1's Turn" textAlignment="CENTER">
-      <font>
-         <Font name="System Bold" size="18.0" />
-      </font>
-   </Text>
-   <Text layoutX="497.0" layoutY="380.0" opacity="0.04" rotate="-37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2FMonopoly">
-      <font>
-         <Font name="System Bold Italic" size="64.0" />
-      </font>
-   </Text>
-   <Circle fx:id="playerToken4" fill="#26ff00" layoutX="1016.0" layoutY="76.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-   <Circle fx:id="playerToken5" fill="#00d389" layoutX="1050.0" layoutY="74.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-   <Circle fx:id="playerToken6" cache="true" fill="#1900ff" layoutX="987.0" layoutY="110.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-   <Circle fx:id="playerToken2" fill="RED" layoutX="1017.0" layoutY="107.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-   <Circle fx:id="playerToken3" fill="#ffaf00" layoutX="1050.0" layoutY="107.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-   <Circle fx:id="playerToken7" fill="#ff00d9" layoutX="1047.0" layoutY="44.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-   <Circle fx:id="playerToken1" layoutX="982.0" layoutY="76.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-   <Circle fx:id="playerToken8" fill="#b700ff" layoutX="982.0" layoutY="44.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-   <Text id="playerTime1" fx:id="playerTime1" layoutX="186.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
-      <font>
-         <Font size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerTime2" fx:id="playerTime2" layoutX="186.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
-      <font>
-         <Font size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerTime3" fx:id="playerTime3" layoutX="186.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
-      <font>
-         <Font size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerTime4" fx:id="playerTime4" layoutX="186.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
-      <font>
-         <Font size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerTime5" fx:id="playerTime5" layoutX="186.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
-      <font>
-         <Font size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerTime6" fx:id="playerTime6" layoutX="186.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
-      <font>
-         <Font size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerTime7" fx:id="playerTime7" layoutX="185.0" layoutY="565.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
-      <font>
-         <Font size="18.0" />
-      </font>
-   </Text>
-   <Text id="playerTime8" fx:id="playerTime8" layoutX="186.0" layoutY="640.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
-      <font>
-         <Font size="18.0" />
-      </font>
-   </Text>
-   <Button fx:id="rollButton" layoutX="608.0" layoutY="335.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#rollButtonPushed" prefHeight="40.0" prefWidth="116.0" styleClass="play-game-button" text="Roll" textAlignment="CENTER">
-      <font>
-         <Font size="18.0" />
-      </font>
-   </Button>
-   <Button fx:id="endOfTurnButton" layoutX="608.0" layoutY="387.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#endTurnButtonPushed" prefWidth="168.0" styleClass="play-game-button" text="End Turn" textAlignment="CENTER">
-      <font>
-         <Font size="18.0" />
-      </font>
-   </Button>
-   <Button id="payDebtButton" fx:id="payDebtButton" onAction="#payDebtButtonPushed" layoutX="608.0" layoutY="440.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefWidth="168.0" styleClass="play-game-button" text="Pay Debt" textAlignment="CENTER">
-      <font>
-         <Font size="18.0" />
-      </font>
-   </Button>
-   <Button fx:id="pauseButton" alignment="TOP_CENTER" layoutX="1291.0" layoutY="308.0" mnemonicParsing="false" onAction="#openPausePane" styleClass="pause-game-button" text="||" textAlignment="CENTER"> </Button>
-   <HBox layoutX="299.0" layoutY="605.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="15house1" fx:id="house15_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="15house2" fx:id="house15_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="15house3" fx:id="house15_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="15house4" fx:id="house15_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="15house5" fx:id="house15_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="300.0" layoutY="439.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="17house1" fx:id="house17_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="17house2" fx:id="house17_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="17house3" fx:id="house17_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="17house4" fx:id="house17_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="17house5" fx:id="house17_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="302.0" layoutY="268.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="19house1" fx:id="house19_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="19house2" fx:id="house19_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="19house3" fx:id="house19_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="19house4" fx:id="house19_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="19house5" fx:id="house19_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="299.0" layoutY="182.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="20house1" fx:id="house20_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="20house2" fx:id="house20_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="20house3" fx:id="house20_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="20house4" fx:id="house20_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="20house5" fx:id="house20_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="989.0" layoutY="180.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="1house1" fx:id="house1_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="1house2" fx:id="house1_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="1house3" fx:id="house1_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="1house4" fx:id="house1_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="1house5" fx:id="house1_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="988.0" layoutY="267.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="2house1" fx:id="house2_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="2house2" fx:id="house2_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="2house3" fx:id="house2_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="2house4" fx:id="house2_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="2house5" fx:id="house2_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="987.0" layoutY="436.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="4house1" fx:id="house4_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="4house2" fx:id="house4_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="4house3" fx:id="house4_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="4house4" fx:id="house4_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="4house5" fx:id="house4_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="988.0" layoutY="605.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="6house1" fx:id="house6_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="6house2" fx:id="house6_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="6house3" fx:id="house6_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="6house4" fx:id="house6_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="6house5" fx:id="house6_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="873.0" layoutY="720.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="8house1" fx:id="house8_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="8house2" fx:id="house8_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="8house3" fx:id="house8_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="8house4" fx:id="house8_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="8house5" fx:id="house8_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="781.0" layoutY="720.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="9house1" fx:id="house9_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="9house2" fx:id="house9_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="9house3" fx:id="house9_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="9house4" fx:id="house9_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="9house5" fx:id="house9_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="601.0" layoutY="719.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="11house1" fx:id="house11_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="11house2" fx:id="house11_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="11house3" fx:id="house11_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="11house4" fx:id="house11_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="11house5" fx:id="house11_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="418.0" layoutY="719.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="13house1" fx:id="house13_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="13house2" fx:id="house13_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="13house3" fx:id="house13_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="13house4" fx:id="house13_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="13house5" fx:id="house13_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="417.0" layoutY="79.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="22house1" fx:id="house22_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="22house2" fx:id="house22_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="22house3" fx:id="house22_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="22house4" fx:id="house22_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="22house5" fx:id="house22_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="507.0" layoutY="78.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="23house1" fx:id="house23_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="23house2" fx:id="house23_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="23house3" fx:id="house23_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="23house4" fx:id="house23_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="23house5" fx:id="house23_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="781.0" layoutY="78.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="26house1" fx:id="house26_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="26house2" fx:id="house26_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="26house3" fx:id="house26_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="26house4" fx:id="house26_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="26house5" fx:id="house26_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <HBox layoutX="872.0" layoutY="77.0" prefHeight="25.0" prefWidth="80.0">
-      <children>
-         <ImageView id="27house1" fx:id="house27_1">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="27house2" fx:id="house27_2">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="27house3" fx:id="house27_3">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="27house4" fx:id="house27_4">
-            <image>
-               <Image url="@../assets/house_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </ImageView>
-         <ImageView id="27house5" fx:id="house27_5">
-            <image>
-               <Image url="@../assets/hotel_opaque.png" />
-            </image>
-            <HBox.margin>
-               <Insets left="6.0" />
-            </HBox.margin>
-         </ImageView>
-      </children>
-   </HBox>
-   <AnchorPane fx:id="propertyPane" layoutX="455.0" layoutY="142.0" prefHeight="476.0" prefWidth="452.0" style="-fx-background-color: pink; -fx-background-radius: 15;">
-      <children>
-         <Rectangle fx:id="propertyNameRect" arcHeight="5.0" arcWidth="5.0" fill="#e455d1" height="59.0" layoutX="127.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-         <Text id="titleOfPropertyDetails" fx:id="titleOfPropertyDetails" layoutX="127.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" textAlignment="CENTER" wrappingWidth="199.99999302625656">
-            <font>
-               <Font size="28.0" />
-            </font>
-         </Text>
-         <Text fx:id="costText" fontSmoothingType="LCD" layoutX="127.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cost : ">
-            <font>
-               <Font name="System Bold Italic" size="18.0" />
-            </font>
-         </Text>
-         <Text id="costPriceText" fx:id="costPriceText" fontSmoothingType="LCD" layoutX="257.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$240K">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Text>
-         <Text fx:id="rentText" layoutX="203.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent">
-            <font>
-               <Font name="System Bold" size="18.0" />
-            </font>
-         </Text>
-         <Text fx:id="siteOnlyText" layoutX="68.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Site Only">
-            <font>
-               <Font name="System Bold" size="13.0" />
-            </font>
-         </Text>
-         <Text fx:id="oneHouseText" layoutX="200.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 Houses">
-            <font>
-               <Font name="System Bold" size="13.0" />
-            </font>
-         </Text>
-         <Text fx:id="twoHousesText" layoutX="327.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2 Houses">
-            <font>
-               <Font name="System Bold" size="13.0" />
-            </font>
-         </Text>
-         <Text fx:id="threeHousesText" layoutX="68.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3 Houses">
-            <font>
-               <Font name="System Bold" size="13.0" />
-            </font>
-         </Text>
-         <Text fx:id="fourHousesText" layoutX="200.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4 Houses">
-            <font>
-               <Font name="System Bold" size="13.0" />
-            </font>
-         </Text>
-         <Text fx:id="hotelText" layoutX="343.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel">
-            <font>
-               <Font name="System Bold" size="13.0" />
-            </font>
-         </Text>
-         <Text id="siteRentText" fx:id="siteOnlyRent" layoutX="83.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2K $" />
-         <Text id="oneHouseRentText" fx:id="oneHouseRent" layoutX="212.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10K $" />
-         <Text id="threeHouseRentText" fx:id="threeHousesRent" layoutX="83.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="75K $" />
-         <Text id="fourHouseRentText" fx:id="fourHousesRent" layoutX="216.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="95K $" />
-         <Text id="twoHouseRentText" fx:id="twoHousesRent" layoutX="343.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="30K $" />
-         <Text id="hotelRentText" fx:id="hotelRent" layoutX="346.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="110K $" />
-         <Text fx:id="houseCostText" layoutX="70.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="House Costs : ">
-            <font>
-               <Font name="System Bold Italic" size="15.0" />
-            </font>
-         </Text>
-         <Text fx:id="hotelCostText" layoutX="70.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel Cost : ">
-            <font>
-               <Font name="System Bold Italic" size="15.0" />
-            </font>
-         </Text>
-         <Text fx:id="mortgageValueText" layoutX="70.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mortgage Value : ">
-            <font>
-               <Font name="System Bold Italic" size="15.0" />
-            </font>
-         </Text>
-         <Text id="houseCost3" fx:id="houseCost2" layoutX="271.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
-         <Text id="hotelCost" fx:id="hotelCost" layoutX="290.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
-         <Text id="mortgageValue" fx:id="mortgageValue" layoutX="290.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="120K $" />
-         <Button fx:id="buildButton" layoutX="189.0" layoutY="366.0" mnemonicParsing="false" onAction="#buildButtonPushed" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: gray; -fx-text-fill: white;" text="Build" textAlignment="CENTER">
-            <font>
-               <Font name="System Bold" size="13.0" />
-            </font>
-         </Button>
-         <Button fx:id="buyButton" layoutX="67.0" layoutY="425.0" mnemonicParsing="false" onAction="#buyButtonPushed" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: green; -fx-text-fill: white;" text="Buy">
-            <font>
-               <Font name="System Bold" size="13.0" />
-            </font>
-         </Button>
-         <Button fx:id="sellButton" layoutX="189.0" layoutY="425.0" mnemonicParsing="false" onAction="#sellButtonPushed" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: red; -fx-text-fill: white;" text="Sell">
-            <font>
-               <Font name="System Bold" size="13.0" />
-            </font>
-         </Button>
-         <Button fx:id="mortgageButton" layoutX="311.0" layoutY="424.0" mnemonicParsing="false" onAction="#mortgageButtonPushed" prefHeight="40.0" prefWidth="121.0" style="-fx-background-color: yellow; -fx-text-fill: black;" text="Mortgage">
-            <font>
-               <Font name="System Bold" size="13.0" />
-            </font>
-         </Button>
-         <Button fx:id="closePropertyButton" layoutX="413.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeButtonPushed" style="-fx-background-color: pink;" text="x">
-            <font>
-               <Font name="System Bold" size="20.0" />
-            </font>
-         </Button>
-         <Text id="houseCost3" fx:id="houseCost3" layoutX="337.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
-         <Text id="houseCost1" fx:id="houseCost1" layoutX="200.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
-         <Text id="houseCost4" fx:id="houseCost4" layoutX="401.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
+      <Rectangle id="0" fx:id="corner1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="1" fx:id="property1" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="125.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="2" fx:id="property2" arcHeight="5.0" arcWidth="5.0" fill="#cce6ff" height="85.0" layoutX="956.0" layoutY="210.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="3" fx:id="communityChest1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="4" fx:id="property3" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="380.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="5" fx:id="property4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="465.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="6" fx:id="property5" arcHeight="5.0" arcWidth="5.0" fill="#f9ffbe" height="85.0" layoutX="956.0" layoutY="550.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="7" fx:id="corner2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="956.0" layoutY="635.0" onMouseClicked="#jailClicked" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="8" fx:id="property6" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="865.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="9" fx:id="property7" arcHeight="5.0" arcWidth="5.0" fill="#c094ff" height="121.0" layoutX="774.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="10" fx:id="chance1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="11" fx:id="property8" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="592.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="12" fx:id="property9" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="501.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="13" fx:id="property10" arcHeight="5.0" arcWidth="5.0" fill="#a9ffbe" height="121.0" layoutX="410.0" layoutY="635.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="14" fx:id="corner3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="635.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="15" fx:id="property11" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="550.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="16" fx:id="property12" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="465.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="17" fx:id="property13" arcHeight="5.0" arcWidth="5.0" fill="#ffd19c" height="85.0" layoutX="289.0" layoutY="380.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="18" fx:id="communityChest2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="289.0" layoutY="295.0" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="19" fx:id="property14" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="210.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="20" fx:id="property15" arcHeight="5.0" arcWidth="5.0" fill="#ffb0b0" height="85.0" layoutX="289.0" layoutY="125.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="21" fx:id="corner4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="289.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle id="22" fx:id="property16" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="410.0" layoutY="4.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="23" fx:id="property17" arcHeight="5.0" arcWidth="5.0" fill="#92aeff" height="121.0" layoutX="501.0" layoutY="4.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="24" fx:id="chance2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="592.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="25" fx:id="tax1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="121.0" layoutX="683.0" layoutY="4.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="26" fx:id="property18" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="774.0" layoutY="4.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="27" fx:id="property19" arcHeight="5.0" arcWidth="5.0" fill="#fface3" height="121.0" layoutX="865.0" layoutY="4.0" onMouseClicked="#propertyClicked" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Text fill="#00bc0d" layoutX="999.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go">
+         <font>
+            <Font name="System Bold Italic" size="28.0" />
+         </font>
+      </Text>
+      <Text fill="#575757" layoutX="992.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Paid!" />
+      <Text id="propertyRectName1" fx:id="propertyRectName1" layoutX="998.0" layoutY="172.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
+      <Text id="propertyRectName2" fx:id="propertyRectName2" layoutX="998.0" layoutY="257.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
+      <Text id="propertyRectName4" fx:id="propertyRectName4" layoutX="998.0" layoutY="428.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
+      <Text id="railroadRectName5" fx:id="railroadRectName5" layoutX="999.0" layoutY="485.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Railroad" underline="true" />
+      <Text id="propertyRectName6" fx:id="propertyRectName6" layoutX="994.0" layoutY="596.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
+      <Text id="propertyRectName8" fx:id="propertyRectName8" layoutX="880.0" layoutY="708.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text id="propertyRectName11" fx:id="propertyRectName11" layoutX="607.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text id="railroadRectName12" fx:id="railroadRectName12" layoutX="518.0" layoutY="684.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Railroad" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text id="propertyRectName13" fx:id="propertyRectName13" layoutX="425.0" layoutY="709.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text id="propertyRectName15" fx:id="propertyRectName15" layoutX="311.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
+      <Text id="railroadRectName16" fx:id="railroadRectName16" layoutX="314.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Railroad" underline="true" />
+      <Text id="propertyRectName17" fx:id="propertyRectName17" layoutX="311.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
+      <Text id="propertyRectName20" fx:id="propertyRectName20" layoutX="311.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
+      <Text id="propertyRectName19" fx:id="propertyRectName19" layoutX="311.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true" />
+      <Text id="propertyRectName22" fx:id="propertyRectName22" fill="WHITE" layoutX="425.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text id="propertyRectName23" fx:id="propertyRectName23" fill="WHITE" layoutX="516.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text id="propertyRectName26" fx:id="propertyRectName26" layoutX="789.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text id="propertyRectName27" fx:id="propertyRectName27" layoutX="880.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text id="propertyRectName9" fx:id="propertyRectName9" layoutX="789.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Rectangle id="propertyOwner13" fx:id="propertyOwner13" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="410.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner12" fx:id="propertyOwner12" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="501.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner11" fx:id="propertyOwner11" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="592.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner9" fx:id="propertyOwner9" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="774.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner8" fx:id="propertyOwner8" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="865.0" layoutY="635.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner27" fx:id="propertyOwner27" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="865.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner26" fx:id="propertyOwner26" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="774.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner23" fx:id="propertyOwner23" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="501.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner22" fx:id="propertyOwner22" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="409.0" layoutY="108.0" stroke="#797979" strokeType="INSIDE" width="91.0" />
+      <Rectangle id="propertyOwner20" fx:id="propertyOwner20" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner19" fx:id="propertyOwner19" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner17" fx:id="propertyOwner17" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner16" fx:id="propertyOwner16" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="466.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner15" fx:id="propertyOwner15" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="393.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner1" fx:id="propertyOwner1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="125.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner2" fx:id="propertyOwner2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="210.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner4" fx:id="propertyOwner4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner5" fx:id="propertyOwner5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="466.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Rectangle id="propertyOwner6" fx:id="propertyOwner6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
+      <Text fx:id="playerName1" layoutX="35.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" wrappingWidth="144.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="playerName2" fill="RED" layoutX="35.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" wrappingWidth="144.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="playerName3" fill="#ffaf00" layoutX="35.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3" wrappingWidth="144.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="playerName4" fill="#26ff00" layoutX="35.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4" wrappingWidth="144.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="playerName5" fill="#00d389" layoutX="35.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 5" wrappingWidth="144.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="playerName6" fill="#1900ff" layoutX="35.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 6" wrappingWidth="144.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="playerName7" fill="#ff00d9" layoutX="35.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 7" wrappingWidth="144.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="playerName8" fill="#b700ff" layoutX="35.0" layoutY="628.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 8" wrappingWidth="144.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerMoney7" fx:id="playerMoney7" fill="#29b200" layoutX="186.0" layoutY="540.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerMoney8" fx:id="playerMoney8" fill="#29b200" layoutX="187.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerMoney5" fx:id="playerMoney5" fill="#29b200" layoutX="186.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerMoney6" fx:id="playerMoney6" fill="#29b200" layoutX="186.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerMoney4" fx:id="playerMoney4" fill="#29b200" layoutX="186.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerMoney3" fx:id="playerMoney3" fill="#29b200" layoutX="186.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerMoney2" fx:id="playerMoney2" fill="#29b200" layoutX="186.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerMoney1" fx:id="playerMoney1" fill="#29b200" layoutX="186.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25.2 K$">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="turnText" fill="#0dbc00" layoutX="607.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1's Turn" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="497.0" layoutY="380.0" opacity="0.04" rotate="-37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2FMonopoly">
+         <font>
+            <Font name="System Bold Italic" size="64.0" />
+         </font>
+      </Text>
+      <Circle fx:id="playerToken4" fill="#26ff00" layoutX="1016.0" layoutY="76.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="playerToken5" fill="#00d389" layoutX="1050.0" layoutY="74.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="playerToken6" cache="true" fill="#1900ff" layoutX="987.0" layoutY="110.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="playerToken2" fill="RED" layoutX="1017.0" layoutY="107.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="playerToken3" fill="#ffaf00" layoutX="1050.0" layoutY="107.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="playerToken7" fill="#ff00d9" layoutX="1047.0" layoutY="44.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="playerToken1" layoutX="982.0" layoutY="76.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="playerToken8" fill="#b700ff" layoutX="982.0" layoutY="44.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Text id="playerTime1" fx:id="playerTime1" layoutX="186.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerTime2" fx:id="playerTime2" layoutX="186.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerTime3" fx:id="playerTime3" layoutX="186.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerTime4" fx:id="playerTime4" layoutX="186.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerTime5" fx:id="playerTime5" layoutX="186.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerTime6" fx:id="playerTime6" layoutX="186.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerTime7" fx:id="playerTime7" layoutX="185.0" layoutY="565.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text id="playerTime8" fx:id="playerTime8" layoutX="186.0" layoutY="640.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="rollButton" layoutX="608.0" layoutY="335.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#rollButtonPushed" prefHeight="40.0" prefWidth="116.0" styleClass="play-game-button" text="Roll" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="endOfTurnButton" layoutX="608.0" layoutY="387.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#endTurnButtonPushed" prefWidth="168.0" styleClass="play-game-button" text="End Turn" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button id="payDebtButton" fx:id="payDebtButton" layoutX="608.0" layoutY="440.0" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#payDebtButtonPushed" prefWidth="168.0" styleClass="play-game-button" text="Pay Debt" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="pauseButton" alignment="TOP_CENTER" layoutX="1291.0" layoutY="308.0" mnemonicParsing="false" onAction="#openPausePane" styleClass="pause-game-button" text="||" textAlignment="CENTER"> </Button>
+      <HBox layoutX="299.0" layoutY="605.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="15house1" fx:id="house15_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="15house2" fx:id="house15_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="15house3" fx:id="house15_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="15house4" fx:id="house15_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="15house5" fx:id="house15_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="300.0" layoutY="439.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="17house1" fx:id="house17_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="17house2" fx:id="house17_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="17house3" fx:id="house17_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="17house4" fx:id="house17_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="17house5" fx:id="house17_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="302.0" layoutY="268.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="19house1" fx:id="house19_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="19house2" fx:id="house19_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="19house3" fx:id="house19_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="19house4" fx:id="house19_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="19house5" fx:id="house19_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="299.0" layoutY="182.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="20house1" fx:id="house20_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="20house2" fx:id="house20_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="20house3" fx:id="house20_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="20house4" fx:id="house20_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="20house5" fx:id="house20_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="989.0" layoutY="180.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="1house1" fx:id="house1_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="1house2" fx:id="house1_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="1house3" fx:id="house1_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="1house4" fx:id="house1_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="1house5" fx:id="house1_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="988.0" layoutY="267.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="2house1" fx:id="house2_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="2house2" fx:id="house2_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="2house3" fx:id="house2_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="2house4" fx:id="house2_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="2house5" fx:id="house2_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="987.0" layoutY="436.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="4house1" fx:id="house4_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="4house2" fx:id="house4_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="4house3" fx:id="house4_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="4house4" fx:id="house4_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="4house5" fx:id="house4_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="988.0" layoutY="605.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="6house1" fx:id="house6_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="6house2" fx:id="house6_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="6house3" fx:id="house6_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="6house4" fx:id="house6_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="6house5" fx:id="house6_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="873.0" layoutY="720.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="8house1" fx:id="house8_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="8house2" fx:id="house8_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="8house3" fx:id="house8_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="8house4" fx:id="house8_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="8house5" fx:id="house8_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="781.0" layoutY="720.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="9house1" fx:id="house9_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="9house2" fx:id="house9_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="9house3" fx:id="house9_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="9house4" fx:id="house9_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="9house5" fx:id="house9_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="601.0" layoutY="719.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="11house1" fx:id="house11_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="11house2" fx:id="house11_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="11house3" fx:id="house11_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="11house4" fx:id="house11_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="11house5" fx:id="house11_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="418.0" layoutY="719.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="13house1" fx:id="house13_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="13house2" fx:id="house13_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="13house3" fx:id="house13_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="13house4" fx:id="house13_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="13house5" fx:id="house13_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="417.0" layoutY="79.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="22house1" fx:id="house22_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="22house2" fx:id="house22_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="22house3" fx:id="house22_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="22house4" fx:id="house22_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="22house5" fx:id="house22_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="507.0" layoutY="78.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="23house1" fx:id="house23_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="23house2" fx:id="house23_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="23house3" fx:id="house23_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="23house4" fx:id="house23_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="23house5" fx:id="house23_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="781.0" layoutY="78.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="26house1" fx:id="house26_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="26house2" fx:id="house26_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="26house3" fx:id="house26_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="26house4" fx:id="house26_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="26house5" fx:id="house26_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox layoutX="872.0" layoutY="77.0" prefHeight="25.0" prefWidth="80.0">
+         <children>
+            <ImageView id="27house1" fx:id="house27_1">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="27house2" fx:id="house27_2">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="27house3" fx:id="house27_3">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="27house4" fx:id="house27_4">
+               <image>
+                  <Image url="@../assets/house_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView id="27house5" fx:id="house27_5">
+               <image>
+                  <Image url="@../assets/hotel_opaque.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <AnchorPane fx:id="propertyPane" layoutX="455.0" layoutY="142.0" prefHeight="476.0" prefWidth="452.0" style="-fx-background-color: pink; -fx-background-radius: 15;">
+         <children>
+            <Rectangle fx:id="propertyNameRect" arcHeight="5.0" arcWidth="5.0" fill="#e455d1" height="59.0" layoutX="127.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <Text id="titleOfPropertyDetails" fx:id="titleOfPropertyDetails" layoutX="127.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcelona" textAlignment="CENTER" wrappingWidth="199.99999302625656">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text fx:id="costText" fontSmoothingType="LCD" layoutX="127.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cost : ">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Text>
+            <Text id="costPriceText" fx:id="costPriceText" fontSmoothingType="LCD" layoutX="257.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$240K">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="rentText" layoutX="203.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="siteOnlyText" layoutX="68.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Site Only">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text fx:id="oneHouseText" layoutX="200.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 Houses">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text fx:id="twoHousesText" layoutX="327.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2 Houses">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text fx:id="threeHousesText" layoutX="68.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3 Houses">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text fx:id="fourHousesText" layoutX="200.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4 Houses">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text fx:id="hotelText" layoutX="343.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <Text id="siteRentText" fx:id="siteOnlyRent" layoutX="83.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2K $" />
+            <Text id="oneHouseRentText" fx:id="oneHouseRent" layoutX="212.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10K $" />
+            <Text id="threeHouseRentText" fx:id="threeHousesRent" layoutX="83.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="75K $" />
+            <Text id="fourHouseRentText" fx:id="fourHousesRent" layoutX="216.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="95K $" />
+            <Text id="twoHouseRentText" fx:id="twoHousesRent" layoutX="343.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="30K $" />
+            <Text id="hotelRentText" fx:id="hotelRent" layoutX="346.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="110K $" />
+            <Text fx:id="houseCostText" layoutX="70.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="House Costs : ">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="hotelCostText" layoutX="70.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel Cost : ">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="mortgageValueText" layoutX="70.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mortgage Value : ">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Text>
+            <Text id="houseCost3" fx:id="houseCost2" layoutX="271.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
+            <Text id="hotelCost" fx:id="hotelCost" layoutX="290.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
+            <Text id="mortgageValue" fx:id="mortgageValue" layoutX="290.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="120K $" />
+            <Button fx:id="buildButton" layoutX="189.0" layoutY="366.0" mnemonicParsing="false" onAction="#buildButtonPushed" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: gray; -fx-text-fill: white;" text="Build" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="buyButton" layoutX="67.0" layoutY="425.0" mnemonicParsing="false" onAction="#buyButtonPushed" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: green; -fx-text-fill: white;" text="Buy">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="sellButton" layoutX="189.0" layoutY="425.0" mnemonicParsing="false" onAction="#sellButtonPushed" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: red; -fx-text-fill: white;" text="Sell">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="mortgageButton" layoutX="311.0" layoutY="424.0" mnemonicParsing="false" onAction="#mortgageButtonPushed" prefHeight="40.0" prefWidth="121.0" style="-fx-background-color: yellow; -fx-text-fill: black;" text="Mortgage">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="closePropertyButton" layoutX="413.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeButtonPushed" style="-fx-background-color: pink;" text="x">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Text id="houseCost3" fx:id="houseCost3" layoutX="337.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
+            <Text id="houseCost1" fx:id="houseCost1" layoutX="200.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
+            <Text id="houseCost4" fx:id="houseCost4" layoutX="401.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15K $" />
             <Button fx:id="unMortgageButton" layoutX="311.0" layoutY="366.0" mnemonicParsing="false" onAction="#unMortgagedButtonPushed" prefHeight="40.0" prefWidth="121.0" style="-fx-background-color: purple; -fx-text-fill: white;" text="Unmortgage">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-      </children>
-   </AnchorPane>
-   <Text layoutX="310.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Free Parking" textAlignment="CENTER" wrappingWidth="80.00000128149986" />
-   <Text layoutX="317.0" layoutY="665.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go to Jail" textAlignment="CENTER" />
-   <Text layoutX="1006.0" layoutY="657.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jail" />
-   <ImageView fitHeight="59.0" fitWidth="80.0" layoutX="303.0" layoutY="490.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../assets/train.jpg" />
-      </image>
-   </ImageView>
-   <ImageView fitHeight="63.0" fitWidth="72.0" layoutX="990.0" layoutY="492.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../assets/train.jpg" />
-      </image>
-   </ImageView>
-   <ImageView fitHeight="66.0" fitWidth="72.0" layoutX="511.0" layoutY="693.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../assets/train.jpg" />
-      </image>
-   </ImageView>
-   <ImageView fitHeight="74.0" fitWidth="81.0" layoutX="309.0" layoutY="674.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../assets/police.jpg" />
-      </image>
-   </ImageView>
-   <ImageView fitHeight="85.0" fitWidth="91.0" layoutX="972.0" layoutY="671.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../assets/jail.jpg" />
-      </image>
-   </ImageView>
-   <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="305.0" layoutY="48.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../assets/park.png" />
-      </image>
-   </ImageView>
-   <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="988.0" layoutY="301.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../assets/chest.jpg" />
-      </image>
-   </ImageView>
-   <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="301.0" layoutY="301.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../assets/chest.jpg" />
-      </image>
-   </ImageView>
-   <ImageView fitHeight="74.0" fitWidth="39.0" layoutX="624.0" layoutY="29.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../assets/chance.png" />
-      </image>
-   </ImageView>
-   <ImageView fitHeight="74.0" fitWidth="39.0" layoutX="711.0" layoutY="659.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../assets/chance.png" />
-      </image>
-   </ImageView>
-   <ImageView fitHeight="74.0" fitWidth="77.0" layoutX="692.0" layoutY="34.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../assets/tax.jpg" />
-      </image>
-   </ImageView>
-   <AnchorPane id="negotiate" fx:id="negotiatePane" layoutX="400.0" layoutY="58.0" prefHeight="343.0" prefWidth="563.0" style="-fx-background-color: purple; -fx-background-radius: 10;">
-      <children>
-         <Button layoutX="51.0" layoutY="118.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="14.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
-         <Button layoutX="451.0" layoutY="223.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
-         <Button layoutX="451.0" layoutY="118.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="14.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
-         <Button layoutX="183.0" layoutY="118.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="14.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
-         <Button layoutX="183.0" layoutY="223.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="15.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
-         <Button layoutX="51.0" layoutY="223.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="4.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
-         <Button layoutX="311.0" layoutY="223.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
-         <Button layoutX="311.0" layoutY="118.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="14.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
-         <Button layoutX="515.0" layoutY="15.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="20.0" style="-fx-font-weight: bold;" text="X" />
-         <TextField layoutX="40.0" layoutY="86.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <TextField layoutX="172.0" layoutY="86.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <TextField layoutX="40.0" layoutY="190.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <TextField layoutX="300.0" layoutY="86.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <TextField layoutX="172.0" layoutY="190.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <TextField layoutX="300.0" layoutY="190.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <TextField layoutX="438.0" layoutY="86.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <TextField layoutX="438.0" layoutY="190.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
-         <Text fill="WHITE" layoutX="44.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Text>
-         <Text fill="WHITE" layoutX="176.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Text>
-         <Text fill="WHITE" layoutX="44.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Text>
-         <Text fill="WHITE" layoutX="176.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Text>
-         <Text fill="WHITE" layoutX="304.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Text>
-         <Text fill="WHITE" layoutX="304.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Text>
-         <Text fill="WHITE" layoutX="444.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Text>
-         <Text fill="WHITE" layoutX="442.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Text>
-         <Text fill="WHITE" layoutX="105.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Best Offer" textAlignment="CENTER" wrappingWidth="92.0">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Text>
-         <Button layoutX="308.0" layoutY="282.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="91.0" text="Approve" />
-         <Text fill="WHITE" layoutX="237.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tender" textAlignment="CENTER">
-            <font>
-               <Font name="System Bold" size="22.0" />
-            </font>
-         </Text>
+         </children>
+      </AnchorPane>
+      <Text layoutX="310.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Free Parking" textAlignment="CENTER" wrappingWidth="80.00000128149986" />
+      <Text layoutX="317.0" layoutY="665.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go to Jail" textAlignment="CENTER" />
+      <Text layoutX="1006.0" layoutY="657.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jail" />
+      <ImageView fitHeight="59.0" fitWidth="80.0" layoutX="303.0" layoutY="490.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/train.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="63.0" fitWidth="72.0" layoutX="990.0" layoutY="492.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/train.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="66.0" fitWidth="72.0" layoutX="511.0" layoutY="693.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/train.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="81.0" layoutX="309.0" layoutY="674.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/police.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="85.0" fitWidth="91.0" layoutX="972.0" layoutY="671.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/jail.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="305.0" layoutY="48.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/park.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="988.0" layoutY="301.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/chest.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="91.0" layoutX="301.0" layoutY="301.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/chest.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="39.0" layoutX="624.0" layoutY="29.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/chance.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="39.0" layoutX="711.0" layoutY="659.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/chance.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="77.0" layoutX="692.0" layoutY="34.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/tax.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane id="negotiate" fx:id="negotiatePane" layoutX="400.0" layoutY="58.0" prefHeight="343.0" prefWidth="563.0" style="-fx-background-color: purple; -fx-background-radius: 10;">
+         <children>
+            <Button layoutX="51.0" layoutY="118.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="14.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+            <Button layoutX="451.0" layoutY="223.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+            <Button layoutX="451.0" layoutY="118.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="14.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+            <Button layoutX="183.0" layoutY="118.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="14.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+            <Button layoutX="183.0" layoutY="223.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="15.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+            <Button layoutX="51.0" layoutY="223.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="4.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+            <Button layoutX="311.0" layoutY="223.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+            <Button layoutX="311.0" layoutY="118.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="14.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="+" />
+            <Button layoutX="515.0" layoutY="15.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="20.0" style="-fx-font-weight: bold;" text="X" />
+            <TextField layoutX="40.0" layoutY="86.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <TextField layoutX="172.0" layoutY="86.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <TextField layoutX="40.0" layoutY="190.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <TextField layoutX="300.0" layoutY="86.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <TextField layoutX="172.0" layoutY="190.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <TextField layoutX="300.0" layoutY="190.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <TextField layoutX="438.0" layoutY="86.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <TextField layoutX="438.0" layoutY="190.0" prefHeight="25.0" prefWidth="65.0" promptText="\$100" />
+            <Text fill="WHITE" layoutX="44.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="176.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="44.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="176.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="304.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="304.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="444.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="442.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="105.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Best Offer" textAlignment="CENTER" wrappingWidth="92.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Button layoutX="308.0" layoutY="282.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="91.0" text="Approve" />
+            <Text fill="WHITE" layoutX="237.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tender" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
             <Text layoutX="202.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16; -fx-fill: white;" text="1.5K$" />
-      </children>
-   </AnchorPane>
+         </children>
+      </AnchorPane>
       <Text fx:id="queueIndexText2" fill="RED" layoutX="66.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
          <font>
             <Font size="14.0" />
@@ -1412,15 +1407,15 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Text>
-            <Button id="payFineButton" fx:id="payFineButton" onAction="#payFineButtonClicked" layoutX="54.0" layoutY="167.0" mnemonicParsing="false" style="-fx-background-color: RED;" text="Pay Fine" textFill="WHITE" />
-            <Button id="useFreedomCardButton" fx:id="useFreedomCardButton" onAction="#useFreedomButtonClicked" layoutX="188.0" layoutY="167.0" mnemonicParsing="false" style="-fx-background-color: green;" text="Use Freedom Card" textFill="WHITE" />
-            <Button id="closeJailPaneButton" fx:id="closeJailPaneButton" onAction="#closeJailPaneClicked" layoutX="328.0" layoutY="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="20.0" style="-fx-font-weight: bold;" text="X" />
+            <Button id="payFineButton" fx:id="payFineButton" layoutX="54.0" layoutY="167.0" mnemonicParsing="false" onAction="#payFineButtonClicked" style="-fx-background-color: RED;" text="Pay Fine" textFill="WHITE" />
+            <Button id="useFreedomCardButton" fx:id="useFreedomCardButton" layoutX="188.0" layoutY="167.0" mnemonicParsing="false" onAction="#useFreedomButtonClicked" style="-fx-background-color: green;" text="Use Freedom Card" textFill="WHITE" />
+            <Button id="closeJailPaneButton" fx:id="closeJailPaneButton" layoutX="328.0" layoutY="30.0" mnemonicParsing="false" onAction="#closeJailPaneClicked" prefHeight="30.0" prefWidth="20.0" style="-fx-font-weight: bold;" text="X" />
             <Text id="jailFineAmount" fill="WHITE" layoutX="236.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$200k" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fx:id="numberOfFreedomRights" id="numberOfFreedomRights" fill="WHITE" layoutX="242.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER">
+            <Text id="numberOfFreedomRights" fx:id="numberOfFreedomRights" fill="WHITE" layoutX="242.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
@@ -1444,5 +1439,29 @@
             <Button id="cardCloseButton" fx:id="cardCloseButton" layoutX="139.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#closeCardPane" prefHeight="30.0" prefWidth="20.0" style="-fx-font-weight: bold; -fx-background-color: yellow;" text="X" />
          </children>
       </AnchorPane>
-</children>
+      <AnchorPane id="popUpPane" fx:id="popUpPane" layoutX="1129.0" layoutY="43.0" prefHeight="132.0" prefWidth="200.0" style="-fx-background-color: brown; -fx-background-radius: 15;">
+         <children>
+            <Text fill="WHITE" layoutX="73.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Action" textAlignment="CENTER" underline="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text id="popUpActionText" fx:id="popUpActionText" fill="WHITE" layoutX="40.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="action text ... ...............  ............." textAlignment="CENTER" wrappingWidth="120.99999150633812">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="14.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player:" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text id="popUpPlayer" fx:id="popUpPlayer" fill="WHITE" layoutX="92.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="player name" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
