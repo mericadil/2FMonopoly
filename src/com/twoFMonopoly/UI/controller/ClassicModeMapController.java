@@ -1016,7 +1016,7 @@ public class ClassicModeMapController {
         if( locations.get(lastClickedTradable) instanceof Property) {
             Property property = (Property) locations.get(lastClickedTradable);
             buyProperty(property);
-            popUpActionText.setText("$" + property.getCost() + "K withdrawn for buying property");
+            popUpActionText.setText("$" + Math.round(property.getCost()) + "K withdrawn for buying property");
             popUpPlayer.setText(currentPlayer.getName());
 
             System.out.println(property.getOwner().getName());
@@ -1029,7 +1029,7 @@ public class ClassicModeMapController {
             Railroad railroad = (Railroad) locations.get(lastClickedTradable);
             buyRailroad(railroad);
             updateRailroad(railroad);
-            popUpActionText.setText("$" + railroad.getCost() + "K withdrawn for buying railroad");
+            popUpActionText.setText("$" + Math.round(railroad.getCost()) + "K withdrawn for buying railroad");
             popUpPlayer.setText(currentPlayer.getName());
         }
         popUpPane.setVisible(true);
@@ -1053,7 +1053,7 @@ public class ClassicModeMapController {
     @FXML
     public void buildButtonPushed() {
         Property property = (Property) locations.get(lastClickedTradable);
-        popUpActionText.setText("$" + property.getNextBuildingsBuildingCost() + "K withdrawn for building");
+        popUpActionText.setText("$" + Math.round(property.getNextBuildingsBuildingCost()) + "K withdrawn for building");
         popUpPlayer.setText(currentPlayer.getName());
         popUpPane.setVisible(true);
         playerManager.buildOneBuilding(currentPlayer, property);
@@ -1067,7 +1067,7 @@ public class ClassicModeMapController {
     @FXML
     public void sellButtonPushed(ActionEvent event) {
         Property property = (Property) locations.get(lastClickedTradable);
-        popUpActionText.setText("$" + property.getCurrentBuildingsSellingCost() + "K deposited, building sold");
+        popUpActionText.setText("$" + Math.round(property.getCurrentBuildingsSellingCost()) + "K deposited, building sold");
         popUpPlayer.setText(currentPlayer.getName());
         popUpPane.setVisible(true);
         playerManager.sellOneBuilding(currentPlayer, property);
@@ -1083,16 +1083,31 @@ public class ClassicModeMapController {
             Railroad railroad = (Railroad) locations.get(lastClickedTradable);
             playerManager.mortgageRailroad(currentPlayer, railroad);
             railroadManager.mortgageRailroad(railroad, currentPlayer);
+
+            popUpActionText.setText("$" + Math.round(railroad.getCost()) + "K deposited for mortgage");
+            popUpPlayer.setText(currentPlayer.getName());
+            popUpPane.setVisible(true);
+
+            String mortgaged = "mortgaged" + railroad.getLocationIndex();
+            for(Text mortgagedView: mortgagedViews){
+                if(mortgaged.equals(mortgagedView.getId()))
+                    mortgagedView.setVisible(true);
+            }
         }
         else if( locations.get(lastClickedTradable) instanceof Property) {
             Property property = (Property) locations.get(lastClickedTradable);
             playerManager.mortgageProperty(currentPlayer, property);
             propertyManager.mortgageProperty(property);
-        }
-        String mortgaged = "mortgaged" + currentPlayer;
-        for(Text mortgagedView: mortgagedViews){
-            if(mortgaged.equals(mortgagedView.getId()))
-                mortgagedView.setVisible(true);
+
+            popUpActionText.setText("$" + Math.round(property.getCost()) + "K deposited for mortgage");
+            popUpPlayer.setText(currentPlayer.getName());
+            popUpPane.setVisible(true);
+
+            String mortgaged = "mortgaged" + property.getLocationIndex();
+            for(Text mortgagedView: mortgagedViews){
+                if(mortgaged.equals(mortgagedView.getId()))
+                    mortgagedView.setVisible(true);
+            }
         }
 
         propertyPaneSettings();
@@ -1111,11 +1126,15 @@ public class ClassicModeMapController {
             playerManager.removeMortgageRailroad(currentPlayer, (Railroad) tradable);
             railroadManager.removeMortgageRailroad((Railroad) tradable, currentPlayer);
         }
-        String mortgaged = "mortgaged" + currentPlayer;
+        String mortgaged = "mortgaged" + ((Location) tradable).getLocationIndex();
         for(Text mortgagedView: mortgagedViews){
             if(mortgaged.equals(mortgagedView.getId()))
                 mortgagedView.setVisible(false);
         }
+        popUpActionText.setText("$" + Math.round(tradable.getCurrentMortgagePrice()) + "K withdrawn for unmortgage");
+        popUpPlayer.setText(currentPlayer.getName());
+        popUpPane.setVisible(true);
+
         updateTradable(tradable);
         updatePlayers();
         propertyPaneSettings();
