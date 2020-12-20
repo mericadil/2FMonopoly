@@ -181,42 +181,42 @@
       <Rectangle id="propertyOwner4" fx:id="propertyOwner4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
       <Rectangle id="propertyOwner5" fx:id="propertyOwner5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="466.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
       <Rectangle id="propertyOwner6" fx:id="propertyOwner6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Text id="playerName1" fx:id="playerName1" layoutX="35.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" wrappingWidth="144.0" onMouseClicked="#tradeInitiated">
+      <Text id="playerName1" fx:id="playerName1" layoutX="35.0" layoutY="103.0" onMouseClicked="#tradeInitiated" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text id="playerName2" fx:id="playerName2" fill="RED" layoutX="35.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" wrappingWidth="144.0" onMouseClicked="#tradeInitiated">
+      <Text id="playerName2" fx:id="playerName2" fill="RED" layoutX="35.0" layoutY="178.0" onMouseClicked="#tradeInitiated" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text id="playerName3" fx:id="playerName3" fill="#ffaf00" layoutX="35.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3" wrappingWidth="144.0" onMouseClicked="#tradeInitiated">
+      <Text id="playerName3" fx:id="playerName3" fill="#ffaf00" layoutX="35.0" layoutY="253.0" onMouseClicked="#tradeInitiated" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text id="playerName4" fx:id="playerName4" fill="#26ff00" layoutX="35.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4" wrappingWidth="144.0" onMouseClicked="#tradeInitiated">
+      <Text id="playerName4" fx:id="playerName4" fill="#26ff00" layoutX="35.0" layoutY="328.0" onMouseClicked="#tradeInitiated" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text id="playerName5" fx:id="playerName5" fill="#00d389" layoutX="35.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 5" wrappingWidth="144.0" onMouseClicked="#tradeInitiated">
+      <Text id="playerName5" fx:id="playerName5" fill="#00d389" layoutX="35.0" layoutY="403.0" onMouseClicked="#tradeInitiated" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 5" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text id="playerName6" fx:id="playerName6" fill="#1900ff" layoutX="35.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 6" wrappingWidth="144.0" onMouseClicked="#tradeInitiated">
+      <Text id="playerName6" fx:id="playerName6" fill="#1900ff" layoutX="35.0" layoutY="478.0" onMouseClicked="#tradeInitiated" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 6" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text id="playerName7" fx:id="playerName7" fill="#ff00d9" layoutX="35.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 7" wrappingWidth="144.0" onMouseClicked="#tradeInitiated">
+      <Text id="playerName7" fx:id="playerName7" fill="#ff00d9" layoutX="35.0" layoutY="553.0" onMouseClicked="#tradeInitiated" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 7" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text id="playerName8" fx:id="playerName8" fill="#b700ff" layoutX="35.0" layoutY="628.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 8" wrappingWidth="144.0" onMouseClicked="#tradeInitiated">
+      <Text id="playerName8" fx:id="playerName8" fill="#b700ff" layoutX="35.0" layoutY="628.0" onMouseClicked="#tradeInitiated" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 8" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -1465,7 +1465,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="52.0" layoutY="48.0" prefHeight="591.0" prefWidth="1263.0" style="-fx-background-color: #f0f0f0;">
+      <AnchorPane fx:id="tradePane" layoutX="52.0" layoutY="48.0" prefHeight="591.0" prefWidth="1263.0" style="-fx-background-color: #f0f0f0;">
          <children>
             <VBox layoutX="532.0" layoutY="126.0" prefHeight="600.0" prefWidth="1263.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -1476,12 +1476,12 @@
                               <Font size="36.0" />
                            </font>
                         </Text>
-                        <Text layoutX="94.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Left Player">
+                        <Text layoutX="127.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Left Player">
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Text>
-                        <Text layoutX="1056.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Right Player">
+                        <Text layoutX="1035.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Right Player">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -1496,58 +1496,63 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
+                        <Button layoutX="1203.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Back" textFill="WHITE" onAction="#tradeRejected"/>
                      </children>
                   </AnchorPane>
                   <HBox prefHeight="585.0" prefWidth="1263.0">
                      <children>
                         <ScrollPane>
                            <content>
-                              <VBox fx:id="leftPlayerPropsVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="441.0" minWidth="315.0" prefHeight="441.0" prefWidth="315.0">
+                              <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="382.0" minWidth="315.0" prefHeight="441.0" prefWidth="315.0">
                                  <children>
-                                    <TextField prefHeight="51.0" prefWidth="315.0" promptText="Cash (i.e. 1500)">
+                                    <TextField fx:id="cashTextField1" prefHeight="51.0" prefWidth="315.0" promptText="Cash (i.e. 1500)">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </TextField>
+                                    <VBox fx:id="leftPlayerPropsVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="397.0" minWidth="315.0" prefHeight="397.0" prefWidth="315.0" />
                                  </children>
                               </VBox>
                            </content>
                         </ScrollPane>
                         <ScrollPane>
                            <content>
-                              <VBox fx:id="leftPlayerGivenVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="441.0" minWidth="315.0" prefHeight="441.0" prefWidth="315.0">
+                              <VBox  maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="382.0" minWidth="315.0" prefHeight="441.0" prefWidth="315.0">
                                  <children>
-                                    <TextField prefHeight="51.0" prefWidth="315.0" promptText="Cash (i.e. 1500)">
+                                    <TextField fx:id="cashTextField2" prefHeight="51.0" prefWidth="315.0" promptText="Cash (i.e. 1500)">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </TextField>
+                                    <VBox fx:id="leftPlayerGivenVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="397.0" minWidth="315.0" prefHeight="397.0" prefWidth="315.0" />
                                  </children>
                               </VBox>
                            </content>
                         </ScrollPane>
                         <ScrollPane>
                            <content>
-                              <VBox fx:id="rightPlayerGivenVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="441.0" minWidth="315.0" prefHeight="441.0" prefWidth="315.0">
+                              <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="382.0" minWidth="315.0" prefHeight="441.0" prefWidth="315.0">
                                  <children>
-                                    <TextField prefHeight="51.0" prefWidth="315.0" promptText="Cash (i.e. 1500)">
+                                    <TextField fx:id="cashTextField3" prefHeight="51.0" prefWidth="315.0" promptText="Cash (i.e. 1500)">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </TextField>
+                                    <VBox fx:id="rightPlayerGivenVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="397.0" minWidth="315.0" prefHeight="397.0" prefWidth="315.0" />
                                  </children>
                               </VBox>
                            </content>
                         </ScrollPane>
                         <ScrollPane>
                            <content>
-                              <VBox fx:id="rightPlayerPropsVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="441.0" minWidth="315.0" prefHeight="441.0" prefWidth="315.0">
+                              <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="382.0" minWidth="315.0" prefHeight="441.0" prefWidth="315.0">
                                  <children>
-                                    <TextField prefHeight="51.0" prefWidth="315.0" promptText="Cash (i.e. 1500)">
+                                    <TextField fx:id="cashTextField4" prefHeight="51.0" prefWidth="315.0" promptText="Cash (i.e. 1500)">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
                                     </TextField>
+                                    <VBox fx:id="rightPlayerPropsVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="397.0" minWidth="315.0" prefHeight="397.0" prefWidth="315.0" />
                                  </children>
                               </VBox>
                            </content>
@@ -1558,8 +1563,8 @@
                      <children>
                         <AnchorPane prefHeight="71.0" prefWidth="1260.0">
                            <children>
-                              <Button layoutX="439.0" layoutY="23.0" mnemonicParsing="false" text="ACCEPT" onAction="#tradeAccepted"/>
-                              <Button layoutX="757.0" layoutY="23.0" mnemonicParsing="false" text="REJECT" onAction="#tradeRejected"/>
+                              <Button fx:id="acceptButton1" layoutX="439.0" layoutY="23.0" mnemonicParsing="false" onAction="#tradeAccepted" text="ACCEPT" />
+                              <Button fx:id="acceptButton2" layoutX="748.0" layoutY="23.0" mnemonicParsing="false" onAction="#tradeAccepted" text="ACCEPT" />
                            </children>
                         </AnchorPane>
                      </children>

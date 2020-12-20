@@ -11,14 +11,18 @@ import com.twoFMonopoly.models.Card.Card;
 import com.twoFMonopoly.models.Card.CardDeck;
 import com.twoFMonopoly.models.Locations.*;
 import com.twoFMonopoly.models.Player;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -26,10 +30,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.StrokeType;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -40,10 +47,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
-
-enum TradePlayerType {
-    PROPOSER, PROPOSED
-}
 
 public class ClassicModeMapController {
     @FXML
@@ -76,7 +79,20 @@ public class ClassicModeMapController {
     public VBox leftPlayerGivenVBox;
     @FXML
     public VBox leftPlayerPropsVBox;
-
+    @FXML
+    public AnchorPane tradePane;
+    @FXML
+    public Button acceptButton1;
+    @FXML
+    public Button acceptButton2;
+    @FXML
+    public TextField cashTextField4;
+    @FXML
+    public TextField cashTextField3;
+    @FXML
+    public TextField cashTextField2;
+    @FXML
+    public TextField cashTextField1;
     @FXML
     private ImageView house1_1, house1_2, house1_3, house1_4, house2_1, house2_2, house2_3, house2_4;
     @FXML
@@ -482,6 +498,7 @@ public class ClassicModeMapController {
         payDebtButton.setDisable(true);
         unMortgageButton.setDisable(true);
         popUpPane.setVisible(false);
+        tradePane.setVisible(false);
 
         for(Text mortgage: mortgagedViews){
             mortgage.setVisible(false);
@@ -1389,29 +1406,152 @@ public class ClassicModeMapController {
     }
 
     public void tradeAccepted(ActionEvent actionEvent) {
+        Button clickedButton = (Button) actionEvent.getSource();
+        clickedButton.setText("REJECT");
+        if ( clickedButton == acceptButton1 && acceptButton2.getText().toString().equals("REJECT")) {
+            tradePane.setVisible(false);
+            tradePane.toBack();
+        } else if ( clickedButton == acceptButton2 && acceptButton1.getText().toString().equals("REJECT")) {
+            tradePane.setVisible(false);
+            tradePane.toBack();
+        }
     }
 
     public void tradeRejected(ActionEvent actionEvent) {
+        leftPlayerGivenVBox.getChildren().clear();
+        rightPlayerGivenVBox.getChildren().clear();
+        leftPlayerPropsVBox.getChildren().clear();
+        rightPlayerPropsVBox.getChildren().clear();
+        tradePane.setVisible(false);
+        tradePane.toBack();
     }
 
     public void tradeInitiated(MouseEvent mouseEvent) {
+        cashTextField2.setDisable(true);
+        cashTextField3.setDisable(true);
+
+        cashTextField1.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                cashTextField1.setText(newValue.replaceAll("[^\\d]", ""));
+                cashTextField2.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+            if (newValue.matches("\\d*")) {
+                cashTextField2.setText(newValue);
+            }
+        });
+
+        cashTextField4.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                cashTextField4.setText(newValue.replaceAll("[^\\d]", ""));
+                cashTextField3.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+            if (newValue.matches("\\d*")) {
+                cashTextField3.setText(newValue);
+            }
+        });
+
+        tradePane.setVisible(true);
+        tradePane.toFront();
         Text playerText = (Text) mouseEvent.getSource();
         String id = playerText.getId();
-        Player clickedPlayer = players.get(Integer.parseInt(id.substring(10)));
+        Player clickedPlayer = players.get(Integer.parseInt(id.substring(10)) - 1);
         if (clickedPlayer == currentPlayer) {
             return;
         }
+        ArrayList<Tradable> addedToTradeLeftPlayer = new ArrayList<Tradable>();
+        ArrayList<Tradable> addedToTradeRightPlayer = new ArrayList<Tradable>();
+        createPlayerTradeTiles(currentPlayer, TradePlayerType.PROPOSER, addedToTradeLeftPlayer);
+        createPlayerTradeTiles(clickedPlayer, TradePlayerType.PROPOSED, addedToTradeRightPlayer);
 
-
+        double currentPlayerMoney = Double.parseDouble(cashTextField1.getText().toString());
+        double clickedPlayerMoney = Double.parseDouble(cashTextField4.getText().toString());
     }
 
-    public void createPlayerTradeTile( Tradable tradable, TradePlayerType tradePlayerType){
+    public void createPlayerTradeTile(Tradable tradable, TradePlayerType tradePlayerType, ArrayList<Tradable> addedToTrade){
+        HBox hBox = new HBox();
+        hBox.setPrefHeight(100.0);
+        hBox.setPrefWidth(315.0);
+        hBox.setPadding(new Insets(30, 0, 0, 0));
+        AnchorPane anchorPane1 = new AnchorPane();
+        hBox.getChildren().add(anchorPane1);
+        anchorPane1.setPrefHeight(100.0);
+        anchorPane1.setPrefWidth(125.0);
+        Text text1 = new Text();
+        anchorPane1.getChildren().add(text1);
 
-    }
+        text1.setFont(new Font(14.0));
+        text1.setLayoutX(25.0);
+        text1.setLayoutY(0);
+        text1.setStrokeType(StrokeType.OUTSIDE);
+        text1.setTextAlignment(TextAlignment.CENTER);
+        text1.setText(tradable.getName());
 
-    public void createPlayerTiles( Player player, TradePlayerType tradePlayerType) {
-        for( Tradable t: player.getProperties().values()){
-            createPlayerTradeTile(t, tradePlayerType);
+        AnchorPane anchorPane3 = new AnchorPane();
+        hBox.getChildren().add(anchorPane3);
+        anchorPane3.setPrefHeight(100.0);
+        anchorPane3.setPrefWidth(80.0);
+
+        Text text2 = new Text();
+        anchorPane3.getChildren().add(text2);
+        text2.setFont(new Font(14.0));
+        text1.setLayoutX(25.0);
+        text1.setLayoutY(0.0);
+        text2.setStrokeType(StrokeType.OUTSIDE);
+        text2.setTextAlignment(TextAlignment.CENTER);
+        text2.setText( "" + tradable.getCost());
+
+        AnchorPane anchorPane5 = new AnchorPane();
+        hBox.getChildren().add(anchorPane5);
+        anchorPane5.setPrefHeight(100.0);
+        anchorPane5.setPrefWidth(135.0);
+        Button button = new Button("Trade");
+        button.setLayoutX(25.0);
+        button.setLayoutY(0.0);
+        button.setOnMouseClicked((event) -> {
+            if ( tradePlayerType == TradePlayerType.PROPOSED && !addedToTrade.contains(tradable)) {
+                addedToTrade.add(tradable);
+                rightPlayerPropsVBox.getChildren().remove(hBox);
+                rightPlayerGivenVBox.getChildren().add(hBox);
+                button.setText("Cancel");
+            } else if ( tradePlayerType == TradePlayerType.PROPOSED && addedToTrade.contains(tradable)){
+                addedToTrade.remove(tradable);
+                rightPlayerGivenVBox.getChildren().remove(hBox);
+                rightPlayerPropsVBox.getChildren().add(hBox);
+                button.setText("Trade");
+            } else if (tradePlayerType == TradePlayerType.PROPOSER && !addedToTrade.contains(tradable)) {
+                addedToTrade.add(tradable);
+                leftPlayerPropsVBox.getChildren().remove(hBox);
+                leftPlayerGivenVBox.getChildren().add(hBox);
+                button.setText("Cancel");
+            } else {
+                addedToTrade.remove(tradable);
+                leftPlayerGivenVBox.getChildren().remove(hBox);
+                leftPlayerPropsVBox.getChildren().add(hBox);
+                button.setText("Trade");
+            }
+        });
+        anchorPane5.getChildren().add(button);
+        if ( tradePlayerType == TradePlayerType.PROPOSED) {
+            addedToTrade.add(tradable);
+            rightPlayerPropsVBox.getChildren().add(hBox);
+            button.setText("Trade");
+        } else {
+            addedToTrade.add(tradable);
+            leftPlayerPropsVBox.getChildren().add(hBox);
+            button.setText("Trade");
         }
     }
+
+    public void createPlayerTradeTiles( Player player, TradePlayerType tradePlayerType, ArrayList<Tradable> addedToTrade) {
+        for( Tradable t: player.getProperties().values()){
+            createPlayerTradeTile(t, tradePlayerType, addedToTrade);
+        }
+        for( Tradable t: player.getRailroads().values()){
+            createPlayerTradeTile(t, tradePlayerType, addedToTrade);
+        }
+    }
+}
+
+enum TradePlayerType {
+    PROPOSER, PROPOSED
 }
