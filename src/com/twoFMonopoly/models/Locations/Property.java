@@ -65,24 +65,21 @@ public class Property extends Tradable implements Location{
     }
 
     public double getRentCost() {
-        if(isMonopoly)
-            return monopolyRentPrices.get(noOfBuildings);
-        else
-            return rentPrices.get(noOfBuildings);
+        return rentPrices.get(noOfBuildings);
     }
 
     public ArrayList<Building> getBuildings() {
         return buildings;
     }
 
-    // Çağırılmadan önce condition check yapılacak...
-    //noOfBuilding 4ten büyük olamaz
+    // Condition check should be applied before calling
+    // noOfBuildings should be less than 5
     public double getNextBuildingsBuildingCost() {
         return buildings.get(noOfBuildings).getBuildingPrice();
     }
 
-    // Çağırılmadan önce condition check yapılacak...
-    //noOfBuilding 0 olamaz
+    // Condition check should be applied before calling
+    // noOfBuildings should be greater than 0
     public double getCurrentBuildingsSellingCost() {
         return buildings.get(noOfBuildings-1).getSellingPrice();
     }
