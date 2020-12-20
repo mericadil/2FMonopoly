@@ -1266,12 +1266,11 @@ public class ClassicModeMapController {
             updatePlayer(currentPlayer);
             if(currentPlayer.getJailStatus() != 0) playerManager.updateJailStatus(currentPlayer);
             currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
-
+            currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
             while(currentPlayer.isBankrupt()) {
                 currentPlayerIndex = (currentPlayerIndex + 1) % playerCount;
                 currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
             }
-            currentPlayer = players.get(queueIndices.get(currentPlayerIndex));
 
             setTurnText(currentPlayerIndex);
             if(currentPlayer.getDebt() > 0) {
