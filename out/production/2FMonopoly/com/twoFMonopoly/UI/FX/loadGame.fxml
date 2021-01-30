@@ -10,7 +10,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.twoFMonopoly.UI.controller.LoadGameController">
    <children>
       <AnchorPane id="how-to-play-anchor-pane" focusTraversable="true" prefHeight="1366.0" prefWidth="768.0" stylesheets="@style.css">
@@ -24,178 +23,19 @@
             <Text fill="WHITE" layoutX="558.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-menu-text" text="Load Game" />
             <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="111.0" layoutY="205.0" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="489.0" prefWidth="1179.0">
                <content>
-                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1000.0">
+                  <VBox fx:id="listTilesVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1000.0">
                      <children>
-                        <HBox prefHeight="100.0" prefWidth="1143.0">
-                           <children>
-                              <AnchorPane prefHeight="100.0" prefWidth="259.0">
-                                 <children>
-                                    <Text layoutX="59.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="College Squad" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="100.0" prefWidth="238.0">
-                                 <children>
-                                    <Text layoutX="99.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blitz" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="100.0" prefWidth="261.0">
-                                 <children>
-                                    <Text layoutX="45.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22/08/2021 19:23" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <Text layoutX="60.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:48:54" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <Polygon fill="#00da07" layoutX="82.0" layoutY="25.0" points="46.0, 6.0, 46.0, 44.0, 83.0, 24.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                    <Text fill="RED" layoutX="46.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X">
-                                       <font>
-                                          <Font name="System Bold" size="28.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="1143.0">
-                           <children>
-                              <AnchorPane prefHeight="100.0" prefWidth="259.0">
-                                 <children>
-                                    <Text layoutX="98.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Family" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="100.0" prefWidth="238.0">
-                                 <children>
-                                    <Text layoutX="87.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Classic" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="100.0" prefWidth="261.0">
-                                 <children>
-                                    <Text layoutX="45.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22/08/2021 19:23" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <Text layoutX="60.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:48:54" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <Polygon fill="#00da07" layoutX="82.0" layoutY="25.0" points="46.0, 6.0, 46.0, 44.0, 83.0, 24.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                    <Text fill="RED" layoutX="46.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X">
-                                       <font>
-                                          <Font name="System Bold" size="28.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="1143.0">
-                           <children>
-                              <AnchorPane prefHeight="100.0" prefWidth="259.0">
-                                 <children>
-                                    <Text layoutX="68.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mezun Tayfa" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="100.0" prefWidth="238.0">
-                                 <children>
-                                    <Text layoutX="93.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tayfa" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="100.0" prefWidth="261.0">
-                                 <children>
-                                    <Text layoutX="45.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22/08/2021 19:23" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <Text layoutX="60.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:48:54" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <Polygon fill="#00da07" layoutX="82.0" layoutY="25.0" points="46.0, 6.0, 46.0, 44.0, 83.0, 24.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                                    <Text fill="RED" layoutX="46.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X">
-                                       <font>
-                                          <Font name="System Bold" size="28.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </HBox>
+
                      </children>
                   </VBox>
                </content>
             </ScrollPane>
-            <Text fill="WHITE" layoutX="209.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="460.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mode">
+            <Text fill="WHITE" layoutX="190.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filename">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Text>
             <Text fill="WHITE" layoutX="683.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save Time">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="908.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Elapsed">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

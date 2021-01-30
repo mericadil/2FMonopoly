@@ -35,7 +35,7 @@
             <Button layoutX="1264.0" layoutY="47.0" mnemonicParsing="false" onAction="#goBackToGameFromSaveGamePane" style="-fx-font-weight: bold; -fx-background-color: red; -fx-text-fill: white; -fx-font-size: 18;" text="Back" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="pausePane" layoutX="-2.0" layoutY="-1.0" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane id="finishGame" fx:id="pausePane" layoutX="-2.0" layoutY="-1.0" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Text fill="#111111" layoutX="562.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paused">
                <font>
@@ -179,42 +179,42 @@
       <Rectangle id="propertyOwner4" fx:id="propertyOwner4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="380.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
       <Rectangle id="propertyOwner5" fx:id="propertyOwner5" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="466.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
       <Rectangle id="propertyOwner6" fx:id="propertyOwner6" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="85.0" layoutX="956.0" layoutY="550.0" stroke="#797979" strokeType="INSIDE" width="16.0" />
-      <Text fx:id="playerName1" id="playerName1" layoutX="35.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" wrappingWidth="144.0">
+      <Text id="playerName1" fx:id="playerName1" layoutX="35.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="playerName2" id="playerName2" fill="RED" layoutX="35.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" wrappingWidth="144.0">
+      <Text id="playerName2" fx:id="playerName2" fill="RED" layoutX="35.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="playerName3" id="playerName3" fill="#ffaf00" layoutX="35.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3" wrappingWidth="144.0">
+      <Text id="playerName3" fx:id="playerName3" fill="#ffaf00" layoutX="35.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="playerName4" id="playerName4" fill="#26ff00" layoutX="35.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4" wrappingWidth="144.0">
+      <Text id="playerName4" fx:id="playerName4" fill="#26ff00" layoutX="35.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="playerName5" id="playerName5" fill="#00d389" layoutX="35.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 5" wrappingWidth="144.0">
+      <Text id="playerName5" fx:id="playerName5" fill="#00d389" layoutX="35.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 5" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="playerName6" id="playerName6" fill="#1900ff" layoutX="35.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 6" wrappingWidth="144.0">
+      <Text id="playerName6" fx:id="playerName6" fill="#1900ff" layoutX="35.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 6" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="playerName7" id="playerName7" fill="#ff00d9" layoutX="35.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 7" wrappingWidth="144.0">
+      <Text id="playerName7" fx:id="playerName7" fill="#ff00d9" layoutX="35.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 7" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="playerName8" id="playerName8" fill="#b700ff" layoutX="35.0" layoutY="628.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 8" wrappingWidth="144.0">
+      <Text id="playerName8" fx:id="playerName8" fill="#b700ff" layoutX="35.0" layoutY="628.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 8" wrappingWidth="144.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -269,14 +269,14 @@
             <Font name="System Bold Italic" size="64.0" />
          </font>
       </Text>
-      <Circle fx:id="playerToken4" id="playerToken4" fill="#26ff00" layoutX="1016.0" layoutY="76.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-      <Circle fx:id="playerToken5" id="playerToken5" fill="#00d389" layoutX="1050.0" layoutY="74.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-      <Circle fx:id="playerToken6" id="playerToken6" cache="true" fill="#1900ff" layoutX="987.0" layoutY="110.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-      <Circle fx:id="playerToken2" id="playerToken2" fill="RED" layoutX="1017.0" layoutY="107.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-      <Circle fx:id="playerToken3" id="playerToken3" fill="#ffaf00" layoutX="1050.0" layoutY="107.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-      <Circle fx:id="playerToken7" id="playerToken7" fill="#ff00d9" layoutX="1047.0" layoutY="44.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-      <Circle fx:id="playerToken1" id="playerToken1" layoutX="982.0" layoutY="76.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-      <Circle fx:id="playerToken8" id="playerToken8" fill="#b700ff" layoutX="982.0" layoutY="44.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle id="playerToken4" fx:id="playerToken4" fill="#26ff00" layoutX="1016.0" layoutY="76.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle id="playerToken5" fx:id="playerToken5" fill="#00d389" layoutX="1050.0" layoutY="74.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle id="playerToken6" fx:id="playerToken6" cache="true" fill="#1900ff" layoutX="987.0" layoutY="110.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle id="playerToken2" fx:id="playerToken2" fill="RED" layoutX="1017.0" layoutY="107.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle id="playerToken3" fx:id="playerToken3" fill="#ffaf00" layoutX="1050.0" layoutY="107.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle id="playerToken7" fx:id="playerToken7" fill="#ff00d9" layoutX="1047.0" layoutY="44.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle id="playerToken1" fx:id="playerToken1" layoutX="982.0" layoutY="76.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle id="playerToken8" fx:id="playerToken8" fill="#b700ff" layoutX="982.0" layoutY="44.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
       <Text id="playerTime1" fx:id="playerTime1" layoutX="186.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:12:25" underline="true">
          <font>
             <Font size="18.0" />
@@ -1463,5 +1463,6 @@
             </Text>
          </children>
       </AnchorPane>
+      <Button id="finishGame" fx:id="finishGame1" layoutX="1201.0" layoutY="683.0" mnemonicParsing="false" onAction="#finishGame" prefHeight="59.0" prefWidth="131.0" style="-fx-background-color: orange;" text="Finish Game" />
    </children>
 </AnchorPane>

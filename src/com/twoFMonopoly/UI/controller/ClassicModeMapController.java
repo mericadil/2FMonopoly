@@ -1010,7 +1010,7 @@ public class ClassicModeMapController {
 
             for (Text playerMoney : playerMoneys) {
                 if (playerMoney.getId().equals(playerMoneyX)) {
-                    playerMoney.setText("$" + money + "K");
+                    playerMoney.setText("$" + Math.round(money) + "K");
                 }
             }
             if (player == currentPlayer) {
@@ -1124,21 +1124,21 @@ public class ClassicModeMapController {
         buildButton.setVisible(true);
 
         titleOfPropertyDetails.setText(name);
-        costPriceText.setText("$" + cost + "K");
-        mortgageValue.setText("$" + mortgagePrice + "K");
-        siteOnlyRent.setText("$" + rentPrices.get(0) + "K" );
-        oneHouseRent.setText("$" + rentPrices.get(1) + "K" );
-        twoHousesRent.setText("$" + rentPrices.get(2) + "K" );
-        threeHousesRent.setText("$" + rentPrices.get(3) + "K" );
-        fourHousesRent.setText("$" + rentPrices.get(4) + "K" );
-        hotelRent.setText("$" + rentPrices.get(5) + "K" );
+        costPriceText.setText("$" + Math.round(cost) + "K");
+        mortgageValue.setText("$" + Math.round(mortgagePrice) + "K");
+        siteOnlyRent.setText("$" + Math.round(rentPrices.get(0)) + "K" );
+        oneHouseRent.setText("$" + Math.round(rentPrices.get(1)) + "K" );
+        twoHousesRent.setText("$" + Math.round(rentPrices.get(2)) + "K" );
+        threeHousesRent.setText("$" + Math.round(rentPrices.get(3)) + "K" );
+        fourHousesRent.setText("$" + Math.round(rentPrices.get(4)) + "K" );
+        hotelRent.setText("$" + Math.round(rentPrices.get(5)) + "K" );
 
-        houseCost1.setText("$" + buildings.get(0).getBuildingPrice() + "K");
-        houseCost2.setText("$" + buildings.get(1).getBuildingPrice() + "K");
-        houseCost3.setText("$" + buildings.get(2).getBuildingPrice() + "K");
-        houseCost4.setText("$" + buildings.get(3).getBuildingPrice() + "K");
-        hotelCost.setText("$" + buildings.get(4).getBuildingPrice() + "K");
-        mortgageValue.setText("$" + mortgagePrice + "K");
+        houseCost1.setText("$" + Math.round(buildings.get(0).getBuildingPrice()) + "K");
+        houseCost2.setText("$" + Math.round(buildings.get(1).getBuildingPrice()) + "K");
+        houseCost3.setText("$" + Math.round(buildings.get(2).getBuildingPrice()) + "K");
+        houseCost4.setText("$" + Math.round(buildings.get(3).getBuildingPrice()) + "K");
+        hotelCost.setText("$" + Math.round(buildings.get(4).getBuildingPrice()) + "K");
+        mortgageValue.setText("$" + Math.round(mortgagePrice) + "K");
     }
 
     /**
@@ -1249,9 +1249,8 @@ public class ClassicModeMapController {
         }
         else {
             useFreedomCardButton.setDisable(!(currentPlayer.getNoOfFreedomRights() > 0));
-        }
-        if( currentPlayer.getJailStatus() == 4)
             payFineButton.setDisable(!(playerManager.canAfford(currentPlayer,JAIL_FINE)));
+        }
     }
 
 
@@ -1325,7 +1324,7 @@ public class ClassicModeMapController {
     }
 
     /**
-     * called when build button is pushed
+     * called when sell button is pushed
      */
     @FXML
     public void sellButtonPushed(ActionEvent event) {
